@@ -1,0 +1,38 @@
+
+
+$containerPadding: 15;
+
+$container: 1134 + ($containerPadding * 2);
+$containerMin: 1000 + ($containerPadding * 2);
+$containerLarge: 1336 + ($containerPadding * 2);
+
+:root {
+    --title-font: 'Montserrat';
+    --main-font: 'Montserrat';
+    
+    --accent: #2FAF49;
+
+    --dark: #262628;
+    --light: #EAE7FF;
+
+    --white: #FFF;
+    --black: #000;
+    --purple: #88019E;
+    --light-purple: #AC6BD3;
+    --light-purple-2: #CCC5FF;
+    --pink: #F034B0;
+
+    --container-padding: 15px;
+}
+
+@font-face {
+    @include font-include('Montserrat', 400, swap, normal, 'Montserrat-Regular');
+}
+
+@font-face {
+    @include font-include('Montserrat', 500, swap, normal, 'Montserrat-Medium');
+}
+
+@font-face {
+    @include font-include('Montserrat', 600, swap, normal, 'Montserrat-SemiBold');
+}

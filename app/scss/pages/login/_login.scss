@@ -1,0 +1,299 @@
+.login {
+    
+    padding: 90px 0 50px 0;
+    @include _768 {
+        padding: 100px 0;
+    }
+
+    position: relative;
+    min-height: 100vh;
+
+    &__bg {
+
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        background: linear-gradient(50.49deg, #1F3A99 18.35%, #1F3A99 33.66%, #88019E 77.12%);
+
+        &--img {
+            position: absolute;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            //z-index: -1;
+            user-select: none; -webkit-user-drag: none;
+        }
+
+    }
+    // .login__container
+
+    &__container {
+        
+    }
+
+    // .login__form
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        @include _768 {
+            justify-content: flex-start;
+        }
+        // .login__form--body
+
+        &--body {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+
+            max-width: 440px;
+
+            text-align: center;
+            @include _768 {
+                text-align: left;
+            }
+        }
+
+        // .login__form--title
+
+        &--title {
+            font-weight: 600;
+            font-size: 1.375rem;
+            line-height: 100%;
+
+            @include _768 {
+                font-size: 1.75rem;
+            }
+            
+            @include _992 {
+                font-size: 2rem;
+            }
+            
+        }
+
+        // .login__form--text
+
+        &--text {
+            font-weight: 400;
+            font-size: 0.75rem;
+            line-height: 130%;
+
+            @include _768 {
+                font-size: 0.875rem;
+            }
+            
+        }
+
+        // .login__form--label
+
+        &--label {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+        }
+
+        // .login__form--input-icon
+
+        &--input-icon {
+            position: absolute;
+            left: 20px; top: 50%;
+            transform: translate(0,-50%);
+            z-index: 2;
+
+            display: flex;
+            align-items: center;
+        }
+
+        // .login__form--input
+
+        &--input {
+            padding: 9px 15px 9px 55px;
+            font-size: 0.875rem;
+            @include _768 {
+                padding: 20px 15px 20px 55px;
+            }
+            color: var(--purple);
+
+            border: 1px solid var(--light-purple-2);
+            filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
+            border-radius: 10px;
+
+            &::placeholder {
+                color: var(--light-purple);
+            }
+
+            width: 100%;
+        }
+
+        // .login__form--submit
+
+        &--submit {
+            width: 100%;
+        }
+    }
+
+    // .login__verification
+    
+    &__verification {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        margin: -2.5px;
+    
+        // .login__verification--label
+
+        &--label {
+            padding: 2.5px;
+
+            flex: 0 1 16.6667%;
+            @include _768 {
+                flex: 0 1 auto;
+            }
+        }
+
+        // .login__verification--input
+
+        &--input {
+            color: var(--purple);
+
+            border: 1px solid var(--light-purple-2);
+            filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
+            border-radius: 10px;
+
+            width: 100%; height: 56px;
+
+            @include _768 {
+                width: 39px; height: 66px;
+            }
+            
+            @include _992 {
+                width: 48px; height: 66px;
+            }
+            
+            padding: 0 5px;
+            text-align: center;
+        }
+
+        // .login__verification--btn
+
+        &--btn {
+            text-align: center;
+            margin: 2.5px;
+
+            align-self: normal;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 5px;
+
+            @include _768 {
+                display: block;
+                width: 73px;
+                padding: 15px 5px;
+            }
+            
+        }
+
+        // .login__verification--btn-timer
+
+        &--btn-timer {
+            display: block;
+            width: 30px;
+            @include _768 {
+                width: auto;
+            }
+        }
+
+        // .login__verification--btn-text
+
+        &--btn-text {
+            font-weight: 400;
+        }
+    }
+
+    // .login__slider
+
+    &__slider {
+
+        & .carousel-indicators {
+            margin-bottom: 0;
+        }
+        // .login__slider--list
+
+        &--list {
+        }
+
+        // .login__slider--slider
+
+        &--slider {
+        }
+    }
+
+    // .login__slide
+
+    &__slide {
+        color: var(--white);
+        // .login__slide--body
+
+        &--body {
+        }
+
+        // .login__slide--title
+
+        &--title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 130%;
+
+            @include _768 {
+                font-size: 1.3rem;
+            }
+            
+            @include _992 {
+                font-size: 1.5rem;
+            }
+            
+        }
+
+        // .login__slide--image
+
+        &--image {
+            display: none;
+            @include _768 {
+                display: inherit;
+            }
+            
+        }
+
+        // .login__slide--img
+
+        &--img {
+            max-width: 100%;
+        }
+
+        // .login__slide--text
+
+        &--text {
+            font-size: 0.875rem;
+            line-height: 130%;
+            color: var(--white);
+
+            @include _768 {
+                font-size: 1rem;
+            }
+            
+            @include _992 {
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}

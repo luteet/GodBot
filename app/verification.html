@@ -1,0 +1,91 @@
+@@include("html/_header.html")
+
+    <main class="main">
+        <section class="login row align-items-center">
+            <div class="login__bg">
+                <picture>
+                    <source srcset="img/login/bg.webp" type="image/webp">
+                    <img src="img/login/bg.png" alt="" loading="lazy" class="login__bg--img">
+                </picture>
+            </div>
+            <div class="login__container _container row align-items-center">
+                <form action="#" class="login__form col-12 col-md-6">
+                    <div class="login__form--body p-4 p-md-5" style="max-width: 496px;">
+                        <h2 class="login__form--title pt-3 pt-md-0">
+                            Верификация
+                        </h2>
+                        <div class="login__form--text mt-2 mt-md-4">
+                            <p>
+                                Вы получите электронное письмо с кодом подтверждения. Введите его здесь, чтобы подтвердить вход
+                            </p>
+                        </div>
+                        <div class="login__form--verification login__verification">
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-1" maxlength="1" class="login__verification--input">
+                            </label>
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-2" maxlength="1" class="login__verification--input">
+                            </label>
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-3" maxlength="1" class="login__verification--input">
+                            </label>
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-4" maxlength="1" class="login__verification--input">
+                            </label>
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-5" maxlength="1" class="login__verification--input">
+                            </label>
+                            <label class="login__verification--label">
+                                <input type="text" name="verification-number-6" maxlength="1" class="login__verification--input">
+                            </label>
+                            <button class="login__verification--btn _btn _min _disabled" type="button">
+                                <span class="login__verification--btn-timer _timer" data-timer="60s">
+                                    60s
+                                </span>
+                                <span class="login__verification--btn-text">
+                                    Отправить снова
+                                </span>
+                            </button>
+                        </div>
+                        <button class="login__form--submit _btn mt-3" type="submit">
+                            Войти
+                        </button>
+                    </div>
+                </form>
+                <div id="login-slider" class="login__slider carousel slide col-12 col-md-6 mt-md-0 mt-5" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner text-center">
+                        <div class="login__slider--slider login__slide carousel-item active">
+                            <div class="login__slide--body">
+                                <h3 class="login__slide--title">
+                                    Получайте больше вознаграждений за стейкинг
+                                </h3>
+                                <div class="login__slide--image pt-3">
+                                    <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+                                </div>
+                                <div class="login__slide--text pt-3 pt-md-5 pb-4">
+                                    <p>
+                                        Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        @@loop("html/_slide.html", [
+                            {},
+                            {},
+                            {},
+                            {},
+                        ])
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+@@include("html/_footer.html")
