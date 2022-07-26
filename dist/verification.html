@@ -12,7 +12,7 @@
         <header class="header pt-4">
             <div class="header__container _container _large">
                 <a href="./" class="header__logo">
-                    <img src="img/logo.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
+                    <img src="img/logo-2.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
                 </a>
             </div>
         </header>
@@ -57,15 +57,15 @@
                                 <input type="number" name="verification-number-6" class="login__verification--input">
                             </label>
                             <button class="login__verification--btn _btn _min _disabled" type="button">
-                                <span class="login__verification--btn-timer _timer" data-timer="60s">
+                                <span class="login__verification--btn-timer _timer" data-timer="5s">
                                     60s
                                 </span>
-                                <span class="login__verification--btn-text">
+                                <span class="login__verification--btn-text _timer-btn-text" style="display: none;">
                                     Отправить снова
                                 </span>
                             </button>
                         </div>
-                        <button class="login__form--submit _btn mt-3" type="submit">
+                        <button class="login__form--submit _btn mt-3 _disabled" type="submit">
                             Войти
                         </button>
                     </div>

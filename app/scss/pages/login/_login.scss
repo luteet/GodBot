@@ -124,6 +124,12 @@
                 color: var(--light-purple);
             }
 
+            &._error {
+                border-color: tomato;
+            }
+
+            transition: border .2s ease-in-out;
+
             width: 100%;
         }
 
