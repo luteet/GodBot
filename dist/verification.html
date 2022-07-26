@@ -56,8 +56,8 @@
                             <label class="login__verification--label">
                                 <input type="number" name="verification-number-6" class="login__verification--input">
                             </label>
-                            <button class="login__verification--btn _btn _min _disabled" type="button">
-                                <span class="login__verification--btn-timer _timer" data-timer="5s">
+                            <button class="login__verification--btn _btn _min _disabled mt-md-0 mt-2" type="button">
+                                <span class="login__verification--btn-timer _timer" data-timer="60s">
                                     60s
                                 </span>
                                 <span class="login__verification--btn-text _timer-btn-text" style="display: none;">
@@ -65,9 +65,24 @@
                                 </span>
                             </button>
                         </div>
-                        <button class="login__form--submit _btn mt-3 _disabled" type="submit">
-                            Войти
-                        </button>
+                        <div class="login__form--min-text mt-3 mt-md-3">
+                            <p>
+                                Если вы не получили письмо, проверьте спам
+                            </p>
+                        </div>
+                        <div class="login__form--footer mt-2">
+                            <button class="login__form--submit _btn _disabled" type="submit">
+                                Подтвердить
+                            </button>
+                            <a href="#" class="login__form--back-link mt-3">
+                                <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 6.7C21.3866 6.7 21.7 6.3866 21.7 6C21.7 5.6134 21.3866 5.3 21 5.3V6.7ZM0.505026 5.50503C0.231659 5.77839 0.231659 6.22161 0.505026 6.49497L4.9598 10.9497C5.23316 11.2231 5.67638 11.2231 5.94975 10.9497C6.22311 10.6764 6.22311 10.2332 5.94975 9.9598L1.98995 6L5.94975 2.0402C6.22311 1.76684 6.22311 1.32362 5.94975 1.05025C5.67638 0.776886 5.23316 0.776886 4.9598 1.05025L0.505026 5.50503ZM21 5.3L1 5.3V6.7L21 6.7V5.3Z" fill="black"/>
+                                </svg>
+                                <span>
+                                    Назад
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </form>
                 <div id="login-slider" class="login__slider carousel slide col-12 col-md-6 mt-md-0 mt-5" data-bs-ride="carousel">

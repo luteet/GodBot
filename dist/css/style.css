@@ -7470,6 +7470,11 @@ body._popup-active {
   line-height: 130%;
 }
 
+.login__form--min-text {
+  font-size: 0.75rem;
+  line-height: 130%;
+}
+
 .login__form--label {
   position: relative;
   display: flex;
@@ -7527,6 +7532,40 @@ body._popup-active {
   width: 100%;
 }
 
+.login__form--footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__form--back-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 133%;
+  transition: color 0.2s ease-in-out;
+}
+
+.login__form--back-link svg {
+  margin-right: 5px;
+}
+
+.login__form--back-link svg,
+.login__form--back-link svg path {
+  transition: fill 0.2s ease-in-out;
+}
+
+.login__form--back-link:hover,
+.login__form--back-link:hover svg,
+.login__form--back-link:hover path {
+  color: var(--blue);
+  fill: var(--blue);
+}
+
 .login__verification {
   display: flex;
   align-items: center;
@@ -7537,7 +7576,7 @@ body._popup-active {
 
 .login__verification--label {
   padding: 2.5px;
-  flex: 0 1 16.6667%;
+  flex: 0 1 16.6666666667%;
 }
 
 .login__verification--input {
@@ -7547,7 +7586,7 @@ body._popup-active {
           filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
   border-radius: 10px;
   width: 100%;
-  height: 56px;
+  height: 44px;
   padding: 0 5px;
   text-align: center;
 }
@@ -7561,7 +7600,7 @@ body._popup-active {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 5px;
+  padding: 17px 5px;
 }
 
 .login__verification--btn-timer {
@@ -9730,12 +9769,8 @@ body._popup-active {
     padding: 20px 15px 20px 55px;
   }
 
-  .login__verification--label {
-    flex: 0 1 auto;
-  }
-
   .login__verification--input {
-    width: 39px;
+    width: 100%;
     height: 66px;
   }
 
@@ -10797,8 +10832,16 @@ body._popup-active {
     font-size: 2rem;
   }
 
+  .login__form--back-link {
+    font-size: 1.125rem;
+  }
+
+  .login__verification--label {
+    flex: 0 1 calc(16.6666666667% - 14.6666666667px);
+  }
+
   .login__verification--input {
-    width: 48px;
+    width: 100%;
     height: 66px;
   }
 

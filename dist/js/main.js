@@ -82,7 +82,7 @@ verificationInputs.forEach(thisInput => {
     
     if(event.code == 'Backspace' || event.code == 'Delete') {
       event.preventDefault();
-      
+      event.target.value = '';
 
       let prevElement = event.target.parentElement.previousElementSibling,
       form = event.target.closest('form');
@@ -90,8 +90,6 @@ verificationInputs.forEach(thisInput => {
       if(prevElement) {
         if(prevElement.classList.contains('login__verification--label') && !event.target.value) {
           prevElement.querySelector('input').focus();
-        } else {
-          event.target.value = '';
         }
       } else {
         event.target.value = '';
