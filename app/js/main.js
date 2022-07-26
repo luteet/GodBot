@@ -34,30 +34,25 @@ verificationInputs.forEach(thisInput => {
 function timer() {
   const timerElems = document.querySelectorAll('._timer');
 
-  let deadline, thisDate = new Date();
+  timerElems.forEach(thisTimerElem => {
 
-  setInterval(() => {
-    timerElems.forEach(thisTimerElem => {
+    let seconds = thisTimerElem.dataset.timer;
+    seconds = Number(seconds.substring(0, thisTimerElem.dataset.timer.length - 1));
 
-      deadline = new Date(
-  
-      thisDate.getFullYear(),
-      thisDate.getMonth(),
-      thisDate.getDate(),
-      thisDate.getHours(),
-      thisDate.getMinutes(),
-      thisDate.getSeconds() + Number(thisTimerElem.dataset.timer.substring(0, thisTimerElem.dataset.timer.length - 1)) + 1);
-  
-      const diff = deadline - new Date(),
-      seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
-      
+    let timerInterval = setInterval(() => {
+
       thisTimerElem.textContent = seconds + 's';
+
       if(seconds == 0) {
+        clearTimeout(timerInterval);
         thisTimerElem.parentElement.classList.remove('_disabled');
+      } else {
+        seconds--;
       }
-  
-    });
-  },1000)
+
+    },1000)
+
+  });
 
 }
 
