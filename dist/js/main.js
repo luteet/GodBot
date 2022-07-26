@@ -79,8 +79,8 @@ verificationInputs.forEach(thisInput => {
   }
 
   thisInput.addEventListener('keydown', function(event) {
-    
-    if(event.code == 'Backspace' || event.code == 'Delete') {
+
+    if(event.key == 'Backspace' || event.key == 'Delete') {
       event.preventDefault();
       event.target.value = '';
 
