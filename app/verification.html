@@ -8,9 +8,9 @@
                     <img src="img/login/bg.png" alt="" width="0" height="0" class="login__bg--img">
                 </picture>
             </div>
-            <div class="login__container _container row align-items-center">
-                <form action="#" class="login__form col-12 col-md-6">
-                    <div class="login__form--body p-4 p-md-5" style="max-width: 496px;">
+            <div class="login__container _container _large row align-items-center">
+                <form action="#" class="login__form col-12 col-md-5">
+                    <div class="login__form--body p-4 p-lg-5">
                         <h2 class="login__form--title pt-3 pt-md-0">
                             Верификация
                         </h2>
@@ -38,7 +38,7 @@
                             <label class="login__verification--label">
                                 <input type="number" name="verification-number-6" class="login__verification--input">
                             </label>
-                            <button class="login__verification--btn _btn _min _disabled mt-md-0 mt-2" type="button">
+                            <button class="login__verification--btn _btn _min _disabled mt-2 mt-md-2 mt-lg-0" type="button">
                                 <span class="login__verification--btn-timer _timer" data-timer="60s">
                                     60s
                                 </span>
@@ -67,38 +67,18 @@
                         </div>
                     </div>
                 </form>
-                <div id="login-slider" class="login__slider carousel slide col-12 col-md-6 mt-md-0 mt-5" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#login-slider" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                    </div>
-                    <div class="carousel-inner text-center">
-                        <div class="login__slider--slider login__slide carousel-item active">
-                            <div class="login__slide--body">
-                                <h3 class="login__slide--title">
-                                    Получайте больше вознаграждений за стейкинг
-                                </h3>
-                                <div class="login__slide--image pt-3">
-                                    <div class="login__slide--image-wrapper">
-                                        <img src="img/login/slide.svg" loading="lazy" alt="" class="login__slide--img">
-                                    </div>
-                                </div>
-                                <div class="login__slide--text pt-3 pt-md-5 pb-4">
-                                    <p>
-                                        Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                <div id="login-slider" class="login__slider swiper col-12 col-md-6 col-lg-5 mt-md-0 mt-5">
+                    <div class="login__slider--wrapper swiper-wrapper">
                         @@loop("html/_slide.html", [
                             {},
                             {},
                             {},
                             {},
+                            {},
                         ])
+                    </div>
+                    <div class="login__slider--pagination pt-3">
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>

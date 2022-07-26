@@ -39,18 +39,17 @@ body.addEventListener('click', function (event) {
 
     }
 
+
+
+    let timerBtn = thisTarget.closest('.login__verification--btn');
+    if(timerBtn) {
+      if(!timerBtn.classList.contains('_disabled')) {
+        timerBtn.classList.add('_disabled');
+        timer();
+      }
+    }
+
 })
-
-/* let emailInputs = document.querySelectorAll('.email-input');
-
-emailInputs.forEach(thisInput => {
-  thisInput.oninput = function(event) {
-
-  }
-}) */
-
-
-
 
 let verificationInputs = document.querySelectorAll('.login__verification--input');
 verificationInputs.forEach(thisInput => {
@@ -62,11 +61,13 @@ verificationInputs.forEach(thisInput => {
       let nextElement = event.target.parentElement.nextElementSibling,
           form = event.target.closest('form');
 
-      if(nextElement.classList.contains('login__verification--label')) {
+      thisInput.value = thisInput.value[thisInput.value.length-1].replace(/\D/g,'').substr(0,9);
+
+      if(nextElement.classList.contains('login__verification--label') && thisInput.value) {
         nextElement.querySelector('input').focus();
       }
 
-      thisInput.value = thisInput.value[thisInput.value.length-1];
+      
 
       if(checkInput()) {
         form.querySelector('.login__form--submit').classList.add('_disabled')
@@ -82,6 +83,7 @@ verificationInputs.forEach(thisInput => {
 
     if(event.key == 'Backspace' || event.key == 'Delete') {
       event.preventDefault();
+      
       event.target.value = '';
 
       let prevElement = event.target.parentElement.previousElementSibling,
@@ -120,11 +122,13 @@ function timer() {
 
   timerElems.forEach(thisTimerElem => {
 
+    thisTimerElem.style.display = 'block';
+    thisTimerElem.nextElementSibling.style.display = 'none';
+
     let seconds = thisTimerElem.dataset.timer;
     seconds = Number(seconds.substring(0, thisTimerElem.dataset.timer.length - 1));
 
-    let timerInterval = setInterval(() => {
-
+    function timerFunc() {
       thisTimerElem.textContent = seconds + 's';
 
       if(seconds == 0) {
@@ -135,11 +139,33 @@ function timer() {
       } else {
         seconds--;
       }
+    }
 
-    },1000)
+    timerFunc();
+
+    let timerInterval = setInterval(timerFunc, 1000)
 
   });
 
 }
 
 timer();
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=
+
+let loginSlider = new Swiper('.login__slider', {
+  
+    spaceBetween: 30,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 5000,
+    },
+
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+}); 
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
+
