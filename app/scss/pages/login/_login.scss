@@ -270,6 +270,12 @@
             @include _768 {
                 display: inherit;
             }
+
+            &-wrapper {
+                max-width: 100%; width: 100%;
+                position: relative;
+                padding-top: 55%;
+            }
             
         }
 
@@ -277,6 +283,10 @@
 
         &--img {
             max-width: 100%;
+            position: absolute;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
         }
 
         // .login__slide--text

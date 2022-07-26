@@ -7,8 +7,8 @@ $containerMin: 1000 + ($containerPadding * 2);
 $containerLarge: 1336 + ($containerPadding * 2);
 
 :root {
-    --title-font: 'Montserrat';
-    --main-font: 'Montserrat';
+    --title-font: 'Montserrat', Helvetica, Arial, sans-serif;
+    --main-font: 'Montserrat', Helvetica, Arial, sans-serif;
     
     --accent: #2FAF49;
 
