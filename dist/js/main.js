@@ -159,7 +159,11 @@ let loginSlider = new Swiper('.login__slider', {
     slidesPerView: 1,
     autoplay: {
       delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
     },
+
+    
 
     pagination: {
       el: '.swiper-pagination',
