@@ -1,0 +1,192 @@
+.forecast {
+
+    // .forecast__body
+
+    &__body {
+        padding: 30px 20px;
+        background: var(--page-bg);
+        box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+        border-radius: 10px;
+    }
+
+    // .forecast__title
+
+    &__title {
+    }
+
+    // .forecast__table
+
+    &__table {
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            width: 7px; height: 7px;
+            border-radius: 7px;
+            background: var(--light-2);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 7px;
+        }
+        // .forecast__table--head
+
+        &--head {
+            /* display: flex;
+            justify-content: space-between; */
+            display: grid;
+            grid-template-columns: 17% 20% 110px 110px auto 110px;
+
+            @media(min-width: 1050px) {
+                grid-template-columns: 14% 13% 20% 15% auto 110px;
+            }
+
+            min-width: 675px;
+        }
+
+        // .forecast__table--name
+
+        &--name {
+            font-size: 0.625rem;
+            line-height: 100%;
+            color: var(--gray-light);
+            white-space: nowrap;
+            text-align: center;
+            
+            &:nth-child(1) {
+                text-align: left;
+            }
+
+            &:nth-child(2) {
+                text-align: left;
+                padding-left: 15px;
+            }
+            /* &:nth-child(1) {
+                flex: 0 1 12.5%;
+            }
+
+            &:nth-child(2) {
+                flex: 0 1 20%;
+                @media(min-width: 1240) {
+                    flex: 0 1 11.2%;
+                }
+                text-align: center;
+            }
+
+            &:nth-child(3) {
+                flex: 0 1 23.2%;
+                text-align: center;
+            }
+            
+            &:nth-child(4) {
+                flex: 0 1 12.2%;
+                text-align: center;
+            }
+            
+            &:nth-child(5) {
+                flex: 0 1 31%;
+                text-align: center;
+            } */
+            
+            &:nth-child(6) {
+                /* flex: 1 1 auto; */
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        // .forecast__table--name-prompt
+
+        &--name-prompt {
+            margin-left: 5px;
+        }
+
+        // .forecast__table--body
+
+        &--body {
+            min-width: 675px;
+        }
+
+        // .forecast__table--item
+
+        &--item {
+            
+            display: grid;
+            grid-template-columns: 17% 20% 110px 110px auto 110px;
+
+            @media(min-width: 1050px) {
+                grid-template-columns: 14% 13% 20% 15% auto 110px;
+            }
+
+            font-size: 0.75rem;
+
+            &:not(:first-child) {
+                border-top: 1px dashed var(--light-2);
+            }
+
+            & strong {
+                font-weight: 500;
+            }
+        }
+
+        // .forecast__table--param
+
+        &--param {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 117%;
+            color: var(--text-color);
+            transition: color .2s ease-in-out;
+
+            &:nth-child(1) {
+                flex: 1 1 auto;
+                align-items: flex-start;
+                white-space: nowrap;
+            }
+
+            &:nth-child(2) {
+                padding-left: 15px;
+                align-items: flex-start;
+            }
+
+            /* &:nth-child(2) {
+                flex: 0 1 20%;
+                @media(min-width: 1240) {
+                    flex: 0 1 11.2%;
+                }
+            }
+
+            &:nth-child(3) {
+                flex: 0 1 23.2%;
+            }
+            
+            &:nth-child(4) {
+                flex: 0 1 12.2%;
+            }
+            
+            &:nth-child(5) {
+                flex: 0 1 27%;
+            }
+
+            &:nth-child(6) {
+                flex: 0 1 110px;
+            } */
+        }
+
+        // .forecast__table--min-info
+
+        &--min-info {
+            display: flex;
+            & img {
+                margin-right: 5px;
+            }
+        }
+
+        // .forecast__table--min-info-item
+
+        &--min-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

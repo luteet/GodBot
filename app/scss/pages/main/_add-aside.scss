@@ -1,0 +1,36 @@
+.add-aside {
+    
+    filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
+    border-radius: 10px;
+    background: var(--page-bg);
+
+    display: grid;
+
+    // .add-aside__bg
+
+    &__bg {
+        grid-area: 1/1;
+
+        text-align: center;
+        // .add-aside__bg--img
+
+        &--img {
+            max-width: 350px;
+            width: 100%;
+        }
+    }
+
+    // .add-aside__link
+
+    &__link {
+        grid-area: 1/1;
+        align-self: end;
+        text-transform: uppercase;
+        font-weight: 400;
+
+        max-width: calc(100% - 60px);
+        width: 100%;
+        margin: 0 auto;
+        font-size: 0.75rem;
+    }
+}

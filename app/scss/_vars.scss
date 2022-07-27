@@ -5,23 +5,41 @@ $containerPadding: 15;
 $container: 1134 + ($containerPadding * 2);
 $containerMin: 1000 + ($containerPadding * 2);
 $containerLarge: 1336 + ($containerPadding * 2);
+$containerSuperLarge: 1440 + ($containerPadding * 2);
 
 :root {
     --title-font: 'Montserrat', Helvetica, Arial, sans-serif;
     --main-font: 'Montserrat', Helvetica, Arial, sans-serif;
     
-    --accent: #2FAF49;
+    --accent: #1F3A99;
 
     --dark: #262628;
+    --dark-2: #151617;
     --light: #EAE7FF;
+    --light-2: #DDDFE1;
+
+    --page-bg: #FFFFFF;
+    --text-color: #262628;
 
     --white: #FFF;
     --black: #000;
+    --gray: #858585;
+    --gray-light: #9899A6;
     --blue: #1F3A99;
+    --blue-light: #3550b3;
+    --blue-dark: #193189;
+    --light-blue: #7482E3;
     --purple: #88019E;
     --light-purple: #AC6BD3;
     --light-purple-2: #CCC5FF;
     --pink: #F034B0;
+    --green: #12921E;
+
+    
+    --text-gradient: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
+    --gradient: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
+    --gradient-reverse: linear-gradient(89.6deg, #88019E 51.47%, #1F3A99 91.55%);
+    --dark-gradient: linear-gradient(99.31deg, rgba(31, 58, 153, 0.3) -2.82%, rgba(136, 1, 158, 0.3) 60.21%);
 
     --container-padding: 15px;
 }
@@ -37,3 +55,4 @@ $containerLarge: 1336 + ($containerPadding * 2);
 @font-face {
     @include font-include('Montserrat', 600, swap, normal, 'Montserrat-SemiBold');
 }
+

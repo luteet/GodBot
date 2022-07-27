@@ -36,6 +36,7 @@ function scriptsLib() {
     return src([
         'node_modules/swiper/swiper-bundle.min.js', // Слайдер
         'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'node_modules/chart.js/dist/chart.min.js',
         //'node_modules/shufflejs/dist/shuffle.min.js', // Tab Filter
         //'node_modules/sticky-js/dist/sticky.min.js' // Sticky
         //'node_modules/jquery/dist/jquery.js', // jQuery

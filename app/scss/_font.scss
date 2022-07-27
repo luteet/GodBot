@@ -35,6 +35,16 @@
     }
 }
 
+._min-title {
+    font-family: var(--title-font);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 100%;
+    color: var(--text-color);
+
+    transition: color .2s ease-in-out;
+}
+
 ._section-title {
 
     font-family: var(--title-font);
