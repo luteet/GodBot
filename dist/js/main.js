@@ -15,15 +15,21 @@ function validate(email, event) {
 }
 
 const headerBlocks = document.querySelectorAll('.header__select--block');
-window.onresize = function () {
+
+function resize() {
   headerBlocks.forEach(selectBlock => {
-  
+    
     if(selectBlock.getBoundingClientRect().x < 0) {
       selectBlock.classList.add('_left')
     }
   
   })
 }
+
+resize();
+
+window.onresize = resize;
+
 
 
 
