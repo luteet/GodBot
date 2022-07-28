@@ -398,20 +398,20 @@ function chartFunc() {
   })
 }
 
-chartFunc();
+//chartFunc();
 
-if(localStorage.getItem('godbot-pro-theme') == 'dark') {
+/* if(localStorage.getItem('godbot-pro-theme') == 'dark') {
   chartTextColor = '#9899A6';
   if(chart) chart.update();
   
 } else {
   chartTextColor = '#262628';
   if(chart) chart.update();
-}
+} */
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let thisTarget;
+let thisTarget, traderNavCheck = true;
 body.addEventListener('click', function (event) {
 
     thisTarget = event.target;
@@ -457,7 +457,7 @@ body.addEventListener('click', function (event) {
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
-        if(chart) chart.update();
+        //if(chart) chart.update();
         
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
@@ -465,7 +465,7 @@ body.addEventListener('click', function (event) {
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';
-        if(chart) chart.update();
+        //if(chart) chart.update();
 
       }
     }
@@ -505,13 +505,6 @@ body.addEventListener('click', function (event) {
       headerProfileSettings.classList.remove('_active');
     }
 
-    /* let headerProfileSettingsClose = thisTarget.closest('.header__profile--settings-close');
-    if(headerProfileSettingsClose) {
-      event.preventDefault();
-
-      headerProfileSettings.classList.add('_active');
-
-    } */
 
 
     let chartSettingsLink = thisTarget.closest('.chart__settings--link');
@@ -528,11 +521,67 @@ body.addEventListener('click', function (event) {
 
       
       let chartWrapper = document.querySelector('.chart__wrapper'),
-          chartPopup = chartWrapper.parentElement.querySelector('.chart__settings-popup');
+          chartPopup = (chartWrapper) ? chartWrapper.parentElement.querySelector('.chart__settings-popup') : false;
 
-      chartPopup.classList.remove('_active');
-      chartWrapper.classList.remove('_blur');
+      if(chartPopup) {
+        chartPopup.classList.remove('_active');
+        chartWrapper.classList.remove('_blur');
+      }
+      
+    }
 
+
+
+    let traderTabNavLink = thisTarget.closest('.trader__tab-nav--link');
+    if(traderTabNavLink) {
+      event.preventDefault();
+
+      if(traderNavCheck) {
+        traderNavCheck=!traderNavCheck;
+
+        let parent = traderTabNavLink.parentElement,
+            tabWrapper = document.querySelector('.tab-wrapper'),
+            idBlock = traderTabNavLink.getAttribute('href');
+
+        document.querySelectorAll('.tab-block').forEach(tabBlock => {
+          tabBlock.classList.remove('_visible')
+          tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
+          setTimeout(() => {
+            tabBlock.classList.remove('_active')
+            traderNavCheck=!traderNavCheck;
+          },200)
+        })
+
+        let tabBlockActive = document.querySelector(idBlock);
+        
+        setTimeout(() => {
+          tabBlockActive.classList.add('_active');
+          tabWrapper.style.minHeight = 0 + 'px';
+          setTimeout(() => {
+            tabBlockActive.classList.add('_visible');
+          },100)
+        },200)
+
+        if(!parent.classList.contains('_active')) {
+          
+          document.querySelectorAll('.trader__tab-nav--item').forEach(traderTabItem => {
+            traderTabItem.classList.remove('_prev');
+            traderTabItem.classList.remove('_active');
+            traderTabItem.classList.remove('_next');
+          })
+
+          parent.classList.add('_active');
+          
+          let next = parent.nextElementSibling,
+              prev = parent.previousElementSibling;
+
+          if(prev) prev.classList.add('_prev');
+          if(next) next.classList.add('_next');
+          
+        }
+
+      }
+      
     }
 })
 
