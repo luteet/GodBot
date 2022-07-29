@@ -1,6 +1,5 @@
 @@include("html/_header.html", {
-    "avatar": 'img/main/avatar.svg',
-    "name": 'Новичок',
+    "profile": '<div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>'
 })
 
     <main class="main">
@@ -9,7 +8,7 @@
                 <div class="main-page__body row">
                     <div class="statistic col-12">
                         <div class="statistic__body pt-5 pt-lg-3 pb-3 mb-3">
-                            <form action="#" class="statistic__sort">
+                            <form action="#" class="statistic__sort mt-3">
                                 <h2 class="statistic__sort--title _min-title m-0 pe-3 pe-lg-4">
                                     Ваша статистика за:
                                 </h2>
@@ -34,8 +33,8 @@
                                     </li>
                                 </ul>
                             </form>
-                            <ul class="statistic__list row m-0 mt-lg-0 mt-3">
-                                <li class="statistic__elem col-12 col-xl-4">
+                            <ul class="statistic__list row m-0 mt-lg-0 p-0">
+                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
                                     <div class="statistic__elem--body">
                                         <span class="statistic__elem--name me-3">
                                             Заработок
@@ -46,13 +45,62 @@
                                         </strong>
                                     </div>
                                 </li>
+                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
+                                    <div class="statistic__elem--body">
+                                        <span class="statistic__elem--name me-3">
+                                            Количество сигналов
+                                        </span>
+                                        <strong class="statistic__elem--value ms-2">
+                                            14 789
+                                        </strong>
+                                    </div>
+                                </li>
+                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
+                                    <div class="statistic__elem--body">
+                                        <span class="statistic__elem--name me-3">
+                                            Проходимость сигналов
+                                        </span>
+                                        <strong class="statistic__elem--value ms-2">
+                                            98.5%
+                                        </strong>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="main-page__col col-12 col-lg-9">
-                        <div class="chart p-md-4 p-2 block">
+                        <div class="chart p-md-4 pe-md-4 pe-2 pb-md-4 pd-4 block">
                             <div class="chart__wrapper">
-                                <div class="chart__header">
+                                <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
+                                    <form action="#" class="chart__sort">
+                                        <h4 class="chart__sort--title _min-title me-3">
+                                            График нейронной сети за:
+                                        </h4>
+                                        <div class="chart__sort--item">
+                                            <input checked type="radio" name="chart-sort" value="1-minute" id="chart-sort-1" class="chart__sort--input">
+                                            <label for="chart-sort-scalping-1" class="chart__sort--label">
+                                                1 минута
+                                            </label>
+                                        </div>
+                                        <div class="chart__sort--item">
+                                            <input disabled type="radio" name="chart-sort" value="1-hour" id="chart-sort-2" class="chart__sort--input">
+                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                1 час
+                                            </label>
+                                        </div>
+                                        <div class="chart__sort--item">
+                                            <input disabled type="radio" name="chart-sort" value="1-week" id="chart-sort-3" class="chart__sort--input">
+                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                1 неделя
+                                            </label>
+                                        </div>
+                                        <div class="chart__sort--item">
+                                            <input disabled type="radio" name="chart-sort" value="1-month" id="chart-sort-4" class="chart__sort--input">
+                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                1 месяц
+                                            </label>
+                                        </div>
+                                    </form>
                                     <a href="#" class="chart__download me-3">
                                         <div class="btn-icon me-2">
                                             <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
@@ -81,10 +129,10 @@
                                     </div>
                                 </div>
                                 <div class="chart__elem mt-3">
-                                    <div class="chart__elem--wrapper">
-                                        <canvas width="500" class="chart__elem--canvas" id="statistics-chart"></canvas>
+                                    <div class="chart__elem--wrapper mb-md-0 mb-4 chart-lines">
+                                        <canvas width="500" class="chart__elem--canvas chart-elem" id="neural-network"></canvas>
                                     </div>
-                                    <div class="chart__labels pt-3">
+                                    <!-- <div class="chart__labels pt-3">
                                         <ul class="chart__labels--list">
                                             <li class="chart__labels--elem">
                                                 01.07.22
@@ -108,9 +156,9 @@
                                                 07.07.22
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <!-- <div class="chart__tooltip" style="position: fixed; left: 50%; top: 50%;">
+                                <!-- <div class="chart__tooltip" >
                                     <div class="chart__tooltip--body">
                                         <h4 class="chart__tooltip--title">
                                             Sell ratio
@@ -143,204 +191,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="forecast pt-3">
-                            <div class="forecast__body block">
-                                <h2 class="forecast__title _min-title">
-                                    Прогнозы нейронной сети
-                                </h2>
-                                <div class="forecast__table mt-4 pt-2">
-                                    <div class="forecast__table--head">
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Дата сигнала
-                                            </span>
-                                        </div>
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Наименование
-                                            </span>
-                                        </div>
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Цена входа
-                                            </span>
-                                        </div>
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Цена выхода
-                                            </span>
-                                        </div>
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Стоп-лосс
-                                            </span>
-                                        </div>
-                                        <div class="forecast__table--name">
-                                            <span>
-                                                Риск на сделку
-                                            </span>
-                                            <div class="forecast__table--name-prompt" title="Подсказка">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0Z" fill="#1F3A99"/>
-                                                    <path d="M6.28208 5.74365C5.9847 5.74365 5.74362 5.98473 5.74362 6.28211C5.74362 6.5795 5.9847 6.82058 6.28208 6.82058C6.38121 6.82058 6.46157 6.90093 6.46157 7.00006V10.5898C6.46157 10.8872 6.70265 11.1283 7.00003 11.1283C7.29742 11.1283 7.53849 10.8872 7.53849 10.5898V6.28211C7.53849 5.98473 7.29742 5.74365 7.00003 5.74365H6.28208Z" fill="white"/>
-                                                    <circle cx="7.00004" cy="3.41029" r="0.538462" fill="white"/>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="forecast__table--body mt-2">
-                                        <div class="forecast__table--item pt-2 pb-2">
-                                            <div class="forecast__table--param">
-                                                <span>
-                                                    15.07.22 12:48:01
-                                                </span>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <div class="forecast__table--min-info">
-                                                    <div class="forecast__table--min-info-item">
-                                                        <img src="img/main/btc.svg" width="24" height="24" alt="">
-                                                    </div>
-                                                    <div class="forecast__table--min-info-item">
-                                                        <strong>Bitcoin</strong>
-                                                        <span class="gray">BTC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="gray">
-                                                    $19,481.29
-                                                </strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    90%
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="forecast__table--item pt-2 pb-2">
-                                            <div class="forecast__table--param">
-                                                <span>
-                                                    15.07.22 12:48:01
-                                                </span>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <div class="forecast__table--min-info">
-                                                    <div class="forecast__table--min-info-item">
-                                                        <img src="img/main/eth.svg" width="24" height="24" alt="">
-                                                    </div>
-                                                    <div class="forecast__table--min-info-item">
-                                                        <strong>Etherium</strong>
-                                                        <span class="gray">ETH</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$1,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$1,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    $1,481.29
-                                                </strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    40%
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="forecast__table--item pt-2 pb-2">
-                                            <div class="forecast__table--param">
-                                                <span>
-                                                    15.07.22 12:48:01
-                                                </span>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <div class="forecast__table--min-info">
-                                                    <div class="forecast__table--min-info-item">
-                                                        <img src="img/main/bnb.svg" width="24" height="24" alt="">
-                                                    </div>
-                                                    <div class="forecast__table--min-info-item">
-                                                        <strong>BNB</strong>
-                                                        <span class="gray">BNB</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    $19,481.29
-                                                </strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    45%
-                                                </strong>
-                                            </div>
-                                        </div>
-                                        <div class="forecast__table--item pt-2 pb-2">
-                                            <div class="forecast__table--param">
-                                                <span>
-                                                    15.07.22 12:48:01
-                                                </span>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <div class="forecast__table--min-info">
-                                                    <div class="forecast__table--min-info-item">
-                                                        <img src="img/main/usd.svg" width="24" height="24" alt="">
-                                                    </div>
-                                                    <div class="forecast__table--min-info-item">
-                                                        <strong>USD Coin</strong>
-                                                        <span class="gray">USDC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="gray">
-                                                    $19,481.29
-                                                </strong>
-                                            </div>
-                                            <div class="forecast__table--param">
-                                                <strong class="green">
-                                                    10%
-                                                </strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="main-page__col col-12 col-lg-3">
                         <div class="add-aside mt-lg-0 mt-3">
@@ -354,6 +204,9 @@
                                 Зарегестрироваться
                             </a>
                         </div>
+                    </div>
+                    <div class="main-page__col col-12">
+                        @@include("html/_forecast.html")
                     </div>
                 </div>
             </div>

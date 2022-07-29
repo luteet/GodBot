@@ -1,5 +1,8 @@
 const body = document.querySelector('body'),
-    html = document.querySelector('html');
+    html = document.querySelector('html'),
+    menu = document.querySelectorAll('._burger, .header__nav, body'),
+    burger = document.querySelector('._burger'),
+    header = document.querySelector('.header');
 
 function validate(email, event) {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -15,6 +18,7 @@ function validate(email, event) {
 }
 
 const headerBlocks = document.querySelectorAll('.header__select--block');
+let customPromptCheck = true;
 
 function resize() {
   headerBlocks.forEach(selectBlock => {
@@ -24,6 +28,19 @@ function resize() {
     }
   
   })
+
+  let prompt = document.querySelector('.custom-prompt-message'),
+      customPrompt = document.querySelector('.сustom-prompt');
+  
+  if(prompt && customPrompt && customPromptCheck) {
+    prompt.classList.remove('_visbile');
+    customPromptCheck = false;
+    setTimeout(() => {
+      prompt.remove();
+      customPrompt.classList.remove('_active');
+      customPromptCheck = true;
+    },200)
+  }
 }
 
 resize();
@@ -31,21 +48,29 @@ resize();
 window.onresize = resize;
 
 
-
-
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let chart, chartTextColor;
+let chart = [], chartTextColor;
 
-function chartFunc() {
+function chartFunc(arg) {
 
-  let ctx = document.querySelector('#statistics-chart'),
-      ctx2D = ctx.getContext("2d");
+  let ctx = document.querySelector(arg.id);
+  let ctx2D = ctx.getContext("2d");
 
-  function gradient(startColor, lastColor) {
-    let gradient = ctx2D.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, startColor);
-        gradient.addColorStop(1, lastColor);
+  let width, height, gradient;
+  function getGradient(ctx, chartArea) {
+    const chartWidth = chartArea.right - chartArea.left;
+    const chartHeight = chartArea.bottom - chartArea.top;
+    if (!gradient || width !== chartWidth || height !== chartHeight) {
+
+      width = chartWidth;
+      height = chartHeight;
+      gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+      gradient.addColorStop(0, 'rgb(255,0,0)');
+      gradient.addColorStop(0.5, 'rgb(0,0,255)');
+      gradient.addColorStop(0.5, 'rgb(255,0,0)');
+      gradient.addColorStop(1, 'rgb(255,0,0)');
+    }
 
     return gradient;
   }
@@ -82,66 +107,6 @@ function chartFunc() {
     return result;
   }
 
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-          label: 'Line 1',
-          data: repeatData(10, (labels.length / 3), 0),
-          backgroundColor: gradient('rgba(202, 57, 12, 1)', 'rgba(202, 57, 12, 0.05)'),
-          borderColor: [
-              'rgba(202, 57, 12, 1)'
-          ],
-          pointRadius: 0,
-          borderWidth: 1,
-          cubicInterpolationMode: 'monotone',
-          fill: true,
-          tension: 0.4
-          
-      },
-      {
-        label: 'Line 2',
-        data: repeatData(15, labels.length, (labels.length / 2)),
-        backgroundColor: gradient('rgba(27, 163, 73, 1)', 'rgba(27, 163, 73, 0.05)'),
-        borderColor: [
-          'rgba(27, 163, 73, 1)'
-        ],
-        pointRadius: 0,
-        borderWidth: 1,
-        cubicInterpolationMode: 'monotone',
-        fill: true,
-        tension: 0.4
-    },
-    {
-      label: 'Line 3',
-      data: repeatData(35, labels.length, (labels.length / 2)),
-      backgroundColor: 'rgba(27, 163, 73, 1)',
-      borderColor: [
-        'rgba(27, 163, 73, 1)'
-      ],
-      pointRadius: 0,
-      borderWidth: 1,
-      cubicInterpolationMode: 'monotone',
-      fill: false,
-      tension: 0.4
-    },
-    {
-      label: 'Dashed',
-      data: repeatData(45, labels.length, (labels.length / 2)),
-      borderColor: [
-          'rgba(202, 57, 12, 1)'
-      ],
-      pointRadius: 0,
-      
-      borderWidth: 1,
-      borderDash: [5, 5],
-      cubicInterpolationMode: 'monotone',
-      fill: false,
-      tension: 0.4
-  }
-  ]
-  };
-
   const getOrCreateTooltip = (chart) => {
     let tooltipEl = chart.canvas.parentNode.querySelector('div');
   
@@ -152,7 +117,7 @@ function chartFunc() {
       tooltipElBody.classList.add('chart__tooltip--body');
       tooltipEl.style.opacity = 1;
       tooltipEl.style.pointerEvents = 'none';
-      tooltipEl.style.transition = 'all .1s ease';
+      tooltipEl.style.transition = 'all .2s ease';
   
       tooltipEl.appendChild(tooltipElBody);
       chart.canvas.parentNode.appendChild(tooltipEl);
@@ -161,23 +126,7 @@ function chartFunc() {
     return tooltipEl;
   };
 
-  /* <div class="chart__tooltip">
-    <div class="chart__tooltip--body">
-        <h4 class="chart__tooltip--title">
-            Sell ratio
-        </h4>
-        <span class="chart__tooltip--date">4.07.22</span>
-        <strong class="chart__tooltip--price">
-            Price: 21.8k
-        </strong>
-        <strong class="chart__tooltip--ratio">
-            Loshara ratio: 52
-        </strong>
-    </div>
-</div> */
-  
   const externalTooltipHandler = (context) => {
-    // Tooltip Element
     const {chart, tooltip} = context;
     const tooltipEl = getOrCreateTooltip(chart),
           tooltipElBody = document.createElement('div'),
@@ -193,81 +142,50 @@ function chartFunc() {
     tooltipTitle.textContent = tooltip.dataPoints[0].dataset.label;
     tooltipPrice.textContent = `Price: ${tooltip.dataPoints[0].formattedValue}`;
     
-    
-    // Hide if no tooltip
     if (tooltip.opacity === 0) {
       tooltipEl.style.opacity = 0;
       return;
     }
   
-    // Set Text
     if (tooltip.body) {
       const titleLines = tooltip.title || [];
       const bodyLines = tooltip.body.map(b => b.lines);
-  
-      //const tableHead = document.createElement('thead');
-  
+
       titleLines.forEach(title => {
         tooltipDate.textContent = title;
-        /* const tr = document.createElement('tr');
-        tr.style.borderWidth = 0;
-  
-        const th = document.createElement('th');
-        th.style.borderWidth = 0;
-        const text = document.createTextNode(title);
-  
-        th.appendChild(text);
-        tr.appendChild(th);
-        tableHead.appendChild(tr); */
       });
-  
-      //const tableBody = document.createElement('tbody');
-      console.log();
+      
       bodyLines.forEach((body, i) => {
         const colors = tooltip.labelColors[i];
-  
-        /* const span = document.createElement('span');
-        span.style.background = colors.backgroundColor;
-        span.style.borderColor = colors.borderColor;
-        span.style.borderWidth = '2px';
-        span.style.marginRight = '10px';
-        span.style.height = '10px';
-        span.style.width = '10px';
-        span.style.display = 'inline-block';
-  
-        const tr = document.createElement('tr');
-        tr.style.backgroundColor = 'inherit';
-        tr.style.borderWidth = 0;
-  
-        const td = document.createElement('td');
-        td.style.borderWidth = 0;
-  
-        const text = document.createTextNode(body);
-  
-        td.appendChild(span);
-        td.appendChild(text);
-        tr.appendChild(td);
-        tableBody.appendChild(tr); */
       });
   
       const root = tooltipEl.querySelector('.chart__tooltip--body');
   
-      // Remove old children
       while (root.firstChild) {
         root.firstChild.remove();
       }
-  
-      // Add new children
+
       root.appendChild(tooltipTitle);
       root.appendChild(tooltipDate);
       root.appendChild(tooltipPrice);
-      /* root.appendChild(tableBody); */
     }
   
     const {offsetLeft: positionX, offsetTop: positionY} = chart.canvas;
-  
-    // Display, position, and set styles for font
+    
+    let resultHeight = 0;
+    
+    if(tooltipEl.closest('.chart-crosshair')) {
+      let parent = tooltipEl.closest('.chart-crosshair'),
+          canvas = parent.querySelectorAll('canvas');
+
+      canvas.forEach(canvas => {        
+        resultHeight += canvas.offsetHeight;
+      })
+
+    }
+
     tooltipEl.style.opacity = 1;
+    if(resultHeight) tooltipEl.style.setProperty('--line-height', (resultHeight - tooltip.caretY + 52) + 'px')
     tooltipEl.style.left = positionX + tooltip.caretX + 'px';
     tooltipEl.style.top = positionY + tooltip.caretY + 'px';
     tooltipEl.style.font = tooltip.options.bodyFont.string;
@@ -292,16 +210,16 @@ function chartFunc() {
   };
 
   const htmlLegendPlugin = {
-    id: 'htmlLegend',
+    id: arg.htmlLegendId,
     afterUpdate(chart, args, options) {
-      const ul = getOrCreateLegendList(chart, options.containerID);
+      
+      const ul = getOrCreateLegendList(chart, arg.legendContainer);
       ul.classList.add('chart__settings-popup--list', 'm-0', 'p-0', 'mt-3')
 
       // Remove old legend items
       while (ul.firstChild) {
         ul.firstChild.remove();
       }
-      
 
       // Reuse the built-in legendItems generator
       const items = chart.options.plugins.legend.labels.generateLabels(chart);
@@ -336,11 +254,13 @@ function chartFunc() {
     }
   };
 
-  chart = new Chart(ctx.getContext('2d'), {
+  chart[chart.length] = new Chart(ctx2D, {
     type: 'line',
-    data: data,
+    data: arg.data,
     options: {
       responsive: true,
+
+      layout: arg.layout,
       
       interaction: {
         intersect: false,
@@ -352,62 +272,138 @@ function chartFunc() {
               display: false,
               borderColor: 'rgba(0,0,0,0)',
             },
+            title: arg.yTitle,
             ticks: {
               color: chartTextColor,
               font: {
                 size: 12,
-                
               },
+              callback: function (value) {
+                if(value >= 1000) {
+                  return (value / 1000).toFixed(0) + "K";
+                } else {
+                  return value;
+                }
+              }
             }
           },
+          
           x: {
+            ticks: {
+              font: {
+                size: (arg.hideLabels) ? 0 : 12,
+              },
+            },
             grid: {
               display: false,
               borderColor: 'rgba(0,0,0,0)',
             },
-            ticks: {
-              display: false,
-            }
+            
           },
       },
       
-      pointBackgroundColor: 'rgba(0,0,0,0)',
-      pointBorderColor: 'rgba(0, 0, 0, 0)',
-      radius: 0,
       plugins: {
         
           htmlLegend: {
-              containerID: 'legend-container',
+              containerID: arg.legendContainer,
           },
           tooltip: {
             enabled: false,
             position: 'nearest',
+            
             external: externalTooltipHandler
           },
           legend: {
-              display: false,
+              display: (arg.legend) ? arg.legend : false,
           },
           labels: {
+            display: false,
             usePointStyle: true,
           },
           
       }
     },
-    plugins: [htmlLegendPlugin]
+    plugins: (arg.legendContainer && arg.htmlLegendId) ? [htmlLegendPlugin] : false,
 
   })
+    
 }
 
-//chartFunc();
+let chartBar = [];
 
-/* if(localStorage.getItem('godbot-pro-theme') == 'dark') {
-  chartTextColor = '#9899A6';
-  if(chart) chart.update();
-  
-} else {
-  chartTextColor = '#262628';
-  if(chart) chart.update();
-} */
+function barChart(arg) {
+  let ctx = document.querySelector(arg.id);
+  let ctx2D = ctx.getContext("2d");
+
+  chartBar[chartBar.length] = new Chart(ctx2D, 
+    {
+      type: 'bar',
+      data: arg.data,
+      options: {
+        legend: {
+          display: false
+        },
+
+        layout: arg.layout,
+        
+        /* responsive: true, */
+
+        plugins: {
+          tooltip: {
+            enabled: false,
+            mode: 'interpolate',
+            intersect: false
+          },
+          labels: {
+            display: false,
+          },
+          legend: {
+            display: false,
+            labels: {
+                display: false,
+                /* color: 'rgb(255, 99, 132, 0)' */
+            }
+          }
+        },
+        scales: {
+          x: {
+            display: false,
+            stacked: true,
+            /* ticks: {
+              font: {
+                size: 0,
+              },
+            }, */
+            grid: {
+              display: false,
+              borderColor: 'rgba(0,0,0,0)',
+            },
+          },
+          y: {
+            display: false,
+            stacked: true,
+            grid: {
+              display: false,
+              borderColor: 'rgba(0,0,0,0)',
+            },
+            /* ticks: {
+              color: chartTextColor,
+              font: {
+                size: 12,
+              },
+              callback: function (value) {
+                if(value >= 1000) {
+                  return (value / 1000).toFixed(0) + "K";
+                } else {
+                  return value;
+                }
+              }
+            } */
+          }
+        }
+      }
+    })
+}
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -415,6 +411,14 @@ let thisTarget, traderNavCheck = true;
 body.addEventListener('click', function (event) {
 
     thisTarget = event.target;
+
+    if (thisTarget.closest('._burger')) {
+      menu.forEach(elem => {
+          elem.classList.toggle('_active')
+      })
+    }
+
+
 
     let submitBtn = thisTarget.closest('.login__form--submit');
     if(submitBtn) {
@@ -543,47 +547,117 @@ body.addEventListener('click', function (event) {
             tabWrapper = document.querySelector('.tab-wrapper'),
             idBlock = traderTabNavLink.getAttribute('href');
 
-        document.querySelectorAll('.tab-block').forEach(tabBlock => {
-          tabBlock.classList.remove('_visible')
-          tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
-          setTimeout(() => {
-            tabBlock.classList.remove('_active')
-            traderNavCheck=!traderNavCheck;
-          },200)
-        })
-
-        let tabBlockActive = document.querySelector(idBlock);
-        
-        setTimeout(() => {
-          tabBlockActive.classList.add('_active');
-          tabWrapper.style.minHeight = 0 + 'px';
-          setTimeout(() => {
-            tabBlockActive.classList.add('_visible');
-          },100)
-        },200)
-
         if(!parent.classList.contains('_active')) {
-          
+      
           document.querySelectorAll('.trader__tab-nav--item').forEach(traderTabItem => {
             traderTabItem.classList.remove('_prev');
             traderTabItem.classList.remove('_active');
             traderTabItem.classList.remove('_next');
           })
-
+  
           parent.classList.add('_active');
           
           let next = parent.nextElementSibling,
               prev = parent.previousElementSibling;
-
+  
           if(prev) prev.classList.add('_prev');
           if(next) next.classList.add('_next');
+
+          document.querySelectorAll('.tab-block').forEach(tabBlock => {
+            tabBlock.classList.remove('_visible')
+            tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
+            setTimeout(() => {
+              tabBlock.classList.remove('_active')
+              traderNavCheck=!traderNavCheck;
+            },200)
+          })
+
+          let tabBlockActive = document.querySelector(idBlock);
+          
+          setTimeout(() => {
+            tabBlockActive.classList.add('_active');
+            tabWrapper.style.minHeight = 0 + 'px';
+            setTimeout(() => {
+              tabBlockActive.classList.add('_visible');
+            },100)
+          },200)
           
         }
-
       }
       
     }
 })
+
+function createCustomPrompt(elem) {
+  let prompt = document.createElement('div'),
+      promptBody = document.createElement('div'),
+      text = elem.dataset.сustomPromptText,
+      pos = elem.getBoundingClientRect();
+
+  prompt.classList.add('custom-prompt-message');
+  promptBody.classList.add('custom-prompt-message-body');
+
+  prompt.append(promptBody);  
+
+  document.body.append(prompt);
+  promptBody.textContent = text;
+  
+  prompt.style.left = (pos.left - (prompt.offsetWidth / 2) + (elem.offsetWidth / 2)) + 'px';
+  prompt.style.top = (pos.top + elem.ownerDocument.defaultView.pageYOffset - prompt.offsetHeight) + 'px';
+
+  if((prompt.getBoundingClientRect().left + prompt.offsetWidth + 50) > body.offsetWidth) {
+    prompt.classList.add('_right-pos');
+  }
+
+  setTimeout(() => {
+    prompt.classList.add('_visible');
+  },100)
+
+}
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+const customPrompt = document.querySelectorAll('.сustom-prompt');
+customPrompt.forEach(customPrompt => {
+
+  customPrompt.addEventListener('mouseover', function(event) {
+
+    let customPromptTarget = event.target.closest('.сustom-prompt');
+    if(customPromptTarget) {
+      if(!customPromptTarget.classList.contains('_active')) {
+        customPromptTarget.classList.add('_active');
+
+        createCustomPrompt(customPromptTarget);
+  
+      }
+      
+    }
+    
+  });
+
+  customPrompt.addEventListener('mouseout', function(event) {
+
+    let customPromptTarget = event.target.closest('.сustom-prompt');
+    if(customPromptTarget) {
+      if(customPromptTarget.classList.contains('_active')) {
+        customPromptTarget.classList.remove('_active');
+  
+        let prompt = document.querySelector('.custom-prompt-message');
+        prompt.classList.remove('_visible');
+        setTimeout(() => {
+          prompt.remove();
+        },200)
+        
+  
+      }
+      
+    }
+    
+  });
+
+})
+
 
 let verificationInputs = document.querySelectorAll('.login__verification--input');
 verificationInputs.forEach(thisInput => {
@@ -600,8 +674,6 @@ verificationInputs.forEach(thisInput => {
       if(nextElement.classList.contains('login__verification--label') && thisInput.value) {
         nextElement.querySelector('input').focus();
       }
-
-      
 
       if(checkInput()) {
         form.querySelector('.login__form--submit').classList.add('_disabled')

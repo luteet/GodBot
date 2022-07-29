@@ -5,15 +5,16 @@
     &__tab-nav {
 
         overflow-x: auto;
+
+        position: relative;
+        z-index: 10;
+
         // .trader__tab-nav--list
 
         &--list {
             display: flex;
 
             margin: 0; padding: 0;
-
-            
-            
         }
 
         // .trader__tab-nav--item
@@ -76,10 +77,6 @@
             }
 
             transition: border-radius .2s ease-in-out, background .2s ease-in-out;
-
-            &._active {
-                
-            }
         }
     }
 }

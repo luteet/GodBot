@@ -37,6 +37,8 @@ function scriptsLib() {
         'node_modules/swiper/swiper-bundle.min.js', // Слайдер
         'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
         'node_modules/chart.js/dist/chart.min.js',
+        //'node_modules/chartjs-plugin-crosshair/dist/chartjs-plugin-crosshair.min.js',
+        //'node_modules/apexcharts/dist/apexcharts.min.js'
         //'node_modules/shufflejs/dist/shuffle.min.js', // Tab Filter
         //'node_modules/sticky-js/dist/sticky.min.js' // Sticky
         //'node_modules/jquery/dist/jquery.js', // jQuery
@@ -62,7 +64,7 @@ function scriptsMin() {
 }
 
 function scripts() {
-    return src('app/js/main.js')
+    return src('app/js/*.js')
     .pipe(scriptsMin())
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream())

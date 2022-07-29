@@ -32,6 +32,7 @@ body {
         --text-color: #FFFFFF;
         --text-gradient: linear-gradient(89.6deg, #FFF 51.47%, #FFF 91.55%);
         --gray-dark: #EEECF4;
+        --gray-light-2: #232323;
 
         & .wrapper {
             &::before, &::after {
@@ -107,6 +108,11 @@ body {
             center / contain no-repeat;
         }
 
+        & .tooltip-arrow::after {
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_3_7' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='11'%3E%3Crect width='20' height='11' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_3_7)'%3E%3Cg filter='url(%23filter0_d_3_7)'%3E%3Cpath d='M-53 -72C-53 -77.5229 -48.5228 -82 -43 -82H63C68.5228 -82 73 -77.5228 73 -72V-8.61289C73 -3.09004 68.5228 1.3871 63 1.3871H47.5577H19.8186C19.2266 1.3871 18.6651 1.64935 18.2851 2.10327L11.5336 10.1681C10.7342 11.123 9.26584 11.123 8.46644 10.1681L1.71493 2.10327C1.33493 1.64935 0.773361 1.3871 0.181375 1.3871H-43C-48.5228 1.3871 -53 -3.09006 -53 -8.6129V-72Z' fill='%23151617'/%3E%3Cpath d='M-43 -81.5H63C68.2467 -81.5 72.5 -77.2467 72.5 -72V-8.61289C72.5 -3.36619 68.2467 0.887093 63 0.887093H47.5577H19.8186C19.0786 0.887093 18.3767 1.21491 17.9017 1.78232L11.1502 9.84717C10.5506 10.5633 9.44938 10.5633 8.84983 9.84717L2.09832 1.78232C1.62332 1.21491 0.921356 0.887093 0.181374 0.887093H-43C-48.2467 0.887093 -52.5 -3.3662 -52.5 -8.61291V-72C-52.5 -77.2467 -48.2467 -81.5 -43 -81.5Z' stroke='%237482E3'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_3_7' x='-73' y='-100' width='166' height='132.884' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='10'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.034818 0 0 0 0 0.0209028 0 0 0 0 0.716667 0 0 0 0.06 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_3_7'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_3_7' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A")
+            center / contain no-repeat;
+        }
+
 
     }
     
@@ -170,7 +176,7 @@ body {
 }
 
 .main {
-    overflow: hidden;
+    /* overflow: hidden; */
 
     flex: 1 0 auto;
 }
@@ -299,6 +305,140 @@ body {
     color: var(--red);
 }
 
+.yellow {
+    color: var(--yellow);
+}
+
+.purple {
+    color: var(--purple);
+}
+
 .medium {
     font-weight: 500;
+}
+
+.apexcharts-tooltip {
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+    border: 0 !important;
+    background: transparent !important;
+}
+
+/* .apexcharts-tooltip {
+    background: #f3f3f3;
+    color: orange;
+  } */
+
+.сustom-prompt {
+    cursor: help;
+}
+
+.custom-prompt-message {
+    position: absolute;
+
+    opacity: 0; visibility: hidden;
+    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+
+    z-index: 9999;
+    pointer-events: none;
+
+    width: 130px;
+    transform: translate(0,-13px);
+    &._right-pos {
+        transform: translate(calc(-50% + 20px),-13px);
+        &::before {
+            left: 100%;
+            transform: translate(-150%,calc(100% - 1px));
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%; bottom: 1px;
+        transform: translate(-50%,100%);
+        width: 20px; height: 11px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_3_7' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='11'%3E%3Crect width='20' height='11' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_3_7)'%3E%3Cg filter='url(%23filter0_d_3_7)'%3E%3Cpath d='M-53 -72C-53 -77.5229 -48.5228 -82 -43 -82H63C68.5228 -82 73 -77.5228 73 -72V-8.61289C73 -3.09004 68.5228 1.3871 63 1.3871H47.5577H19.8186C19.2266 1.3871 18.6651 1.64935 18.2851 2.10327L11.5336 10.1681C10.7342 11.123 9.26584 11.123 8.46644 10.1681L1.71493 2.10327C1.33493 1.64935 0.773361 1.3871 0.181375 1.3871H-43C-48.5228 1.3871 -53 -3.09006 -53 -8.6129V-72Z' fill='white'/%3E%3Cpath d='M-43 -81.5H63C68.2467 -81.5 72.5 -77.2467 72.5 -72V-8.61289C72.5 -3.36619 68.2467 0.887093 63 0.887093H47.5577H19.8186C19.0786 0.887093 18.3767 1.21491 17.9017 1.78232L11.1502 9.84717C10.5506 10.5633 9.44938 10.5633 8.84983 9.84717L2.09832 1.78232C1.62332 1.21491 0.921356 0.887093 0.181374 0.887093H-43C-48.2467 0.887093 -52.5 -3.3662 -52.5 -8.61291V-72C-52.5 -77.2467 -48.2467 -81.5 -43 -81.5Z' stroke='%237482E3'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_3_7' x='-73' y='-100' width='166' height='132.884' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='10'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.034818 0 0 0 0 0.0209028 0 0 0 0 0.716667 0 0 0 0.06 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_3_7'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_3_7' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A")
+        center / contain no-repeat;
+    }
+
+    &._visible {
+        opacity: 1; visibility: visible;
+    }
+
+    &-body {
+        border: 1px solid #7482E3;
+        box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+        border-radius: 10px;
+        padding: 10px;
+        background: var(--page-bg);
+
+        font-weight: 500;
+        font-size: 0.625rem;
+        line-height: 117%;
+        color: var(--text-color);
+    }
+}
+
+.custom-tooltip {
+    width: 130px;
+}
+
+.custom-tooltip[data-popper-placement="left"] .tooltip-arrow::after {
+    transform: rotate(-90deg) translate(0%,-50%);
+    top: 0; left: 0;
+}
+
+.tooltip-arrow {
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%; top: -1px;
+        transform: translate(-50%,0%);
+        width: 20px; height: 11px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_3_7' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='20' height='11'%3E%3Crect width='20' height='11' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_3_7)'%3E%3Cg filter='url(%23filter0_d_3_7)'%3E%3Cpath d='M-53 -72C-53 -77.5229 -48.5228 -82 -43 -82H63C68.5228 -82 73 -77.5228 73 -72V-8.61289C73 -3.09004 68.5228 1.3871 63 1.3871H47.5577H19.8186C19.2266 1.3871 18.6651 1.64935 18.2851 2.10327L11.5336 10.1681C10.7342 11.123 9.26584 11.123 8.46644 10.1681L1.71493 2.10327C1.33493 1.64935 0.773361 1.3871 0.181375 1.3871H-43C-48.5228 1.3871 -53 -3.09006 -53 -8.6129V-72Z' fill='white'/%3E%3Cpath d='M-43 -81.5H63C68.2467 -81.5 72.5 -77.2467 72.5 -72V-8.61289C72.5 -3.36619 68.2467 0.887093 63 0.887093H47.5577H19.8186C19.0786 0.887093 18.3767 1.21491 17.9017 1.78232L11.1502 9.84717C10.5506 10.5633 9.44938 10.5633 8.84983 9.84717L2.09832 1.78232C1.62332 1.21491 0.921356 0.887093 0.181374 0.887093H-43C-48.2467 0.887093 -52.5 -3.3662 -52.5 -8.61291V-72C-52.5 -77.2467 -48.2467 -81.5 -43 -81.5Z' stroke='%237482E3'/%3E%3C/g%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_3_7' x='-73' y='-100' width='166' height='132.884' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='10'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.034818 0 0 0 0 0.0209028 0 0 0 0 0.716667 0 0 0 0.06 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_3_7'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_3_7' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A")
+        center / contain no-repeat;
+    }
+    &::before {
+        display: none;
+    }
+}
+
+.tooltip-inner {
+    border: 1px solid #7482E3;
+    box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+    border-radius: 10px;
+    padding: 10px;
+    background: var(--page-bg);
+    text-align: left;
+
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 117%;
+    color: var(--text-color);
+
+    
+}
+
+[data-bs-toggle="tooltip"] {
+    cursor: help;
+}
+.chart {
+	clear: both;
+	position: relative;
+}
+
+
+.bar-chart-wrapper {
+    padding-left: 25px;
+    background: transparent;
+    &::before {
+        display: none;
+    }
+    & canvas {
+        background: transparent;
+    }
 }

@@ -418,7 +418,7 @@
                             </div>
                         </div>
                         <div class="header__profile ms-3 ms-lg-1 mt-2 me-lg-0 me-3">
-                            <div class="header__profile--avatar"><img src="img/trader/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Трейдер</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>
+                            <div class="header__profile--avatar"><img src="img/investor/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Инвестор</strong></div>
                             <a href="#" class="header__profile--settings-open _hide-on-mob">
                                 <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.960938 2C0.960938 1.0335 1.74444 0.25 2.71094 0.25C3.67744 0.25 4.46094 1.0335 4.46094 2C4.46094 2.9665 3.67744 3.75 2.71094 3.75C1.74444 3.75 0.960938 2.9665 0.960938 2ZM0.960938 8C0.960938 7.0335 1.74444 6.25 2.71094 6.25C3.67744 6.25 4.46094 7.0335 4.46094 8C4.46094 8.9665 3.67744 9.75 2.71094 9.75C1.74444 9.75 0.960938 8.9665 0.960938 8ZM0.960938 14C0.960938 13.0335 1.74444 12.25 2.71094 12.25C3.67744 12.25 4.46094 13.0335 4.46094 14C4.46094 14.9665 3.67744 15.75 2.71094 15.75C1.74444 15.75 0.960938 14.9665 0.960938 14Z" fill="#262628"/>
@@ -471,470 +471,106 @@
         
 
     <main class="main">
-        <section class="trader pt-4 pb-5">
-            <div class="trader__container _container _super-large">
-                <div class="trader__wrapper row">
-                    <div class="trader__col col-lg-9 col-12">
-                        <div class="trader__tab-nav">
-                            <ul class="trader__tab-nav--list">
-                                <li class="trader__tab-nav--item _active">
-                                    <a href="#scalping" class="trader__tab-nav--link">
-                                        Скальпинг
-                                    </a>
-                                </li>
-                                <li class="trader__tab-nav--item _next">
-                                    <a href="#trading" class="trader__tab-nav--link">
-                                        Трейдинг
-                                    </a>
-                                </li>
-                                <li class="trader__tab-nav--item">
-                                    <a href="#investment" class="trader__tab-nav--link">
-                                        Инвестирование
-                                    </a>
-                                </li>
-                            </ul>
+        <section class="investor mt-4 pb-5">
+            <div class="investor__container _container _super-large">
+                <div class="investor__body row">
+                    <div class="investor__col col-12 col-lg-9">
+                        <div class="chart p-md-4 pe-md-4 pe-2 pb-md-4 pd-4 block">
+                            <div class="chart__wrapper">
+                                <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
+                                    <h2 class="chart__min-title _min-title w-100 pt-3 ">
+                                        Депозит
+                                    </h2>
+                                </div>
+                                <div class="chart__elem mt-3 ">
+                                    <div class="chart__elem--wrapper chart-crosshair mb-md-0 mb-4 chart-lines">
+                                        <div class="chart__elem--item">
+                                            <canvas width="500" class="chart__elem--canvas" id="deposit-chart"></canvas>
+                                        </div>
+                                        <div class="chart__elem--item y-title-active" data-y-title="Профит">                                            
+                                            <canvas height="80" class="chart__elem--canvas bar-chart" id="profit-chart"></canvas>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="chart__labels pt-3">
+                                        <ul class="chart__labels--list">
+                                            <li class="chart__labels--elem">
+                                                01.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                02.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                03.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                04.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                05.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                06.07.22
+                                            </li>
+                                            <li class="chart__labels--elem">
+                                                07.07.22
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="chart__tooltip" >
+                                    <div class="chart__tooltip--body">
+                                        <h4 class="chart__tooltip--title">
+                                            Sell ratio
+                                        </h4>
+                                        <span class="chart__tooltip--date">4.07.22</span>
+                                        <strong class="chart__tooltip--price">
+                                            Price: 21.8k
+                                        </strong>
+                                        <strong class="chart__tooltip--ratio">
+                                            Loshara ratio: 52
+                                        </strong>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="chart__settings-popup">
+                                <div class="chart__settings-popup--body">
+                                    <div class="chart__settings-popup--header">
+                                        <h3 class="chart__settings-popup--title">
+                                            Параметры графика
+                                        </h3>
+                                        <button class="chart__settings-popup--close" title="Закрыть">
+                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <line x1="1.06066" y1="1.70715" x2="13.0815" y2="13.728" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="chart__settings-popup--block" id="legend-container">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="trader__col col-12 col-lg-9">
-                        <div class="chart p-md-4 p-2 pt-0 block tab-wrapper">
-                            <div class="chart__wrapper tab-block _active _visible" id="scalping">
-                                <div class="chart__header pt-lg-0 pt-3">
-                                    <!-- <form action="#" class="chart__sort">
-                                        <div class="chart__sort--item">
-                                            <input type="radio" name="chart-sort-scalping" value="1-minute" id="chart-sort-scalping-1" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-1" class="chart__sort--label">
-                                                1 минута
-                                            </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input type="radio" name="chart-sort-scalping" value="5-minute" id="chart-sort-scalping-2" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
-                                                5 минут
-                                            </label>
-                                        </div>
-                                    </form> -->
-                                    <div class="chart__legend" id="scalping-chart-legend">
-                                    </div>
-                                    <div class="chart__update me-3">
-                                        Обновление графика через 15 мин 37 сек
-                                    </div>
-                                    <a href="#" class="chart__download">
-                                        <div class="btn-icon me-2">
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="url(#download-icon-1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <defs>
-                                                    <linearGradient id="download-icon-1" x1="1" y1="22.0158" x2="13.8165" y2="23.002" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#1F3A99"/>
-                                                        <stop offset="1" stop-color="#88019E"/>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                        <span>
-                                            CКАЧАТЬ
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="chart__elem mt-3">
-                                    <div class="chart__elem--wrapper">
-                                        <canvas width="500" class="chart__elem--canvas" id="scalping-chart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart__wrapper tab-block" id="trading">
-                                <div class="chart__header pt-lg-0 pt-3">
-                                    <form action="#" class="chart__sort">
-                                        <div class="chart__sort--item">
-                                            <input checked type="radio" name="chart-sort-trading" value="1-hour" id="chart-sort-trading-1" class="chart__sort--input">
-                                            <label for="chart-sort-trading-1" class="chart__sort--label">
-                                                1 час
-                                            </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input type="radio" name="chart-sort-trading" value="1-week" id="chart-sort-trading-2" class="chart__sort--input">
-                                            <label for="chart-sort-trading-2" class="chart__sort--label">
-                                                1 неделя
-                                            </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input type="radio" name="chart-sort-trading" value="1-mounth" id="chart-sort-trading-3" class="chart__sort--input">
-                                            <label for="chart-sort-trading-3" class="chart__sort--label">
-                                                1 месяц
-                                            </label>
-                                        </div>
-                                    </form>
-                                    <div class="chart__update me-3">
-                                        Обновление графика через 15 мин 37 сек
-                                    </div>
-                                    <a href="#" class="chart__download">
-                                        <div class="btn-icon me-2">
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="url(#download-icon-2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <defs>
-                                                    <linearGradient id="download-icon-2" x1="1" y1="22.0158" x2="13.8165" y2="23.002" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#1F3A99"/>
-                                                        <stop offset="1" stop-color="#88019E"/>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                        <span>
-                                            CКАЧАТЬ
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="chart__elem mt-3">
-                                    <div class="chart__elem--wrapper">
-                                        <canvas width="500" class="chart__elem--canvas" id="trading-chart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chart__wrapper tab-block" id="investment">
-                                <div class="chart__table p-lg-0 p-3">
-                                    <div class="chart__table--head">
-                                        <div class="chart__table--name">Наименование</div>
-                                        <div class="chart__table--name">Текущая Цена</div>
-                                        <div class="chart__table--name">Рекомендация</div>
-                                        <div class="chart__table--name">Целевая цена</div>
-                                        <div class="chart__table--name">График прогноза</div>
-                                    </div>
-                                    <div class="chart__table--body">
-                                        <div class="chart__table--item pt-2 pb-2">
-                                            <div class="chart__table--param">
-                                                <img src="img/main/btc.svg" width="20" height="20" alt="">
-                                                <strong class="dark-gray medium">Bitcoin</strong>
-                                                <span class="gray">
-                                                    BTC
-                                                </span>
-                                            </div>
-                                            <div class="chart__table--param">
-                                                <strong>$19,481.29</strong>
-                                            </div>
-                                            <div class="chart__table--param">
-                                                <strong class="red">ПРОДАВАТЬ</strong>
-                                            </div>
-                                            <div class="chart__table--param">
-                                                <strong class="green">$19,481.29</strong>
-                                            </div>
-                                            <div class="chart__table--param">
-                                                <div class="chart__table--min-schedule">
-                                                    <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div><div class="chart__table--item pt-2 pb-2">
-    <div class="chart__table--param">
-        <img src="img/main/btc.svg" width="20" height="20" alt="">
-        <strong class="dark-gray medium">Bitcoin</strong>
-        <span class="gray">
-            BTC
-        </span>
-    </div>
-    <div class="chart__table--param">
-        <strong>$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">ПОКУПАТЬ</strong>
-    </div>
-    <div class="chart__table--param">
-        <strong class="green">$19,481.29</strong>
-    </div>
-    <div class="chart__table--param">
-        <div class="chart__table--min-schedule">
-            <svg width="122" height="26" viewBox="0 0 122 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 18.3954C2.56098 20.4805 6.15122 24.6954 8.02439 24.8741C10.3659 25.0975 10.9512 23.7571 12.7073 23.5337C14.4634 23.3103 15.6341 25.5443 16.8049 24.8741C17.9756 24.2039 20.9024 15.0444 22.6585 14.1508C24.4146 13.2572 26.1707 11.9168 26.1707 7.22533C26.1707 2.5339 27.9268 0.29988 28.5122 1.19349C29.0976 2.08709 30.2683 6.10832 32.0244 5.66152C33.7805 5.21472 34.9512 4.99132 34.9512 6.33173C34.9512 7.67214 35.5366 11.0232 37.2927 11.6934C39.0488 12.3636 42.561 12.8104 43.7317 11.6934C44.9024 10.5764 44.9024 8.11894 47.2439 8.11894C49.5854 8.11894 49.5854 10.7998 51.9268 11.6934C54.2683 12.587 54.2683 14.5976 55.439 14.1508C56.6098 13.704 57.7805 12.8104 59.5366 12.8104C61.2927 12.8104 61.2927 12.1402 63.6341 11.6934C65.9756 11.2466 64.2195 8.78915 68.3171 8.78915C72.4146 8.78915 72.4146 7.22533 75.3415 7.22533C78.2683 7.22533 77.0976 11.6934 78.8537 11.6934C80.6098 11.6934 82.3658 10.7998 84.1219 11.2466C85.878 11.6934 85.2927 11.9168 88.2195 10.7998C91.1463 9.68275 89.3902 11.9168 90.561 13.2572C91.7317 14.5976 92.9024 16.8316 96.4146 17.2784C99.9268 17.7252 99.3415 6.10832 100.512 4.99132C101.683 3.87431 106.366 11.0232 107.537 12.8104C108.707 14.5976 109.878 12.8104 111.634 12.8104C113.39 12.8104 114.561 8.78915 115.732 8.78915C116.902 8.78915 119.829 10.5764 121 9.68275" stroke="#4F9E7D"/>
-            </svg>
-        </div>
-    </div>
-</div>
-                                    </div>
-                                </div>
+                    <div class="investor__col col-12 col-lg-3">
+                        <div class="investor-profit mb-4">
+                            <div class="investor-profit__body p-4 pt-1">
+                                <ul class="investor-profit__list">
+                                    <li class="investor-profit__li mt-4">
+                                        <span>Общий заработок:</span>
+                                        <strong class="yellow">$19,481.29</strong>
+                                    </li>
+                                    <li class="investor-profit__li mt-4">
+                                        <span>Ваш доход:</span>
+                                        <strong class="green">$9,481.29</strong>
+                                    </li>
+                                    <li class="investor-profit__li mt-4">
+                                        <span>Сумма оплаты:</span>
+                                        <strong class="purple">$8,481.29</strong>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        
-                    </div>
-                    <div class="trader__col col-lg-3 col-12">
-                        <div class="chat-link mt-lg-0 mt-4">
-                            <a href="#" class="chat-link__btn">
-                                <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65904 8.60987C8.13728 5.78741 12.4571 3.92667 14.6186 3.02765C20.7899 0.460774 22.0723 0.0148807 22.9081 0.000156987C23.0919 -0.00308132 23.503 0.0424773 23.7692 0.25852C23.994 0.440943 24.0559 0.687369 24.0855 0.860326C24.1151 1.03328 24.1519 1.42728 24.1226 1.73514C23.7882 5.249 22.3411 13.7762 21.605 17.7118C21.2935 19.3771 20.6801 19.9354 20.0863 19.9901C18.7958 20.1088 17.8159 19.1372 16.566 18.3179C14.6101 17.0358 13.5052 16.2377 11.6067 14.9867C9.41266 13.5408 10.835 12.7462 12.0853 11.4475C12.4126 11.1076 18.0985 5.93584 18.2085 5.46668C18.2223 5.40801 18.2351 5.18929 18.1051 5.0738C17.9752 4.95831 17.7834 4.9978 17.645 5.02921C17.4489 5.07373 14.3244 7.1389 8.27155 11.2247C7.38467 11.8337 6.58137 12.1304 5.86163 12.1149C5.06818 12.0977 3.54191 11.6663 2.40727 11.2974C1.0156 10.8451 -0.0904675 10.6059 0.00584654 9.83761C0.0560128 9.43745 0.607078 9.0282 1.65904 8.60987Z" fill="white"/>
-                                </svg>
-                                <span>ПЕРЕЙТИ В ЧАТ</span>
-                            </a>
-                        </div>
-                        <div class="add-aside mt-4">
+                        <div class="add-aside">
                             <div class="add-aside__bg">
                                 <picture>
                                     <source srcset="img/main/deposit.webp" type="image/webp">
@@ -946,280 +582,251 @@
                             </a>
                         </div>
                     </div>
-                    <div class="trader__col col-12">
-                        <div class="forecast pt-3">
-    <div class="forecast__body block">
-        <h2 class="forecast__title _min-title">
-            Прогнозы нейронной сети
-        </h2>
-        <div class="forecast__table mt-4 pt-2">
-            <div class="forecast__table--head">
-                <div class="forecast__table--name">
-                    <span>
-                        Дата сигнала
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Наименование
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Тип ордера
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Статус сделки
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Цена входа
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Цена выхода
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Стоп-лосс
-                    </span>
-                </div>
-                <div class="forecast__table--name">
-                    <span>
-                        Риск на сделку
-                    </span>
-                    <div class="forecast__table--name-prompt" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="По постоплате, при условии получения прибыли более 3% в неделю">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0Z" fill="#1F3A99"/>
-                            <path d="M6.28208 5.74365C5.9847 5.74365 5.74362 5.98473 5.74362 6.28211C5.74362 6.5795 5.9847 6.82058 6.28208 6.82058C6.38121 6.82058 6.46157 6.90093 6.46157 7.00006V10.5898C6.46157 10.8872 6.70265 11.1283 7.00003 11.1283C7.29742 11.1283 7.53849 10.8872 7.53849 10.5898V6.28211C7.53849 5.98473 7.29742 5.74365 7.00003 5.74365H6.28208Z" fill="white"/>
-                            <circle cx="7.00004" cy="3.41029" r="0.538462" fill="white"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="forecast__table--body mt-2">
-                <div class="forecast__table--item pt-2 pb-2">
-                    <div class="forecast__table--param">
-                        <span>
-                            15.07.22 12:48:01
-                        </span>
-                    </div>
-                    <div class="forecast__table--param">
-                        <div class="forecast__table--min-info">
-                            <div class="forecast__table--min-info-item">
-                                <img src="img/main/btc.svg" width="24" height="24" alt="">
-                            </div>
-                            <div class="forecast__table--min-info-item">
-                                <strong>Bitcoin</strong>
-                                <span class="gray">BTC</span>
+                    <div class="investor__col col-12">
+                        <div class="forecast pt-3" style="--grid-template: 13% 10% 11% 19% 12% 11% auto 110px; --grid-template-mob: 13% 13% 11% 19% 12% 11% auto 110px;">
+                            <div class="forecast__body block">
+                                <h2 class="forecast__title _min-title">
+                                    История сделок
+                                </h2>
+                                <div class="forecast__table mt-4 pt-2">
+                                    <div class="forecast__table--head">
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Наименование
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name _center">
+                                            <span>
+                                                Qty
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Цена входа
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Цена выхода
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Тип ордера
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Closed P&L
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Exit Type
+                                            </span>
+                                        </div>
+                                        <div class="forecast__table--name">
+                                            <span>
+                                                Дата сигнала
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="forecast__table--body mt-2">
+                                        <div class="forecast__table--item pt-2 pb-2">
+                                            <div class="forecast__table--param">
+                                                <div class="forecast__table--min-info">
+                                                    <div class="forecast__table--min-info-item">
+                                                        <img src="img/main/btc.svg" width="24" height="24" alt="">
+                                                    </div>
+                                                    <div class="forecast__table--min-info-item">
+                                                        <strong>Bitcoin</strong>
+                                                        <span class="gray">BTC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forecast__table--param _center">
+                                                <strong class="green">0.202</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="green">Close Short</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="red">$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>
+                                                    Trade
+                                                </strong>
+                                            </div>
+                                            <div class="forecast__table--param _right">
+                                                <strong>
+                                                    15.07.22 12:48:01
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="forecast__table--item pt-2 pb-2">
+                                            <div class="forecast__table--param">
+                                                <div class="forecast__table--min-info">
+                                                    <div class="forecast__table--min-info-item">
+                                                        <img src="img/main/eth.svg" width="24" height="24" alt="">
+                                                    </div>
+                                                    <div class="forecast__table--min-info-item">
+                                                        <strong>Etherium</strong>
+                                                        <span class="gray">ETH</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forecast__table--param _center">
+                                                <strong class="green">0.202</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="green">Close Short</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="red">$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>
+                                                    Trade
+                                                </strong>
+                                            </div>
+                                            <div class="forecast__table--param _right">
+                                                <strong>
+                                                    15.07.22 12:48:01
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="forecast__table--item pt-2 pb-2">
+                                            <div class="forecast__table--param">
+                                                <div class="forecast__table--min-info">
+                                                    <div class="forecast__table--min-info-item">
+                                                        <img src="img/main/bnb.svg" width="24" height="24" alt="">
+                                                    </div>
+                                                    <div class="forecast__table--min-info-item">
+                                                        <strong>BNB</strong>
+                                                        <span class="gray">BNB</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forecast__table--param _center">
+                                                <strong class="green">0.202</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="green">Close Short</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="red">$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>
+                                                    Trade
+                                                </strong>
+                                            </div>
+                                            <div class="forecast__table--param _right">
+                                                <strong>
+                                                    15.07.22 12:48:01
+                                                </strong>
+                                            </div>
+                                        </div>
+                                        <div class="forecast__table--item pt-2 pb-2">
+                                            <div class="forecast__table--param">
+                                                <div class="forecast__table--min-info">
+                                                    <div class="forecast__table--min-info-item">
+                                                        <img src="img/main/usd.svg" width="24" height="24" alt="">
+                                                    </div>
+                                                    <div class="forecast__table--min-info-item">
+                                                        <strong>USD Coin</strong>
+                                                        <span class="gray">USDC</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="forecast__table--param _center">
+                                                <strong class="green">0.202</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="green">Close Short</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong class="red">$19,481.29</strong>
+                                            </div>
+                                            <div class="forecast__table--param">
+                                                <strong>
+                                                    Trade
+                                                </strong>
+                                            </div>
+                                            <div class="forecast__table--param _right">
+                                                <strong>
+                                                    15.07.22 12:48:01
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forecast__pagination mt-3">
+                                    <a href="#" class="forecast__pagination--btn _prev me-1 _disabled" title="Назад">
+                                        <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.35297 5.0293C9.62911 5.0293 9.85297 4.80544 9.85297 4.5293C9.85297 4.25315 9.62911 4.0293 9.35297 4.0293V5.0293ZM0.528824 4.17574C0.333562 4.37101 0.333562 4.68759 0.528824 4.88285L3.7108 8.06483C3.90607 8.26009 4.22265 8.26009 4.41791 8.06483C4.61317 7.86957 4.61317 7.55299 4.41791 7.35772L1.58948 4.5293L4.41791 1.70087C4.61317 1.50561 4.61317 1.18903 4.41791 0.993763C4.22265 0.798501 3.90607 0.798501 3.7108 0.993763L0.528824 4.17574ZM9.35297 4.0293L0.882378 4.0293V5.0293L9.35297 5.0293V4.0293Z" fill="black"/>
+                                        </svg>
+                                    </a>
+                                    <div class="forecast__pagination--list">
+                                        <div class="forecast__pagination--item m-1">
+                                            <a href="#" class="forecast__pagination--link">
+                                                1
+                                            </a>
+                                        </div>
+                                        <div class="forecast__pagination--item m-1">
+                                            <a href="#" class="forecast__pagination--link _current">
+                                                2
+                                            </a>
+                                        </div>
+                                        <div class="forecast__pagination--item m-1">
+                                            <a href="#" class="forecast__pagination--link">
+                                                3
+                                            </a>
+                                        </div>
+                                        <div class="forecast__pagination--item m-1">
+                                            <a href="#" class="forecast__pagination--link">
+                                                ...
+                                            </a>
+                                        </div>
+                                        <div class="forecast__pagination--item m-1">
+                                            <a href="#" class="forecast__pagination--link">
+                                                10
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="forecast__pagination--btn _next ms-1" title="Вперёд">
+                                        <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.882324 5.0293C0.606182 5.0293 0.382324 4.80544 0.382324 4.5293C0.382324 4.25315 0.606182 4.0293 0.882324 4.0293L0.882324 5.0293ZM9.70647 4.17574C9.90173 4.37101 9.90173 4.68759 9.70647 4.88285L6.52449 8.06483C6.32922 8.26009 6.01264 8.26009 5.81738 8.06483C5.62212 7.86957 5.62212 7.55299 5.81738 7.35772L8.64581 4.5293L5.81738 1.70087C5.62212 1.50561 5.62212 1.18903 5.81738 0.993763C6.01264 0.798501 6.32922 0.798501 6.52449 0.993763L9.70647 4.17574ZM0.882324 4.0293L9.35291 4.0293V5.0293L0.882324 5.0293L0.882324 4.0293Z" fill="black"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="red">SHORT</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="yellow">В ожидании</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="gray">
-                            $19,481.29
-                        </strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            90%
-                        </strong>
-                    </div>
-                </div>
-                <div class="forecast__table--item pt-2 pb-2">
-                    <div class="forecast__table--param">
-                        <span>
-                            15.07.22 12:48:01
-                        </span>
-                    </div>
-                    <div class="forecast__table--param">
-                        <div class="forecast__table--min-info">
-                            <div class="forecast__table--min-info-item">
-                                <img src="img/main/eth.svg" width="24" height="24" alt="">
-                            </div>
-                            <div class="forecast__table--min-info-item">
-                                <strong>Etherium</strong>
-                                <span class="gray">ETH</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">LONG</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="red">Отменена</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$1,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$1,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            $1,481.29
-                        </strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            40%
-                        </strong>
-                    </div>
-                </div>
-                <div class="forecast__table--item pt-2 pb-2">
-                    <div class="forecast__table--param">
-                        <span>
-                            15.07.22 12:48:01
-                        </span>
-                    </div>
-                    <div class="forecast__table--param">
-                        <div class="forecast__table--min-info">
-                            <div class="forecast__table--min-info-item">
-                                <img src="img/main/bnb.svg" width="24" height="24" alt="">
-                            </div>
-                            <div class="forecast__table--min-info-item">
-                                <strong>BNB</strong>
-                                <span class="gray">BNB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">LONG</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="red">Закрыта по стопу, -15%</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            $19,481.29
-                        </strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            45%
-                        </strong>
-                    </div>
-                </div>
-                <div class="forecast__table--item pt-2 pb-2">
-                    <div class="forecast__table--param">
-                        <span>
-                            15.07.22 12:48:01
-                        </span>
-                    </div>
-                    <div class="forecast__table--param">
-                        <div class="forecast__table--min-info">
-                            <div class="forecast__table--min-info-item">
-                                <img src="img/main/usd.svg" width="24" height="24" alt="">
-                            </div>
-                            <div class="forecast__table--min-info-item">
-                                <strong>USD Coin</strong>
-                                <span class="gray">USDC</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">LONG</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">Закрыта по прибыль, +10%</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong>$19,481.29</strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="gray">
-                            $19,481.29
-                        </strong>
-                    </div>
-                    <div class="forecast__table--param">
-                        <strong class="green">
-                            10%
-                        </strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="forecast__pagination mt-3">
-            <a href="#" class="forecast__pagination--btn _prev me-1 _disabled" title="Назад">
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.35297 5.0293C9.62911 5.0293 9.85297 4.80544 9.85297 4.5293C9.85297 4.25315 9.62911 4.0293 9.35297 4.0293V5.0293ZM0.528824 4.17574C0.333562 4.37101 0.333562 4.68759 0.528824 4.88285L3.7108 8.06483C3.90607 8.26009 4.22265 8.26009 4.41791 8.06483C4.61317 7.86957 4.61317 7.55299 4.41791 7.35772L1.58948 4.5293L4.41791 1.70087C4.61317 1.50561 4.61317 1.18903 4.41791 0.993763C4.22265 0.798501 3.90607 0.798501 3.7108 0.993763L0.528824 4.17574ZM9.35297 4.0293L0.882378 4.0293V5.0293L9.35297 5.0293V4.0293Z" fill="black"/>
-                </svg>
-            </a>
-            <div class="forecast__pagination--list">
-                <div class="forecast__pagination--item m-1">
-                    <a href="#" class="forecast__pagination--link">
-                        1
-                    </a>
-                </div>
-                <div class="forecast__pagination--item m-1">
-                    <a href="#" class="forecast__pagination--link _current">
-                        2
-                    </a>
-                </div>
-                <div class="forecast__pagination--item m-1">
-                    <a href="#" class="forecast__pagination--link">
-                        3
-                    </a>
-                </div>
-                <div class="forecast__pagination--item m-1">
-                    <a href="#" class="forecast__pagination--link">
-                        ...
-                    </a>
-                </div>
-                <div class="forecast__pagination--item m-1">
-                    <a href="#" class="forecast__pagination--link">
-                        10
-                    </a>
-                </div>
-            </div>
-            <a href="#" class="forecast__pagination--btn _next ms-1" title="Вперёд">
-                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.882324 5.0293C0.606182 5.0293 0.382324 4.80544 0.382324 4.5293C0.382324 4.25315 0.606182 4.0293 0.882324 4.0293L0.882324 5.0293ZM9.70647 4.17574C9.90173 4.37101 9.90173 4.68759 9.70647 4.88285L6.52449 8.06483C6.32922 8.26009 6.01264 8.26009 5.81738 8.06483C5.62212 7.86957 5.62212 7.55299 5.81738 7.35772L8.64581 4.5293L5.81738 1.70087C5.62212 1.50561 5.62212 1.18903 5.81738 0.993763C6.01264 0.798501 6.32922 0.798501 6.52449 0.993763L9.70647 4.17574ZM0.882324 4.0293L9.35291 4.0293V5.0293L0.882324 5.0293L0.882324 4.0293Z" fill="black"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-</div>
                     </div>
                 </div>
             </div>

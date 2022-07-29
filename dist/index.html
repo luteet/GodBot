@@ -146,7 +146,321 @@
 </div>
 
 <script src="js/libs.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.js"></script>
+<script src="js/chartjs-plugin-crosshair.js"></script> -->
 <script src="js/main.min.js"></script>
+
+<script>
+
+    if(document.querySelector('#neural-network')) {
+        const data = {
+            labels: ['01.07.22', '02.07.22', '03.07.22', '04.07.22', '05.07.22', '06.07.22', '07.07.22'],
+            datasets: [
+            {
+                label: 'Line 1',
+                data: [11000, 14000, 13000, 12000, 12500, 11320, 15000],
+                backgroundColor: 'rgba(202, 57, 12, 0)',
+                borderColor: [
+                    'rgba(202, 57, 12, 1)'
+                ],
+                pointRadius: 0,
+                borderWidth: 3,
+                cubicInterpolationMode: 'monotone',
+                fill: true,
+                tension: 0.4
+                
+            },
+            {
+                label: 'Line 2',
+                data: [NaN, NaN, NaN, 15000, 13000, 14000, 10000],
+                backgroundColor: 'rgba(202, 57, 12, 0)',
+                borderColor: [
+                'rgba(27, 163, 73, 1)'
+                ],
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                borderWidth: 1,
+                cubicInterpolationMode: 'monotone',
+                fill: true,
+                tension: 0.4
+            },
+            {
+                label: 'Line 3',
+                data: [11000, 9000, 12000, 14000, 13500, 10500, 9000],
+                backgroundColor: 'rgba(27, 163, 73, 1)',
+                borderColor: [
+                    'rgba(27, 163, 73, 1)'
+                ],
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                borderWidth: 2,
+                cubicInterpolationMode: 'monotone',
+                fill: false,
+                tension: 0.4
+            },
+            {
+                label: 'Dashed',
+                data: [10000, 12000, 14000, 13000, 12000, 11000, 13000],
+                borderColor: [
+                    'rgba(202, 57, 12, 1)'
+                ],
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                borderWidth: 1,
+                borderDash: [5, 5],
+                cubicInterpolationMode: 'monotone',
+                fill: false,
+                tension: 0.4
+            }
+        ]
+    };
+        chartFunc({
+            id: '#neural-network',
+            htmlLegendId: 'htmlLegend',
+            legendContainer: 'legend-container',
+
+            data: data,
+            
+        })
+    }
+
+    if(document.querySelector('#scalping-chart')) {
+        const data = {
+            labels: ['01.07.22', '02.07.22', '03.07.22', '04.07.22', '05.07.22', '06.07.22', '07.07.22'],
+            datasets: [
+                {
+                    label: '1 Минута',
+                    data: [11000, 14000, 13000, 12000, 12500, 11320, 14000],
+                    backgroundColor: 'rgba(202, 57, 12, 1)',
+                    borderColor: [
+                        'rgba(202, 57, 12, 1)'
+                    ],
+                    pointRadius: 0,
+                    borderWidth: 1,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                    
+                },
+                {
+                    label: '5 Минут',
+                    data: [10000, 13000, 12000, 14000, 13500, 10500, 11000],
+                    backgroundColor: 'rgba(27, 163, 73, 1)',
+                    borderColor: [
+                    'rgba(27, 163, 73, 1)'
+                    ],
+                    pointRadius: 0,
+                    pointHoverRadius: 5,
+                    borderWidth: 1,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                }
+            ]
+        };
+        chartFunc({
+            id: '#scalping-chart',
+            htmlLegendId: 'scalpingLegend',
+            legendContainer: 'scalping-chart-legend',
+            data: data,
+        })
+    }
+
+    if(document.querySelector('#trading-chart')) {
+        
+        let ctx = document.querySelector('#trading-chart');
+        
+        const data = {
+            labels: ['01.07.22', '02.07.22', '03.07.22', '04.07.22', '05.07.22', '06.07.22', '07.07.22'],
+            datasets: [
+                {
+                    label: 'Линия',
+                    data: [11000, 14000, 13000, 12000, null, null, null],
+                    backgroundColor: '#07A60D',
+                    borderColor: [
+                        '#07A60D'
+                    ],
+
+                    pointRadius: 0,
+                    borderWidth: 3,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                    
+                },
+                {
+                    label: 'Линия',
+                    data: [null, null, null, 12000, 12500, 11320, 14000],
+                    backgroundColor: '#001FF0',
+                    borderColor: [
+                        '#001FF0'
+                    ],
+
+                    pointRadius: 0,
+                    borderWidth: 3,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                    
+                },
+                /* {
+                    label: '5 Минут',
+                    data: [10000, 13000, 12000, 14000, 13500, 10500, 11000],
+                    backgroundColor: 'rgba(27, 163, 73, 1)',
+                    borderColor: [
+                    'rgba(27, 163, 73, 1)'
+                    ],
+                    pointRadius: 0,
+                    pointHoverRadius: 5,
+                    borderWidth: 1,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                } */
+            ]
+        };
+        chartFunc({
+            id: '#trading-chart',
+            htmlLegendId: 'scalpingLegend',
+            legendContainer: 'scalping-chart-legend',
+            data: data,
+            
+        })
+    }
+
+    function repeatData() {
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        }
+
+        let dataResult = [], labelsResult = [];
+
+        for(let count = 0; count < 32; count++) {
+            labelsResult.push(count);
+        }
+
+        for(let count = 0; count < 32; count++) {
+            dataResult.push(randomInteger(10000, 15000));
+        }
+
+        return {
+            data: dataResult,
+            labels: labelsResult,
+        }
+    }
+
+    let result = repeatData().data;
+
+    if(document.querySelector('#deposit-chart')) {
+        
+        const data = {
+            labels: repeatData().labels,
+            datasets: [
+                {
+                    label: 'Line',
+                    data: result,
+                    backgroundColor: '#001FF0',
+                    borderColor: [
+                        '#001FF0'
+                    ],
+                    pointRadius: 0,
+                    borderWidth: 2,
+                    cubicInterpolationMode: 'monotone',
+                    fill: false,
+                    tension: 0.4
+                    
+                }
+            ]
+        };
+
+        chartFunc({
+            id: '#deposit-chart',
+            data: data,
+            hideLabels: true,
+            layout: {
+                padding: {
+                    left: 15,
+                }
+            },
+            /* y2: {
+                type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                position: 'right',
+                reverse: true,
+                ticks: {
+                
+                },
+                grid: {
+                    drawOnChartArea: false // only want the grid lines for one axis to show up
+                }
+            } */
+
+        })
+        
+    }
+    
+    if(document.querySelector('#profit-chart')) {
+        function randomInteger(min, max) {
+            let rand = min + Math.random() * (max + 1 - min);
+            return Math.floor(rand);
+        }
+
+        function repeatData() {
+            let dataResult = [], labelsResult = [];
+
+            for(let count = 0; count < 32; count++) {
+                labelsResult.push(count);
+            }
+
+            for(let count = 0; count < 32; count++) {
+                dataResult.push(randomInteger(1, 30));
+            }
+
+            return {
+                data: dataResult,
+                labels: labelsResult,
+            }
+        }
+
+        const data = {
+            labels: repeatData().labels,
+            datasets: [
+                {
+                label: 'Dataset 1',
+                data: [10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, 6, 3],
+                backgroundColor: '#449C62',
+                /* barThickness: 26, */
+                /* maxBarThickness: 29, */
+                borderRadius: 2,
+                categoryPercentage: 1,
+                borderSkipped: false,
+                },
+                {
+                label: 'Dataset 2',
+                data: [-5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, -1, -4],
+                backgroundColor: '#CA390C',
+                /* barThickness: 6,
+                maxBarThickness: 29, */
+                categoryPercentage: 1,
+                borderRadius: 2,
+                borderSkipped: false,
+                }
+            ]
+        };
+        barChart({
+            id: '#profit-chart',
+            data: data,
+            hideLabels: true,
+            layout: {
+                padding: {
+                    left: 15,
+                }
+            }
+        })
+        
+    }
+
+</script>
 
 </body>
 </html>

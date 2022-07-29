@@ -9,9 +9,11 @@
   "author": "Shroomark",
   "license": "ISC",
   "devDependencies": {
+    "apexcharts": "^3.35.4",
     "bootstrap": "^5.2.0",
     "browser-sync": "^2.26.13",
     "chart.js": "^3.8.2",
+    "chartjs-plugin-crosshair": "^1.2.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
