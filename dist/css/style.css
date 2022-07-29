@@ -8220,7 +8220,7 @@ body._dark-theme .tooltip-arrow::after {
 }
 
 .main {
-  /* overflow: hidden; */
+  overflow: hidden;
   flex: 1 0 auto;
 }
 
