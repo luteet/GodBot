@@ -273,7 +273,7 @@ function chartFunc(arg) {
   };
 
   const logo = new Image();
-  logo.src = '../img/chart-logo.svg';
+  logo.src = 'chart-logo.svg';
 
   const chartLogo = {
     id: 'custom_canvas_background_image',
