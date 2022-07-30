@@ -465,7 +465,6 @@ body {
 
     display: flex;
     justify-content: space-between;
-    background: var(--page-bg);
 
     &-title {
         position: absolute;
@@ -494,15 +493,8 @@ body {
 
 .chart-bar-item {
     flex: 1 1 auto;
-    /* width: 3.22580645%; */
-    /* margin: 0 1px; */
     height: 100%;
     position: relative;
-    
-
-    /* &:nth-child(-n + 15) {
-        transform: translate(-50%,0);
-    } */
 
     margin: 0 0.5px;
     @include _768 {
@@ -582,3 +574,5 @@ body {
         flex: 0 1 267px;
     }
 }
+
+

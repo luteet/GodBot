@@ -144,47 +144,105 @@ function chartFunc(arg) {
 
   const externalTooltipHandler = (context) => {
     const {chart, tooltip} = context;
+    
     const tooltipEl = getOrCreateTooltip(chart),
-          tooltipElBody = document.createElement('div'),
-          tooltipTitle = document.createElement('h4'),
-          tooltipDate = document.createElement('span'),
-          tooltipPrice = document.createElement('strong');
-    tooltipEl.style.setProperty('--line-height', 0 + 'px')
-    
+          tooltipElBody = document.createElement('div');
     tooltipElBody.classList.add('chart__tooltip--body');
-    tooltipTitle.classList.add('chart__tooltip--title');
-    tooltipDate.classList.add('chart__tooltip--date');
-    tooltipPrice.classList.add('chart__tooltip--price');
 
-    tooltipTitle.textContent = tooltip.dataPoints[0].dataset.label;
-    tooltipPrice.textContent = `Price: ${tooltip.dataPoints[0].formattedValue}`;
-    
-    if (tooltip.opacity === 0) {
-      tooltipEl.style.opacity = 0;
-      return;
-    }
-  
-    if (tooltip.body) {
-      const titleLines = tooltip.title || [];
-      const bodyLines = tooltip.body.map(b => b.lines);
+    if(!tooltip.dataPoints[0].dataset.addData) {
 
-      titleLines.forEach(title => {
-        tooltipDate.textContent = title;
-      });
+      const tooltipTitle = document.createElement('h4'),
+            tooltipDate = document.createElement('span'),
+            tooltipPrice = document.createElement('strong');
+
+      tooltipEl.style.setProperty('--line-height', 0 + 'px')
       
-      bodyLines.forEach((body, i) => {
-        const colors = tooltip.labelColors[i];
-      });
-  
+      tooltipTitle.classList.add('chart__tooltip--title');
+      tooltipDate.classList.add('chart__tooltip--date');
+      tooltipPrice.classList.add('chart__tooltip--price');
+
+      tooltipTitle.textContent = tooltip.dataPoints[0].dataset.label;
+      
+      let valueText = tooltip.dataPoints[0].dataset.valueText,
+          valueAfter = tooltip.dataPoints[0].dataset.valueAfter,
+          valueColor = tooltip.dataPoints[0].dataset.valueColor;
+
+      if(valueColor) tooltipPrice.style.color = valueColor;
+      tooltipPrice.textContent = `${(valueText) ? valueText : ''}${tooltip.dataPoints[0].formattedValue}${(valueAfter) ? valueAfter : ''}`;
+      
+      if (tooltip.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+      }
+    
+      if (tooltip.body) {
+        if(!tooltip.dataPoints[0].dataset.hideLabel) {
+
+        const titleLines = tooltip.title || [];
+
+          titleLines.forEach(title => {
+            tooltipDate.textContent = title;
+          });
+        }
+
+        const root = tooltipEl.querySelector('.chart__tooltip--body');
+    
+        while (root.firstChild) {
+          root.firstChild.remove();
+        }
+
+        root.appendChild(tooltipTitle);
+        if(!tooltip.dataPoints[0].dataset.hideLabel) {
+          root.appendChild(tooltipDate);
+        }
+        root.appendChild(tooltipPrice);
+        
+      }
+
+    } else {
+      
+      let label = `<span class="chart__tooltip--date">${tooltip.dataPoints[0].label}</span>`;
+      let result = label;
+      
+      let title = 
+      `<div class="chart__tooltip--param">${tooltip.dataPoints[0].dataset.label}: 
+        <span style="color: ${tooltip.dataPoints[0].dataset.valueColor};">
+          ${tooltip.dataPoints[0].formattedValue}
+        </span>
+      </div>`;
+      result += title
+
+      let addData = tooltip.dataPoints[0].dataset.addData, index = tooltip.dataPoints[0].dataIndex;
+
+      if (tooltip.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+      }
+
+      addData.forEach(data => {
+
+        let color = data.valueColor;
+        if(!color) color = ''; else color = ` style="color: ${color};"`
+
+        let after = data.valueAfter;
+        if(!after) after = '';
+
+        let value = 
+        `<div class="chart__tooltip--param">${data.label}: 
+          <span${color}>${data.data[index]}${after}</span$>
+        </div>`;
+        result+=value;
+
+      })
+
       const root = tooltipEl.querySelector('.chart__tooltip--body');
-  
+    
       while (root.firstChild) {
         root.firstChild.remove();
       }
 
-      root.appendChild(tooltipTitle);
-      root.appendChild(tooltipDate);
-      root.appendChild(tooltipPrice);
+      root.insertAdjacentHTML("beforeEnd", result);
+
     }
   
     const {offsetLeft: positionX, offsetTop: positionY} = chart.canvas;
@@ -198,6 +256,12 @@ function chartFunc(arg) {
       canvas.forEach(canvas => {        
         resultHeight += canvas.offsetHeight;
       })
+    }
+
+    if(tooltip.dataPoints[0].dataset.hideLabel) {
+      if(tooltipEl.querySelector('.chart__tooltip--date')) {
+        tooltipEl.querySelector('.chart__tooltip--date').remove();
+      }
     }
 
     tooltipEl.style.opacity = 1;
@@ -305,6 +369,17 @@ function chartFunc(arg) {
     }
   };
 
+  let interaction;
+  if(arg.multipleData) {
+    interaction = {
+      mode: 'nearest',
+      intersect: false,
+    }
+  } else {
+    interaction = {
+      intersect: false,
+    }
+  }
 
   chart[chart.length] = new Chart(ctx2D, {
     type: 'line',
@@ -314,11 +389,7 @@ function chartFunc(arg) {
 
       layout: arg.layout,
       
-      interaction: {
-        /* mode: 'index', */
-        intersect: false,
-      },
-      //stacked: false,
+      interaction: interaction,
 
       scales: {
           y: {
@@ -389,10 +460,6 @@ function chartFunc(arg) {
 
   })
 
-  /* chart[chart.length].afterEvent('mousemove', function (param) {
-    console.log(param)
-  }) */
-    
 }
 
 let chartBar = [];
@@ -717,7 +784,7 @@ body.addEventListener('click', function (event) {
 
           document.querySelectorAll('.tab-block').forEach(tabBlock => {
             tabBlock.classList.remove('_visible')
-            tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
+            //tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
             setTimeout(() => {
               tabBlock.classList.remove('_active');
             },200)
@@ -727,7 +794,7 @@ body.addEventListener('click', function (event) {
           
           setTimeout(() => {
             tabBlockActive.classList.add('_active');
-            tabWrapper.style.minHeight = 0 + 'px';
+            //tabWrapper.style.minHeight = 0 + 'px';
             setTimeout(() => {
               tabBlockActive.classList.add('_visible');
               traderNavCheck = true;

@@ -34,22 +34,22 @@
             /* display: flex;
             justify-content: space-between; */
             display: grid;
-            grid-template-columns: var(--grid-template-mob, 9.5% 11.5% 11% 19% 14% 13% auto 110px);
+            grid-template-columns: var(--grid-template-mob, 13% 12% 11% 15% 12% 12% auto 110px);
             //13% 13% 11% 19% 12% 11% auto 110px;
 
             @media(min-width: 1050px) {
-                grid-template-columns: var(--grid-template, 9.5% 11.5% 11% 19% 14% 13% auto 110px);
+                grid-template-columns: var(--grid-template, 13% 12% 11% 15% 12% 12% auto 110px);
                 //13% 13% 11% 19% 12% 11% auto 110px;
             }
 
-            min-width: var(--min-width, 900px);
+            min-width: var(--min-width, 1050px);
             /* overflow: hidden; */
         }
 
         // .forecast__table--name
 
         &--name {
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             line-height: 100%;
             color: var(--gray-light);
             white-space: nowrap;
@@ -92,7 +92,7 @@
         // .forecast__table--body
 
         &--body {
-            min-width: var(--min-width, 900px);
+            min-width: var(--min-width, 1050px);
 
             margin-top: 13px;
         }
@@ -103,15 +103,15 @@
             padding: 8px 0;
 
             display: grid;
-            grid-template-columns: var(--grid-template-mob, 9.5% 11.5% 11% 19% 14% 13% auto 110px);
+            grid-template-columns: var(--grid-template-mob, 13% 12% 11% 15% 12% 12% auto 110px);
             //13% 13% 11% 19% 12% 11% auto 110px;
 
             @media(min-width: 1050px) {
-                grid-template-columns: var(--grid-template, 9.5% 11.5% 11% 19% 14% 13% auto 110px);
+                grid-template-columns: var(--grid-template, 13% 12% 11% 15% 12% 12% auto 110px);
                 //13% 13% 11% 19% 12% 11% auto 110px;
             }
 
-            font-size: 0.75rem;
+            font-size: 0.875rem;
 
             &:not(:first-child) {
                 border-top: 1px dashed var(--light-2);
@@ -191,6 +191,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
+            
 
             width: 30px; height: 30px;
             @include _768 {
