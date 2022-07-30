@@ -18,7 +18,9 @@
 ._title {
     
     font-family: var(--title-font);
-    font-weight: 700;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color .2s ease-in-out;
 
     font-size: 1.125rem;
 
@@ -31,7 +33,11 @@
     }
     
     &._min {
+        font-size: 1rem;
 
+        @include _992 {
+            font-size: 1.125rem;
+        }
     }
 }
 

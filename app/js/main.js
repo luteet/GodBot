@@ -50,30 +50,46 @@ window.onresize = resize;
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let chart = [], chartTextColor;
+let chart = [], chartTextColor, pageBg;
+
+if(localStorage.getItem('godbot-pro-theme') == 'dark') {
+
+  body.classList.add('_dark-theme');
+
+  chartTextColor = '#9899A6';
+  pageBg = 'rgba(0, 0, 0, 0)';
+  
+} else {
+
+  body.classList.remove('_dark-theme');
+
+  chartTextColor = '#262628';
+  pageBg = '#FFFFFF';
+
+}
+
+let width, height, gradient;
+function getGradient(ctx, chartArea, startColor, endColor) {
+    const chartWidth = chartArea.right - chartArea.left;
+    const chartHeight = chartArea.bottom - chartArea.top;
+    if (!gradient || width !== chartWidth || height !== chartHeight) {
+
+        width = chartWidth;
+        height = chartHeight;
+        gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+        gradient.addColorStop(0, 'rgba(0,0,0,0)');
+        gradient.addColorStop(0.7, endColor);
+        gradient.addColorStop(1, startColor);
+
+    }
+
+    return gradient;
+}
 
 function chartFunc(arg) {
 
   let ctx = document.querySelector(arg.id);
   let ctx2D = ctx.getContext("2d");
-
-  let width, height, gradient;
-  function getGradient(ctx, chartArea) {
-    const chartWidth = chartArea.right - chartArea.left;
-    const chartHeight = chartArea.bottom - chartArea.top;
-    if (!gradient || width !== chartWidth || height !== chartHeight) {
-
-      width = chartWidth;
-      height = chartHeight;
-      gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-      gradient.addColorStop(0, 'rgb(255,0,0)');
-      gradient.addColorStop(0.5, 'rgb(0,0,255)');
-      gradient.addColorStop(0.5, 'rgb(255,0,0)');
-      gradient.addColorStop(1, 'rgb(255,0,0)');
-    }
-
-    return gradient;
-  }
 
   function repeatLabels(labels) {
     let result = [];
@@ -133,6 +149,7 @@ function chartFunc(arg) {
           tooltipTitle = document.createElement('h4'),
           tooltipDate = document.createElement('span'),
           tooltipPrice = document.createElement('strong');
+    tooltipEl.style.setProperty('--line-height', 0 + 'px')
     
     tooltipElBody.classList.add('chart__tooltip--body');
     tooltipTitle.classList.add('chart__tooltip--title');
@@ -181,15 +198,16 @@ function chartFunc(arg) {
       canvas.forEach(canvas => {        
         resultHeight += canvas.offsetHeight;
       })
-
     }
 
     tooltipEl.style.opacity = 1;
-    if(resultHeight) tooltipEl.style.setProperty('--line-height', (resultHeight - tooltip.caretY + 52) + 'px')
     tooltipEl.style.left = positionX + tooltip.caretX + 'px';
     tooltipEl.style.top = positionY + tooltip.caretY + 'px';
     tooltipEl.style.font = tooltip.options.bodyFont.string;
     tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
+    //tooltipEl.style.setProperty('--line-height', tooltipEl.style.setProperty('--line-height', chart.chartArea.height - tooltip.caretY + tooltipEl.offsetHeight + 70 + 'px') + 'px')
+    if(resultHeight) tooltipEl.style.setProperty('--line-height', chart.chartArea.height - tooltip.caretY + tooltipEl.offsetHeight + 70 + 'px')
+    
   };
 
   const getOrCreateLegendList = (chart, id) => {
@@ -254,6 +272,40 @@ function chartFunc(arg) {
     }
   };
 
+  const logo = new Image();
+  logo.src = '../img/chart-logo.svg';
+
+  const chartLogo = {
+    id: 'custom_canvas_background_image',
+    beforeDraw: (chart) => {
+      if (logo.complete) {
+        
+        const ctx = chart.ctx;
+        const {top, left, width, height} = chart.chartArea;
+        logo.width = width/2;
+        logo.height = logo.width/11;
+        const x = left + width / 2 - logo.width / 2;
+        const y = top + height / 2 - logo.height / 2;
+        ctx.drawImage(logo, x, y, logo.width, logo.height);
+      } else {
+        logo.onload = () => chart.draw();
+      }
+    }
+  };
+
+  const chartBgColor = {
+    id: 'custom_canvas_background_color',
+    beforeDraw: (chart) => {
+      const {ctx} = chart;
+      ctx.save();
+      ctx.globalCompositeOperation = 'destination-over';
+      ctx.fillStyle = pageBg;
+      ctx.fillRect(0, 0, chart.width, chart.height);
+      ctx.restore();
+    }
+  };
+
+
   chart[chart.length] = new Chart(ctx2D, {
     type: 'line',
     data: arg.data,
@@ -269,13 +321,16 @@ function chartFunc(arg) {
       scales: {
           y: {
             grid: {
-              display: false,
+              display: true,
+              color: '#AFCDEB',
+              borderDash: [5,5],
               borderColor: 'rgba(0,0,0,0)',
             },
             title: arg.yTitle,
             ticks: {
               color: chartTextColor,
               font: {
+                family: "'Montserrat', sans-serif",
                 size: 12,
               },
               callback: function (value) {
@@ -290,12 +345,15 @@ function chartFunc(arg) {
           
           x: {
             ticks: {
+              color: chartTextColor,
               font: {
+                family: "'Montserrat', sans-serif",
                 size: (arg.hideLabels) ? 0 : 12,
               },
             },
             grid: {
               display: false,
+              
               borderColor: 'rgba(0,0,0,0)',
             },
             
@@ -307,15 +365,17 @@ function chartFunc(arg) {
           htmlLegend: {
               containerID: arg.legendContainer,
           },
+
           tooltip: {
             enabled: false,
             position: 'nearest',
-            
             external: externalTooltipHandler
           },
+
           legend: {
               display: (arg.legend) ? arg.legend : false,
           },
+
           labels: {
             display: false,
             usePointStyle: true,
@@ -323,9 +383,13 @@ function chartFunc(arg) {
           
       }
     },
-    plugins: (arg.legendContainer && arg.htmlLegendId) ? [htmlLegendPlugin] : false,
+    plugins: (arg.legendContainer && arg.htmlLegendId) ? [htmlLegendPlugin, chartLogo, chartBgColor] : [chartLogo, chartBgColor],
 
   })
+
+  /* chart[chart.length].afterEvent('mousemove', function (param) {
+    console.log(param)
+  }) */
     
 }
 
@@ -380,11 +444,14 @@ function barChart(arg) {
             },
           },
           y: {
-            display: false,
+            /* display: false, */
             stacked: true,
             grid: {
               display: false,
               borderColor: 'rgba(0,0,0,0)',
+            },
+            ticks: {
+              color: 'rgba(0,0,0,0)'
             },
             /* ticks: {
               color: chartTextColor,
@@ -405,6 +472,73 @@ function barChart(arg) {
     })
 }
 
+function counstructBarChart(arg) {
+
+  const block = document.querySelector(arg.id),
+        chartId = arg.chartId;
+
+  if(block) {
+
+    let widthChart, paddingLeft, lengthLabels;
+    chart.forEach(chart => {
+      if(chart.canvas.id == chartId) {
+
+        lengthLabels = chart.data.labels.length;
+        widthChart = chart.chartArea.width + chart.chartArea.left;
+        paddingLeft = chart.chartArea.left;
+
+      }
+    })
+
+    let data = arg.data, items = [], wrapper = document.createElement('div');
+    wrapper.classList.add('chart-bar');
+
+    for(let index = 0; index < data.length; index++) {
+      items.push(`
+      <div class="chart-bar-item">
+        <div class="chart-bar-item-plus">
+            <div class="chart-bar-item-value" style="height: ${data[index][0]}%;"></div>
+        </div>
+        <div class="chart-bar-item-minus">
+            <div class="chart-bar-item-value" style="height: ${data[index][1]}%"></div>
+        </div>
+      </div>`)
+    }
+
+    items.forEach(item => {
+      wrapper.insertAdjacentHTML("beforeEnd", item);
+    })
+
+    block.append(wrapper);
+
+    let item = document.querySelectorAll('.chart-bar-item');
+    
+    wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
+    wrapper.style.paddingLeft = paddingLeft + 'px';
+    wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
+
+    window.onresize = function() {
+      chart.forEach(chart => {
+        if(chart.canvas.id == chartId) {
+          widthChart = chart.chartArea.width + chart.chartArea.left,
+          paddingLeft = chart.chartArea.left;
+        }
+      })
+
+      wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
+      wrapper.style.paddingLeft = paddingLeft + 'px';
+      wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
+    }
+
+    if(arg.title) {
+      block.insertAdjacentHTML("afterbegin", `<div class="chart-bar-title">${arg.title}</div>`);
+      
+    }
+
+  }
+
+}
+
 // =-=-=-=-=-=-=-=-=-=-=-=- </chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let thisTarget, traderNavCheck = true;
@@ -417,7 +551,6 @@ body.addEventListener('click', function (event) {
           elem.classList.toggle('_active')
       })
     }
-
 
 
     let submitBtn = thisTarget.closest('.login__form--submit');
@@ -461,7 +594,15 @@ body.addEventListener('click', function (event) {
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
-        //if(chart) chart.update();
+        pageBg = 'rgba(0, 0, 0, 0)';
+
+        if(chart.length)  {
+          chart.forEach(chart => {
+            chart.options.scales.y.ticks.color = chartTextColor;
+            chart.options.scales.x.ticks.color = chartTextColor;
+            chart.update();
+          })
+        }
         
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
@@ -469,9 +610,18 @@ body.addEventListener('click', function (event) {
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';
-        //if(chart) chart.update();
+        pageBg = '#FFFFFF';
+
+        if(chart.length)  {
+          chart.forEach(chart => {
+            chart.options.scales.y.ticks.color = chartTextColor;
+            chart.options.scales.x.ticks.color = chartTextColor;
+            chart.update();
+          })
+        }
 
       }
+
     }
 
 
@@ -541,13 +691,13 @@ body.addEventListener('click', function (event) {
       event.preventDefault();
 
       if(traderNavCheck) {
-        traderNavCheck=!traderNavCheck;
 
         let parent = traderTabNavLink.parentElement,
             tabWrapper = document.querySelector('.tab-wrapper'),
             idBlock = traderTabNavLink.getAttribute('href');
 
-        if(!parent.classList.contains('_active')) {
+        if(!parent.classList.contains('_active') && traderNavCheck) {
+          traderNavCheck = false;
       
           document.querySelectorAll('.trader__tab-nav--item').forEach(traderTabItem => {
             traderTabItem.classList.remove('_prev');
@@ -567,8 +717,7 @@ body.addEventListener('click', function (event) {
             tabBlock.classList.remove('_visible')
             tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
             setTimeout(() => {
-              tabBlock.classList.remove('_active')
-              traderNavCheck=!traderNavCheck;
+              tabBlock.classList.remove('_active');
             },200)
           })
 
@@ -579,16 +728,18 @@ body.addEventListener('click', function (event) {
             tabWrapper.style.minHeight = 0 + 'px';
             setTimeout(() => {
               tabBlockActive.classList.add('_visible');
+              traderNavCheck = true;
             },100)
           },200)
           
         }
+
       }
       
     }
 })
 
-function createCustomPrompt(elem) {
+/* function createCustomPrompt(elem) {
   let prompt = document.createElement('div'),
       promptBody = document.createElement('div'),
       text = elem.dataset.сustomPromptText,
@@ -613,12 +764,12 @@ function createCustomPrompt(elem) {
     prompt.classList.add('_visible');
   },100)
 
-}
+} */
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-const customPrompt = document.querySelectorAll('.сustom-prompt');
+/* const customPrompt = document.querySelectorAll('.сustom-prompt');
 customPrompt.forEach(customPrompt => {
 
   customPrompt.addEventListener('mouseover', function(event) {
@@ -656,7 +807,7 @@ customPrompt.forEach(customPrompt => {
     
   });
 
-})
+}) */
 
 
 let verificationInputs = document.querySelectorAll('.login__verification--input');

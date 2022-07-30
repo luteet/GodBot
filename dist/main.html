@@ -22,8 +22,8 @@
             <nav class="header__nav">
                 <div class="header__nav--wrapper">
                     <div class="header__nav--body">
-                        <div class="header__nav--header ps-3 ps-lg-1 pt-2 pt-lg-0 pe-lg-0 pe-3">
-                            <div class="header__theme me-2 mt-2">
+                        <div class="header__nav--header ps-3 ps-lg-1 pt-2 pt-lg-0">
+                            <div class="header__theme mt-2">
                                 <button type="button" class="header__theme--switch" title="Изменить тему сайта"></button>
                                 <div class="header__theme--icon">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__theme--icon-light">
@@ -56,7 +56,7 @@
                                     }
                                 </script>
                             </div>
-                            <div class="header__select _visible-on-mob me-2 mt-2">
+                            <div class="header__select _visible-on-mob ms-2 me-2 mt-2">
                                 <div class="header__select--body">
                                     <div class="header__select--selected">
                                         <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="header__list m-0 p-0 mt-3 mt-lg-2">
+                        <ul class="header__list m-0 p-0 mt-3 mt-lg-2 ms-lg-2 _visible-on-xxl _show-on-mob">
                             <li class="header__list--item me-lg-4">
                                 <a href="#" class="header__list--link p-3 p-lg-0">
                                     <div class="btn-icon">
@@ -101,7 +101,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="header__list--item me-lg-2">
+                            <li class="header__list--item me-lg-2 ms-lg-2">
                                 <a href="#" class="header__list--link p-3 p-lg-0">
                                     <div class="btn-icon">
                                         <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
@@ -240,7 +240,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="header__buy me-2 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
+                        <div class="header__buy me-2 pe-lg-1 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
                             <a href="#" class="header__buy--btn">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.1111 11L13.1945 11.5417C13.8925 11.8907 14.3333 12.604 14.3333 13.3843C14.3333 14.5221 13.411 15.4444 12.2732 15.4444H12.1111M12.1111 11L13.1945 10.4583C13.8925 10.1093 14.3333 9.39598 14.3333 8.61567C14.3333 7.4779 13.411 6.55556 12.2732 6.55556H12.1111M12.1111 11H8.77778M8.77778 6.55556V11M8.77778 6.55556H12.1111M8.77778 6.55556V4.88889M8.77778 6.55556H7.11111M8.77778 11V15.4444M8.77778 15.4444V17.1111M8.77778 15.4444H12.1111M8.77778 15.4444H7.11111M12.1111 6.55556V4.88889M12.1111 15.4444V17.1111M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -250,7 +250,7 @@
                                 </span>    
                             </a>
                         </div>
-                        <div class="header__select _hide-on-mob me-2 mt-2">
+                        <div class="header__select _hide-on-mob me-2 pe-1 mt-2">
                             <div class="header__select--body">
                                 <div class="header__select--selected">
                                     <div class="btn-icon">
@@ -277,6 +277,26 @@
                                 </div>
                                 <div class="header__select--block header__help pt-3 pb-3">
                                     <ul class="header__help--list">
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.9198 13.6998C19.5995 13.4937 20.397 13.375 21.25 13.375C23.7353 13.375 25.75 14.3824 25.75 15.625C25.75 16.8676 23.7353 17.875 21.25 17.875C20.397 17.875 19.5995 17.7563 18.9198 17.5502M18.9198 13.6998C17.7005 12.8235 15.6717 12.25 13.375 12.25C11.0783 12.25 9.04949 12.8235 7.83022 13.6998M18.9198 13.6998C19.6796 14.2458 20.125 14.9094 20.125 15.625C20.125 16.3406 19.6796 17.0042 18.9198 17.5502M18.9198 17.5502C17.7005 18.4265 15.6717 19 13.375 19C11.0783 19 9.04949 18.4265 7.83022 17.5502M7.83022 13.6998C7.15053 13.4937 6.35298 13.375 5.5 13.375C3.01472 13.375 1 14.3824 1 15.625C1 16.8676 3.01472 17.875 5.5 17.875C6.35298 17.875 7.15053 17.7563 7.83022 17.5502M7.83022 13.6998C7.07043 14.2458 6.625 14.9094 6.625 15.625C6.625 16.3406 7.07043 17.0042 7.83022 17.5502M16.75 4.375C16.75 6.23896 15.239 7.75 13.375 7.75C11.511 7.75 10 6.23896 10 4.375C10 2.51104 11.511 1 13.375 1C15.239 1 16.75 2.51104 16.75 4.375ZM23.5 7.75C23.5 8.99264 22.4926 10 21.25 10C20.0074 10 19 8.99264 19 7.75C19 6.50736 20.0074 5.5 21.25 5.5C22.4926 5.5 23.5 6.50736 23.5 7.75ZM7.75 7.75C7.75 8.99264 6.74264 10 5.5 10C4.25736 10 3.25 8.99264 3.25 7.75C3.25 6.50736 4.25736 5.5 5.5 5.5C6.74264 5.5 7.75 6.50736 7.75 7.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Партнерская программа
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 17V2.28571L7.42857 8.71429L12.5714 1L17.7143 8.71429L24.1429 2.28571V17C24.1429 18.1046 23.2474 19 22.1429 19H3C1.89543 19 1 18.1046 1 17Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Обучающий центр
+                                                </span>
+                                            </a>
+                                        </li>
                                         <li class="header__help--li">
                                             <a href="#" class="header__help--link">
                                                 <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -395,7 +415,7 @@
                                 </ul> -->
                             </div>
                         </div>
-                        <div class="header__select _hide-on-mob me-2 mt-2">
+                        <div class="header__select _hide-on-mob me-2 pe-2 mt-2">
                             <div class="header__select--body">
                                 <div class="header__select--selected">
                                     <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
@@ -419,7 +439,7 @@
                         </div>
                         <div class="header__profile ms-3 ms-lg-1 mt-2 me-lg-0 me-3">
                             <div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>
-                            <a href="#" class="header__profile--settings-open _hide-on-mob">
+                            <a href="#" class="header__profile--settings-open _hide-on-mob ms-4 me-1">
                                 <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.960938 2C0.960938 1.0335 1.74444 0.25 2.71094 0.25C3.67744 0.25 4.46094 1.0335 4.46094 2C4.46094 2.9665 3.67744 3.75 2.71094 3.75C1.74444 3.75 0.960938 2.9665 0.960938 2ZM0.960938 8C0.960938 7.0335 1.74444 6.25 2.71094 6.25C3.67744 6.25 4.46094 7.0335 4.46094 8C4.46094 8.9665 3.67744 9.75 2.71094 9.75C1.74444 9.75 0.960938 8.9665 0.960938 8ZM0.960938 14C0.960938 13.0335 1.74444 12.25 2.71094 12.25C3.67744 12.25 4.46094 13.0335 4.46094 14C4.46094 14.9665 3.67744 15.75 2.71094 15.75C1.74444 15.75 0.960938 14.9665 0.960938 14Z" fill="#262628"/>
                                 </svg>
@@ -471,134 +491,147 @@
         
 
     <main class="main">
-        <section class="main-page pb-5">
+        <section class="main-page pt-xl-3 pt-5 pb-5">
             <div class="main-page__container _container _super-large">
-                <div class="main-page__body row">
-                    <div class="statistic col-12">
-                        <div class="statistic__body pt-5 pt-lg-3 pb-3 mb-3">
-                            <form action="#" class="statistic__sort mt-3">
-                                <h2 class="statistic__sort--title _min-title m-0 pe-3 pe-lg-4">
+                <div class="main-page__body _row">
+                    <div class="statistic _col-full">
+                        <div class="statistic__body">
+                            <div class="statistic__col">
+                                <h2 class="statistic__sort--title _min-title m-0 pe-3 pe-lg-3 mb-xl-0 mb-2">
                                     Ваша статистика за:
                                 </h2>
-                                <ul class="statistic__sort--list m-0 p-0 pt-md-0 pt-2">
-                                    <li class="statistic__sort--item mt-1 mb-1 me-2">
-                                        <input type="radio" name="sort" value="1-week" id="radio-sort-1" class="statistic__sort--input">
-                                        <label for="radio-sort-1" class="statistic__sort--btn">
-                                            1 неделя
-                                        </label>
-                                    </li>
-                                    <li class="statistic__sort--item mt-1 mb-1 me-2">
-                                        <input type="radio" name="sort" value="1-month" id="radio-sort-2" class="statistic__sort--input">
-                                        <label for="radio-sort-2" class="statistic__sort--btn">
-                                            1 месяц
-                                        </label>
-                                    </li>
-                                    <li class="statistic__sort--item mt-1 mb-1">
-                                        <input type="radio" name="sort" value="all" id="radio-sort-3" checked class="statistic__sort--input">
-                                        <label for="radio-sort-3" class="statistic__sort--btn">
-                                            Все время
-                                        </label>
-                                    </li>
-                                </ul>
-                            </form>
-                            <ul class="statistic__list row m-0 mt-lg-0 p-0">
-                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
-                                    <div class="statistic__elem--body">
-                                        <span class="statistic__elem--name me-3">
-                                            Заработок
-                                            с нами
-                                        </span>
-                                        <strong class="statistic__elem--value ms-2">
-                                            85.05%
-                                        </strong>
-                                    </div>
-                                </li>
-                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
-                                    <div class="statistic__elem--body">
-                                        <span class="statistic__elem--name me-3">
-                                            Количество сигналов
-                                        </span>
-                                        <strong class="statistic__elem--value ms-2">
-                                            14 789
-                                        </strong>
-                                    </div>
-                                </li>
-                                <li class="statistic__elem col-12 col-md-6 col-lg-4 mt-3">
-                                    <div class="statistic__elem--body">
-                                        <span class="statistic__elem--name me-3">
-                                            Проходимость сигналов
-                                        </span>
-                                        <strong class="statistic__elem--value ms-2">
-                                            98.5%
-                                        </strong>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="main-page__col col-12 col-lg-9">
-                        <div class="chart p-md-4 pe-md-4 pe-2 pb-md-4 pd-4 block">
-                            <div class="chart__wrapper">
-                                <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
-                                    <form action="#" class="chart__sort">
-                                        <h4 class="chart__sort--title _min-title me-3">
-                                            График нейронной сети за:
-                                        </h4>
-                                        <div class="chart__sort--item">
-                                            <input checked type="radio" name="chart-sort" value="1-minute" id="chart-sort-1" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-1" class="chart__sort--label">
-                                                1 минута
-                                            </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input disabled type="radio" name="chart-sort" value="1-hour" id="chart-sort-2" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
-                                                1 час
-                                            </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input disabled type="radio" name="chart-sort" value="1-week" id="chart-sort-3" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
+                            </div>
+                            <div class="statistic__col pe-lg-3">
+                                <form action="#" class="statistic__sort">
+                                    <ul class="statistic__sort--list m-0 p-0 pt-md-0 pt-2">
+                                        <li class="statistic__sort--item mt-1 mb-1 me-2">
+                                            <input type="radio" name="sort" value="1-week" id="radio-sort-1" class="statistic__sort--input">
+                                            <label for="radio-sort-1" class="statistic__sort--btn">
                                                 1 неделя
                                             </label>
-                                        </div>
-                                        <div class="chart__sort--item">
-                                            <input disabled type="radio" name="chart-sort" value="1-month" id="chart-sort-4" class="chart__sort--input">
-                                            <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                        </li>
+                                        <li class="statistic__sort--item mt-1 mb-1 me-2">
+                                            <input type="radio" name="sort" value="1-month" id="radio-sort-2" class="statistic__sort--input">
+                                            <label for="radio-sort-2" class="statistic__sort--btn">
                                                 1 месяц
                                             </label>
+                                        </li>
+                                        <li class="statistic__sort--item mt-1 mb-1">
+                                            <input type="radio" name="sort" value="all" id="radio-sort-3" checked class="statistic__sort--input">
+                                            <label for="radio-sort-3" class="statistic__sort--btn">
+                                                Все время
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <div class="statistic__col pt-xl-0 pt-3">
+                                <ul class="statistic__list p-0">
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Заработок
+                                                с нами
+                                            </span>
+                                            <strong class="statistic__elem--value ms-2">
+                                                85.05%
+                                            </strong>
                                         </div>
-                                    </form>
-                                    <a href="#" class="chart__download me-3">
-                                        <div class="btn-icon me-2">
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="url(#paint0_linear_139_810)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <defs>
-                                                    <linearGradient id="paint0_linear_139_810" x1="1" y1="22.0158" x2="13.8165" y2="23.002" gradientUnits="userSpaceOnUse">
-                                                        <stop stop-color="#1F3A99"/>
-                                                        <stop offset="1" stop-color="#88019E"/>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                            <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
-                                                <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Количество сигналов
+                                            </span>
+                                            <strong class="statistic__elem--value ms-2">
+                                                14 789
+                                            </strong>
                                         </div>
-                                        <span>
-                                            CКАЧАТЬ
-                                        </span>
-                                    </a>
-                                    <div class="chart__settings">
-                                        <a href="#" class="chart__settings--link" title="Настройки">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.3117C12 1.58727 11.4127 1 10.6883 1H9.3117C8.58727 1 8 1.58727 8 2.3117V2.56876C8 2.99658 7.71288 3.36825 7.31776 3.53229V3.53229C6.9225 3.6964 6.46228 3.63386 6.15966 3.33123L5.883 3.05458C5.30058 2.47215 4.35628 2.47215 3.77385 3.05458L3.05457 3.77386C2.47215 4.35628 2.47215 5.30058 3.05457 5.883L3.33123 6.15966C3.63386 6.46229 3.6964 6.9225 3.53229 7.31776V7.31776C3.36825 7.71288 2.99658 8 2.56877 8H2.3117C1.58727 8 1 8.58727 1 9.3117V10.6883C1 11.4127 1.58727 12 2.3117 12H2.71977C3.05799 12 3.35266 12.2259 3.47549 12.5411V12.5411C3.59352 12.8439 3.53726 13.1906 3.30742 13.4205L2.98904 13.7389C2.4428 14.2851 2.4428 15.1707 2.98904 15.717L3.95388 16.6818C4.43687 17.1648 5.21995 17.1648 5.70294 16.6818L5.74745 16.6373C6.12347 16.2613 6.69986 16.1978 7.18671 16.4117V16.4117C7.65509 16.6175 8 17.0609 8 17.5725V17.6883C8 18.4127 8.58727 19 9.3117 19H10.6883C11.4127 19 12 18.4127 12 17.6883V17.4312C12 17.0034 12.2871 16.6317 12.6822 16.4677V16.4677C13.0775 16.3036 13.5377 16.3661 13.8403 16.6688L13.9274 16.7559C14.3695 17.198 15.0863 17.198 15.5284 16.7559L16.7559 15.5284C17.198 15.0863 17.198 14.3695 16.7559 13.9274L16.6688 13.8403C16.3661 13.5377 16.3036 13.0775 16.4677 12.6822V12.6822C16.6317 12.2871 17.0034 12 17.4312 12H17.6883C18.4127 12 19 11.4127 19 10.6883V9.3117C19 8.58727 18.4127 8 17.6883 8H17.5725C17.0609 8 16.6175 7.65509 16.4117 7.18671V7.18671C16.1978 6.69986 16.2613 6.12347 16.6373 5.74745L16.6818 5.70295C17.1648 5.21996 17.1648 4.43689 16.6818 3.95391L15.7169 2.98904C15.1707 2.44281 14.2851 2.44281 13.7389 2.98904L13.4205 3.30742C13.1906 3.53726 12.8439 3.59352 12.5411 3.47549V3.47549C12.2259 3.35266 12 3.05799 12 2.71976V2.3117ZM10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-                                            </svg>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Проходимость сигналов
+                                            </span>
+                                            <strong class="statistic__elem--value ms-2">
+                                                98.5%
+                                            </strong>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-page__col _col-large">
+                        <div class="chart p-md-4 pt-md-1 pe-2 pd-4 block">
+                            <div class="chart__wrapper mb-2">
+                                <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
+                                    <div class="chart__header--col">
+                                        <h4 class="chart__sort--title _min-title me-3 mb-3 mt-3">
+                                            График нейронной сети за:
+                                        </h4>
+                                    </div>
+                                    <div class="chart__header--col _auto">
+                                        <form action="#" class="chart__sort">
+                                            <div class="chart__sort--item">
+                                                <input checked type="radio" name="chart-sort" value="1-minute" id="chart-sort-1" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-1" class="chart__sort--label">
+                                                    1 минута
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-hour" id="chart-sort-2" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 час
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-week" id="chart-sort-3" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 неделя
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-month" id="chart-sort-4" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 месяц
+                                                </label>
+                                            </div>
+                                        </form>
+                                        <div class="chart__update _min me-3 mb-1 mt-1">
+                                            Обновление графика через 15 мин 37 сек
+                                        </div>
+                                        <a href="#" class="chart__download me-2 mt-2 mb-2">
+                                            <div class="btn-icon me-2">
+                                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
+                                                    <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="url(#paint0_linear_139_810)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <defs>
+                                                        <linearGradient id="paint0_linear_139_810" x1="1" y1="22.0158" x2="13.8165" y2="23.002" gradientUnits="userSpaceOnUse">
+                                                            <stop stop-color="#1F3A99"/>
+                                                            <stop offset="1" stop-color="#88019E"/>
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+                                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
+                                                    <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <span>
+                                                CКАЧАТЬ
+                                            </span>
                                         </a>
+                                        <div class="chart__settings mt-2 mb-2">
+                                            <a href="#" class="chart__settings--link" title="Настройки">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.3117C12 1.58727 11.4127 1 10.6883 1H9.3117C8.58727 1 8 1.58727 8 2.3117V2.56876C8 2.99658 7.71288 3.36825 7.31776 3.53229V3.53229C6.9225 3.6964 6.46228 3.63386 6.15966 3.33123L5.883 3.05458C5.30058 2.47215 4.35628 2.47215 3.77385 3.05458L3.05457 3.77386C2.47215 4.35628 2.47215 5.30058 3.05457 5.883L3.33123 6.15966C3.63386 6.46229 3.6964 6.9225 3.53229 7.31776V7.31776C3.36825 7.71288 2.99658 8 2.56877 8H2.3117C1.58727 8 1 8.58727 1 9.3117V10.6883C1 11.4127 1.58727 12 2.3117 12H2.71977C3.05799 12 3.35266 12.2259 3.47549 12.5411V12.5411C3.59352 12.8439 3.53726 13.1906 3.30742 13.4205L2.98904 13.7389C2.4428 14.2851 2.4428 15.1707 2.98904 15.717L3.95388 16.6818C4.43687 17.1648 5.21995 17.1648 5.70294 16.6818L5.74745 16.6373C6.12347 16.2613 6.69986 16.1978 7.18671 16.4117V16.4117C7.65509 16.6175 8 17.0609 8 17.5725V17.6883C8 18.4127 8.58727 19 9.3117 19H10.6883C11.4127 19 12 18.4127 12 17.6883V17.4312C12 17.0034 12.2871 16.6317 12.6822 16.4677V16.4677C13.0775 16.3036 13.5377 16.3661 13.8403 16.6688L13.9274 16.7559C14.3695 17.198 15.0863 17.198 15.5284 16.7559L16.7559 15.5284C17.198 15.0863 17.198 14.3695 16.7559 13.9274L16.6688 13.8403C16.3661 13.5377 16.3036 13.0775 16.4677 12.6822V12.6822C16.6317 12.2871 17.0034 12 17.4312 12H17.6883C18.4127 12 19 11.4127 19 10.6883V9.3117C19 8.58727 18.4127 8 17.6883 8H17.5725C17.0609 8 16.6175 7.65509 16.4117 7.18671V7.18671C16.1978 6.69986 16.2613 6.12347 16.6373 5.74745L16.6818 5.70295C17.1648 5.21996 17.1648 4.43689 16.6818 3.95391L15.7169 2.98904C15.1707 2.44281 14.2851 2.44281 13.7389 2.98904L13.4205 3.30742C13.1906 3.53726 12.8439 3.59352 12.5411 3.47549V3.47549C12.2259 3.35266 12 3.05799 12 2.71976V2.3117ZM10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="chart__elem mt-3">
                                     <div class="chart__elem--wrapper mb-md-0 mb-4 chart-lines">
-                                        <canvas width="500" class="chart__elem--canvas chart-elem" id="neural-network"></canvas>
+                                        <canvas height="366" class="chart__elem--canvas chart-elem" id="neural-network"></canvas>
                                     </div>
                                     <!-- <div class="chart__labels pt-3">
                                         <ul class="chart__labels--list">
@@ -626,20 +659,6 @@
                                         </ul>
                                     </div> -->
                                 </div>
-                                <!-- <div class="chart__tooltip" >
-                                    <div class="chart__tooltip--body">
-                                        <h4 class="chart__tooltip--title">
-                                            Sell ratio
-                                        </h4>
-                                        <span class="chart__tooltip--date">4.07.22</span>
-                                        <strong class="chart__tooltip--price">
-                                            Price: 21.8k
-                                        </strong>
-                                        <strong class="chart__tooltip--ratio">
-                                            Loshara ratio: 52
-                                        </strong>
-                                    </div>
-                                </div> -->
                             </div>
                             <div class="chart__settings-popup">
                                 <div class="chart__settings-popup--body">
@@ -660,26 +679,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main-page__col col-12 col-lg-3">
-                        <div class="add-aside mt-lg-0 mt-3">
-                            <div class="add-aside__bg">
-                                <picture>
-                                    <source srcset="img/main/deposit.webp" type="image/webp">
-                                    <img src="img/main/deposit.png" alt="" class="add-aside__bg--img">
-                                </picture>
+                    <div class="main-page__col _col-min">
+                        <div class="add-aside mt-lg-0 mt-4">
+                            <div class="add-aside__body p-md-3 p-3">
+                                <h2 class="add-aside__title _title _min">
+                                    Deposit Blast-Off: Summer Edition
+                                </h2>
+                                <div class="add-aside__text">
+                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                </div>
+                                <div class="add-aside__image">
+                                    <picture>
+                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                    </picture>
+                                </div>
+                                <a href="#" class="add-aside__link _btn">
+                                    Зарегестрироваться
+                                </a>
                             </div>
-                            <a href="#" class="add-aside__link _btn mb-4">
-                                Зарегестрироваться
-                            </a>
                         </div>
                     </div>
-                    <div class="main-page__col col-12">
-                        <div class="forecast pt-3">
+                    <div class="main-page__col _col-full">
+                        <div class="forecast pt-3 mt-1">
     <div class="forecast__body block">
         <h2 class="forecast__title _min-title">
             Прогнозы нейронной сети
         </h2>
-        <div class="forecast__table mt-4 pt-2">
+        <div class="forecast__table mt-4 pt-3">
             <div class="forecast__table--head">
                 <div class="forecast__table--name">
                     <span>
@@ -731,8 +758,8 @@
                     </div>
                 </div>
             </div>
-            <div class="forecast__table--body mt-2">
-                <div class="forecast__table--item pt-2 pb-2">
+            <div class="forecast__table--body">
+                <div class="forecast__table--item">
                     <div class="forecast__table--param">
                         <span>
                             15.07.22 12:48:01
@@ -780,7 +807,7 @@
                         </strong>
                     </div>
                 </div>
-                <div class="forecast__table--item pt-2 pb-2">
+                <div class="forecast__table--item">
                     <div class="forecast__table--param">
                         <span>
                             15.07.22 12:48:01
@@ -820,7 +847,7 @@
                         </strong>
                     </div>
                 </div>
-                <div class="forecast__table--item pt-2 pb-2">
+                <div class="forecast__table--item">
                     <div class="forecast__table--param">
                         <span>
                             15.07.22 12:48:01
@@ -864,7 +891,7 @@
                         </strong>
                     </div>
                 </div>
-                <div class="forecast__table--item pt-2 pb-2">
+                <div class="forecast__table--item">
                     <div class="forecast__table--param">
                         <span>
                             15.07.22 12:48:01
@@ -906,34 +933,34 @@
                 </div>
             </div>
         </div>
-        <div class="forecast__pagination mt-3">
+        <div class="forecast__pagination mt-4">
             <a href="#" class="forecast__pagination--btn _prev me-1 _disabled" title="Назад">
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.35297 5.0293C9.62911 5.0293 9.85297 4.80544 9.85297 4.5293C9.85297 4.25315 9.62911 4.0293 9.35297 4.0293V5.0293ZM0.528824 4.17574C0.333562 4.37101 0.333562 4.68759 0.528824 4.88285L3.7108 8.06483C3.90607 8.26009 4.22265 8.26009 4.41791 8.06483C4.61317 7.86957 4.61317 7.55299 4.41791 7.35772L1.58948 4.5293L4.41791 1.70087C4.61317 1.50561 4.61317 1.18903 4.41791 0.993763C4.22265 0.798501 3.90607 0.798501 3.7108 0.993763L0.528824 4.17574ZM9.35297 4.0293L0.882378 4.0293V5.0293L9.35297 5.0293V4.0293Z" fill="black"/>
                 </svg>
             </a>
             <div class="forecast__pagination--list">
-                <div class="forecast__pagination--item m-1">
+                <div class="forecast__pagination--item">
                     <a href="#" class="forecast__pagination--link">
                         1
                     </a>
                 </div>
-                <div class="forecast__pagination--item m-1">
+                <div class="forecast__pagination--item">
                     <a href="#" class="forecast__pagination--link _current">
                         2
                     </a>
                 </div>
-                <div class="forecast__pagination--item m-1">
+                <div class="forecast__pagination--item">
                     <a href="#" class="forecast__pagination--link">
                         3
                     </a>
                 </div>
-                <div class="forecast__pagination--item m-1">
+                <div class="forecast__pagination--item">
                     <a href="#" class="forecast__pagination--link">
                         ...
                     </a>
                 </div>
-                <div class="forecast__pagination--item m-1">
+                <div class="forecast__pagination--item">
                     <a href="#" class="forecast__pagination--link">
                         10
                     </a>
@@ -1132,8 +1159,6 @@
         };
         chartFunc({
             id: '#trading-chart',
-            htmlLegendId: 'scalpingLegend',
-            legendContainer: 'scalping-chart-legend',
             data: data,
             
         })
@@ -1147,11 +1172,11 @@
 
         let dataResult = [], labelsResult = [];
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             labelsResult.push(count);
         }
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             dataResult.push(randomInteger(10000, 15000));
         }
 
@@ -1164,6 +1189,8 @@
     let result = repeatData().data;
 
     if(document.querySelector('#deposit-chart')) {
+
+        let ctx = document.querySelector('#deposit-chart');
         
         const data = {
             labels: repeatData().labels,
@@ -1171,14 +1198,23 @@
                 {
                     label: 'Line',
                     data: result,
-                    backgroundColor: '#001FF0',
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+
+                        if (!chartArea) {
+                        // This case happens on initial chart load
+                        return;
+                        }
+                        return getGradient(ctx, chartArea, 'rgba(0, 31, 240, 0.3)', 'rgba(221, 0, 240, 0.1)');
+                    },
                     borderColor: [
                         '#001FF0'
                     ],
-                    pointRadius: 0,
+                    pointRadius: 2,
                     borderWidth: 2,
                     cubicInterpolationMode: 'monotone',
-                    fill: false,
+                    fill: true,
                     tension: 0.4
                     
                 }
@@ -1237,27 +1273,24 @@
             labels: repeatData().labels,
             datasets: [
                 {
-                label: 'Dataset 1',
-                data: [10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, 6, 3],
-                backgroundColor: '#449C62',
-                /* barThickness: 26, */
-                /* maxBarThickness: 29, */
-                borderRadius: 2,
-                categoryPercentage: 1,
-                borderSkipped: false,
+                    label: 'Bar-green',
+                    data: [0,75,50,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,20],
+                    backgroundColor: '#449C62',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
                 },
                 {
-                label: 'Dataset 2',
-                data: [-5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, -1, -4],
-                backgroundColor: '#CA390C',
-                /* barThickness: 6,
-                maxBarThickness: 29, */
-                categoryPercentage: 1,
-                borderRadius: 2,
-                borderSkipped: false,
-                }
+                    label: 'Bar-red',
+                    data: [-100,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,0],
+                    backgroundColor: 'rgb(202, 57, 12)',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
+                },
             ]
         };
+        
         barChart({
             id: '#profit-chart',
             data: data,
@@ -1270,6 +1303,18 @@
         })
         
     }
+
+    counstructBarChart({
+        id: '#bar-chart',
+        chartId: 'deposit-chart',
+
+        data: [
+        [100,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20]],
+
+        title: 'Профит',
+    })
 
 </script>
 

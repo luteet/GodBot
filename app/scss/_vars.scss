@@ -5,7 +5,7 @@ $containerPadding: 15;
 $container: 1134 + ($containerPadding * 2);
 $containerMin: 1000 + ($containerPadding * 2);
 $containerLarge: 1336 + ($containerPadding * 2);
-$containerSuperLarge: 1440 + ($containerPadding * 2);
+$containerSuperLarge: 1360 + ($containerPadding * 2);
 
 :root {
     --title-font: 'Montserrat', Helvetica, Arial, sans-serif;
@@ -18,6 +18,7 @@ $containerSuperLarge: 1440 + ($containerPadding * 2);
     --light: #EAE7FF;
     --light-2: #DDDFE1;
     --light-3: #EEECF4;
+    --light-4: #DBDBDB;
     
 
     --page-bg: #FFFFFF;

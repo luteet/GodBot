@@ -9,6 +9,7 @@
 .header {
 
     z-index: 100;
+    padding-top: 7px;
     // .header__container
 
     &__container {
@@ -50,6 +51,11 @@
         &--header {
             display: flex;
             flex-wrap: wrap;
+
+            flex: 1 1 auto;
+            @media (min-width: 1401px) {
+                flex: 0 1 auto;
+            }
         }
 
         &--body {
@@ -112,19 +118,19 @@
             &::after {
                 content: '';
                 position: absolute;
-                right: 3px; top: 3px;
-                width: calc(18px - 6px); height: calc(18px - 6px);
+                right: 3px; top: 50%;
+                width: calc(18px - 3px); height: calc(18px - 3px);
                 border-radius: 50%;
                 background: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
 
-                transform: translate(0,0);
+                transform: translate(0,-50%);
 
                 transition: right .2s ease-in-out, transform .2s ease-in-out, background .2s ease-in-out;
             }
 
             &._active::after {
                 right: 100%;
-                transform: translate(calc(100% + 3px),0);
+                transform: translate(calc(100% + 3px),-50%);
                 background: linear-gradient(89.6deg, #FFFFFF 51.47%, #FFFFFF 91.55%);
             }
 
@@ -184,6 +190,7 @@
 
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
 
         margin-bottom: 0;
         border-top: 1px solid var(--light-3);
@@ -361,6 +368,7 @@
 
             &._active {
                 background: var(--purple);
+                border-color: var(--purple);
 
                 & .btn-icon {
                     &-light {
@@ -661,7 +669,7 @@
         order: 3;
         @include _992 {
             order: inherit;
-            flex: 1 1 auto;
+            /* flex: 1 1 auto; */
             width: auto;
         }
 
@@ -697,6 +705,9 @@
             line-height: 117%;
 
             padding-left: 15px;
+            @include _992 {
+                padding-left: 13px; padding-right: 4px;
+            }
         }
 
         // .header__profile--name
@@ -912,6 +923,20 @@
     }
 }
 
+._visible-on-xxl {
+    @media (max-width: 1400px) {
+        display: none;
+    }
+    &._show-on-mob {
+        @media (max-width: 992px) {
+            display: initial;
+        }
+        /* @media (min-width: 1440px) {
+            display: initial;
+        } */
+    }
+}
+
 ._visible-on-mob {
     display: inherit;
     @media (min-width: 992px) {
@@ -919,3 +944,8 @@
     }
 }
 
+._hide-on-xxl {
+    @media (min-width: 1401px) {
+        display: none;
+    }
+}

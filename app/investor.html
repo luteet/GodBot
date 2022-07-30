@@ -5,86 +5,49 @@
     <main class="main">
         <section class="investor mt-4 pb-5">
             <div class="investor__container _container _super-large">
-                <div class="investor__body row">
-                    <div class="investor__col col-12 col-lg-9">
-                        <div class="chart p-md-4 pe-md-4 pe-2 pb-md-4 pd-4 block">
+                <div class="investor__body _row">
+                    <div class="investor__col _col-large">
+                        <div class="chart p-md-4 pe-md-0 pe-0 pb-md-4 pd-4 block">
                             <div class="chart__wrapper">
                                 <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
                                     <h2 class="chart__min-title _min-title w-100 pt-3 ">
                                         Депозит
                                     </h2>
                                 </div>
-                                <div class="chart__elem mt-3 ">
-                                    <div class="chart__elem--wrapper chart-crosshair mb-md-0 mb-4 chart-lines">
-                                        <div class="chart__elem--item">
-                                            <canvas width="500" class="chart__elem--canvas" id="deposit-chart"></canvas>
+                                <div class="chart__elem mt-3">
+                                    <div class="chart__elem--wrapper chart-crosshair chart-lines">
+                                        <svg class="chart-mask">
+                                            <clipPath id="clipping">
+                                                <rect x="0" y="0" fill="#000" width="100%" height="100%" rx="10"/>
+                                              </clipPath>
+                                              <!-- <mask id="masking" maskUnits="objectBoundingBox">
+                                                <rect x="0" y="0" fill="#000" width="100%" height="100%" rx="10"/>
+                                              </mask> -->
+                                        </svg>
+                                        <div class="chart__elem--item pe-md-4 pe-2">
+                                            <canvas height="390" class="chart__elem--canvas" id="deposit-chart"></canvas>
                                         </div>
-                                        <div class="chart__elem--item y-title-active" data-y-title="Профит">                                            
+                                        <div class="bar-chart" id="bar-chart">
+                                        </div>
+                                        <!-- <div class="chart__elem--item bar-chart y-title-active" data-y-title="Профит" >
                                             <canvas height="80" class="chart__elem--canvas bar-chart" id="profit-chart"></canvas>
-                                        </div>
+                                            
+                                        </div> -->
                                     </div>
-                                    <!-- <div class="chart__labels pt-3">
-                                        <ul class="chart__labels--list">
-                                            <li class="chart__labels--elem">
-                                                01.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                02.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                03.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                04.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                05.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                06.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                07.07.22
-                                            </li>
-                                        </ul>
-                                    </div> -->
                                 </div>
-                                <!-- <div class="chart__tooltip" >
-                                    <div class="chart__tooltip--body">
-                                        <h4 class="chart__tooltip--title">
-                                            Sell ratio
-                                        </h4>
-                                        <span class="chart__tooltip--date">4.07.22</span>
-                                        <strong class="chart__tooltip--price">
-                                            Price: 21.8k
-                                        </strong>
-                                        <strong class="chart__tooltip--ratio">
-                                            Loshara ratio: 52
-                                        </strong>
+                                <div class="chart__static-labels">
+                                    <div class="chart__static-labels--elem">
+                                        Июль 2022
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="chart__settings-popup">
-                                <div class="chart__settings-popup--body">
-                                    <div class="chart__settings-popup--header">
-                                        <h3 class="chart__settings-popup--title">
-                                            Параметры графика
-                                        </h3>
-                                        <button class="chart__settings-popup--close" title="Закрыть">
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <line x1="1.06066" y1="1.70715" x2="13.0815" y2="13.728" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="chart__settings-popup--block" id="legend-container">
+                                    <div class="chart__static-labels--elem">
+                                        Август 2022
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="investor__col col-12 col-lg-3">
-                        <div class="investor-profit mb-4">
+                    <div class="investor__col _col-min">
+                        <div class="investor-profit mt-lg-0 mt-4 pt-lg-0">
                             <div class="investor-profit__body p-4 pt-1">
                                 <ul class="investor-profit__list">
                                     <li class="investor-profit__li mt-4">
@@ -102,20 +65,28 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="add-aside">
-                            <div class="add-aside__bg">
-                                <picture>
-                                    <source srcset="img/main/deposit.webp" type="image/webp">
-                                    <img src="img/main/deposit.png" alt="" class="add-aside__bg--img">
-                                </picture>
+                        <div class="add-aside mt-4">
+                            <div class="add-aside__body p-md-3 p-3">
+                                <h2 class="add-aside__title _title _min">
+                                    Deposit Blast-Off: Summer Edition
+                                </h2>
+                                <div class="add-aside__text">
+                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                </div>
+                                <div class="add-aside__image">
+                                    <picture>
+                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                    </picture>
+                                </div>
+                                <a href="#" class="add-aside__link _btn">
+                                    Зарегестрироваться
+                                </a>
                             </div>
-                            <a href="#" class="add-aside__link _btn mb-4">
-                                Зарегестрироваться
-                            </a>
                         </div>
                     </div>
-                    <div class="investor__col col-12">
-                        <div class="forecast pt-3" style="--grid-template: 13% 10% 11% 19% 12% 11% auto 110px; --grid-template-mob: 13% 13% 11% 19% 12% 11% auto 110px;">
+                    <div class="investor__col _col-full">
+                        <div class="forecast pt-3" style="--grid-template: 13% 10% 11% 19% 12% 11% auto 110px; --grid-template-mob: 13% 13% 11% 19% 12% 11% auto 110px; --min-width: 776px;">
                             <div class="forecast__body block">
                                 <h2 class="forecast__title _min-title">
                                     История сделок

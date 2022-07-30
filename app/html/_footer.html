@@ -177,8 +177,6 @@
         };
         chartFunc({
             id: '#trading-chart',
-            htmlLegendId: 'scalpingLegend',
-            legendContainer: 'scalping-chart-legend',
             data: data,
             
         })
@@ -192,11 +190,11 @@
 
         let dataResult = [], labelsResult = [];
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             labelsResult.push(count);
         }
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             dataResult.push(randomInteger(10000, 15000));
         }
 
@@ -209,6 +207,8 @@
     let result = repeatData().data;
 
     if(document.querySelector('#deposit-chart')) {
+
+        let ctx = document.querySelector('#deposit-chart');
         
         const data = {
             labels: repeatData().labels,
@@ -216,14 +216,23 @@
                 {
                     label: 'Line',
                     data: result,
-                    backgroundColor: '#001FF0',
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+
+                        if (!chartArea) {
+                        // This case happens on initial chart load
+                        return;
+                        }
+                        return getGradient(ctx, chartArea, 'rgba(0, 31, 240, 0.3)', 'rgba(221, 0, 240, 0.1)');
+                    },
                     borderColor: [
                         '#001FF0'
                     ],
-                    pointRadius: 0,
+                    pointRadius: 2,
                     borderWidth: 2,
                     cubicInterpolationMode: 'monotone',
-                    fill: false,
+                    fill: true,
                     tension: 0.4
                     
                 }
@@ -282,27 +291,24 @@
             labels: repeatData().labels,
             datasets: [
                 {
-                label: 'Dataset 1',
-                data: [10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, 6, 3],
-                backgroundColor: '#449C62',
-                /* barThickness: 26, */
-                /* maxBarThickness: 29, */
-                borderRadius: 2,
-                categoryPercentage: 1,
-                borderSkipped: false,
+                    label: 'Bar-green',
+                    data: [0,75,50,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,20],
+                    backgroundColor: '#449C62',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
                 },
                 {
-                label: 'Dataset 2',
-                data: [-5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, -1, -4],
-                backgroundColor: '#CA390C',
-                /* barThickness: 6,
-                maxBarThickness: 29, */
-                categoryPercentage: 1,
-                borderRadius: 2,
-                borderSkipped: false,
-                }
+                    label: 'Bar-red',
+                    data: [-100,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,0],
+                    backgroundColor: 'rgb(202, 57, 12)',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
+                },
             ]
         };
+        
         barChart({
             id: '#profit-chart',
             data: data,
@@ -315,6 +321,18 @@
         })
         
     }
+
+    counstructBarChart({
+        id: '#bar-chart',
+        chartId: 'deposit-chart',
+
+        data: [
+        [100,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20]],
+
+        title: 'Профит',
+    })
 
 </script>
 

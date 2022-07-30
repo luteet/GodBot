@@ -22,8 +22,8 @@
             <nav class="header__nav">
                 <div class="header__nav--wrapper">
                     <div class="header__nav--body">
-                        <div class="header__nav--header ps-3 ps-lg-1 pt-2 pt-lg-0 pe-lg-0 pe-3">
-                            <div class="header__theme me-2 mt-2">
+                        <div class="header__nav--header ps-3 ps-lg-1 pt-2 pt-lg-0">
+                            <div class="header__theme mt-2">
                                 <button type="button" class="header__theme--switch" title="Изменить тему сайта"></button>
                                 <div class="header__theme--icon">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__theme--icon-light">
@@ -56,7 +56,7 @@
                                     }
                                 </script>
                             </div>
-                            <div class="header__select _visible-on-mob me-2 mt-2">
+                            <div class="header__select _visible-on-mob ms-2 me-2 mt-2">
                                 <div class="header__select--body">
                                     <div class="header__select--selected">
                                         <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="header__list m-0 p-0 mt-3 mt-lg-2">
+                        <ul class="header__list m-0 p-0 mt-3 mt-lg-2 ms-lg-2 _visible-on-xxl _show-on-mob">
                             <li class="header__list--item me-lg-4">
                                 <a href="#" class="header__list--link p-3 p-lg-0">
                                     <div class="btn-icon">
@@ -101,7 +101,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="header__list--item me-lg-2">
+                            <li class="header__list--item me-lg-2 ms-lg-2">
                                 <a href="#" class="header__list--link p-3 p-lg-0">
                                     <div class="btn-icon">
                                         <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
@@ -240,7 +240,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="header__buy me-2 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
+                        <div class="header__buy me-2 pe-lg-1 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
                             <a href="#" class="header__buy--btn">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.1111 11L13.1945 11.5417C13.8925 11.8907 14.3333 12.604 14.3333 13.3843C14.3333 14.5221 13.411 15.4444 12.2732 15.4444H12.1111M12.1111 11L13.1945 10.4583C13.8925 10.1093 14.3333 9.39598 14.3333 8.61567C14.3333 7.4779 13.411 6.55556 12.2732 6.55556H12.1111M12.1111 11H8.77778M8.77778 6.55556V11M8.77778 6.55556H12.1111M8.77778 6.55556V4.88889M8.77778 6.55556H7.11111M8.77778 11V15.4444M8.77778 15.4444V17.1111M8.77778 15.4444H12.1111M8.77778 15.4444H7.11111M12.1111 6.55556V4.88889M12.1111 15.4444V17.1111M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -250,7 +250,7 @@
                                 </span>    
                             </a>
                         </div>
-                        <div class="header__select _hide-on-mob me-2 mt-2">
+                        <div class="header__select _hide-on-mob me-2 pe-1 mt-2">
                             <div class="header__select--body">
                                 <div class="header__select--selected">
                                     <div class="btn-icon">
@@ -277,6 +277,26 @@
                                 </div>
                                 <div class="header__select--block header__help pt-3 pb-3">
                                     <ul class="header__help--list">
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.9198 13.6998C19.5995 13.4937 20.397 13.375 21.25 13.375C23.7353 13.375 25.75 14.3824 25.75 15.625C25.75 16.8676 23.7353 17.875 21.25 17.875C20.397 17.875 19.5995 17.7563 18.9198 17.5502M18.9198 13.6998C17.7005 12.8235 15.6717 12.25 13.375 12.25C11.0783 12.25 9.04949 12.8235 7.83022 13.6998M18.9198 13.6998C19.6796 14.2458 20.125 14.9094 20.125 15.625C20.125 16.3406 19.6796 17.0042 18.9198 17.5502M18.9198 17.5502C17.7005 18.4265 15.6717 19 13.375 19C11.0783 19 9.04949 18.4265 7.83022 17.5502M7.83022 13.6998C7.15053 13.4937 6.35298 13.375 5.5 13.375C3.01472 13.375 1 14.3824 1 15.625C1 16.8676 3.01472 17.875 5.5 17.875C6.35298 17.875 7.15053 17.7563 7.83022 17.5502M7.83022 13.6998C7.07043 14.2458 6.625 14.9094 6.625 15.625C6.625 16.3406 7.07043 17.0042 7.83022 17.5502M16.75 4.375C16.75 6.23896 15.239 7.75 13.375 7.75C11.511 7.75 10 6.23896 10 4.375C10 2.51104 11.511 1 13.375 1C15.239 1 16.75 2.51104 16.75 4.375ZM23.5 7.75C23.5 8.99264 22.4926 10 21.25 10C20.0074 10 19 8.99264 19 7.75C19 6.50736 20.0074 5.5 21.25 5.5C22.4926 5.5 23.5 6.50736 23.5 7.75ZM7.75 7.75C7.75 8.99264 6.74264 10 5.5 10C4.25736 10 3.25 8.99264 3.25 7.75C3.25 6.50736 4.25736 5.5 5.5 5.5C6.74264 5.5 7.75 6.50736 7.75 7.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Партнерская программа
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 17V2.28571L7.42857 8.71429L12.5714 1L17.7143 8.71429L24.1429 2.28571V17C24.1429 18.1046 23.2474 19 22.1429 19H3C1.89543 19 1 18.1046 1 17Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Обучающий центр
+                                                </span>
+                                            </a>
+                                        </li>
                                         <li class="header__help--li">
                                             <a href="#" class="header__help--link">
                                                 <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -395,7 +415,7 @@
                                 </ul> -->
                             </div>
                         </div>
-                        <div class="header__select _hide-on-mob me-2 mt-2">
+                        <div class="header__select _hide-on-mob me-2 pe-2 mt-2">
                             <div class="header__select--body">
                                 <div class="header__select--selected">
                                     <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
@@ -419,7 +439,7 @@
                         </div>
                         <div class="header__profile ms-3 ms-lg-1 mt-2 me-lg-0 me-3">
                             <div class="header__profile--avatar"><img src="img/investor/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Инвестор</strong></div>
-                            <a href="#" class="header__profile--settings-open _hide-on-mob">
+                            <a href="#" class="header__profile--settings-open _hide-on-mob ms-4 me-1">
                                 <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.960938 2C0.960938 1.0335 1.74444 0.25 2.71094 0.25C3.67744 0.25 4.46094 1.0335 4.46094 2C4.46094 2.9665 3.67744 3.75 2.71094 3.75C1.74444 3.75 0.960938 2.9665 0.960938 2ZM0.960938 8C0.960938 7.0335 1.74444 6.25 2.71094 6.25C3.67744 6.25 4.46094 7.0335 4.46094 8C4.46094 8.9665 3.67744 9.75 2.71094 9.75C1.74444 9.75 0.960938 8.9665 0.960938 8ZM0.960938 14C0.960938 13.0335 1.74444 12.25 2.71094 12.25C3.67744 12.25 4.46094 13.0335 4.46094 14C4.46094 14.9665 3.67744 15.75 2.71094 15.75C1.74444 15.75 0.960938 14.9665 0.960938 14Z" fill="#262628"/>
                                 </svg>
@@ -473,86 +493,49 @@
     <main class="main">
         <section class="investor mt-4 pb-5">
             <div class="investor__container _container _super-large">
-                <div class="investor__body row">
-                    <div class="investor__col col-12 col-lg-9">
-                        <div class="chart p-md-4 pe-md-4 pe-2 pb-md-4 pd-4 block">
+                <div class="investor__body _row">
+                    <div class="investor__col _col-large">
+                        <div class="chart p-md-4 pe-md-0 pe-0 pb-md-4 pd-4 block">
                             <div class="chart__wrapper">
                                 <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
                                     <h2 class="chart__min-title _min-title w-100 pt-3 ">
                                         Депозит
                                     </h2>
                                 </div>
-                                <div class="chart__elem mt-3 ">
-                                    <div class="chart__elem--wrapper chart-crosshair mb-md-0 mb-4 chart-lines">
-                                        <div class="chart__elem--item">
-                                            <canvas width="500" class="chart__elem--canvas" id="deposit-chart"></canvas>
+                                <div class="chart__elem mt-3">
+                                    <div class="chart__elem--wrapper chart-crosshair chart-lines">
+                                        <svg class="chart-mask">
+                                            <clipPath id="clipping">
+                                                <rect x="0" y="0" fill="#000" width="100%" height="100%" rx="10"/>
+                                              </clipPath>
+                                              <!-- <mask id="masking" maskUnits="objectBoundingBox">
+                                                <rect x="0" y="0" fill="#000" width="100%" height="100%" rx="10"/>
+                                              </mask> -->
+                                        </svg>
+                                        <div class="chart__elem--item pe-md-4 pe-2">
+                                            <canvas height="390" class="chart__elem--canvas" id="deposit-chart"></canvas>
                                         </div>
-                                        <div class="chart__elem--item y-title-active" data-y-title="Профит">                                            
+                                        <div class="bar-chart" id="bar-chart">
+                                        </div>
+                                        <!-- <div class="chart__elem--item bar-chart y-title-active" data-y-title="Профит" >
                                             <canvas height="80" class="chart__elem--canvas bar-chart" id="profit-chart"></canvas>
-                                        </div>
+                                            
+                                        </div> -->
                                     </div>
-                                    <!-- <div class="chart__labels pt-3">
-                                        <ul class="chart__labels--list">
-                                            <li class="chart__labels--elem">
-                                                01.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                02.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                03.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                04.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                05.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                06.07.22
-                                            </li>
-                                            <li class="chart__labels--elem">
-                                                07.07.22
-                                            </li>
-                                        </ul>
-                                    </div> -->
                                 </div>
-                                <!-- <div class="chart__tooltip" >
-                                    <div class="chart__tooltip--body">
-                                        <h4 class="chart__tooltip--title">
-                                            Sell ratio
-                                        </h4>
-                                        <span class="chart__tooltip--date">4.07.22</span>
-                                        <strong class="chart__tooltip--price">
-                                            Price: 21.8k
-                                        </strong>
-                                        <strong class="chart__tooltip--ratio">
-                                            Loshara ratio: 52
-                                        </strong>
+                                <div class="chart__static-labels">
+                                    <div class="chart__static-labels--elem">
+                                        Июль 2022
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="chart__settings-popup">
-                                <div class="chart__settings-popup--body">
-                                    <div class="chart__settings-popup--header">
-                                        <h3 class="chart__settings-popup--title">
-                                            Параметры графика
-                                        </h3>
-                                        <button class="chart__settings-popup--close" title="Закрыть">
-                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <line x1="1.06066" y1="1.70715" x2="13.0815" y2="13.728" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <div class="chart__settings-popup--block" id="legend-container">
+                                    <div class="chart__static-labels--elem">
+                                        Август 2022
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="investor__col col-12 col-lg-3">
-                        <div class="investor-profit mb-4">
+                    <div class="investor__col _col-min">
+                        <div class="investor-profit mt-lg-0 mt-4 pt-lg-0">
                             <div class="investor-profit__body p-4 pt-1">
                                 <ul class="investor-profit__list">
                                     <li class="investor-profit__li mt-4">
@@ -570,20 +553,28 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="add-aside">
-                            <div class="add-aside__bg">
-                                <picture>
-                                    <source srcset="img/main/deposit.webp" type="image/webp">
-                                    <img src="img/main/deposit.png" alt="" class="add-aside__bg--img">
-                                </picture>
+                        <div class="add-aside mt-4">
+                            <div class="add-aside__body p-md-3 p-3">
+                                <h2 class="add-aside__title _title _min">
+                                    Deposit Blast-Off: Summer Edition
+                                </h2>
+                                <div class="add-aside__text">
+                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                </div>
+                                <div class="add-aside__image">
+                                    <picture>
+                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                    </picture>
+                                </div>
+                                <a href="#" class="add-aside__link _btn">
+                                    Зарегестрироваться
+                                </a>
                             </div>
-                            <a href="#" class="add-aside__link _btn mb-4">
-                                Зарегестрироваться
-                            </a>
                         </div>
                     </div>
-                    <div class="investor__col col-12">
-                        <div class="forecast pt-3" style="--grid-template: 13% 10% 11% 19% 12% 11% auto 110px; --grid-template-mob: 13% 13% 11% 19% 12% 11% auto 110px;">
+                    <div class="investor__col _col-full">
+                        <div class="forecast pt-3" style="--grid-template: 13% 10% 11% 19% 12% 11% auto 110px; --grid-template-mob: 13% 13% 11% 19% 12% 11% auto 110px; --min-width: 776px;">
                             <div class="forecast__body block">
                                 <h2 class="forecast__title _min-title">
                                     История сделок
@@ -1012,8 +1003,6 @@
         };
         chartFunc({
             id: '#trading-chart',
-            htmlLegendId: 'scalpingLegend',
-            legendContainer: 'scalping-chart-legend',
             data: data,
             
         })
@@ -1027,11 +1016,11 @@
 
         let dataResult = [], labelsResult = [];
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             labelsResult.push(count);
         }
 
-        for(let count = 0; count < 32; count++) {
+        for(let count = 1; count < 31; count++) {
             dataResult.push(randomInteger(10000, 15000));
         }
 
@@ -1044,6 +1033,8 @@
     let result = repeatData().data;
 
     if(document.querySelector('#deposit-chart')) {
+
+        let ctx = document.querySelector('#deposit-chart');
         
         const data = {
             labels: repeatData().labels,
@@ -1051,14 +1042,23 @@
                 {
                     label: 'Line',
                     data: result,
-                    backgroundColor: '#001FF0',
+                    backgroundColor: function(context) {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+
+                        if (!chartArea) {
+                        // This case happens on initial chart load
+                        return;
+                        }
+                        return getGradient(ctx, chartArea, 'rgba(0, 31, 240, 0.3)', 'rgba(221, 0, 240, 0.1)');
+                    },
                     borderColor: [
                         '#001FF0'
                     ],
-                    pointRadius: 0,
+                    pointRadius: 2,
                     borderWidth: 2,
                     cubicInterpolationMode: 'monotone',
-                    fill: false,
+                    fill: true,
                     tension: 0.4
                     
                 }
@@ -1117,27 +1117,24 @@
             labels: repeatData().labels,
             datasets: [
                 {
-                label: 'Dataset 1',
-                data: [10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, 6, 3],
-                backgroundColor: '#449C62',
-                /* barThickness: 26, */
-                /* maxBarThickness: 29, */
-                borderRadius: 2,
-                categoryPercentage: 1,
-                borderSkipped: false,
+                    label: 'Bar-green',
+                    data: [0,75,50,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,0,50,30,0,90,40,0,20,20,90,20],
+                    backgroundColor: '#449C62',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
                 },
                 {
-                label: 'Dataset 2',
-                data: [-5, -3, -10, -10, -5, -7, -2, -3, -10, -2, 10, 5, 10, 10, 10, 5, 10, 10, 3, 10, -5, -3, -10, -10, -5, -7, -2, -3, -10, -2, -1, -4],
-                backgroundColor: '#CA390C',
-                /* barThickness: 6,
-                maxBarThickness: 29, */
-                categoryPercentage: 1,
-                borderRadius: 2,
-                borderSkipped: false,
-                }
+                    label: 'Bar-red',
+                    data: [-100,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,-50,0,0,-30,0,0,-10,0,0,0,0],
+                    backgroundColor: 'rgb(202, 57, 12)',
+                    borderRadius: 2,
+                    categoryPercentage: 1,
+                    borderSkipped: false,
+                },
             ]
         };
+        
         barChart({
             id: '#profit-chart',
             data: data,
@@ -1150,6 +1147,18 @@
         })
         
     }
+
+    counstructBarChart({
+        id: '#bar-chart',
+        chartId: 'deposit-chart',
+
+        data: [
+        [100,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20],
+        [50,0], [0,50], [75,0], [15,0], [0,-10], [0,-20], [5,0], [20,0], [30,0], [0,-20]],
+
+        title: 'Профит',
+    })
 
 </script>
 
