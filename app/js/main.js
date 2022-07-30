@@ -315,8 +315,10 @@ function chartFunc(arg) {
       layout: arg.layout,
       
       interaction: {
+        /* mode: 'index', */
         intersect: false,
       },
+      //stacked: false,
 
       scales: {
           y: {
