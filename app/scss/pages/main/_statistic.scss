@@ -9,7 +9,7 @@
         }
 
         display: flex;
-        //flex-wrap: wrap;
+        flex-wrap: wrap;
         align-items: center;
 
         flex-direction: column;
@@ -23,10 +23,8 @@
     &__col {
         display: flex;
         align-items: center;
-        flex: 1 0 auto;
-
-        &:last-child {
-            flex: 0 1 auto;
+        &._auto {
+            flex: 1 0 auto;
         }
     }
 
@@ -182,6 +180,8 @@
             padding: 16px 6px 16px 5px;
             border-radius: 10px;
             color: rgb(186, 40, 40);
+
+            background: var(--page-bg-2);
 
             box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
 
