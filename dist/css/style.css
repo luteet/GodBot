@@ -9870,6 +9870,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .chart.tab-wrapper {
   border-radius: 0 10px 10px 10px;
   /* height: 755px; */
+  min-height: var(--min-height);
 }
 
 .chart__wrapper {
@@ -9894,10 +9895,11 @@ body._dark-theme .trader__tab-nav--link::after {
   transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, -webkit-filter 0.2s ease-in-out;
   transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, filter 0.2s ease-in-out;
   transition: opacity 0.15s ease-in-out, visibility 0.15s ease-in-out, filter 0.2s ease-in-out, -webkit-filter 0.2s ease-in-out;
-  /* display: none;
-  &._active {
-      display: block;
-  } */
+  display: none;
+}
+
+.chart__wrapper.tab-block._active {
+  display: block;
 }
 
 .chart__wrapper.tab-block._visible {
@@ -9929,7 +9931,6 @@ body._dark-theme .trader__tab-nav--link::after {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
   margin: -5px;
 }
 
@@ -10392,6 +10393,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .chart__tooltip--title {
   font-weight: 500;
   font-size: 0.625rem;
+  margin: 0;
   line-height: 117%;
 }
 
@@ -10422,7 +10424,7 @@ body._dark-theme .trader__tab-nav--link::after {
   line-height: 133%;
   color: var(--text-color);
   display: block;
-  padding: 3px 0;
+  padding: 1px 0;
 }
 
 .chart__tooltip--param span {
@@ -13226,7 +13228,6 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .chart__sort {
     flex: 1 1 auto;
-    justify-content: stretch;
   }
 
   .chart__sort--label {
@@ -13250,6 +13251,10 @@ body._dark-theme .trader__tab-nav--link::after {
     margin: 10px 15px 0 35px;
   }
 
+  .chart__tooltip {
+    max-width: 275px;
+  }
+
   .chart__tooltip--body {
     padding: 13px 10px;
     min-width: 100px;
@@ -13257,6 +13262,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .chart__tooltip--title {
     font-size: 0.75rem;
+    margin: 0 0 5px 0;
   }
 
   .chart__tooltip--price {
@@ -13265,6 +13271,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .chart__tooltip--param {
     font-size: 0.75rem;
+    padding: 2px 0;
   }
 
   .chart__labels--elem {
@@ -14484,6 +14491,14 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .statistic__elem {
     padding: 10px;
+  }
+
+  .chart.tab-wrapper {
+    min-height: auto;
+  }
+
+  .chart__wrapper.tab-block {
+    display: block;
   }
 
   .add-aside {

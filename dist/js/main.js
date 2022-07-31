@@ -165,10 +165,15 @@ function chartFunc(arg) {
       
       let valueText = tooltip.dataPoints[0].dataset.valueText,
           valueAfter = tooltip.dataPoints[0].dataset.valueAfter,
-          valueColor = tooltip.dataPoints[0].dataset.valueColor;
+          valueColor = tooltip.dataPoints[0].dataset.valueColor,
+          value = tooltip.dataPoints[0].raw;
+
+      if(value >= 1000) {
+        value = (value / 1000).toFixed(1) + "K";
+      }
 
       if(valueColor) tooltipPrice.style.color = valueColor;
-      tooltipPrice.textContent = `${(valueText) ? valueText : ''}${tooltip.dataPoints[0].formattedValue}${(valueAfter) ? valueAfter : ''}`;
+      tooltipPrice.textContent = `${(valueText) ? valueText : ''}${value}${(valueAfter) ? valueAfter : ''}`;
       
       if (tooltip.opacity === 0) {
         tooltipEl.style.opacity = 0;
@@ -221,17 +226,22 @@ function chartFunc(arg) {
 
       addData.forEach(data => {
 
+        let value = data.data[index];
+        if(value >= 1000) {
+          value = (value / 1000).toFixed(1) + "K";
+        }
+
         let color = data.valueColor;
         if(!color) color = ''; else color = ` style="color: ${color};"`
 
         let after = data.valueAfter;
         if(!after) after = '';
 
-        let value = 
+        let param = 
         `<div class="chart__tooltip--param">${data.label}: 
           <span${color}>${data.data[index]}${after}</span$>
         </div>`;
-        result+=value;
+        result+=param;
 
       })
 
@@ -395,7 +405,7 @@ function chartFunc(arg) {
           y: {
             grid: {
               display: true,
-              color: '#AFCDEB',
+              color: 'rgba(129, 159, 189, 0.4)',
               borderDash: [5,5],
               borderColor: 'rgba(0,0,0,0)',
             },
@@ -784,7 +794,7 @@ body.addEventListener('click', function (event) {
 
           document.querySelectorAll('.tab-block').forEach(tabBlock => {
             tabBlock.classList.remove('_visible')
-            //tabWrapper.style.minHeight = tabWrapper.offsetHeight + 'px';
+            tabWrapper.style.setProperty('--min-height', tabWrapper.offsetHeight + 'px');
             setTimeout(() => {
               tabBlock.classList.remove('_active');
             },200)
@@ -794,10 +804,11 @@ body.addEventListener('click', function (event) {
           
           setTimeout(() => {
             tabBlockActive.classList.add('_active');
-            //tabWrapper.style.minHeight = 0 + 'px';
+            
             setTimeout(() => {
               tabBlockActive.classList.add('_visible');
               traderNavCheck = true;
+              tabWrapper.style.setProperty('--min-height', 0 + 'px');
             },100)
           },200)
           
