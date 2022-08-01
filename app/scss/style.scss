@@ -4,8 +4,10 @@
 @import 'vars';
 @import 'global';
 @import 'font';
+@import 'popup';
 
 @import 'main-sections/header';
+
 
 @import 'pages/login/login';
 
@@ -14,6 +16,13 @@
 @import 'pages/trader/trader';
 
 @import 'pages/investor/investor';
+
+@import 'pages/affiliate-program/affiliate-program';
+
+@import 'pages/learing-center/learning-center';
+
+@import 'pages/tariffs/tariffs';
+@import 'pages/tariffs/tariffs-notification';
 
 
 @import 'main-sections/footer';

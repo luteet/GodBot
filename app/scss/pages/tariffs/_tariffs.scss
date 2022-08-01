@@ -1,0 +1,499 @@
+.tariffs-popup {
+
+    // .tariffs-popup__wrapper
+
+    &__wrapper {
+    }
+
+    // .tariffs-popup__bg
+
+    &__bg {
+    }
+
+    // .tariffs-popup__body
+
+    &__body {
+    }
+
+    // .tariffs-popup__header
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 10px;
+        @media(min-width: 600px) {
+            margin-bottom: 20px;
+        }
+
+        position: relative;
+        z-index: 4;
+    }
+
+    // .tariffs-popup__title
+
+    &__title {
+        
+    }
+
+    // .tariffs-popup__close-btn
+
+    &__close-btn {
+    }
+
+    // .tariffs-popup__slider
+
+    &__slider {
+
+        padding: 50px 10px 0 10px;
+        margin: -50px -10px 0 -10px;
+
+        @media(min-width: 600px) {
+            padding: 50px 20px 0 20px;
+            margin: -50px -20px 0 -20px;
+        }
+
+        // .tariffs-popup__slider--list
+
+        &--list {
+            
+        }
+
+        // .tariffs-popup__slider--slide
+
+        &--slide {
+        }
+
+        // .tariffs-popup__slider--footer
+
+        &--footer {
+            margin-top: 15px;
+        }
+
+        // .tariffs-popup__slider--pagination
+
+        &--pagination {
+            position: static;
+
+            & .swiper-pagination-bullet {
+                
+                width: 40px; height: 2px;
+                border-radius: 0;
+                opacity: 1;
+                background: var(--text-color);
+
+                transition: height .2s ease-in-out;
+            }
+
+            & .swiper-pagination-bullet-active {
+                height: 4px;
+                background: var(--pink);
+            }
+
+
+            
+        }
+    }
+
+    // .tariffs-popup__slide
+
+    &__slide {
+
+        position: relative;
+        z-index: 2;
+
+        height: auto;
+
+        &._active &--body {
+            border: 2px solid var(--green);
+        }
+
+        &--wrapper {
+            min-height: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        // .tariffs-popup__slide--body
+
+        &--body {
+            flex: 1 1 auto;
+
+            box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+            border-radius: 10px;
+            background: var(--page-bg-2);
+            border: 2px solid var(--page-bg-2);
+            //backdrop-filter: blur(5px);
+
+            display: flex;
+            flex-direction: column;
+
+            min-height: 100%;
+        }
+
+        // .tariffs-popup__slide--header
+
+        &--header {
+            padding: 20px;
+
+            min-height: 72px;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        // .tariffs-popup__slide--name
+
+        &--name {
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 14px;
+            text-transform: uppercase;
+
+            margin: 0;
+        }
+
+        // .tariffs-popup__slide--status
+
+        &--status {
+            & strong {
+                font-size: 0.75rem;
+                line-height: 100%;
+            }
+
+            & span {
+                font-size: 0.625rem;
+                line-height: 100%;
+            }
+
+            line-height: 100%;
+
+            width: 88px;
+            padding: 5px;
+
+            border-radius: 4px;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            text-align: center;
+
+            color: var(--white);
+
+            &._status-1 {
+                background: var(--blue);
+            }
+
+            &._status-2 {
+                background: var(--red);
+            }
+
+        }
+
+        // .tariffs-popup__slide--ul
+
+        &--ul {
+            margin: 0; padding: 0 20px;
+
+            flex: 1 1 auto;
+
+            & li {
+                padding: 5px 0;
+
+                border-top: 1px dashed var(--light-3);
+
+                font-size: 0.75rem;
+                line-height: 117%;
+
+                color: var(--text-color);
+            }
+        }
+
+        // .tariffs-popup__slide--footer
+
+        &--footer {
+            position: relative;
+
+            min-height: 70px;
+            
+            padding-top: 20px; padding-bottom: 15px; margin-top: 15px;
+
+            border-top: 1px solid var(--light-3);
+        }
+
+        // .tariffs-popup__slide--prompt
+
+        &--prompt {
+            position: absolute;
+            right: 10px; top: 10px;
+
+            width: 14px; height: 14px;
+
+            border-radius: 50%;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        // .tariffs-popup__slide--price
+
+        &--price {
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 117%;
+
+            text-align: center;
+
+            display: block;
+            width: 100%;
+
+            color: var(--text-color);
+        }
+
+        // .tariffs-popup__slide--main-footer
+
+        &--main-footer {
+            position: relative;
+        }
+
+        // .tariffs-popup__slide--btn
+
+        &--btn {
+            margin-top: 10px;
+
+            width: 100%;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        // .tariffs-popup__slide--promo
+
+        &--promo {
+            margin-top: -4px; margin-bottom: -8px;
+        }
+
+        &--promo-block._error &--promo-input {
+            border-color: var(--red);
+            &::placeholder {
+                color: var(--red);
+            }
+        }
+
+        &--promo-block._error &--promo-message {
+            &-error {
+                opacity: 1; visibility: visible;
+            }
+        }
+
+        &--promo-block._succesful &--promo-input {
+            border-color: var(--green-light);
+            &::placeholder {
+                color: var(--green-light);
+            }
+        }
+
+        &--promo-block._succesful &--promo-message {
+            &-succesful {
+                opacity: 1; visibility: visible;
+            }
+        }
+
+        // .tariffs-popup__slide--promo-open-btn
+
+        &--promo-open-btn {
+            background: transparent;
+
+            padding: 0;
+
+            color: var(--green-light);
+            font-weight: 600;
+            font-size: 0.75rem;
+            line-height: 100%;
+
+            width: 100%;
+            text-align: center;
+
+            transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+
+            &._hidden {
+                pointer-events: none;
+                opacity: 0; visibility: hidden;
+            }
+        }
+
+        // .tariffs-popup__slide--promo-block
+
+        &--promo-block {
+            padding: 3px 15px 0 15px;
+
+            display: grid;
+            grid-template-columns: 100%;
+
+            height: 66px;
+
+            transition: height .2s ease-in-out, padding .2s ease-in-out;
+            overflow: hidden;
+
+            &._hidden {
+                height: 0; padding: 0 15px;
+            }
+        }
+
+        // .tariffs-popup__slide--promo-label
+
+        &--promo-label {
+            border-radius: 10px;
+            grid-area: 1/1;
+        }
+
+        // .tariffs-popup__slide--promo-input
+
+        &--promo-input {
+            padding: 11px 46px 11px 8px;
+
+            font-weight: 500;
+            font-size: 0.75rem;
+            line-height: 117%;
+            color: var(--text-color);
+            text-transform: uppercase;
+
+            background: transparent;
+
+            border: 1px solid var(--gray);
+            border-radius: 10px;
+
+            width: 100%; min-height: 100%;
+
+            &::placeholder {
+                color: var(--gray);
+            }
+        }
+
+        // .tariffs-popup__slide--promo-submit
+
+        &--promo-submit {
+            grid-area: 1/1;
+            justify-self: end;
+
+            height: 100%; width: 38px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+            background: var(--green-light);
+
+            transition: background .2s ease-in-out;
+            &:hover {
+                background: var(--green-2);
+            }
+
+            &:active {
+                background: var(--green);
+            }
+        }
+
+        // .tariffs-popup__slide--promo-message
+
+        &--promo-message {
+            padding-top: 4px;
+
+            display: grid;
+
+            text-align: center;
+
+            font-weight: 500;
+            font-size: 0.75rem;
+            line-height: 117%;
+
+            & > * {
+                opacity: 0; visibility: hidden;
+
+                grid-area: 1/1;
+                transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+            }
+        }
+
+        // .tariffs-popup__slide--promo-message-succesful
+
+        &--promo-message-succesful {
+            color: var(--green-light);
+        }
+
+        // .tariffs-popup__slide--promo-message-error
+
+        &--promo-message-error {
+            color: var(--red);
+        }
+
+        // .tariffs-popup__slide--min-popup
+
+        &--min-popup {
+            position: absolute;
+            left: 0; top: 0;
+            z-index: 3;
+
+            transform: translate(0,-100%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            width: 100%;
+
+            transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+            opacity: 0; visibility: hidden;
+
+            &._active {
+                opacity: 1; visibility: visible;
+            }
+        }
+
+        // .tariffs-popup__slide--payment
+
+        &--payment {
+            display: flex;
+            flex-direction: column;
+            
+            background: var(--page-bg);
+            box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+            border-radius: 10px;
+
+            min-width: 100%;
+
+            padding: 5px 0;
+        }
+
+        // .tariffs-popup__slide--payment-link
+
+        &--payment-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+
+            padding: 7px 0;
+
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.75rem;
+            line-height: 117%;
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+
+            transition: color .2s ease-in-out;
+            &:hover {
+                color: var(--pink);
+            }
+
+        }
+    }
+}

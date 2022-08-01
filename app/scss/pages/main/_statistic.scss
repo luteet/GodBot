@@ -231,4 +231,33 @@
             white-space: nowrap;
         }
     }
+
+    // .statistic__account
+
+    &__account {
+
+        // .statistic__account--body
+
+        &--body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        // .statistic__account--value
+
+        &--value {
+            padding: 15px 20px;
+            border-radius: 10px;
+            background: var(--page-bg-2);
+            box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+        }
+
+        // .statistic__account--btn
+
+        &--btn {
+            
+        }
+    }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GodBot-PRO</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<script>
+    if(localStorage.getItem('godbot-pro-theme') == 'dark') {
+        document.querySelector('body').classList.add('_dark-theme');
+    }
+</script>
+
+<div class="wrapper">
+
+    <main class="main">
+        <div class="tariffs-notification">
+            <div class="tariffs-notification__wrapper">
+                <div class="tariffs-notification__bg popup-bg"></div>
+                <div class="tariffs-notification__body">
+                    <h2 class="tariffs-notification__title _min-title text-center m-0">
+                        Срок действия тарифа “ИНВЕСТОР” завершен
+                    </h2>
+                    <div class="tariffs-notification__block">
+                        <div class="tariffs-notification__info-list">
+                            <div class="tariffs-notification__info-item">
+                                <span class="tariffs-notification__info-item--name">
+                                    Общий доход
+                                </span>
+                                <strong class="tariffs-notification__info-item--value _green">
+                                    $12 999
+                                </strong>
+                            </div>
+                            <div class="tariffs-notification__info-item">
+                                <span class="tariffs-notification__info-item--name">
+                                    Наша комиссия
+                                </span>
+                                <strong class="tariffs-notification__info-item--value">
+                                    $6999
+                                </strong>
+                            </div>
+                            <div class="tariffs-notification__buy">
+                                <a href="#" class="tariffs-notification__buy--btn _btn _min-2">
+                                    Оплатить криптой
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+</html>

@@ -37,14 +37,20 @@
                                 Введите ваш Email для получения кода авторизации
                             </p>
                         </div>
-                        <label class="login__form--label">
-                            <div class="login__form--input-icon">
-                                <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.66129C0 1.1915 1.1915 0 2.66129 0H16.2097C17.6795 0 18.871 1.1915 18.871 2.66129V12.3387C18.871 13.8085 17.6795 15 16.2097 15H2.66129C1.1915 15 0 13.8085 0 12.3387V2.66129ZM2.09615 2.70256C1.76262 2.48021 1.31199 2.57034 1.08964 2.90387C0.867288 3.2374 0.957415 3.68803 1.29094 3.91038L7.95927 8.35593C8.85319 8.95188 10.0178 8.95188 10.9117 8.35593L17.58 3.91038C17.9136 3.68803 18.0037 3.2374 17.7813 2.90387C17.559 2.57034 17.1083 2.48021 16.7748 2.70256L10.1065 7.14811C9.70016 7.419 9.17081 7.419 8.76448 7.14811L2.09615 2.70256Z" fill="#AC6BD3"/>
-                                </svg>
+                        <div class="login__form--block"> <!-- _disabled – заблокировать input; _error – ошибка валидации -->
+                            <label class="login__form--label">
+                                <div class="login__form--input-icon">
+                                    <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.66129C0 1.1915 1.1915 0 2.66129 0H16.2097C17.6795 0 18.871 1.1915 18.871 2.66129V12.3387C18.871 13.8085 17.6795 15 16.2097 15H2.66129C1.1915 15 0 13.8085 0 12.3387V2.66129ZM2.09615 2.70256C1.76262 2.48021 1.31199 2.57034 1.08964 2.90387C0.867288 3.2374 0.957415 3.68803 1.29094 3.91038L7.95927 8.35593C8.85319 8.95188 10.0178 8.95188 10.9117 8.35593L17.58 3.91038C17.9136 3.68803 18.0037 3.2374 17.7813 2.90387C17.559 2.57034 17.1083 2.48021 16.7748 2.70256L10.1065 7.14811C9.70016 7.419 9.17081 7.419 8.76448 7.14811L2.09615 2.70256Z" fill="#AC6BD3"/>
+                                    </svg>
+                                </div>
+                                <input type="text" name="Email" placeholder="Введите ваш Email" class="login__form--input email-input">
+                            </label>
+                            <div class="login__form--error-text">
+                                <span class="login__form--error-disabled">Вход заблокирован на 60 минут</span>
+                                <span class="login__form--error-valid">Неверный Email</span>
                             </div>
-                            <input type="text" name="Email" placeholder="Введите ваш Email" class="login__form--input email-input">
-                        </label>
+                        </div>
                         <button class="login__form--submit _btn mt-3" type="submit">
                             Войти
                         </button>
@@ -145,9 +151,190 @@
             
 </div>
 
+<div class="tariffs-popup popup" id="tariffs-popup" style="display: none; opacity: 0; --max: 900px;">
+    <div class="tariffs-popup__wrapper popup-wrapper">
+        <div class="tariffs-popup__bg popup-bg _popup-close"></div>
+        <div class="tariffs-popup__body popup-body">
+            <div class="tariffs-popup__header">
+                <h2 class="tariffs-popup__title _min-title m-0">
+                    Тарифы
+                </h2>
+                <button type="button" class="tariffs-popup__close-btn popup-close-btn _popup-close" title="Закрыть попап">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="tariffs-popup__slider swiper">
+                <div class="tariffs-popup__slider--list swiper-wrapper">
+                    <div class="tariffs-popup__slider--slide tariffs-popup__slide swiper-slide _active">
+                        <div class="tariffs-popup__slide--wrapper">
+                            <div class="tariffs-popup__slide--body">
+                                <div class="tariffs-popup__slide--header">
+                                    <h3 class="tariffs-popup__slide--name">
+                                        <span class="_text-gradient">
+                                            Новичок
+                                        </span>
+                                    </h3>
+                                    <div class="tariffs-popup__slide--status _status-1">
+                                        <strong>
+                                            1777/3000
+                                        </strong>
+                                        <span>
+                                            куплено
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul class="tariffs-popup__slide--ul">
+                                    <li>
+                                        Доступ к обучающего курса 
+                                    </li>
+                                    <li>
+                                        Доступ к графику минутного прогноза ИИ
+                                    </li>
+                                    <li>
+                                        Доступ к части сигналов на покупку/продажу от ИИ
+                                    </li>
+                                </ul>
+                                <div class="tariffs-popup__slide--footer">
+                                    <div class="tariffs-popup__slide--prompt"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        data-bs-custom-class="custom-tooltip"
+                                        data-bs-title="По постоплате, при условии получения прибыли более 3% в неделю">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0Z" fill="#1F3A99"/>
+                                            <path d="M6.28211 5.74365C5.98473 5.74365 5.74365 5.98473 5.74365 6.28211C5.74365 6.5795 5.98473 6.82058 6.28211 6.82058C6.38124 6.82058 6.4616 6.90093 6.4616 7.00006V10.5898C6.4616 10.8872 6.70268 11.1283 7.00006 11.1283C7.29745 11.1283 7.53852 10.8872 7.53852 10.5898V6.28211C7.53852 5.98473 7.29745 5.74365 7.00006 5.74365H6.28211Z" fill="white"/>
+                                            <circle cx="6.99989" cy="3.41029" r="0.538462" fill="white"/>
+                                        </svg>
+                                    </div>
+                                    <strong class="tariffs-popup__slide--price">
+                                        $25 в неделю
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="tariffs-popup__slide--main-footer">
+                                <button class="tariffs-popup__slide--btn _btn _min-2 _btn-active">
+                                    Активный тариф
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tariffs-popup__slider--slide tariffs-popup__slide swiper-slide">
+                        <div class="tariffs-popup__slide--wrapper">
+                            <div class="tariffs-popup__slide--body">
+                                <div class="tariffs-popup__slide--header">
+                                    <h3 class="tariffs-popup__slide--name">
+                                        <span class="_text-gradient">
+                                            Трейдер
+                                        </span>
+                                    </h3>
+                                    <div class="tariffs-popup__slide--status _status-2">
+                                        <span>
+                                            места распроданы
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul class="tariffs-popup__slide--ul">
+                                    <li>
+                                        Доступ к обучающего курса 
+                                    </li>
+                                    <li>
+                                        Доступ к прогнозам ИИ с ТФ: 1 мин, 5 мин, 1 час, 1 день, 1 неделя, 1 месяц
+                                    </li>
+                                    <li>
+                                        Доступ ко всем сигналам на покупку/продажу от ИИ
+                                    </li>
+                                    <li>
+                                        Доступ криптопортфелю, сформированному ИИ
+                                    </li>
+                                    <li>
+                                        Доступ в закрытый чат трейдеров
+                                    </li>
+                                </ul>
+                                <div class="tariffs-popup__slide--footer">
+                                    <strong class="tariffs-popup__slide--price">
+                                        $999 в месяц
+                                    </strong>
+                                    <form action="#" class="tariffs-popup__slide--promo">
+                                        <button class="tariffs-popup__slide--promo-open-btn" type="button">
+                                            Ввести промокод
+                                        </button>
+                                        <div class="tariffs-popup__slide--promo-block _hidden"> <!-- _error, _succesful -->
+                                            <label class="tariffs-popup__slide--promo-label">
+                                                <input type="text" name="promo" placeholder="Ввести промокод" class="tariffs-popup__slide--promo-input">
+                                            </label>
+                                            <button class="tariffs-popup__slide--promo-submit" type="submit" title="Активировать промокод">
+                                                <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.65222 7.29492C1.09994 7.29492 0.652222 7.74264 0.652222 8.29492C0.652222 8.84721 1.09994 9.29492 1.65222 9.29492V7.29492ZM14.4656 9.00203C14.8561 8.6115 14.8561 7.97834 14.4656 7.58782L8.10165 1.22385C7.71112 0.83333 7.07796 0.83333 6.68743 1.22385C6.29691 1.61438 6.29691 2.24754 6.68743 2.63807L12.3443 8.29492L6.68743 13.9518C6.29691 14.3423 6.29691 14.9755 6.68743 15.366C7.07796 15.7565 7.71112 15.7565 8.10165 15.366L14.4656 9.00203ZM1.65222 9.29492H13.7585V7.29492H1.65222V9.29492Z" fill="white"/>
+                                                </svg>
+                                            </button>
+                                            <div class="tariffs-popup__slide--promo-message">
+                                                <span class="tariffs-popup__slide--promo-message-succesful">Промокод активирован</span>
+                                                <span class="tariffs-popup__slide--promo-message-error">Неверный промокод</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tariffs-popup__slide--main-footer _min-popup-wrapper">
+                                <div class="tariffs-popup__slide--min-popup _min-popup">
+                                    <div class="tariffs-popup__slide--payment">
+                                        <a href="#" class="tariffs-popup__slide--payment-link">
+                                            Оплатить криптой
+                                        </a>
+                                    </div>
+                                </div>
+                                <button class="tariffs-popup__slide--btn _btn _min-2 _open-min-popup">
+                                    Оплатить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tariffs-popup__slider--slide tariffs-popup__slide swiper-slide">
+                        <div class="tariffs-popup__slide--wrapper">
+                            <div class="tariffs-popup__slide--body">
+                                <div class="tariffs-popup__slide--header">
+                                    <h3 class="tariffs-popup__slide--name">
+                                        <span class="_text-gradient">
+                                            ИНВЕСТОР
+                                        </span>
+                                    </h3>
+                                </div>
+                                <ul class="tariffs-popup__slide--ul">
+                                    <li>
+                                        Доступ к обучающему курсу 
+                                    </li>
+                                    <li>
+                                        Доступ в чат инвесторов
+                                    </li>
+                                    <li>
+                                        Возможность получить прогноз по любому интересующему активу:  валютам, акциям и т.д.
+                                    </li>
+                                </ul>
+                                <div class="tariffs-popup__slide--footer">
+                                    <strong class="tariffs-popup__slide--price">
+                                        Индивидуально
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="tariffs-popup__slide--main-footer">
+                                <button class="tariffs-popup__slide--btn _btn _min-2">
+                                    Оставить заявку
+                                </button>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tariffs-popup__slider--footer">
+                    <div class="tariffs-popup__slider--pagination swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="js/libs.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.0/dist/chart.js"></script>
-<script src="js/chartjs-plugin-crosshair.js"></script> -->
 <script src="js/main.min.js"></script>
 
 <script>

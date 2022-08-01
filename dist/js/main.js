@@ -1,17 +1,296 @@
+function copyToClipboard(el) {
+
+  // resolve the element
+  el = (typeof el === 'string') ? document.querySelector(el) : el;
+
+  // handle iOS as a special case
+  if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+
+    // save current contentEditable/readOnly status
+    var editable = el.contentEditable;
+    var readOnly = el.readOnly;
+
+    // convert to editable with readonly to stop iOS keyboard opening
+    el.contentEditable = true;
+    el.readOnly = true;
+
+    // create a selectable range
+    var range = document.createRange();
+    range.selectNodeContents(el);
+
+    // select the range
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    el.setSelectionRange(0, 999999);
+
+    // restore contentEditable/readOnly to original state
+    el.contentEditable = editable;
+    el.readOnly = readOnly;
+  }
+  else {
+    navigator.clipboard.writeText(el.value)
+      .then(() => {
+
+      })
+      .catch(err => {
+        console.log('Something went wrong', err);
+      });
+    el.select();
+  }
+
+  // execute copy command
+  document.execCommand('copy');
+}
+
+let slideUp = (target, duration=500) => {
+  target.style.transitionProperty = 'height, margin, padding';
+  target.style.transitionDuration = duration + 'ms';
+  target.style.boxSizing = 'border-box';
+  target.style.height = target.offsetHeight + 'px';
+  target.offsetHeight;
+  target.style.overflow = 'hidden';
+  target.style.height = 0;
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
+  window.setTimeout( () => {
+    target.style.display = 'none';
+    target.style.removeProperty('height');
+    target.style.removeProperty('padding-top');
+    target.style.removeProperty('padding-bottom');
+    target.style.removeProperty('margin-top');
+    target.style.removeProperty('margin-bottom');
+    target.style.removeProperty('overflow');
+    target.style.removeProperty('transition-duration');
+    target.style.removeProperty('transition-property');
+  }, duration);
+}
+
+let slideDown = (target, duration=500) => {
+  target.style.removeProperty('display');
+  let display = window.getComputedStyle(target).display;
+
+  if (display === 'none')
+    display = 'block';
+
+  target.style.display = display;
+  let height = target.offsetHeight;
+  target.style.overflow = 'hidden';
+  target.style.height = 0;
+  target.style.paddingTop = 0;
+  target.style.paddingBottom = 0;
+  target.style.marginTop = 0;
+  target.style.marginBottom = 0;
+  target.offsetHeight;
+  target.style.boxSizing = 'border-box';
+  target.style.transitionProperty = "height, margin, padding";
+  target.style.transitionDuration = duration + 'ms';
+  target.style.height = height + 'px';
+  target.style.removeProperty('padding-top');
+  target.style.removeProperty('padding-bottom');
+  target.style.removeProperty('margin-top');
+  target.style.removeProperty('margin-bottom');
+  window.setTimeout( () => {
+    target.style.removeProperty('height');
+    target.style.removeProperty('overflow');
+    target.style.removeProperty('transition-duration');
+    target.style.removeProperty('transition-property');
+  }, duration);
+}
+
+(function () {
+  var FX = {
+      easing: {
+          linear: function (progress) {
+              return progress;
+          },
+          quadratic: function (progress) {
+              return Math.pow(progress, 2);
+          },
+          swing: function (progress) {
+              return 0.5 - Math.cos(progress * Math.PI) / 2;
+          },
+          circ: function (progress) {
+              return 1 - Math.sin(Math.acos(progress));
+          },
+          back: function (progress, x) {
+              return Math.pow(progress, 2) * ((x + 1) * progress - x);
+          },
+          bounce: function (progress) {
+              for (var a = 0, b = 1, result; 1; a += b, b /= 2) {
+                  if (progress >= (7 - 4 * a) / 11) {
+                      return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
+                  }
+              }
+          },
+          elastic: function (progress, x) {
+              return Math.pow(2, 10 * (progress - 1)) * Math.cos(20 * Math.PI * x / 3 * progress);
+          }
+      },
+      animate: function (options) {
+          var start = new Date;
+          var id = setInterval(function () {
+              var timePassed = new Date - start;
+              var progress = timePassed / options.duration;
+              if (progress > 1) {
+                  progress = 1;
+              }
+              options.progress = progress;
+              var delta = options.delta(progress);
+              options.step(delta);
+              if (progress == 1) {
+                  clearInterval(id);
+  
+                  options.complete();
+              }
+          }, options.delay || 10);
+      },
+      fadeOut: function (element, options) {
+          var to = 1;
+          this.animate({
+              duration: options.duration,
+              delta: function (progress) {
+                  progress = this.progress;
+                  return FX.easing.swing(progress);
+              },
+              complete: options.complete,
+              step: function (delta) {
+                  element.style.opacity = to - delta;
+              }
+          });
+      },
+      fadeIn: function (element, options) {
+          var to = 0;
+          element.style.display = 'block';
+          this.animate({
+              duration: options.duration,
+              delta: function (progress) {
+                  progress = this.progress;
+                  return FX.easing.swing(progress);
+              },
+              complete: options.complete,
+              step: function (delta) {
+                  element.style.opacity = to + delta;
+              }
+          });
+      }
+  };
+  window.FX = FX;
+})()
+  
+// =-=-=-=-=-=-=-=-=-=-=-=- <popup> -=-=-=-=-=-=-=-=-=-=-=-=
+
+let popupCheck = true, popupCheckClose = true;
+function popup(arg) {
+
+if (popupCheck) {
+    popupCheck = false;
+
+    let popup, popupClose,
+
+        body = arg.body,
+        html = arg.html,
+        header = arg.header,
+        duration = (arg.duration) ? arg.duration : 200,
+        id = arg.id;
+
+    try {
+
+        popup = document.querySelector(id);
+        popupClose = popup.querySelectorAll('._popup-close');
+
+    } catch {
+        return false;
+    }
+
+    function removeFunc(popup, removeClass) {
+
+        if (popupCheckClose) {
+            popupCheckClose = false;
+
+            FX.fadeOut(popup, {
+                duration: duration,
+                complete: function () {
+                    popup.style.display = 'none';
+                }
+            });
+            popup.classList.remove('_active');
+
+            setTimeout(() => {
+                popupCheckClose = true;
+            }, duration)
+
+            if (removeClass) {
+                if (header) header.classList.remove('_popup-active');
+
+                setTimeout(function () {
+
+                    body.classList.remove('_popup-active');
+                    html.style.setProperty('--popup-padding', '0px');
+
+                }, duration)
+            }
+        }
+    }
+
+    body.classList.remove('_popup-active');
+    html.style.setProperty('--popup-padding', window.innerWidth - body.offsetWidth + 'px');
+    body.classList.add('_popup-active');
+
+    popup.classList.add('_active');
+    if (header) header.classList.add('_popup-active');
+
+
+    setTimeout(function () {
+        FX.fadeIn(popup, {
+            duration: duration,
+            complete: function () {
+            }
+        });
+    }, duration);
+
+
+
+    popupClose.forEach(element => {
+        element.addEventListener('click', function () {
+            if (document.querySelectorAll('.popup._active').length <= 1) {
+                removeFunc(popup, true);
+            } else {
+                removeFunc(popup, false);
+            }
+            setTimeout(function () {
+                return false;
+            }, duration)
+        });
+    })
+
+
+    setTimeout(() => {
+        popupCheck = true;
+    }, duration);
+
+}
+
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </popup> -=-=-=-=-=-=-=-=-=-=-=-=
+
 const body = document.querySelector('body'),
-    html = document.querySelector('html'),
-    menu = document.querySelectorAll('._burger, .header__nav, body'),
-    burger = document.querySelector('._burger'),
-    header = document.querySelector('.header');
+      html = document.querySelector('html'),
+      menu = document.querySelectorAll('._burger, .header__nav, body'),
+      burger = document.querySelector('._burger'),
+      header = document.querySelector('.header');
 
 function validate(email, event) {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   let address = email.value;
   if(reg.test(address) == false) {
       event.preventDefault();
-      email.classList.add('_error');
+      email.parentElement.parentElement.classList.add('_error');
       email.onblur = function () {
-        email.classList.remove('_error');
+        email.parentElement.parentElement.classList.remove('_error');
       }
       return false;
   }
@@ -46,7 +325,6 @@ function resize() {
 resize();
 
 window.onresize = resize;
-
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -620,7 +898,7 @@ function counstructBarChart(arg) {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let thisTarget, traderNavCheck = true;
+let thisTarget, traderNavCheck = true, slideCheck = true;
 body.addEventListener('click', function (event) {
 
     thisTarget = event.target;
@@ -734,7 +1012,7 @@ body.addEventListener('click', function (event) {
 
       headerProfileSettings.classList.add('_active');
 
-    } else if(!thisTarget.closest('.header__profile--settings') || !thisTarget.closest('.header__profile--settings-open') || thisTarget.closest('.header__profile--settings-close')) {
+    } else if(headerProfileSettings && (!thisTarget.closest('.header__profile--settings') || !thisTarget.closest('.header__profile--settings-open') || thisTarget.closest('.header__profile--settings-close'))) {
       headerProfileSettings.classList.remove('_active');
     }
 
@@ -817,78 +1095,102 @@ body.addEventListener('click', function (event) {
       }
       
     }
+
+
+
+    let copyBtn = thisTarget.closest('._copy-input-btn');
+    if (copyBtn) {
+      event.preventDefault();
+      
+      let input = copyBtn.parentNode.querySelector('._copy-input');
+  
+      if (input) {
+  
+        copyToClipboard(input)
+  
+      }
+  
+    }
+
+
+
+    let slideBtn = thisTarget.closest('._slide-btn');
+    if(slideBtn && slideCheck) {
+
+      slideCheck = false;
+
+      let block = slideBtn.closest('._slide-block'),
+          time = (Number(block.dataset.time)) ? Number(block.dataset.time) : 1000,
+          content = block.querySelector('._slide-content');
+
+      if(slideBtn.classList.contains('_active')) {
+
+        slideUp(content, time);
+        block.classList.remove('_active');
+        slideBtn.classList.remove('_active')
+
+      } else {
+
+        slideDown(content, time);
+        slideBtn.classList.add('_active');
+        setTimeout(() => { block.classList.add('_active'); }, time)
+
+      }
+
+      setTimeout(() => {
+        slideCheck = true;
+      },time)
+
+    }
+
+
+
+    let btnPopup = thisTarget.closest('._open-popup');
+    if(btnPopup) {
+      event.preventDefault();
+    
+      popup({
+        id: (btnPopup.getAttribute('href')) ? btnPopup.getAttribute('href') : btnPopup.dataset.id,
+        html: html,
+        body: body,
+      });
+    
+    }
+
+
+
+    let promoOpenBtn = thisTarget.closest('.tariffs-popup__slide--promo-open-btn');
+    if(promoOpenBtn) {
+      let parent = promoOpenBtn.parentElement.querySelector('.tariffs-popup__slide--promo-block');
+
+      parent.classList.remove('_hidden');
+      promoOpenBtn.classList.add('_hidden');
+
+    }
+
+
+
+    let openMinPopup = thisTarget.closest('._open-min-popup');
+    if(openMinPopup) {
+
+      let wrapper = openMinPopup.closest('._min-popup-wrapper'),
+          popup = wrapper.querySelector('._min-popup');
+
+      popup.classList.add('_active');
+
+    } else {
+      if(!thisTarget.closest('._min-popup')) {
+        document.querySelectorAll('._min-popup').forEach(minPopup => {
+          minPopup.classList.remove('_active');
+        })
+      }
+    }
+
 })
 
-/* function createCustomPrompt(elem) {
-  let prompt = document.createElement('div'),
-      promptBody = document.createElement('div'),
-      text = elem.dataset.сustomPromptText,
-      pos = elem.getBoundingClientRect();
-
-  prompt.classList.add('custom-prompt-message');
-  promptBody.classList.add('custom-prompt-message-body');
-
-  prompt.append(promptBody);  
-
-  document.body.append(prompt);
-  promptBody.textContent = text;
-  
-  prompt.style.left = (pos.left - (prompt.offsetWidth / 2) + (elem.offsetWidth / 2)) + 'px';
-  prompt.style.top = (pos.top + elem.ownerDocument.defaultView.pageYOffset - prompt.offsetHeight) + 'px';
-
-  if((prompt.getBoundingClientRect().left + prompt.offsetWidth + 50) > body.offsetWidth) {
-    prompt.classList.add('_right-pos');
-  }
-
-  setTimeout(() => {
-    prompt.classList.add('_visible');
-  },100)
-
-} */
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
-/* const customPrompt = document.querySelectorAll('.сustom-prompt');
-customPrompt.forEach(customPrompt => {
-
-  customPrompt.addEventListener('mouseover', function(event) {
-
-    let customPromptTarget = event.target.closest('.сustom-prompt');
-    if(customPromptTarget) {
-      if(!customPromptTarget.classList.contains('_active')) {
-        customPromptTarget.classList.add('_active');
-
-        createCustomPrompt(customPromptTarget);
-  
-      }
-      
-    }
-    
-  });
-
-  customPrompt.addEventListener('mouseout', function(event) {
-
-    let customPromptTarget = event.target.closest('.сustom-prompt');
-    if(customPromptTarget) {
-      if(customPromptTarget.classList.contains('_active')) {
-        customPromptTarget.classList.remove('_active');
-  
-        let prompt = document.querySelector('.custom-prompt-message');
-        prompt.classList.remove('_visible');
-        setTimeout(() => {
-          prompt.remove();
-        },200)
-        
-  
-      }
-      
-    }
-    
-  });
-
-}) */
-
 
 let verificationInputs = document.querySelectorAll('.login__verification--input');
 verificationInputs.forEach(thisInput => {
@@ -1004,6 +1306,28 @@ let loginSlider = new Swiper('.login__slider', {
       el: '.swiper-pagination',
       clickable: true,
     }
+
+});
+
+let tariffsSlider = new Swiper('.tariffs-popup__slider', {
+  
+  spaceBetween: 20,
+  slidesPerView: 1,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  breakpoints: {
+    800: {
+      slidesPerView: 3,
+    },
+
+    600: {
+      slidesPerView: 2,
+    },
+  }
 
 }); 
 

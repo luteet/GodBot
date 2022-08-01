@@ -8,6 +8,7 @@ $containerLarge: 1336 + ($containerPadding * 2);
 $containerSuperLarge: 1360 + ($containerPadding * 2);
 
 :root {
+
     --title-font: 'Montserrat', Helvetica, Arial, sans-serif;
     --main-font: 'Montserrat', Helvetica, Arial, sans-serif;
     
@@ -19,11 +20,13 @@ $containerSuperLarge: 1360 + ($containerPadding * 2);
     --light-2: #DDDFE1;
     --light-3: #EEECF4;
     --light-4: #DBDBDB;
-    
 
+    --light-opacity: rgba(255, 255, 255, 0.7);
+    
     --page-bg: #FFFFFF;
     --page-bg-2: #FFFFFF;
     --text-color: #262628;
+    --text-color-2: #000000;
 
     --white: #FFF;
     --black: #000;
@@ -40,6 +43,8 @@ $containerSuperLarge: 1360 + ($containerPadding * 2);
     --light-purple-2: #CCC5FF;
     --pink: #F034B0;
     --green: #12921E;
+    --green-2: #03A700;
+    --green-light: #449C62;
     --red: #CA390C;
     --yellow: #EFAD10;
 
@@ -48,8 +53,10 @@ $containerSuperLarge: 1360 + ($containerPadding * 2);
     --gradient: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
     --gradient-reverse: linear-gradient(89.6deg, #88019E 51.47%, #1F3A99 91.55%);
     --dark-gradient: linear-gradient(99.31deg, rgba(31, 58, 153, 0.3) -2.82%, rgba(136, 1, 158, 0.3) 60.21%);
+    --light-gradient: linear-gradient(95.65deg, rgba(31, 58, 153, 0.2) 10.51%, rgba(136, 1, 158, 0.2) 94.31%);
 
     --container-padding: 15px;
+
 }
 
 @font-face {
@@ -63,4 +70,5 @@ $containerSuperLarge: 1360 + ($containerPadding * 2);
 @font-face {
     @include font-include('Montserrat', 600, swap, normal, 'Montserrat-SemiBold');
 }
+
 

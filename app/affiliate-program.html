@@ -1,0 +1,143 @@
+@@include("html/_header.html", {
+    "profile": '<div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>'
+})
+
+    <main class="main">
+        <section class="affiliate-program pt-xl-3 pt-5 pb-5">
+            <div class="affiliate-program__container _container _super-large">
+                <div class="affiliate-program__body _row">
+                    <div class="statistic _col-full _hide-on-mob">
+                        <div class="statistic__body">
+                            <div class="statistic__col">
+                                <h2 class="statistic__sort--title _min-title m-0 pe-3 pe-lg-3 mb-xl-0 mb-2">
+                                    Ваша счет:
+                                </h2>
+                            </div>
+                            <div class="statistic__col _auto pe-lg-3">
+                                <div class="statistic__account ms-2">
+                                    <div class="statistic__account--body">
+                                        <strong class="statistic__account--value me-4">
+                                            <span class="statistic__elem--value _text-gradient">
+                                                12 430₽
+                                            </span>
+                                        </strong>
+                                        <a href="#" class="statistic__account--btn _btn _min-2 _none-accent">
+                                            ВЫВЕСТИ СРЕДСТВА
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistic__col pt-xl-0 pt-3">
+                                <ul class="statistic__list p-0">
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Заработок
+                                                с нами
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">
+                                                    85.05%
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Количество сигналов
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">14 789</strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Проходимость сигналов
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">98.5%</strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="affiliate-program__row _col-full">
+                        <div class="affiliate-program__row--col _large">
+                            <div class="affiliate-program__table">
+                                <div class="affiliate-program__table--body _block">
+                                    <h3 class="affiliate-program__table--title _min-title mt-3 mb-2">
+                                        Мои партнеры
+                                    </h3>
+                                    <div class="affiliate-program__table--wrapper mt-3">
+                                        <div class="affiliate-program__table--head mb-3">
+                                            <div class="affiliate-program__table--name">
+                                                ID
+                                            </div>
+                                            <div class="affiliate-program__table--name">
+                                                Дата покупки
+                                            </div>
+                                            <div class="affiliate-program__table--name">
+                                                Email
+                                            </div>
+                                            <div class="affiliate-program__table--name">
+                                                Прибыль
+                                            </div>
+                                        </div>
+                                        <div class="affiliate-program__table--list">
+                                            @@loop("html/_affiliate-table-item.html", [
+                                                {"id": '1'},
+                                                {"id": '2'},
+                                                {"id": '3'},
+                                                {"id": '4'},
+                                                {"id": '5'},
+                                                {"id": '6'},
+                                            ])
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="affiliate-program__row--col _min mt-lg-0 mt-3">
+                            <div class="affiliate-program__referral">
+                                <div class="affiliate-program__referral--body _block">
+                                    <h3 class="affiliate-program__referral--title _min-title mt-2">
+                                        Реферальная ссылка
+                                    </h3>
+                                    <form action="#" class="affiliate-program__referral--form mt-3">
+                                        <label class="affiliate-program__referral--label">
+                                            <input type="text" readonly value="top.fewjofjewokdwdwdopwqkopd/dwfwemdpow/fwefew" class="affiliate-program__referral--input _copy-input">
+                                        </label>
+                                        <button class="affiliate-program__referral--btn _btn _min-2 _copy-input-btn mt-4" type="button">
+                                            Скопировать
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="affiliate-program__discount mt-4">
+                                <div class="affiliate-program__discount--body _block text-center">
+                                    <div class="affiliate-program__discount--container">
+                                        <h3 class="affiliate-program__discount--title _min-title mb-3">
+                                            С каждой покупке услуг по Вашей реферальной ссылке вы получаете
+                                        </h3>
+                                        <strong class="affiliate-program__discount--value _text-gradient">
+                                            20%
+                                        </strong>
+                                        <div class="affiliate-program__discount--info mt-2">
+                                            на свой счет в личном кабинете
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+@@include("html/_footer.html")

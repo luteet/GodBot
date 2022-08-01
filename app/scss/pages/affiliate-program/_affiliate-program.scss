@@ -1,0 +1,215 @@
+.affiliate-program {
+
+    // .affiliate-program__container
+
+    &__container {
+    }
+
+    // .affiliate-program__body
+
+    &__body {
+    }
+
+    // .affiliate-program__row
+
+    &__row {
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include _992 {
+            flex-direction: row;
+        }
+
+        // .affiliate-program__row--col
+
+        &--col {
+            @include _992 {
+                display: flex;
+                flex-direction: column;
+
+                &._large {
+                    flex: 0 1 calc(58.456% - 10px);
+                }
+    
+                &._min {
+                    flex: 0 1 calc(41.544% - 10px);
+                }
+            }
+        }
+    }
+
+    // .affiliate-program__table
+
+    &__table {
+
+        $gridTemplate: 50px 30% 45% 15%;
+
+        // .affiliate-program__table--body
+
+        &--body {
+            display: grid;
+        }
+
+        // .affiliate-program__table--title
+
+        &--title {
+            
+        }
+
+        // .affiliate-program__table--wrapper
+
+        &--wrapper {
+            overflow-x: auto;
+            /* max-width: 100%; */
+            &::-webkit-scrollbar {
+                width: 7px; height: 7px;
+                border-radius: 7px;
+                background: var(--light-2);
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: var(--blue);
+                border-radius: 7px;
+            }
+        }
+
+        // .affiliate-program__table--head
+
+        &--head {
+            display: grid;
+            grid-template-columns: $gridTemplate;
+
+            min-width: 550px;
+        }
+
+        // .affiliate-program__table--name
+
+        &--name {
+            color: var(--gray);
+            font-size: 0.75rem;
+            line-height: 117%;
+
+            text-align: center;
+        }
+
+        // .affiliate-program__table--item
+
+        &--item {
+            display: grid;
+            grid-template-columns: $gridTemplate;
+
+            min-width: 550px;
+
+            &:not(:first-child) {
+                border-top: 1px dashed var(--light-2);
+            }
+        }
+
+        // .affiliate-program__table--param
+
+        &--param {
+            text-align: center;
+
+            color: var(--text-color);
+            font-size: 0.875rem;
+            line-height: 117%;
+
+            transition: color .2s ease-in-out;
+        }
+    }
+
+    // .affiliate-program__referral
+
+    &__referral {
+        &--body {
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        // .affiliate-program__referral--form
+
+        &--form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        // .affiliate-program__referral--label
+
+        &--label {
+            width: 100%;
+        }
+
+        // .affiliate-program__referral--input
+
+        &--input {
+            width: 100%;
+
+            line-height: 100%;
+            padding: 10px 20px;
+
+            border-radius: 10px;
+            border: 1px solid var(--light-purple-2);
+
+            color: var(--text-color);
+            background: transparent;
+        }
+
+        // .affiliate-program__referral--btn
+
+        &--btn {
+            text-transform: uppercase;
+            font-weight: 400;
+
+            &._min-2 {
+                padding: 14px 60px;
+            }
+        }
+    }
+
+    // .affiliate-program__discount
+
+    &__discount {
+        flex: 1 1 auto;
+
+        // .affiliate-program__discount--body
+
+        &--body {
+            min-height: 100%;
+
+            display: flex;
+            align-items: center;
+        }
+
+        &--container {
+            max-width: 470px;
+            margin: 0 auto;
+        }
+
+        // .affiliate-program__discount--title
+
+        &--title {
+            line-height: 133%;
+        }
+
+        // .affiliate-program__discount--value
+
+        &--value {
+            
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 100%;
+
+        }
+
+        // .affiliate-program__discount--info
+
+        &--info {
+            color: var(--text-color);
+        }
+    }
+}

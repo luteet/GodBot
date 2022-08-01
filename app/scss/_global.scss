@@ -2,6 +2,7 @@ html, body {
     font-size: 16px;
     min-height: 100%;
 }
+
 body {
 
     font-family: var(--main-font);
@@ -14,7 +15,7 @@ body {
 
     transition: background .2s ease-in-out, color .2s ease-in-out;
 
-    //padding-right: var(--popup-padding);
+    padding-right: var(--popup-padding);
 
     &._active {
         overflow: hidden;
@@ -31,9 +32,16 @@ body {
         --light-3: #272727;
         --light-4: #272727;
         --text-color: #FFFFFF;
-        --text-gradient: linear-gradient(89.6deg, #FFF 51.47%, #FFF 91.55%);
+        --text-color-2: #FFFFFF;
+        //--text-gradient: linear-gradient(89.6deg, #FFF 51.47%, #FFF 91.55%);
         --gray-dark: #EEECF4;
         --gray-light-2: #232323;
+        --light-opacity: rgba(0,0,0,0.7);
+
+        ._text-gradient {
+            background: transparent;
+            color: var(--white);
+        }
 
         & .wrapper {
             &::before, &::after {
@@ -267,10 +275,44 @@ body {
         opacity: 0;
     }
 
+    &._btn-active {
+        &::before, &::after {
+            display: none;
+        }
+
+        background: var(--green-2);
+        pointer-events: none;
+
+    }
+
     &._min {
         font-size: 0.625rem;
         @include _992 {
             font-size: 0.625rem;
+        }
+    }
+
+    &._min-2 {
+        padding: 14px 20px;
+
+        font-weight: 500;
+        font-size: 0.75rem;
+        line-height: 117%;
+    }
+
+    &._none-accent {
+        &::before, &::after {
+            display: none;
+        }
+
+        background: var(--blue);
+
+        &:hover {
+            background: var(--blue-light);
+        }
+
+        &:active {
+            background: var(--blue-dark);
         }
     }
 
@@ -337,11 +379,6 @@ body {
     border: 0 !important;
     background: transparent !important;
 }
-
-/* .apexcharts-tooltip {
-    background: #f3f3f3;
-    color: orange;
-  } */
 
 .сustom-prompt {
     cursor: help;
@@ -438,11 +475,11 @@ body {
 [data-bs-toggle="tooltip"] {
     cursor: help;
 }
+
 .chart {
 	clear: both;
 	position: relative;
 }
-
 
 .bar-chart-wrapper {
     padding-left: 25px;
@@ -575,4 +612,20 @@ body {
     }
 }
 
+._block {
+    background: var(--page-bg-2);
+    backdrop-filter: blur(5px);
 
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+}
+
+._text-gradient {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
