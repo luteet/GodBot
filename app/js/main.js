@@ -750,7 +750,7 @@ function chartFunc(arg) {
 
 }
 
-let chartBar = [];
+/* let chartBar = [];
 
 function barChart(arg) {
   let ctx = document.querySelector(arg.id);
@@ -766,8 +766,6 @@ function barChart(arg) {
         },
 
         layout: arg.layout,
-        
-        /* responsive: true, */
 
         plugins: {
           tooltip: {
@@ -782,7 +780,6 @@ function barChart(arg) {
             display: false,
             labels: {
                 display: false,
-                /* color: 'rgb(255, 99, 132, 0)' */
             }
           }
         },
@@ -790,18 +787,13 @@ function barChart(arg) {
           x: {
             display: false,
             stacked: true,
-            /* ticks: {
-              font: {
-                size: 0,
-              },
-            }, */
             grid: {
               display: false,
               borderColor: 'rgba(0,0,0,0)',
             },
           },
           y: {
-            /* display: false, */
+            
             stacked: true,
             grid: {
               display: false,
@@ -810,24 +802,12 @@ function barChart(arg) {
             ticks: {
               color: 'rgba(0,0,0,0)'
             },
-            /* ticks: {
-              color: chartTextColor,
-              font: {
-                size: 12,
-              },
-              callback: function (value) {
-                if(value >= 1000) {
-                  return (value / 1000).toFixed(0) + "K";
-                } else {
-                  return value;
-                }
-              }
-            } */
+            
           }
         }
       }
     })
-}
+} */
 
 function counstructBarChart(arg) {
 
@@ -909,6 +889,7 @@ body.addEventListener('click', function (event) {
       })
     }
 
+    
 
     let submitBtn = thisTarget.closest('.login__form--submit');
     if(submitBtn) {
