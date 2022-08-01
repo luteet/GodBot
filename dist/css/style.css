@@ -11785,15 +11785,14 @@ body._dark-theme .trader__tab-nav--link::after {
 .learing-center__video-item--ul {
   font-weight: 400;
   font-size: 0.75rem;
-  line-height: 130%;
   margin: 10px 0 0 0;
   padding: 0;
 }
 
 .learing-center__video-item--ul li {
-  padding: 0 0 0 5px;
+  padding: 1px 0 1px 5px;
   font-size: 0.75rem;
-  line-height: 117%;
+  line-height: 150%;
   color: var(--text-color);
   position: relative;
 }
@@ -11809,7 +11808,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .learing-center__video-item--text {
   font-size: 0.75rem;
-  line-height: 117%;
+  line-height: 150%;
   color: var(--text-color-2);
   margin-top: 7px;
 }
@@ -14728,7 +14727,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .learing-center__video-item--footer {
     padding: 15px 20px;
-    min-height: 100px;
+    min-height: 110px;
   }
 
   .learing-center__video-item--price {

@@ -534,14 +534,13 @@
 
             font-weight: 400;
             font-size: 0.75rem;
-            line-height: 130%;
 
             margin: 10px 0 0 0; padding: 0;
 
             & li {
-                padding: 0 0 0 5px;
+                padding: 1px 0 1px 5px;
                 font-size: 0.75rem;
-                line-height: 117%;
+                line-height: 150%;
                 color: var(--text-color);
 
                 position: relative;
@@ -559,7 +558,7 @@
             
             @include _768 {
                 padding: 15px 20px;
-                min-height: 100px;
+                min-height: 110px;
             }
             
         }
@@ -568,7 +567,7 @@
 
         &--text {
             font-size: 0.75rem;
-            line-height: 117%;
+            line-height: 150%;
             color: var(--text-color-2);
 
             margin-top: 7px;
