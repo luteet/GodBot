@@ -431,7 +431,7 @@
             }
 
             &._active &-arrow {
-                transform: translate(-50px,0) scaleY(-1);
+                transform: translate(-50%,0) scaleY(-1);
                 &::before {
                     opacity: 0;
                 }

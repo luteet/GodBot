@@ -9224,8 +9224,8 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .header__select--selected._active .header__select--selected-arrow {
-  -webkit-transform: translate(-50px, 0) scaleY(-1);
-          transform: translate(-50px, 0) scaleY(-1);
+  -webkit-transform: translate(-50%, 0) scaleY(-1);
+          transform: translate(-50%, 0) scaleY(-1);
 }
 
 .header__select--selected._active .header__select--selected-arrow::before {
