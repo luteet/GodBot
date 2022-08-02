@@ -1,3 +1,9 @@
+const body = document.querySelector('body'),
+      html = document.querySelector('html'),
+      menu = document.querySelectorAll('._burger, .header__nav, body'),
+      burger = document.querySelector('._burger'),
+      header = document.querySelector('.header');
+
 function copyToClipboard(el) {
 
   // resolve the element
@@ -190,9 +196,6 @@ if (popupCheck) {
 
     let popup, popupClose,
 
-        body = arg.body,
-        html = arg.html,
-        header = arg.header,
         duration = (arg.duration) ? arg.duration : 200,
         id = arg.id;
 
@@ -242,7 +245,6 @@ if (popupCheck) {
     popup.classList.add('_active');
     if (header) header.classList.add('_popup-active');
 
-
     setTimeout(function () {
         FX.fadeIn(popup, {
             duration: duration,
@@ -250,8 +252,6 @@ if (popupCheck) {
             }
         });
     }, duration);
-
-
 
     popupClose.forEach(element => {
         element.addEventListener('click', function () {
@@ -277,11 +277,21 @@ if (popupCheck) {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
-const body = document.querySelector('body'),
-      html = document.querySelector('html'),
-      menu = document.querySelectorAll('._burger, .header__nav, body'),
-      burger = document.querySelector('._burger'),
-      header = document.querySelector('.header');
+function scrollBarWidth() {
+  let div = document.createElement('div');
+
+  div.style.overflowY = 'scroll';
+  div.style.width = '50px';
+  div.style.height = '50px';
+
+  document.body.append(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+
+  div.remove();
+
+  return scrollWidth;
+}
+
 
 function validate(email, event) {
   let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -879,7 +889,7 @@ function counstructBarChart(arg) {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let thisTarget, traderNavCheck = true, slideCheck = true;
+let thisTarget, traderNavCheck = true;
 body.addEventListener('click', function (event) {
 
     thisTarget = event.target;
@@ -1097,31 +1107,34 @@ body.addEventListener('click', function (event) {
 
 
     let slideBtn = thisTarget.closest('._slide-btn');
-    if(slideBtn && slideCheck) {
+    if(slideBtn) {
 
-      slideCheck = false;
+      if(!slideBtn.classList.contains('_sliding')) {
 
-      let block = slideBtn.closest('._slide-block'),
-          time = (Number(block.dataset.time)) ? Number(block.dataset.time) : 1000,
-          content = block.querySelector('._slide-content');
+        slideBtn.classList.add('_sliding');
 
-      if(slideBtn.classList.contains('_active')) {
+        let block = slideBtn.closest('._slide-block'),
+            time = (Number(block.dataset.time)) ? Number(block.dataset.time) : 1000,
+            content = block.querySelector('._slide-content');
 
-        slideUp(content, time);
-        block.classList.remove('_active');
-        slideBtn.classList.remove('_active')
+        if(slideBtn.classList.contains('_active')) {
 
-      } else {
+          slideUp(content, time);
+          block.classList.remove('_active');
+          slideBtn.classList.remove('_active')
 
-        slideDown(content, time);
-        slideBtn.classList.add('_active');
-        setTimeout(() => { block.classList.add('_active'); }, time)
+        } else {
 
+          slideDown(content, time);
+          slideBtn.classList.add('_active');
+          setTimeout(() => { block.classList.add('_active'); }, time)
+
+        }
+
+        setTimeout(() => {
+          slideBtn.classList.remove('_sliding');
+        },time)
       }
-
-      setTimeout(() => {
-        slideCheck = true;
-      },time)
 
     }
 
@@ -1132,11 +1145,34 @@ body.addEventListener('click', function (event) {
       event.preventDefault();
     
       popup({
-        id: (btnPopup.getAttribute('href')) ? btnPopup.getAttribute('href') : btnPopup.dataset.id,
-        html: html,
-        body: body,
+        id: (btnPopup.getAttribute('href')) ? btnPopup.getAttribute('href') : btnPopup.dataset.id
       });
     
+    }
+
+    let popupClose = thisTarget.closest('._popup-close');
+    if(popupClose) {
+      let popup = popupClose.closest('.popup');
+      FX.fadeOut(popup, {
+        duration: 200,
+        complete: function () {
+          if(popupClose.classList.contains('_remove-popup')) popup.remove();
+        }
+      });
+      popup.classList.remove('_active');
+
+      setTimeout(() => {
+          popupCheckClose = true;
+      }, 200)
+
+      if (header) header.classList.remove('_popup-active');
+
+      setTimeout(function () {
+
+          body.classList.remove('_popup-active');
+          html.style.setProperty('--popup-padding', '0px');
+
+      }, 200)
     }
 
 
@@ -1166,6 +1202,74 @@ body.addEventListener('click', function (event) {
           minPopup.classList.remove('_active');
         })
       }
+    }
+
+
+
+    let openIframePopup = thisTarget.closest('._open-iframe-popup');
+    if(openIframePopup) {
+      event.preventDefault();
+
+      let link = openIframePopup.getAttribute('href');
+
+      let popup = document.createElement('div');
+      popup.classList.add('iframe-popup', 'popup');
+      popup.style.display = 'none';
+      popup.style.opacity = '0';
+      popup.style.setProperty('--max', '1000px');
+
+      html.style.setProperty('--popup-padding', scrollBarWidth() + 'px');
+      body.classList.add('_popup-active');
+
+      popup.innerHTML = `
+      
+      <div class="iframe-popup__wrapper popup-wrapper">
+        <div class="iframe-popup__bg popup-bg _popup-close _remove-popup"></div>
+        <div class="iframe-popup__body popup-body">
+          <button type="button" class="iframe-popup__close-btn popup-close-btn _popup-close">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <iframe src="${link}" class="iframe-popup__element"></iframe>
+        </div>
+        </div>
+      
+      `;
+
+      body.append(popup);
+
+      FX.fadeIn(popup, {
+        duration: 200,
+        complete: function () {
+          /* let closePopup = popup.querySelectorAll('._popup-close');
+          closePopup.forEach(closePopup => {
+            closePopup.addEventListener('click', function() {
+
+              FX.fadeOut(popup, {
+                duration: 200,
+                complete: function () {
+                  popup.remove();
+                }
+              });
+              
+              if (header) header.classList.remove('_popup-active');
+
+              setTimeout(function () {
+
+                  body.classList.remove('_popup-active');
+                  html.style.setProperty('--popup-padding', '0px');
+
+              }, 200)
+              
+            })
+          }) */
+        }
+      });
+      
+      
+
     }
 
 })

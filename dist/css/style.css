@@ -8012,6 +8012,7 @@ fieldset:disabled .btn {
   --blue: #1F3A99;
   --blue-light: #3550b3;
   --blue-dark: #193189;
+  --blue-dark-2: #0f236e;
   --light-blue: #7482E3;
   --purple: #88019E;
   --light-purple: #AC6BD3;
@@ -8761,6 +8762,24 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .popup-close-btn:active {
   background: var(--blue-dark);
+}
+
+.iframe-popup__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.iframe-popup__close-btn {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+}
+
+.iframe-popup__element {
+  margin-top: 20px;
+  min-height: calc(100vh - 135px);
+  width: 100%;
 }
 
 .login-header {
@@ -11574,13 +11593,13 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .learing-center__block-header--slide-toggle-btn:hover {
-  background: var(--blue-light);
-  border-color: var(--blue-light);
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
 }
 
 .learing-center__block-header--slide-toggle-btn:active {
-  background: var(--blue-dark);
-  border-color: var(--blue-dark);
+  background: var(--blue-dark-2);
+  border-color: var(--blue-dark-2);
 }
 
 .learing-center__block-header--slide-toggle-btn > * {
@@ -12289,24 +12308,27 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .tariffs-notification {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
+
+  min-height: 100vh; */
   min-height: 100vh;
-  position: relative;
   /* width: 100%; height: 100%; */
 }
 
 .tariffs-notification__wrapper {
-  padding: 20px 15px;
+  /* padding: 20px 15px; */
 }
 
 .tariffs-notification__body {
-  max-width: 350px;
+  /* max-width: 350px;
   margin: 0 auto;
-  padding: 20px;
+
+  padding: 20px; */
   position: relative;
   z-index: 2;
+  background: transparent;
 }
 
 .tariffs-notification__body::before {
