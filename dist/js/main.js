@@ -705,11 +705,12 @@ function chartFunc(arg) {
           },
           
           x: {
+            display: (arg.hideLabels) ? false : true,
             ticks: {
               color: chartTextColor,
               font: {
                 family: "'Montserrat', sans-serif",
-                size: (arg.hideLabels) ? 0 : 12,
+                size: 12,
               },
             },
             grid: {
@@ -1301,7 +1302,7 @@ let tariffsSlider = new Swiper('.tariffs-popup__slider', {
   },
 
   breakpoints: {
-    800: {
+    992: {
       slidesPerView: 3,
     },
 

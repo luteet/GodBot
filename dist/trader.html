@@ -275,7 +275,7 @@
                                     </div>
                                     <div class="header__select--selected-arrow"></div>
                                 </div>
-                                <div class="header__select--block header__help pt-3 pb-3">
+                                <div class="header__select--block header__help pt-2 pb-3">
                                     <ul class="header__help--list">
                                         <li class="header__help--li _hide-on-xxl">
                                             <a href="affiliate-program.html" class="header__help--link">
@@ -338,7 +338,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <div class="header__help--block mt-3">
+                                    <div class="header__help--block mt-2">
                                         <h4 class="header__help--min-title">
                                             Документы
                                         </h4>
@@ -911,7 +911,7 @@
                     </span>
                     <div class="forecast__table--name-prompt" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-custom-class="custom-tooltip"
-                    data-bs-title="По постоплате, при условии получения прибыли более 3% в неделю">
+                    data-bs-title="Это процент от депозита, больше которого нельзя потерять при походе на стоп.">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" >
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0Z" fill="#1F3A99"/>
                             <path d="M6.28208 5.74365C5.9847 5.74365 5.74362 5.98473 5.74362 6.28211C5.74362 6.5795 5.9847 6.82058 6.28208 6.82058C6.38121 6.82058 6.46157 6.90093 6.46157 7.00006V10.5898C6.46157 10.8872 6.70265 11.1283 7.00003 11.1283C7.29742 11.1283 7.53849 10.8872 7.53849 10.5898V6.28211C7.53849 5.98473 7.29742 5.74365 7.00003 5.74365H6.28208Z" fill="white"/>
@@ -1356,7 +1356,7 @@
             </div>
         </div>
         <div class="forecast__pagination mt-4">
-            <a href="#" class="forecast__pagination--btn _prev me-1 _disabled" title="Назад">
+            <a href="#" class="forecast__pagination--btn _prev _disabled" title="Назад">
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9.35297 5.0293C9.62911 5.0293 9.85297 4.80544 9.85297 4.5293C9.85297 4.25315 9.62911 4.0293 9.35297 4.0293V5.0293ZM0.528824 4.17574C0.333562 4.37101 0.333562 4.68759 0.528824 4.88285L3.7108 8.06483C3.90607 8.26009 4.22265 8.26009 4.41791 8.06483C4.61317 7.86957 4.61317 7.55299 4.41791 7.35772L1.58948 4.5293L4.41791 1.70087C4.61317 1.50561 4.61317 1.18903 4.41791 0.993763C4.22265 0.798501 3.90607 0.798501 3.7108 0.993763L0.528824 4.17574ZM9.35297 4.0293L0.882378 4.0293V5.0293L9.35297 5.0293V4.0293Z" fill="black"/>
                 </svg>
@@ -1388,7 +1388,7 @@
                     </a>
                 </div>
             </div>
-            <a href="#" class="forecast__pagination--btn _next ms-1" title="Вперёд">
+            <a href="#" class="forecast__pagination--btn _next" title="Вперёд">
                 <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.882324 5.0293C0.606182 5.0293 0.382324 4.80544 0.382324 4.5293C0.382324 4.25315 0.606182 4.0293 0.882324 4.0293L0.882324 5.0293ZM9.70647 4.17574C9.90173 4.37101 9.90173 4.68759 9.70647 4.88285L6.52449 8.06483C6.32922 8.26009 6.01264 8.26009 5.81738 8.06483C5.62212 7.86957 5.62212 7.55299 5.81738 7.35772L8.64581 4.5293L5.81738 1.70087C5.62212 1.50561 5.62212 1.18903 5.81738 0.993763C6.01264 0.798501 6.32922 0.798501 6.52449 0.993763L9.70647 4.17574ZM0.882324 4.0293L9.35291 4.0293V5.0293L0.882324 5.0293L0.882324 4.0293Z" fill="black"/>
                 </svg>
@@ -1404,7 +1404,7 @@
 
 </div>
 
-<div class="tariffs-popup popup" id="tariffs-popup" style="display: none; opacity: 0; --max: 900px;">
+<div class="tariffs-popup popup" id="tariffs-popup" style="display: none; opacity: 0; --max: 1100px;">
     <div class="tariffs-popup__wrapper popup-wrapper">
         <div class="tariffs-popup__bg popup-bg _popup-close"></div>
         <div class="tariffs-popup__body popup-body">
@@ -1509,11 +1509,11 @@
                                     <strong class="tariffs-popup__slide--price">
                                         $999 в месяц
                                     </strong>
-                                    <form action="#" class="tariffs-popup__slide--promo">
+                                    <!-- <form action="#" class="tariffs-popup__slide--promo">
                                         <button class="tariffs-popup__slide--promo-open-btn" type="button">
                                             Ввести промокод
                                         </button>
-                                        <div class="tariffs-popup__slide--promo-block _hidden"> <!-- _error, _succesful -->
+                                        <div class="tariffs-popup__slide--promo-block _hidden"> _error, _succesful
                                             <label class="tariffs-popup__slide--promo-label">
                                                 <input type="text" name="promo" placeholder="Ввести промокод" class="tariffs-popup__slide--promo-input">
                                             </label>
@@ -1527,7 +1527,7 @@
                                                 <span class="tariffs-popup__slide--promo-message-error">Неверный промокод</span>
                                             </div>
                                         </div>
-                                    </form>
+                                    </form> -->
                                 </div>
                             </div>
                             <div class="tariffs-popup__slide--main-footer _min-popup-wrapper">

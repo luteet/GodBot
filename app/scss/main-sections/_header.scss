@@ -8,14 +8,26 @@
 
 .header {
 
+    width: 100%;
     z-index: 100;
     padding-top: 7px;
+
+    @include _992 {
+        min-height: 75px;
+
+        display: flex;
+        align-items: center;
+    }
+
     // .header__container
 
     &__container {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+
+        width: 100%;
+    
     }
 
     &__nav {
@@ -254,10 +266,6 @@
             &-title {
                 font-weight: 600;
                 color: var(--gray);
-            }
-
-            &-item {
-                
             }
 
             &-link {
@@ -525,7 +533,7 @@
 
     &__help {
         transform: translate(0,10px);
-        min-width: 220px;
+        min-width: 240px;
 
         border-radius: 10px;
         box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
@@ -547,7 +555,7 @@
 
         &--link {
             width: 100%;
-            padding: 9px 22px;
+            padding: 7px 22px;
 
             display: flex;
             align-items: center;
@@ -584,7 +592,7 @@
 
         &--block {
             border-top: 1px solid var(--light-2);
-            padding: 10px 10px 20px 20px;
+            padding: 10px 10px 5px 20px;
         }
 
         // .header__help--min-title
@@ -635,20 +643,28 @@
         // .header__help--footer
 
         &--footer {
-            padding: 0 11px 0 11px;
+            padding: 0 6px 0 6px;
 
-            display: flex;
+            display: inline-flex;
             flex-wrap: wrap;
             justify-content: center;
-            text-align: center;
+            /* display: flex;
+            flex-wrap: wrap; */
+
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center; */
         }
 
         // .header__help--footer-link
 
         &--footer-link {
+            display: inline;
             font-size: 0.625rem;
             text-decoration: none;
-            line-height: 130%;
+            line-height: 120%;
+            padding: 0 2px;
             color: var(--gray);
 
             transition: color .2s ease-in-out;
