@@ -199,10 +199,7 @@
 
                 border-top: 1px dashed var(--light-3);
 
-                font-size: 0.875rem;
-                @include _768 {
-                    font-size: 0.9375rem;
-                }
+                font-size: 0.9375rem;
                 line-height: 150%;
 
                 color: var(--text-color);

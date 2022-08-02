@@ -282,7 +282,7 @@
                 color: var(--pink);
             }
 
-            & .btn-icon {
+            & svg {
                 margin-right: 10px;
                 @include _992 {
                     margin-right: 5px;

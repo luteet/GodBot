@@ -9111,7 +9111,7 @@ body._dark-theme .trader__tab-nav--link::after {
   color: var(--pink);
 }
 
-.header__list--link .btn-icon {
+.header__list--link svg {
   margin-right: 10px;
 }
 
@@ -12186,7 +12186,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .tariffs-popup__slide--ul li {
   padding: 7px 0;
   border-top: 1px dashed var(--light-3);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 150%;
   color: var(--text-color);
 }
@@ -15007,10 +15007,6 @@ body._dark-theme .trader__tab-nav--link::after {
   .tariffs-popup__slide--ul {
     padding: 0 20px;
   }
-
-  .tariffs-popup__slide--ul li {
-    font-size: 0.9375rem;
-  }
 }
 
 @media (min-width: 992px) {
@@ -16104,7 +16100,7 @@ body._dark-theme .trader__tab-nav--link::after {
     width: auto;
   }
 
-  .header__list--link .btn-icon {
+  .header__list--link svg {
     margin-right: 5px;
   }
 
