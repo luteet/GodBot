@@ -9,9 +9,10 @@ body {
     
     font-weight: 400;
     line-height: 150%;
-    color: var(--dark);
+    color: var(--text-color);
 
     background: var(--page-bg);
+    
 
     transition: background .2s ease-in-out, color .2s ease-in-out;
 
@@ -50,7 +51,7 @@ body {
             }
         }
 
-        & .header__nav--body {
+        & .header__list {
             
             &::before, &::after {
                 opacity: 1;
@@ -330,7 +331,7 @@ body {
     }
 
     &._disabled {
-        cursor: default;
+        pointer-events: none;
         background: var(--light);
         color: var(--dark);
         &::before, &::after {

@@ -16,14 +16,14 @@
 <div class="wrapper">
     <header class="header">
         <div class="header__container _container _super-large">
-            <a href="main.html" class="header__logo me-4 mt-4 mt-lg-2">
+            <a href="main.html" class="header__logo me-4 mt-2">
                 <img src="img/logo-accent.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
             </a>
             <nav class="header__nav">
                 <div class="header__nav--wrapper">
                     <div class="header__nav--body">
-                        <div class="header__nav--header ps-3 ps-lg-1 pt-2 pt-lg-0">
-                            <div class="header__theme mt-2">
+                        <div class="header__nav--header ps-3 ps-lg-1">
+                            <div class="header__theme mt-2 mb-lg-0 mb-2">
                                 <button type="button" class="header__theme--switch" title="Изменить тему сайта"></button>
                                 <div class="header__theme--icon">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__theme--icon-light">
@@ -56,7 +56,7 @@
                                     }
                                 </script>
                             </div>
-                            <div class="header__select _visible-on-mob ms-2 me-2 mt-2">
+                            <div class="header__select _visible-on-mob ms-2 me-2 mt-2 mb-lg-0 mb-2">
                                 <div class="header__select--body">
                                     <div class="header__select--selected">
                                         <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
@@ -357,7 +357,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="header__profile ms-3 ms-lg-1 mt-2 me-lg-0 me-3">
+                        <div class="header__profile ms-3 ms-lg-1 mt-lg-2 me-lg-0 me-3">
                             <div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>
                             <a href="#" class="header__profile--settings-open _hide-on-mob ms-4 me-1">
                                 <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -401,7 +401,7 @@
                     </div>
                 </div>
             </nav>
-            <button class="header__burger _burger mt-4" title="Меню">
+            <button class="header__burger _burger mt-2" title="Меню">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -697,6 +697,9 @@
                                 <button class="tariffs-popup__slide--btn _btn _min-2 _btn-active">
                                     Активный тариф
                                 </button>
+                                <!-- <button class="tariffs-popup__slide--btn _btn _min-2">
+                                    Активировать
+                                </button> -->
                             </div>
                         </div>
                     </div>
@@ -1382,7 +1385,7 @@
         <div class="suggest-idea-popup__bg popup-bg _popup-close"></div>
         <div class="suggest-idea-popup__body popup-body">
             <div class="suggest-idea-popup__header">
-                <h2 class="suggest-idea-popup__title _title m-0">
+                <h2 class="suggest-idea-popup__title _min-title m-0">
                     Предложить идею
                 </h2>
                 <button type="button" class="suggest-idea-popup__close-btn popup-close-btn _popup-close" title="Закрыть попап">
@@ -1393,10 +1396,10 @@
                 </button>
             </div>
             <form action="#" class="suggest-idea-popup__form">
-                <label class="suggest-idea-popup__form--label">
+                <label class="suggest-idea-popup__form--label d-flex">
                     <textarea name="idea" rows="7" class="suggest-idea-popup__form--textarea" placeholder="Напишите свою идею"></textarea>
                 </label>
-                <button class="suggest-idea-popup__form--submit _btn" type="submit">
+                <button class="suggest-idea-popup__form--submit _btn _min-2 text-uppercase fw-normal mt-4" type="submit">
                     Отправить
                 </button>
             </form>
