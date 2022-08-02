@@ -73,30 +73,41 @@
                                     <h3 class="affiliate-program__table--title _min-title mt-3 mb-2">
                                         Мои партнеры
                                     </h3>
-                                    <div class="affiliate-program__table--wrapper mt-3">
-                                        <div class="affiliate-program__table--head mb-3">
-                                            <div class="affiliate-program__table--name">
-                                                ID
+                                    <div class="affiliate-program__table--block">
+                                        <!-- <div class="affiliate-program__table--wrapper mt-3">
+                                            <div class="affiliate-program__table--head mb-3">
+                                                <div class="affiliate-program__table--name">
+                                                    ID
+                                                </div>
+                                                <div class="affiliate-program__table--name">
+                                                    Дата покупки
+                                                </div>
+                                                <div class="affiliate-program__table--name">
+                                                    Email
+                                                </div>
+                                                <div class="affiliate-program__table--name">
+                                                    Прибыль
+                                                </div>
                                             </div>
-                                            <div class="affiliate-program__table--name">
-                                                Дата покупки
+                                            <div class="affiliate-program__table--list">
+                                                @@loop("html/_affiliate-table-item.html", [
+                                                    {"id": '1'},
+                                                    {"id": '2'},
+                                                    {"id": '3'},
+                                                    {"id": '4'},
+                                                    {"id": '5'},
+                                                    {"id": '6'},
+                                                ])
                                             </div>
-                                            <div class="affiliate-program__table--name">
-                                                Email
-                                            </div>
-                                            <div class="affiliate-program__table--name">
-                                                Прибыль
-                                            </div>
-                                        </div>
-                                        <div class="affiliate-program__table--list">
-                                            @@loop("html/_affiliate-table-item.html", [
-                                                {"id": '1'},
-                                                {"id": '2'},
-                                                {"id": '3'},
-                                                {"id": '4'},
-                                                {"id": '5'},
-                                                {"id": '6'},
-                                            ])
+                                        </div> -->
+                                        <div class="affiliate-program__table--not">
+                                            <picture>
+                                                <source srcset="img/affiliate-program/not-found.webp" type="image/webp">
+                                                <img src="img/affiliate-program/not-found.png" width="75" height="75" alt="" class="mb-2">
+                                            </picture>
+                                            <strong>
+                                                Партнеров пока нет
+                                            </strong>
                                         </div>
                                     </div>
                                 </div>

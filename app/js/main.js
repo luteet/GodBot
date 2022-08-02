@@ -1157,6 +1157,7 @@ body.addEventListener('click', function (event) {
         duration: 200,
         complete: function () {
           if(popupClose.classList.contains('_remove-popup')) popup.remove();
+          popup.style.display = 'none';
         }
       });
       popup.classList.remove('_active');
@@ -1206,7 +1207,18 @@ body.addEventListener('click', function (event) {
 
 
 
-    let openIframePopup = thisTarget.closest('._open-iframe-popup');
+    let sendTariffBtn = thisTarget.closest('._send-tariff-btn');
+    if(sendTariffBtn) {
+      event.preventDefault();
+
+      sendTariffBtn.classList.add('_btn-active');
+      sendTariffBtn.textContent = sendTariffBtn.dataset.sendTariffText;
+
+    }
+
+
+
+/*     let openIframePopup = thisTarget.closest('._open-iframe-popup');
     if(openIframePopup) {
       event.preventDefault();
 
@@ -1226,7 +1238,7 @@ body.addEventListener('click', function (event) {
       <div class="iframe-popup__wrapper popup-wrapper">
         <div class="iframe-popup__bg popup-bg _popup-close _remove-popup"></div>
         <div class="iframe-popup__body popup-body">
-          <button type="button" class="iframe-popup__close-btn popup-close-btn _popup-close">
+          <button type="button" class="iframe-popup__close-btn popup-close-btn _remove-popup">
             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1243,34 +1255,11 @@ body.addEventListener('click', function (event) {
       FX.fadeIn(popup, {
         duration: 200,
         complete: function () {
-          /* let closePopup = popup.querySelectorAll('._popup-close');
-          closePopup.forEach(closePopup => {
-            closePopup.addEventListener('click', function() {
-
-              FX.fadeOut(popup, {
-                duration: 200,
-                complete: function () {
-                  popup.remove();
-                }
-              });
-              
-              if (header) header.classList.remove('_popup-active');
-
-              setTimeout(function () {
-
-                  body.classList.remove('_popup-active');
-                  html.style.setProperty('--popup-padding', '0px');
-
-              }, 200)
-              
-            })
-          }) */
+          
         }
       });
       
-      
-
-    }
+    } */
 
 })
 
@@ -1376,6 +1365,61 @@ function timer() {
 
 timer();
 
+
+/*
+<div class="timer" data-timer-year="" data-timer-month="" data-timer-day="" data-timer-hour="" data-timer-minute="">
+  <span class="timer-days"><span class="timer-days-value"></span></d>
+  <span class="timer-hours"><span class="timer-hours-value"></span></span>
+  <span class="timer-minutes"><span class="timer-minutes-value"></span></span>
+  <span class="timer-seconds"><span class="timer-seconds-value"></span></span>
+</div>
+*/
+
+function timerUpdate() {
+  const timerElems = document.querySelectorAll('.timer');
+
+  let deadline;
+
+  timerElems.forEach(thisTimerElem => {
+
+    deadline = new Date(
+
+    thisTimerElem.dataset.timerYear,
+    Number(thisTimerElem.dataset.timerMonth - 1),
+    thisTimerElem.dataset.timerDay,
+    thisTimerElem.dataset.timerHour,
+    Number(thisTimerElem.dataset.timerMinute) + 1);
+
+    let thisDate = new Date();
+
+    const text = thisTimerElem.dataset.timerText;
+
+    let diff = deadline - thisDate,
+    days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0,
+    hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0,
+    minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0,
+    seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+
+    if((deadline - thisDate) <= 0) {
+      window.location.reload();
+    }
+
+    /* if(day) day.textContent = days.toString();
+    hour.textContent = hours.toString();
+    minute.textContent = minutes.toString();
+    second.textContent = seconds.toString(); */
+
+    thisTimerElem.innerHTML = `<span>${text} <span>${minutes} мин</span> <span>${seconds} сек</span></span>`;
+
+  });
+
+}
+
+setInterval(() => {
+  timerUpdate();
+},1000)
+
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let loginSlider = new Swiper('.login__slider', {
@@ -1414,6 +1458,25 @@ let tariffsSlider = new Swiper('.tariffs-popup__slider', {
       slidesPerView: 2,
     },
   }
+
+});
+
+let asideSlider = new Swiper('.add-aside__slider', {
+  
+  spaceBetween: 80,
+  slidesPerView: 1,
+  loop: true,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  },
 
 }); 
 

@@ -95,3 +95,146 @@
         width: 100%;
     }
 }
+
+.text-content-popup {
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__close-btn {
+        flex: 0 0 40px;
+    }
+
+    &__block {
+        margin-top: 20px;
+
+        & article {
+            padding: 10px 0;
+        }
+
+        & p {
+            padding: 0;
+            font-size: 0.875rem;
+            line-height: 150%;
+
+            @include _768 {
+                font-size: 1rem;
+            }
+        }
+
+        & h2 {
+            font-size: 1.5rem;
+            @include _768 {
+                font-size: 2.5rem;
+            }
+            font-weight: 600;
+        }
+
+        & h3 {
+            font-size: 1.25rem;
+            @include _768 {
+                font-size: 2rem;
+            }
+            margin-bottom: 15px;
+        }
+
+        & h4 {
+            margin-top: 15px;
+            font-size: 1rem;
+            @include _768 {
+                font-size: 1.125rem;
+            }
+        }
+
+        & ul > li {
+            list-style: disc;
+        }
+
+        & li > ul > li {
+            list-style: circle;
+        }
+
+        & ul {
+            margin-top: -5px; margin-bottom: 5px;
+        }
+
+        & li {
+            padding: 5px 0;
+            font-size: 0.875rem;
+            line-height: 150%;
+            @include _768 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.suggest-idea-popup {
+
+		// .suggest-idea-popup__wrapper
+
+		&__wrapper {
+		}
+
+		// .suggest-idea-popup__bg
+
+		&__bg {
+		}
+
+		// .suggest-idea-popup__body
+
+		&__body {
+		}
+
+		// .suggest-idea-popup__header
+
+		&__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+		}
+
+		// .suggest-idea-popup__form
+
+		&__form {
+
+            margin-top: 20px;
+
+            display: flex;
+            flex-direction: column;
+
+			// .suggest-idea-popup__form--label
+
+			&--label {
+                width: 100%;
+			}
+
+			// .suggest-idea-popup__form--textarea
+
+			&--textarea {
+                width: 100%;
+                padding: 15px 20px;
+
+                border-radius: 10px;
+                border: 1px solid var(--light-3);
+
+                background: transparent;
+
+                color: var(--text-color);
+
+                resize: vertical;
+			}
+
+			// .suggest-idea-popup__form--submit
+
+			&--submit {
+			}
+		}
+
+		// .suggest-idea-popup__close-btn
+
+		&__close-btn {
+		}
+}

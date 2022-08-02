@@ -256,6 +256,12 @@
 
         padding: 15px 0;
 
+        & > span span {
+            min-width: 44px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
         &._min {
             text-align: right;
             
@@ -767,11 +773,11 @@
 
         &--head {
             display: grid;
-            grid-template-columns: 20% 20% 20% 20% auto;
+            grid-template-columns: var(--grid-template);
 
             padding-bottom: 6px;
 
-            min-width: 650px;
+            min-width: var(--min-width);
         }
 
         // .chart__table--name
@@ -794,14 +800,14 @@
         // .chart__table--body
 
         &--body {
-            min-width: 650px;
+            min-width: var(--min-width);
         }
 
         // .chart__table--item
 
         &--item {
             display: grid;
-            grid-template-columns: 20% 20% 20% 20% auto;
+            grid-template-columns: var(--grid-template);
 
             &:not(:first-child) {
                 border-top: 1px dashed var(--light-2);

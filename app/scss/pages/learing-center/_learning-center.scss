@@ -29,7 +29,6 @@
     // .learing-center__list
 
     &__list {
-
         display: flex;
         flex-direction: column;
     }
@@ -37,7 +36,6 @@
     // .learing-center__block
 
     &__block {
-        
     }
 
     // .learing-center__block-header
@@ -197,7 +195,7 @@
             color: var(--white);
             text-decoration: none;
 
-            &:hover {
+            /* &:hover {
                 background: var(--blue-dark);
                 border-color: var(--blue-dark);
             }
@@ -205,7 +203,7 @@
             &:active {
                 background: var(--blue-dark-2);
                 border-color: var(--blue-dark-2);
-            }
+            } */
 
             transition: background .2s ease-in-out, border .2s ease-in-out;
 
@@ -414,7 +412,15 @@
             grid-area: 1/1;
 
             position: relative;
-            height: 100%;
+            height: 175px;
+
+            @media (min-width: 450px) {
+                height: 150px;
+            }
+
+            @include _768 {
+                height: 203px;
+            }
 
             &::after {
                 content: '';

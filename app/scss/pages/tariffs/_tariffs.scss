@@ -74,25 +74,7 @@
         // .tariffs-popup__slider--pagination
 
         &--pagination {
-            position: static;
-
-            & .swiper-pagination-bullet {
-                
-                width: 40px; height: 2px;
-                border-radius: 0;
-                opacity: 1;
-                background: var(--text-color);
-
-                transition: height .2s ease-in-out;
-            }
-
-            & .swiper-pagination-bullet-active {
-                height: 4px;
-                background: var(--pink);
-            }
-
-
-            
+            position: static;            
         }
     }
 
@@ -114,6 +96,7 @@
 
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         // .tariffs-popup__slide--body
@@ -124,7 +107,9 @@
             box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
             border-radius: 10px;
             background: var(--page-bg-2);
-            border: 2px solid var(--page-bg-2);
+            border: 2px solid var(--light-2);
+
+            max-width: 360px;
             //backdrop-filter: blur(5px);
 
             display: flex;
@@ -278,6 +263,8 @@
 
         &--main-footer {
             position: relative;
+            max-width: 360px;
+            width: 100%;
         }
 
         // .tariffs-popup__slide--btn
@@ -287,6 +274,7 @@
 
             width: 100%;
             text-transform: uppercase;
+            
             
             &._min-2 {
                 font-weight: 400;

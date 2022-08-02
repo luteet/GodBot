@@ -17,9 +17,20 @@
         flex-direction: column;
         align-items: center;
 
+        min-height: 100%;
+
         text-align: center;
         @include _992 {
             text-align: left;
+        }
+    }
+
+    &__slider {
+        padding: 20px 40px;
+        margin: -20px -40px;
+
+        &--pagination {
+            bottom: 30px !important;
         }
     }
 
