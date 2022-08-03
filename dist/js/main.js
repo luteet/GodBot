@@ -344,37 +344,46 @@ resize();
 
 window.addEventListener('resize', resize);
 
-function getCookie(name) {
-  let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
+
+function setCookie(name, value, options = {}) {
+
+  options = {
+    path: '/',
+    ...options
+  };
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
 }
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let chart = [], chartTextColor, pageBg, gridColor;
-
-
-chartTextColor = '#262628';
-gridColor = 'rgba(129, 159, 189, 0.5)';
-pageBg = '#FFFFFF';
+let chart = [];
 
 /* if(localStorage.getItem('godbot-pro-theme') == 'dark') {
 
   body.classList.add('_dark-theme');
 
-  chartTextColor = '#9899A6';
-  gridColor = 'rgba(129, 159, 189, 0.2)';
-  pageBg = 'rgba(0, 0, 0, 0)';
+  
   
 } else {
 
   body.classList.remove('_dark-theme');
 
-  chartTextColor = '#262628';
-  gridColor = 'rgba(129, 159, 189, 0.5)';
-  pageBg = '#FFFFFF';
+  
 
 } */
 
@@ -656,8 +665,6 @@ function chartFunc(arg) {
     }
   };
 
-  
-
   const logo = new Image();
   logo.src = 'js/chart-logo.svg';
 
@@ -711,14 +718,14 @@ function chartFunc(arg) {
     data: arg.data,
     options: {
       animations: {
-        y: { duration: 300 },
+        y: { duration: 0 },
       },
       responsive: true,
 
       layout: arg.layout,
       
       interaction: interaction,
-      
+
       scales: {
           y: {
             grid: {
@@ -973,7 +980,8 @@ body.addEventListener('click', function (event) {
       if(headerThemeSwitch.classList.contains('_active')) {
 
         /* localStorage.setItem('godbot-pro-theme', 'dark'); */
-        document.cookie = 'godbot-pro-theme=dark';
+        //document.cookie = 'godbot-pro-theme=dark';
+        setCookie('godbot.pro-theme', 'dark', {secure: true, 'max-age': 36000000});
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
@@ -992,7 +1000,7 @@ body.addEventListener('click', function (event) {
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
         /* localStorage.setItem('godbot-pro-theme', 'light'); */
-        document.cookie = 'godbot-pro-theme=light';
+        setCookie('godbot.pro-theme', 'light', {secure: true, 'max-age': 36000000});
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';

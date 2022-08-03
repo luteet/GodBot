@@ -7,11 +7,31 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-<!-- <script>
-    if(localStorage.getItem('godbot-pro-theme') == 'dark') {
-        document.querySelector('body').classList.add('_dark-theme');
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
     }
-</script> -->
+
+    let chartTextColor, pageBg, gridColor;
+
+    if(getCookie('godbot.pro-theme') == 'dark') {
+        document.querySelector('body').classList.add('_dark-theme');
+        
+        chartTextColor = '#9899A6';
+        gridColor = 'rgba(129, 159, 189, 0.2)';
+        pageBg = 'rgba(0, 0, 0, 0)';
+
+    } else if(getCookie('godbot.pro-theme') == 'light') {
+
+        chartTextColor = '#262628';
+        gridColor = 'rgba(129, 159, 189, 0.5)';
+        pageBg = '#FFFFFF';
+
+    }
+</script>
 
 <div class="wrapper">
     <header class="header">
@@ -45,7 +65,7 @@
                                     </svg>
                                 </div>
                                 <script>
-                                    if(localStorage.getItem('godbot-pro-theme') == 'dark') {
+                                    if(getCookie('godbot.pro-theme') == 'dark') {
                                         let themeBtn = document.querySelectorAll('.header__theme--switch');
                             
                                         if(themeBtn) {
@@ -53,6 +73,7 @@
                                                 element.classList.add('_active');
                                             })
                                         }
+
                                     }
                                 </script>
                             </div>
