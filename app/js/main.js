@@ -344,11 +344,23 @@ resize();
 
 window.addEventListener('resize', resize);
 
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let chart = [], chartTextColor, pageBg, gridColor;
 
-if(localStorage.getItem('godbot-pro-theme') == 'dark') {
+
+chartTextColor = '#262628';
+gridColor = 'rgba(129, 159, 189, 0.5)';
+pageBg = '#FFFFFF';
+
+/* if(localStorage.getItem('godbot-pro-theme') == 'dark') {
 
   body.classList.add('_dark-theme');
 
@@ -364,7 +376,7 @@ if(localStorage.getItem('godbot-pro-theme') == 'dark') {
   gridColor = 'rgba(129, 159, 189, 0.5)';
   pageBg = '#FFFFFF';
 
-}
+} */
 
 let width, height, gradient;
 function getGradient(ctx, chartArea, startColor, endColor) {
@@ -643,6 +655,8 @@ function chartFunc(arg) {
       });
     }
   };
+
+  
 
   const logo = new Image();
   logo.src = 'js/chart-logo.svg';
@@ -952,7 +966,8 @@ body.addEventListener('click', function (event) {
 
       if(headerThemeSwitch.classList.contains('_active')) {
 
-        localStorage.setItem('godbot-pro-theme', 'dark');
+        /* localStorage.setItem('godbot-pro-theme', 'dark'); */
+        document.cookie = 'godbot-pro-theme=dark';
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
@@ -970,7 +985,8 @@ body.addEventListener('click', function (event) {
         
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
-        localStorage.setItem('godbot-pro-theme', 'light');
+        /* localStorage.setItem('godbot-pro-theme', 'light'); */
+        document.cookie = 'godbot-pro-theme=light';
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';
