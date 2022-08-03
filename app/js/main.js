@@ -654,7 +654,10 @@ function chartFunc(arg) {
         
         const ctx = chart.ctx;
         const {top, left, width, height} = chart.chartArea;
-        logo.width = width/1.8;
+        logo.width = width/1.5;
+        if(window.innerWidth > 768) {
+          logo.width = width/2;
+        }
         logo.height = logo.width/10;
         const x = left + width / 2 - logo.width / 2;
         const y = top + height / 2 - logo.height / 2;
