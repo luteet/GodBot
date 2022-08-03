@@ -981,7 +981,7 @@ body.addEventListener('click', function (event) {
 
         /* localStorage.setItem('godbot-pro-theme', 'dark'); */
         //document.cookie = 'godbot-pro-theme=dark';
-        setCookie('godbot.pro-theme', 'dark', {secure: true, 'max-age': 36000000});
+        setCookie('godbot.pro-theme', 'dark', {secure: false, 'max-age': 36000000});
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
@@ -1000,7 +1000,7 @@ body.addEventListener('click', function (event) {
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
         /* localStorage.setItem('godbot-pro-theme', 'light'); */
-        setCookie('godbot.pro-theme', 'light', {secure: true, 'max-age': 36000000});
+        setCookie('godbot.pro-theme', 'light', {secure: false, 'max-age': 36000000});
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';
