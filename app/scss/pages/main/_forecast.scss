@@ -4,9 +4,7 @@
 
     &__body {
         padding: 35px 20px 30px 20px;
-        /* background: var(--page-bg); */
         box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
-        /* border-radius: 10px; */
     }
 
     // .forecast__title
@@ -17,8 +15,8 @@
     // .forecast__table
 
     &__table {
-        overflow-x: auto;
-        &::-webkit-scrollbar {
+        //overflow-x: hidden;
+        /* &::-webkit-scrollbar {
             -webkit-appearance: none;
             width: 7px; height: 7px;
             border-radius: 7px;
@@ -28,7 +26,7 @@
         &::-webkit-scrollbar-thumb {
             background: var(--blue);
             border-radius: 7px;
-        }
+        } */
         // .forecast__table--head
 
         &--head {

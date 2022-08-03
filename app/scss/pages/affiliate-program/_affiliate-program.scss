@@ -82,8 +82,8 @@
         // .affiliate-program__table--wrapper
 
         &--wrapper {
-            overflow-x: auto;
-            /* max-width: 100%; */
+            /* overflow-x: auto;
+            max-width: 100%;
             &::-webkit-scrollbar {
                 width: 7px; height: 7px;
                 border-radius: 7px;
@@ -93,7 +93,7 @@
             &::-webkit-scrollbar-thumb {
                 background: var(--blue);
                 border-radius: 7px;
-            }
+            } */
         }
 
         // .affiliate-program__table--head

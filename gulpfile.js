@@ -37,6 +37,7 @@ function scriptsLib() {
         'node_modules/swiper/swiper-bundle.min.js', // Слайдер
         'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
         'node_modules/chart.js/dist/chart.min.js',
+        'node_modules/minibarjs/dist/minibar.min.js',
         //'node_modules/chartjs-plugin-crosshair/dist/chartjs-plugin-crosshair.min.js',
         //'node_modules/apexcharts/dist/apexcharts.min.js'
         //'node_modules/shufflejs/dist/shuffle.min.js', // Tab Filter
@@ -126,6 +127,7 @@ function CSSlibBuild() {
         'node_modules/normalize.css/normalize.css',
         'node_modules/swiper/swiper-bundle.min.css', // Слайдер
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'node_modules/minibarjs/dist/minibar.min.css',
         //'node_modules/slick-carousel/slick/slick.css', // Слайдер (jQuery)
         //'node_modules/magnific-popup/dist/magnific-popup.css' // Попап (jQuery)
         //'node_modules/aos/dist/aos.css', // Анимация

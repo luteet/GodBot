@@ -100,18 +100,23 @@
     &__body {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
     }
 
     &__close-btn {
         flex: 0 0 40px;
     }
 
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     &__block {
-        margin-top: 20px;
+        margin-top: 15px;
 
         & article {
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         & p {
@@ -159,9 +164,6 @@
             padding: 5px 0;
             font-size: 0.875rem;
             line-height: 150%;
-            @include _768 {
-                font-size: 1rem;
-            }
         }
     }
 }
@@ -209,7 +211,7 @@
 			// .suggest-idea-popup__form--textarea
 
 			&--textarea {
-                width: 100%;
+                width: 100%; min-height: 250px;
                 padding: 15px 20px;
 
                 border-radius: 10px;

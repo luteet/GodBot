@@ -41,6 +41,10 @@
 
     &__slider {
         width: 100%; height: 100%;
+
+        &--pagination {
+            bottom: 18px !important;
+        }
         
         /* padding: 20px 40px;
         margin: -20px -40px;  */

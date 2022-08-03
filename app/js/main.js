@@ -338,13 +338,14 @@ window.onresize = resize;
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
-let chart = [], chartTextColor, pageBg;
+let chart = [], chartTextColor, pageBg, gridColor;
 
 if(localStorage.getItem('godbot-pro-theme') == 'dark') {
 
   body.classList.add('_dark-theme');
 
   chartTextColor = '#9899A6';
+  gridColor = 'rgba(129, 159, 189, 0.2)';
   pageBg = 'rgba(0, 0, 0, 0)';
   
 } else {
@@ -352,6 +353,7 @@ if(localStorage.getItem('godbot-pro-theme') == 'dark') {
   body.classList.remove('_dark-theme');
 
   chartTextColor = '#262628';
+  gridColor = 'rgba(129, 159, 189, 0.5)';
   pageBg = '#FFFFFF';
 
 }
@@ -693,7 +695,7 @@ function chartFunc(arg) {
           y: {
             grid: {
               display: true,
-              color: 'rgba(129, 159, 189, 0.4)',
+              color: gridColor,
               borderDash: [5,5],
               borderColor: 'rgba(0,0,0,0)',
             },
@@ -943,11 +945,13 @@ body.addEventListener('click', function (event) {
         body.classList.add('_dark-theme');
 
         chartTextColor = '#9899A6';
+        gridColor = 'rgba(129, 159, 189, 0.2)';
         pageBg = 'rgba(0, 0, 0, 0)';
 
         if(chart.length)  {
           chart.forEach(chart => {
             chart.options.scales.y.ticks.color = chartTextColor;
+            chart.options.scales.y.grid.color = gridColor;
             chart.options.scales.x.ticks.color = chartTextColor;
             chart.update();
           })
@@ -959,11 +963,13 @@ body.addEventListener('click', function (event) {
         body.classList.remove('_dark-theme');
 
         chartTextColor = '#262628';
+        gridColor = 'rgba(129, 159, 189, 0.5)';
         pageBg = '#FFFFFF';
 
         if(chart.length)  {
           chart.forEach(chart => {
             chart.options.scales.y.ticks.color = chartTextColor;
+            chart.options.scales.y.grid.color = gridColor;
             chart.options.scales.x.ticks.color = chartTextColor;
             chart.update();
           })
@@ -1481,3 +1487,12 @@ let asideSlider = new Swiper('.add-aside__slider', {
 }); 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
+
+document.querySelectorAll('.custom-scrollbar').forEach(customScrollbar => {
+  new MiniBar(customScrollbar,{
+
+    alwaysShowBars: true,
+   
+  });
+})
+

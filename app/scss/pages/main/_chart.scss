@@ -560,7 +560,7 @@
             margin: 10px 15px 0 35px;
         }
 
-        border-top: 1px dashed var(--light);
+        border-top: 1px dashed var(--light-3);
 
         display: flex;
         justify-content: space-between;
@@ -752,8 +752,8 @@
 
     &__table {
         
-        width: 100%;
-        overflow-x: auto;
+        /* width: 100%; */
+        /* overflow-x: auto;
         &::-webkit-scrollbar {
             width: 7px; height: 7px;
             -webkit-appearance: none;
@@ -764,7 +764,7 @@
         &::-webkit-scrollbar-thumb {
             background: var(--blue);
             border-radius: 7px;
-        }
+        } */
 
         // .chart__table--head
 
