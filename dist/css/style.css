@@ -9257,7 +9257,7 @@ body._dark-theme .trader__tab-nav--link::after {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100vh;
+  height: var(--height-screen, 100vh);
   background: var(--page-bg);
   z-index: 2;
   overflow-y: auto;

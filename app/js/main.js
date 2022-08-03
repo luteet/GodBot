@@ -318,6 +318,8 @@ function resize() {
   
   })
 
+  html.style.setProperty('--height-screen', body.clientHeight + 'px');
+
   let prompt = document.querySelector('.custom-prompt-message'),
       customPrompt = document.querySelector('.сustom-prompt');
   
