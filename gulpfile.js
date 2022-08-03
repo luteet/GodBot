@@ -34,8 +34,8 @@ function cleanDist() {
 
 function scriptsLib() {
     return src([
-        //'node_modules/swiper/swiper-bundle.min.js', // Слайдер
-        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'node_modules/swiper/swiper-bundle.min.js', // Слайдер
+        //'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
         'node_modules/chart.js/dist/chart.min.js',
         //'node_modules/minibarjs/dist/minibar.min.js',
         'app/js/OverlayScrollbars.min.js',
