@@ -199,14 +199,13 @@ if (popupCheck) {
         duration = (arg.duration) ? arg.duration : 200,
         id = arg.id;
 
-    try {
-
-        popup = document.querySelector(id);
-        popupClose = popup.querySelectorAll('._popup-close');
-
-    } catch {
-        return false;
-    }
+        if(document.querySelector(id)) {
+          popup = document.querySelector(id);
+          popupClose = popup.querySelectorAll('._popup-close');
+        } else {
+          return false;
+        }
+        
 
     function removeFunc(popup, removeClass) {
 
@@ -981,40 +980,63 @@ body.addEventListener('click', function (event) {
 
         /* localStorage.setItem('godbot-pro-theme', 'dark'); */
         //document.cookie = 'godbot-pro-theme=dark';
-        setCookie('godbot.pro-theme', 'dark', {secure: false, 'max-age': 36000000});
-        body.classList.add('_dark-theme');
+        
+        
 
         chartTextColor = '#9899A6';
         gridColor = 'rgba(129, 159, 189, 0.2)';
         pageBg = 'rgba(0, 0, 0, 0)';
 
+        setCookie('godbot.pro-theme', 'dark', {secure: false, 'max-age': 36000000});
+
         if(chart.length)  {
           chart.forEach(chart => {
             chart.options.scales.y.ticks.color = chartTextColor;
             chart.options.scales.y.grid.color = gridColor;
             chart.options.scales.x.ticks.color = chartTextColor;
-            chart.update();
+            html.style.setProperty('--theme-opacity', 0);
+            
+            setTimeout(() => {
+              setTimeout(() => {
+                html.style.setProperty('--theme-opacity', 1);
+              },100)
+              chart.update();
+            },100)
+
           })
         }
+        body.classList.add('_dark-theme');
         
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
         /* localStorage.setItem('godbot-pro-theme', 'light'); */
-        setCookie('godbot.pro-theme', 'light', {secure: false, 'max-age': 36000000});
-        body.classList.remove('_dark-theme');
+        
+        
 
         chartTextColor = '#262628';
         gridColor = 'rgba(129, 159, 189, 0.5)';
         pageBg = '#FFFFFF';
 
+        setCookie('godbot.pro-theme', 'light', {secure: false, 'max-age': 36000000});
+
         if(chart.length)  {
           chart.forEach(chart => {
             chart.options.scales.y.ticks.color = chartTextColor;
             chart.options.scales.y.grid.color = gridColor;
             chart.options.scales.x.ticks.color = chartTextColor;
-            chart.update();
+            html.style.setProperty('--theme-opacity', 0);
+            
+            setTimeout(() => {
+              setTimeout(() => {
+                html.style.setProperty('--theme-opacity', 1);
+              },100)
+              chart.update();
+            },100)
+            
           })
         }
+
+        body.classList.remove('_dark-theme');
 
       }
 

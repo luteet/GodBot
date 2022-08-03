@@ -5,6 +5,8 @@
     border-radius: 10px;
 
     flex: 1 1 auto;
+
+    transition: all .2s ease-in-out;
     
     &.tab-wrapper {
         border-radius: 0 10px 10px 10px;
@@ -464,7 +466,7 @@
                 background: transparent;
                 box-shadow: 0 0 0 1px var(--light-2);
 
-                transition: background .2s ease-in-out;
+                transition: background .2s ease-in-out, border .2s ease-in-out;
             }
 
         }
@@ -548,6 +550,8 @@
             width: 100% !important;
             position: relative;
             max-height: 266px;
+            opacity: var(--theme-opacity, 1);
+            transition: opacity .1s ease-in-out;
             @include _768 {
                 max-height: 385px;
             }

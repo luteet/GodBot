@@ -8736,6 +8736,40 @@ body {
   min-height: 100%;
 }
 
+@-webkit-keyframes themeChangeTabDecor {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  85% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes themeChangeTabDecor {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  85% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
 body {
   font-family: var(--main-font);
   font-weight: 400;
@@ -10454,6 +10488,7 @@ body._dark-theme .trader__tab-nav--link::after {
   border-radius: 10px;
   box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
   background: var(--page-bg);
+  transition: background 0.2s ease-in-out;
 }
 
 .header__profile--avatar-img {
@@ -11229,6 +11264,7 @@ body._dark-theme .trader__tab-nav--link::after {
   box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
   border-radius: 10px;
   flex: 1 1 auto;
+  transition: all 0.2s ease-in-out;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
@@ -11624,7 +11660,7 @@ body._dark-theme .trader__tab-nav--link::after {
   border: 3px solid var(--page-bg);
   background: transparent;
   box-shadow: 0 0 0 1px var(--light-2);
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 .chart__elem {
@@ -11698,6 +11734,8 @@ body._dark-theme .trader__tab-nav--link::after {
   width: 100% !important;
   position: relative;
   max-height: 266px;
+  opacity: var(--theme-opacity, 1);
+  transition: opacity 0.1s ease-in-out;
 }
 
 .chart__elem--canvas.bar-chart {
@@ -11962,10 +12000,10 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .add-aside__inner {
-  -webkit-filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
-          filter: drop-shadow(0px 2px 20px rgba(9, 5, 183, 0.06));
+  box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
   border-radius: 10px;
   background: var(--page-bg-2);
+  transition: background 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12380,9 +12418,9 @@ body._dark-theme .trader__tab-nav--link::after {
   background: center/contain no-repeat;
   display: none;
   opacity: 0;
-  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.1s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .trader__tab-nav--link::before {
@@ -15876,13 +15914,14 @@ body._dark-theme .trader__tab-nav--link::after {
   .trader__tab-nav--item._active .trader__tab-nav--link::before {
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
-    opacity: 1;
+    opacity: var(--theme-opacity, 1);
+    transition: opacity 0s ease-in-out;
   }
 
   .trader__tab-nav--item._active .trader__tab-nav--link::after {
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
-    opacity: 1;
+    opacity: var(--theme-opacity, 1);
   }
 
   .trader__tab-nav--item._prev .trader__tab-nav--link {
