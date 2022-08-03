@@ -1005,7 +1005,7 @@ body.addEventListener('click', function (event) {
       }
 
     }
-
+    
 
 
     let headerSelectSelected = thisTarget.closest('.header__select--selected')
@@ -1249,6 +1249,14 @@ body.addEventListener('click', function (event) {
 
     }
 
+
+
+    let maxBtn = thisTarget.closest('._max-input-btn');
+    if(maxBtn) {
+      event.preventDefault();
+      let input = maxBtn.parentElement.querySelector('._max-input');
+      input.value = input.getAttribute('maxlength');
+    }
 
 
 /*     let openIframePopup = thisTarget.closest('._open-iframe-popup');
