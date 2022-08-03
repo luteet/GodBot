@@ -159,6 +159,10 @@ body {
     transform: translate(50%,0);
 }
 
+.mb-track-x {
+    transform: translate(0%,50%);
+}
+
 .mb-bar {
     background: var(--blue);
 }
@@ -166,6 +170,7 @@ body {
 .mb-content {
     padding-bottom: 15px !important;
     margin-bottom: 4px !important;
+    &::-webkit-scrollbar { width: 0; }
 }
 
 ._cs-padding .mb-content {
@@ -753,4 +758,8 @@ body {
             }
         }
     }
+}
+
+.mb-track {
+    z-index: 100;
 }

@@ -319,6 +319,11 @@ function resize() {
   })
 
   html.style.setProperty('--height-screen', body.clientHeight + 'px');
+  if(window.innerWidth >= 992) {
+    menu.forEach(elem => {
+      elem.classList.remove('_active');
+    })
+  }
 
   let prompt = document.querySelector('.custom-prompt-message'),
       customPrompt = document.querySelector('.сustom-prompt');

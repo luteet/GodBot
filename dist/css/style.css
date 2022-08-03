@@ -8434,6 +8434,11 @@ body._dark-theme .trader__tab-nav--link::after {
           transform: translate(50%, 0);
 }
 
+.mb-track-x {
+  -webkit-transform: translate(0%, 50%);
+          transform: translate(0%, 50%);
+}
+
 .mb-bar {
   background: var(--blue);
 }
@@ -8441,6 +8446,10 @@ body._dark-theme .trader__tab-nav--link::after {
 .mb-content {
   padding-bottom: 15px !important;
   margin-bottom: 4px !important;
+}
+
+.mb-content::-webkit-scrollbar {
+  width: 0;
 }
 
 ._cs-padding .mb-content {
@@ -9003,6 +9012,10 @@ body._dark-theme .trader__tab-nav--link::after {
 .custom-scrollbar._absolute .chart__table--body,
 .custom-scrollbar._absolute .chart__table--head {
   padding-right: 30px;
+}
+
+.mb-track {
+  z-index: 100;
 }
 
 ._main-title {
