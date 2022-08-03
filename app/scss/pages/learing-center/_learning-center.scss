@@ -45,7 +45,7 @@
 
         background: var(--gradient);
         padding: 0 10px 10px 10px;
-        margin-bottom: 30px;
+        
         @include _768 {
             padding: 0 20px;
         }
@@ -287,10 +287,12 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        margin: -5px;
+        margin: -5px; padding-top: 15px;
+        color: rgba(83, 169, 255, 0.439);
 
         @include _768 {
             margin: -10px;
+            padding-top: 30px;
             grid-template-columns: repeat(3, 1fr);
         }
         @include _992 {

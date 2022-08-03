@@ -1,6 +1,6 @@
 const body = document.querySelector('body'),
       html = document.querySelector('html'),
-      menu = document.querySelectorAll('._burger, .header__nav, body'),
+      menu = document.querySelectorAll('.header__nav, body'),
       burger = document.querySelector('._burger'),
       header = document.querySelector('.header');
 
@@ -310,6 +310,7 @@ const headerBlocks = document.querySelectorAll('.header__select--block');
 let customPromptCheck = true;
 
 function resize() {
+
   headerBlocks.forEach(selectBlock => {
     
     if(selectBlock.getBoundingClientRect().x < 0) {
@@ -341,7 +342,7 @@ function resize() {
 
 resize();
 
-window.onresize = resize;
+window.addEventListener('resize', resize);
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -653,8 +654,8 @@ function chartFunc(arg) {
         
         const ctx = chart.ctx;
         const {top, left, width, height} = chart.chartArea;
-        logo.width = width/2;
-        logo.height = logo.width/11;
+        logo.width = width/1.8;
+        logo.height = logo.width/10;
         const x = left + width / 2 - logo.width / 2;
         const y = top + height / 2 - logo.height / 2;
         ctx.drawImage(logo, x, y, logo.width, logo.height);
@@ -874,7 +875,7 @@ function counstructBarChart(arg) {
     wrapper.style.paddingLeft = paddingLeft + 'px';
     wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
 
-    window.onresize = function() {
+    window.addEventListener('resize', function() {
       chart.forEach(chart => {
         if(chart.canvas.id == chartId) {
           widthChart = chart.chartArea.width + chart.chartArea.left,
@@ -885,7 +886,7 @@ function counstructBarChart(arg) {
       wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
       wrapper.style.paddingLeft = paddingLeft + 'px';
       wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
-    }
+    })
 
     if(arg.title) {
       block.insertAdjacentHTML("afterbegin", `<div class="chart-bar-title">${arg.title}</div>`);
@@ -1495,11 +1496,13 @@ let asideSlider = new Swiper('.add-aside__slider', {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
-document.querySelectorAll('.custom-scrollbar').forEach(customScrollbar => {
+/* document.querySelectorAll('.custom-scrollbar').forEach(customScrollbar => {
   new MiniBar(customScrollbar,{
 
     alwaysShowBars: true,
    
   });
-})
+}) */
+
+var instances = OverlayScrollbars(document.querySelectorAll('.custom-scrollbar'), { }); 
 

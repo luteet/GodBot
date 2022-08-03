@@ -78,6 +78,7 @@
         &--name-prompt {
             margin-left: 5px;
             position: relative;
+            z-index: 5;
             &::before {
                 content: '';
                 position: absolute;

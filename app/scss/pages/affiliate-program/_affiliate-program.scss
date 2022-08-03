@@ -14,13 +14,10 @@
 
     &__row {
 
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: space-between;
-
         @include _992 {
-            flex-direction: row;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         // .affiliate-program__row--col
@@ -49,10 +46,12 @@
         $gridTemplate: 50px 30% 45% 15%;
 
         &--block {
-            display: grid;
+            flex: 1 1 auto;
+            //display: block;
+            /* display: grid;
             & > * {
                 grid-area: 1/1;
-            }
+            } */
         }
 
         &--not {
@@ -69,8 +68,10 @@
         // .affiliate-program__table--body
 
         &--body {
-            display: grid;
-            min-height: 100%;
+            /* display: grid; */
+            /* display: flex;
+            flex-direction: column;
+            min-height: 100%; */
         }
 
         // .affiliate-program__table--title
@@ -79,9 +80,18 @@
             
         }
 
+        &--block {
+            //display: flex
+            //width: 100%;
+            
+        }
+
         // .affiliate-program__table--wrapper
 
         &--wrapper {
+            //width: 100%;
+            //overflow: hidden;
+            //min-height: 100%;
             /* overflow-x: auto;
             max-width: 100%;
             &::-webkit-scrollbar {
@@ -122,6 +132,8 @@
             grid-template-columns: $gridTemplate;
 
             min-width: 550px;
+
+            //min-width: 550px;
 
             &:not(:first-child) {
                 border-top: 1px dashed var(--light-2);
