@@ -35,7 +35,7 @@ function cleanDist() {
 function scriptsLib() {
     return src([
         'node_modules/swiper/swiper-bundle.min.js', // Слайдер
-        //'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
         'node_modules/chart.js/dist/chart.min.js',
         //'node_modules/minibarjs/dist/minibar.min.js',
         'app/js/OverlayScrollbars.min.js',
@@ -52,7 +52,7 @@ function scriptsLib() {
         //'node_modules/smoothscroll-polyfill/dist/smoothscroll.min.js', // Полифил для window.scroll()
     ])
     .pipe(concat('libs.min.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream())
 }
