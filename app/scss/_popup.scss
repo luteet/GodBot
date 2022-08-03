@@ -38,9 +38,9 @@
         width: 100%;
         max-width: var(--max, 700);
 
-        padding: 10px 10px 10px 10px;
+        padding: 10px 0 10px 10px;
         @media(min-width: 600px) {
-            padding: 20px 20px 20px 20px;
+            padding: 20px 0 20px 20px;
         }
         border-radius: 14px;
 
@@ -54,8 +54,10 @@
     &-content {
         overflow-y: auto; overflow-x: hidden;
         max-height: calc(100vh - 60px);
+        padding-right: 10px;
         @media(min-width: 600px) {
             /* padding: 30px 20px 20px 20px; */
+            padding-right: 20px;
             max-height: calc(100vh - 75px);
         }
     }

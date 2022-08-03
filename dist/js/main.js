@@ -710,12 +710,15 @@ function chartFunc(arg) {
     type: 'line',
     data: arg.data,
     options: {
+      animations: {
+        y: { duration: 300 },
+      },
       responsive: true,
 
       layout: arg.layout,
       
       interaction: interaction,
-
+      
       scales: {
           y: {
             grid: {
@@ -785,6 +788,9 @@ function chartFunc(arg) {
     plugins: (arg.legendContainer && arg.htmlLegendId) ? [htmlLegendPlugin, chartLogo, chartBgColor] : [chartLogo, chartBgColor],
 
   })
+
+  //chart[chart.length-1].options.animation.y = false;
+  //console.log(chart[0]);
 
 }
 
