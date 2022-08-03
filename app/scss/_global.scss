@@ -153,8 +153,12 @@ body {
 .mb-track { 
     border-radius: 5px;
     background: var(--light-3);
-    
 }
+
+.mb-track-y {
+    transform: translate(50%,0);
+}
+
 .mb-bar {
     background: var(--blue);
 }
@@ -162,6 +166,11 @@ body {
 .mb-content {
     padding-bottom: 15px !important;
     margin-bottom: 4px !important;
+}
+
+._cs-padding .mb-content {
+    /* padding-bottom: 15px !important;
+    margin-bottom: 4px !important; */
 }
 /* .mb-container > .mb-track {
   background-color: #110c10;
@@ -709,5 +718,39 @@ body {
             opacity: 1;
         }
         
+    }
+}
+
+._pt-4 {
+    padding-top: 24.5px;
+    @include _992 {
+        padding-top: 0px;
+    }
+}
+
+/* .mb-track-y {
+    display: none;
+} */
+
+.custom-scrollbar {
+    &._absolute {
+        position: absolute !important;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        padding-bottom: 20px;
+        & .chart__table--body, & .chart__table--head {
+            padding-right: 30px;
+        }
+        @include _992 {
+            padding-bottom: 0px;
+            position: relative !important;
+            width: auto; height: auto;
+            & .mb-content {
+                padding-bottom: 0 !important;
+            }
+            & .chart__table--body, & .chart__table--head {
+                padding-right: 0;
+            }
+        }
     }
 }
