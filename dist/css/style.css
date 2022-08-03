@@ -12511,6 +12511,7 @@ body._dark-theme .trader__tab-nav--link::after {
   box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
   border-radius: 10px;
   background: var(--page-bg-2);
+  transition: background 0.2s ease-in-out;
 }
 
 .investor-profit__list {
