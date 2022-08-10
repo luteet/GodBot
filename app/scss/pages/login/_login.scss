@@ -255,6 +255,10 @@
         flex-wrap: wrap;
 
         margin: -2.5px;
+
+        &._error &--input {
+            border-color: var(--red);
+        }
     
         // .login__verification--label
 
@@ -285,6 +289,8 @@
             
             padding: 0 5px;
             text-align: center;
+
+            transition: border .2s ease-in-out;
         }
 
         // .login__verification--btn

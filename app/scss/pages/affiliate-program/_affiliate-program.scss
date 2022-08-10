@@ -16,7 +16,7 @@
 
         @include _992 {
             display: flex;
-            flex-wrap: wrap;
+            //flex-wrap: wrap;
             justify-content: space-between;
         }
 
@@ -28,11 +28,15 @@
                 flex-direction: column;
 
                 &._large {
-                    flex: 0 1 calc(58.456% - 10px);
+                    flex: 0 1 calc(58% - 10px);
+                    margin-right: 0px;
+                    @include _992 {
+                        margin-right: 20px;
+                    }
                 }
     
                 &._min {
-                    flex: 0 1 calc(41.544% - 10px);
+                    flex: 0 1 calc(42% - 10px);
                 }
             }
         }
@@ -42,11 +46,15 @@
 
     &__table {
         min-height: 100%;
+       
 
         $gridTemplate: 50px 30% 45% 15%;
 
         &--block {
             flex: 1 1 auto;
+
+            display: flex;
+            flex-direction: column;
             //display: block;
             /* display: grid;
             & > * {

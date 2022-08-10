@@ -41,6 +41,7 @@ body {
     &._dark-theme {
         --page-bg: #151617;
         --page-bg-2: rgba(21, 22, 23, 0.4);
+        --page-bg-3: #232323;
         --light-2: #646464;
         --light-3: #272727;
         --light-4: #272727;
@@ -98,11 +99,6 @@ body {
         & .header__select--selected-arrow::after {
             opacity: 1;
         }
-
-        /* & .header__select--list {
-            background: transparent;
-            border-color: transparent;
-        } */
 
         & .header__select--list::before {
             opacity: 1;
@@ -185,15 +181,6 @@ body {
     margin-bottom: 4px !important;
     &::-webkit-scrollbar { width: 0; }
 }
-
-._cs-padding .mb-content {
-    /* padding-bottom: 15px !important;
-    margin-bottom: 4px !important; */
-}
-/* .mb-container > .mb-track {
-  background-color: #110c10;
-  border-radius: 5px;
-} */
 
 .block {
     border-radius: 10px;
@@ -674,7 +661,7 @@ body {
     }
 }
 
-._block {
+._block, ._block-2 {
     background: var(--page-bg-2);
     backdrop-filter: blur(5px);
 
@@ -683,6 +670,10 @@ body {
     border-radius: 10px;
 
     box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+}
+
+._block-2 {
+    background: var(--page-bg-3);
 }
 
 ._text-gradient {
@@ -825,4 +816,40 @@ body {
 
 .os-scrollbar-handle.active {
     background: var(--pink)// !important;
+}
+
+.input {
+    padding: 11px 10px;
+    line-height: 133%;
+    background: transparent;
+    border: 1px solid var(--light-purple-2);
+    border-radius: 10px;
+    color: var(--text-color-2);
+}
+
+.select {
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        right: 20px; top: 50%;
+        transform: translate(50%,-50%);
+        width: 10px; height: 5px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.2054 1L5.70544 5L1.20544 1' stroke='url(%23select-arrow)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cdefs%3E%3ClinearGradient id='select-arrow' x1='11.7133' y1='5' x2='11.875' y2='1.32358' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%231F3A99'/%3E%3Cstop offset='1' stop-color='%2388019E'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A")
+        center / contain no-repeat;
+        pointer-events: none;
+    }
+}
+
+.select-elem {
+    width: 100%;
+    padding: 11px 40px 11px 10px;
+    line-height: 133%;
+    background: var(--page-bg);
+    border: 1px solid var(--light-purple-2);
+    border-radius: 10px;
+    color: var(--text-color-2);
+    cursor: pointer;
+    -webkit-appearance: none;
 }

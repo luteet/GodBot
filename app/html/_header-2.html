@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GodBot-PRO</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    let chartTextColor, pageBg, gridColor;
+
+    if(getCookie('godbot.pro-theme') == 'dark') {
+        document.querySelector('body').classList.add('_dark-theme');
+        
+        chartTextColor = '#9899A6';
+        gridColor = 'rgba(129, 159, 189, 0.2)';
+        pageBg = 'rgba(0, 0, 0, 0)';
+
+    } else {
+
+        chartTextColor = '#262628';
+        gridColor = 'rgba(129, 159, 189, 0.5)';
+        pageBg = '#FFFFFF';
+
+    }
+</script>
+
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container _container _super-large">
+            <a href="main.html" class="header__logo me-4 mt-2">
+                <img src="img/logo-accent.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
+            </a>
+        </div>
+    </header>

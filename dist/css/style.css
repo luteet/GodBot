@@ -8676,6 +8676,7 @@ html.os-html > .os-host > .os-scrollbar {
   --light-opacity: rgba(255, 255, 255, 0.7);
   --page-bg: #FFFFFF;
   --page-bg-2: #FFFFFF;
+  --page-bg-3: #F1F1F1;
   --text-color: #262628;
   --text-color-2: #000000;
   --white: #FFF;
@@ -8791,6 +8792,7 @@ body._popup-active {
 body._dark-theme {
   --page-bg: #151617;
   --page-bg-2: rgba(21, 22, 23, 0.4);
+  --page-bg-3: #232323;
   --light-2: #646464;
   --light-3: #272727;
   --light-4: #272727;
@@ -8799,10 +8801,6 @@ body._dark-theme {
   --gray-dark: #EEECF4;
   --gray-light-2: #232323;
   --light-opacity: rgba(0,0,0,0.7);
-  /* & .header__select--list {
-      background: transparent;
-      border-color: transparent;
-  } */
 }
 
 body._dark-theme ._text-gradient {
@@ -8918,16 +8916,6 @@ body._dark-theme .trader__tab-nav--link::after {
 .mb-content::-webkit-scrollbar {
   width: 0;
 }
-
-._cs-padding .mb-content {
-  /* padding-bottom: 15px !important;
-  margin-bottom: 4px !important; */
-}
-
-/* .mb-container > .mb-track {
-  background-color: #110c10;
-  border-radius: 5px;
-} */
 
 .block {
   border-radius: 10px;
@@ -9394,13 +9382,18 @@ body._dark-theme .trader__tab-nav--link::after {
   width: 100%;
 }
 
-._block {
+._block,
+._block-2 {
   background: var(--page-bg-2);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+}
+
+._block-2 {
+  background: var(--page-bg-3);
 }
 
 ._text-gradient {
@@ -9554,6 +9547,44 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .os-scrollbar-handle.active {
   background: var(--pink);
+}
+
+.input {
+  padding: 11px 10px;
+  line-height: 133%;
+  background: transparent;
+  border: 1px solid var(--light-purple-2);
+  border-radius: 10px;
+  color: var(--text-color-2);
+}
+
+.select {
+  position: relative;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  width: 10px;
+  height: 5px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.2054 1L5.70544 5L1.20544 1' stroke='url(%23select-arrow)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cdefs%3E%3ClinearGradient id='select-arrow' x1='11.7133' y1='5' x2='11.875' y2='1.32358' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%231F3A99'/%3E%3Cstop offset='1' stop-color='%2388019E'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A") center/contain no-repeat;
+  pointer-events: none;
+}
+
+.select-elem {
+  width: 100%;
+  padding: 11px 40px 11px 10px;
+  line-height: 133%;
+  background: var(--page-bg);
+  border: 1px solid var(--light-purple-2);
+  border-radius: 10px;
+  color: var(--text-color-2);
+  cursor: pointer;
+  -webkit-appearance: none;
 }
 
 ._main-title {
@@ -10944,6 +10975,10 @@ body._dark-theme .trader__tab-nav--link::after {
   margin: -2.5px;
 }
 
+.login__verification._error .login__verification--input {
+  border-color: var(--red);
+}
+
 .login__verification--label {
   padding: 2.5px;
   position: relative;
@@ -10966,6 +11001,7 @@ body._dark-theme .trader__tab-nav--link::after {
           transform: translate(-50%, -50%);
   padding: 0 5px;
   text-align: center;
+  transition: border 0.2s ease-in-out;
 }
 
 .login__verification--btn {
@@ -12540,6 +12576,8 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .affiliate-program__table--block {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   /* display: grid;
   & > * {
       grid-area: 1/1;
@@ -13608,9 +13646,203 @@ body._dark-theme .trader__tab-nav--link::after {
   font-weight: 400;
 }
 
+.payment__title {
+  padding-bottom: 26px;
+  margin: 0;
+}
+
+.payment__row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
+  margin: -10px;
+}
+
+.payment__row > * {
+  padding: 10px;
+}
+
+.payment__col {
+  min-height: 100%;
+}
+
+.payment__col._row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.payment__col._row > * {
+  margin: 10px;
+}
+
+.payment__col._row > *._large {
+  flex: 1 1 auto;
+}
+
+.payment__col._row > *._min {
+  flex: 1 1 100%;
+}
+
+.payment__col._row > *._full {
+  flex: 1 1 100%;
+}
+
+.payment__block {
+  min-height: 100%;
+}
+
+.payment__block._min-p {
+  padding: 7px 20px;
+  min-height: auto;
+}
+
+.payment__item {
+  padding: 20px 0;
+}
+
+.payment__item:not(:first-child) {
+  border-top: 1px dashed var(--light-2);
+}
+
+.payment__item--title {
+  padding-bottom: 16px;
+}
+
+.payment__item._row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
+
+.payment__item._row > * {
+  padding: 5px 0;
+}
+
+.payment__item--text {
+  font-size: 0.875rem;
+  line-height: 140%;
+  margin: -7px 0;
+}
+
+.payment__item--text p {
+  padding: 7px 0;
+  margin: 0;
+}
+
+.payment__select--elem {
+  font-style: 0.875rem;
+}
+
+.payment__info-status--timer {
+  font-weight: 600;
+}
+
+.payment__successful {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.payment__successful--elem {
+  display: flex;
+  align-items: center;
+}
+
+.payment__successful--icon {
+  margin-right: 5px;
+}
+
+.payment__successful--redirect {
+  font-size: 0.875rem;
+  line-height: 130%;
+}
+
+.payment__error {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.payment__error--elem {
+  display: flex;
+  align-items: center;
+}
+
+.payment__error--icon {
+  margin-right: 5px;
+}
+
+.payment__copy--body {
+  position: relative;
+}
+
+.payment__copy--label {
+  width: 100%;
+}
+
+.payment__copy--input {
+  width: 100%;
+  font-weight: 600;
+  padding-right: 40px;
+}
+
+.payment__copy--btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  width: 40px;
+  height: 40px;
+  background: transparent;
+}
+
+.payment__qr-code {
+  text-align: center;
+}
+
+.payment__qr-code--text {
+  padding-top: 24px;
+  font-size: 0.875rem;
+  line-height: 130%;
+}
+
+.payment__txid--body {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.payment__txid--body > * {
+  margin: 5px;
+}
+
+.payment__txid--label {
+  flex: 1 1 auto;
+}
+
+.payment__txid--input {
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.payment__txid--submit {
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 15px 30px;
+}
+
 .footer {
   flex: 0 0 auto;
   background-color: #ccc;
+}
+
+@media (min-width: 426px) {
+  .payment__item._row {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 450px) {
@@ -16040,6 +16272,10 @@ body._dark-theme .trader__tab-nav--link::after {
   .tariffs-popup__slide--ul {
     padding: 0 20px;
   }
+
+  .payment__col._row > *._min {
+    flex: 0 1 205px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -17242,7 +17478,6 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .affiliate-program__row {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
   }
 
@@ -17252,11 +17487,12 @@ body._dark-theme .trader__tab-nav--link::after {
   }
 
   .affiliate-program__row--col._large {
-    flex: 0 1 calc(58.456% - 10px);
+    flex: 0 1 calc(58% - 10px);
+    margin-right: 0px;
   }
 
   .affiliate-program__row--col._min {
-    flex: 0 1 calc(41.544% - 10px);
+    flex: 0 1 calc(42% - 10px);
   }
 
   .learing-center__video-list {
@@ -17266,6 +17502,17 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .tariffs-popup__slide--price {
     font-size: 1.25rem;
+  }
+
+  .payment__row {
+    -ms-grid-columns: 42% 58%;
+    grid-template-columns: 42% 58%;
+  }
+}
+
+@media (min-width: 992px) and (min-width: 992px) {
+  .affiliate-program__row--col._large {
+    margin-right: 20px;
   }
 }
 
@@ -19617,16 +19864,6 @@ body._dark-theme .trader__tab-nav--link::after {
   }
 }
 
-@media (max-width: 992px) {
-  ._hide-on-mob {
-    display: none !important;
-  }
-
-  ._visible-on-xxl._show-on-mob {
-    display: initial;
-  }
-}
-
 @media (max-width: 991.98px) {
   .table-responsive-lg {
     overflow-x: auto;
@@ -19727,6 +19964,16 @@ body._dark-theme .trader__tab-nav--link::after {
 @media (max-width: 991.98px) and (prefers-reduced-motion: reduce) {
   .offcanvas-lg {
     transition: none;
+  }
+}
+
+@media (max-width: 991px) {
+  ._hide-on-mob {
+    display: none !important;
+  }
+
+  ._visible-on-xxl._show-on-mob {
+    display: initial;
   }
 }
 

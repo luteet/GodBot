@@ -319,7 +319,7 @@ function resize() {
   })
 
   html.style.setProperty('--height-screen', body.clientHeight + 'px');
-  if(window.innerWidth >= 992) {
+  if(window.innerWidth >= 993) {
     menu.forEach(elem => {
       elem.classList.remove('_active');
     })
@@ -1378,11 +1378,13 @@ verificationInputs.forEach(thisInput => {
       event.target.value = '';
 
       let prevElement = event.target.parentElement.previousElementSibling,
-      form = event.target.closest('form');
+          nextElement = event.target.parentElement.nextElementSibling,
+          form = event.target.closest('form');
       
       if(prevElement) {
         if(prevElement.classList.contains('login__verification--label') && !event.target.value) {
           prevElement.querySelector('input').focus();
+          prevElement.querySelector('input').value = '';
         }
       } else {
         event.target.value = '';
@@ -1398,6 +1400,37 @@ verificationInputs.forEach(thisInput => {
     
   })
 
+  thisInput.addEventListener('paste', function(event) {
+
+    let pastedText = event.clipboardData.getData('Text').replace(/[^\d]/g, ''),
+        pastedCheck = false;
+
+    if(pastedText) {
+      pastedCheck = true;
+      pastedText = pastedText.split('');
+    }
+    
+    setTimeout(() => {
+      event.target.value = '';
+      if(pastedCheck) {
+        let index = 0, checkValue = true;
+        verificationInputs.forEach(input => {
+          if(pastedText[index]) {
+            input.value = pastedText[index];
+            index++;
+            input.focus();
+          } else if(checkValue) {
+            checkValue = false;
+            input.focus();
+          }
+          
+        })
+      }
+      
+    },0)
+    
+  })
+
 })
 
 function checkInput() {
@@ -1407,6 +1440,9 @@ function checkInput() {
     }
   }
 }
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <TIMERS> -=-=-=-=-=-=-=-=-=-=-=-=
 
 function timer() {
   const timerElems = document.querySelectorAll('._timer');
@@ -1443,15 +1479,6 @@ function timer() {
 timer();
 
 
-/*
-<div class="timer" data-timer-year="" data-timer-month="" data-timer-day="" data-timer-hour="" data-timer-minute="">
-  <span class="timer-days"><span class="timer-days-value"></span></d>
-  <span class="timer-hours"><span class="timer-hours-value"></span></span>
-  <span class="timer-minutes"><span class="timer-minutes-value"></span></span>
-  <span class="timer-seconds"><span class="timer-seconds-value"></span></span>
-</div>
-*/
-
 function timerUpdate() {
   const timerElems = document.querySelectorAll('.timer');
 
@@ -1481,20 +1508,84 @@ function timerUpdate() {
       window.location.reload();
     }
 
-    /* if(day) day.textContent = days.toString();
-    hour.textContent = hours.toString();
-    minute.textContent = minutes.toString();
-    second.textContent = seconds.toString(); */
-
-    thisTimerElem.innerHTML = `<span>${text} <span>${minutes} мин</span> <span>${seconds} сек</span></span>`;
+    
+    thisTimerElem.innerHTML = `<span>${text} <span>${(minutes > 9) ? minutes : '0' + minutes} мин</span> <span>${(seconds > 9) ? seconds : '0' + seconds} сек</span></span>`;
+    
+    
 
   });
 
 }
 
-setInterval(() => {
-  timerUpdate();
-},1000)
+if(document.querySelector('.timer')) {
+  setInterval(() => {
+    timerUpdate();
+  },1000)
+}
+
+
+function timerPaymentCancel() {
+  const timerElems = document.querySelectorAll('.timerPaymentCancel');
+
+  let deadline;
+
+  timerElems.forEach(thisTimerElem => {
+
+    deadline = new Date(
+
+    thisTimerElem.dataset.timerpaymentcancelYear,
+    Number(thisTimerElem.dataset.timerpaymentcancelMonth - 1),
+    thisTimerElem.dataset.timerpaymentcancelDay,
+    thisTimerElem.dataset.timerpaymentcancelHour,
+    Number(thisTimerElem.dataset.timerpaymentcancelMinute) + 1);
+
+    let thisDate = new Date();
+
+    const text = thisTimerElem.dataset.timerpaymentcancelText;
+
+    let diff = deadline - thisDate,
+    days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0,
+    hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0,
+    minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0,
+    seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+
+    thisTimerElem.innerHTML = `<span>${text} <span>${(minutes > 9) ? minutes : '0' + minutes}</span>:<span>${(seconds > 9) ? seconds : '0' + seconds}</span></span>`;
+
+  });
+
+}
+
+if(document.querySelector('.timerPaymentCancel')) {
+  setInterval(() => {
+    timerPaymentCancel();
+  },1000)
+}
+
+if(document.querySelector('.redirect')) {
+  const redirects = document.querySelectorAll('.redirect');
+  redirects.forEach(redirect => {
+
+    let count = (Number(redirect.dataset.redirectDelay)) ? Number(redirect.dataset.redirectDelay) : 5, redirectValue = redirect.querySelector('.redirect-value'),
+    interval = setInterval(() => {
+      count--;
+      if(count <= 0) {
+        redirectValue.textContent = count;
+        clearInterval(interval);
+
+        window.location.href = (redirect.dataset.redirectPage) ? redirect.dataset.redirectPage : '/';
+
+      } else {
+        redirectValue.textContent = count;
+      }
+    },1000);
+
+    
+  })
+  
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </TIMERS> -=-=-=-=-=-=-=-=-=-=-=-=
+
 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <slider> -=-=-=-=-=-=-=-=-=-=-=-=

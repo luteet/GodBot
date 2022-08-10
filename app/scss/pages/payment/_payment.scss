@@ -1,0 +1,300 @@
+.payment {
+
+    // .payment__container
+
+    &__container {
+    }
+
+    // .payment__body
+
+    &__body {
+    }
+
+    // .payment__header
+
+    &__header {
+    }
+
+    // .payment__title
+
+    &__title {
+        padding-bottom: 26px; margin: 0;
+    }
+
+    // .payment__row
+
+    &__row {
+        display: grid;
+        grid-template-columns: 100%;
+        @include _992 {
+            grid-template-columns: 42% 58%;
+        }
+
+        margin: -10px;
+        & > * {
+            padding: 10px;
+        }
+    }
+
+    // .payment__col
+
+    &__col {
+        min-height: 100%;
+        &._row {
+            display: flex;
+            flex-wrap: wrap;
+
+            margin: -10px;
+
+            & > * {
+                margin: 10px;
+                &._large {
+                    flex: 1 1 auto;
+                }
+                &._min {
+                    flex: 1 1 100%;
+                    @include _768 {
+                        flex: 0 1 205px;
+                    }
+                }
+                &._full {
+                    flex: 1 1 100%;
+                }
+            }
+        }
+    }
+
+    // .payment__block
+
+    &__block {
+        min-height: 100%;
+        &._min-p {
+            padding: 7px 20px;
+            min-height: auto;
+        }
+    }
+
+    // .payment__item
+
+    &__item {
+
+        padding: 20px 0;
+
+        &:not(:first-child) {
+            border-top: 1px dashed var(--light-2);
+        }
+        
+        // .payment__item--title
+
+        &--title {
+            padding-bottom: 16px;
+        }
+
+        &._row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: column;
+
+            @include _426 {
+                flex-direction: row;
+            }
+
+            & > * {
+                padding: 5px 0;
+            }
+        }
+
+        // .payment__item--text
+
+        &--text {
+            font-size: 0.875rem;
+            line-height: 140%;
+
+            margin: -7px 0;
+            & p {
+                padding: 7px 0;
+                margin: 0;
+            }
+        }
+    }
+
+    // .payment__select
+
+    &__select {
+
+        // .payment__select--elem
+
+        &--elem {
+            font-style: 0.875rem;
+        }
+    }
+
+    // .payment__amount
+
+    &__amount {
+
+        // .payment__amount--value
+
+        &--value {
+        }
+
+        // .payment__amount--currency
+
+        &--currency {
+        }
+
+        // .payment__amount--currency-logo
+
+        &--currency-logo {
+        }
+    }
+
+    // .payment__info-status
+
+    &__info-status {
+
+        // .payment__info-status--timer
+
+        &--timer {
+            font-weight: 600;
+        }
+    }
+
+    &__successful {
+        display: flex;
+        flex-wrap: wrap;
+
+        &--elem {
+            display: flex;
+            align-items: center;
+
+            
+        }
+
+        &--icon {
+            margin-right: 5px;
+        }
+
+        &--redirect {
+            font-size: 0.875rem;
+            line-height: 130%;
+        }
+    }
+
+    &__error {
+        display: flex;
+        flex-wrap: wrap;
+
+        &--elem {
+            display: flex;
+            align-items: center;
+        }
+
+        &--icon {
+            margin-right: 5px;
+        }
+    }
+
+    // .payment__copy
+
+    &__copy {
+
+        // .payment__copy--body
+
+        &--body {
+            position: relative;
+        }
+
+        // .payment__copy--label
+
+        &--label {
+            width: 100%;
+        }
+
+        // .payment__copy--input
+
+        &--input {
+            width: 100%;
+            font-weight: 600;
+            padding-right: 40px;
+        }
+
+        // .payment__copy--btn
+
+        &--btn {
+            position: absolute;
+            right: 0; top: 50%;
+            transform: translate(0,-50%);
+            width: 40px; height: 40px;
+            background: transparent;
+        }
+    }
+
+    // .payment__qr-code
+
+    &__qr-code {
+        text-align: center;
+
+        // .payment__qr-code--image
+
+        &--image {
+            
+        }
+
+        // .payment__qr-code--img
+
+        &--img {
+        }
+
+        // .payment__qr-code--text
+
+        &--text {
+            padding-top: 24px;
+
+            font-size: 0.875rem;
+            line-height: 130%;
+        }
+    }
+
+    // .payment__txid
+
+    &__txid {
+
+        // .payment__txid--body
+
+        &--body {
+            display: flex;
+            
+            flex-wrap: wrap;
+
+            margin: -5px;
+
+            & > * {
+                margin: 5px;
+            }
+        }
+
+        // .payment__txid--label
+
+        &--label {
+            flex: 1 1 auto;
+        }
+
+        // .payment__txid--input
+
+        &--input {
+            width: 100%;
+            font-size: 0.875rem;
+        }
+
+        // .payment__txid--submit
+
+        &--submit {
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 15px 30px;
+        }
+    }
+}
