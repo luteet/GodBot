@@ -87,6 +87,10 @@
             }
         }
 
+        &._alt-p &--title {
+            padding-bottom: 18px;
+        }
+
         &:not(:first-child) {
             border-top: 1px dashed var(--light-2);
         }
@@ -94,7 +98,7 @@
         // .payment__item--title
 
         &--title {
-            padding-bottom: 14px;
+            padding-bottom: 16px;
         }
 
         &._row {
@@ -240,6 +244,7 @@
             width: 100%;
             font-weight: 600;
             padding-right: 40px;
+            margin: 1px 0;
         }
 
         // .payment__copy--btn

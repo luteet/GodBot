@@ -13714,12 +13714,16 @@ body._dark-theme .trader__tab-nav--link::after {
   padding-bottom: 10px;
 }
 
+.payment__item._alt-p .payment__item--title {
+  padding-bottom: 18px;
+}
+
 .payment__item:not(:first-child) {
   border-top: 1px dashed var(--light-2);
 }
 
 .payment__item--title {
-  padding-bottom: 14px;
+  padding-bottom: 16px;
 }
 
 .payment__item._row {
@@ -13815,6 +13819,7 @@ body._dark-theme .trader__tab-nav--link::after {
   width: 100%;
   font-weight: 600;
   padding-right: 40px;
+  margin: 1px 0;
 }
 
 .payment__copy--btn {
