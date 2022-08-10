@@ -27,7 +27,7 @@
         display: grid;
         grid-template-columns: 100%;
         @include _992 {
-            grid-template-columns: 42% 58%;
+            grid-template-columns: 41.667% auto;
         }
 
         margin: -10px;
@@ -55,7 +55,7 @@
                 &._min {
                     flex: 1 1 100%;
                     @include _768 {
-                        flex: 0 1 205px;
+                        flex: 0 1 210px;
                     }
                 }
                 &._full {
@@ -294,10 +294,10 @@
             
             flex-wrap: wrap;
 
-            margin: -5px;
+            margin: -5px -10px;
 
             & > * {
-                margin: 5px;
+                margin: 5px 10px;
             }
         }
 
@@ -320,7 +320,7 @@
             font-weight: 500;
             font-size: 0.75rem;
             text-transform: uppercase;
-            padding: 15px 30px;
+            padding: 14px 30px;
         }
     }
 }
