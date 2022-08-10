@@ -821,10 +821,10 @@ body {
 .input {
     padding: 11px 10px;
     line-height: 133%;
-    background: transparent;
     border: 1px solid var(--light-purple-2);
     border-radius: 10px;
     color: var(--text-color-2);
+    background: var(--page-bg);
 }
 
 .select {

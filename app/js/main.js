@@ -10,8 +10,8 @@ function copyToClipboard(el) {
   el = (typeof el === 'string') ? document.querySelector(el) : el;
 
   // handle iOS as a special case
-  if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-
+  if (true) {
+    console.log('test');
     // save current contentEditable/readOnly status
     var editable = el.contentEditable;
     var readOnly = el.readOnly;
@@ -42,12 +42,15 @@ function copyToClipboard(el) {
       .catch(err => {
         console.log('Something went wrong', err);
       });
+    console.log(el);
     el.select();
   }
 
   // execute copy command
   document.execCommand('copy');
 }
+
+new ClipboardJS('._copy-btn');
 
 let slideUp = (target, duration=500) => {
   target.style.transitionProperty = 'height, margin, padding';
@@ -371,20 +374,6 @@ function setCookie(name, value, options = {}) {
 // =-=-=-=-=-=-=-=-=-=-=-=- <chart> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let chart = [];
-
-/* if(localStorage.getItem('godbot-pro-theme') == 'dark') {
-
-  body.classList.add('_dark-theme');
-
-  
-  
-} else {
-
-  body.classList.remove('_dark-theme');
-
-  
-
-} */
 
 let width, height, gradient;
 function getGradient(ctx, chartArea, startColor, endColor) {
@@ -1549,7 +1538,7 @@ function timerPaymentCancel() {
     minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0,
     seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
 
-    thisTimerElem.innerHTML = `<span>${text} <span>${(minutes > 9) ? minutes : '0' + minutes}</span>:<span>${(seconds > 9) ? seconds : '0' + seconds}</span></span>`;
+    thisTimerElem.innerHTML = `<span>${text} </br><span>${(minutes > 9) ? minutes : '0' + minutes}</span>:<span>${(seconds > 9) ? seconds : '0' + seconds}</span></span>`;
 
   });
 

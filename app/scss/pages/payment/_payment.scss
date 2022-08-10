@@ -133,6 +133,9 @@
     // .payment__amount
 
     &__amount {
+        display: flex;
+        align-items: center;
+        line-height: 100%;
 
         // .payment__amount--value
 
@@ -142,11 +145,16 @@
         // .payment__amount--currency
 
         &--currency {
+            margin-left: 5px;
+
+            display: flex;
+            align-items: center;
         }
 
         // .payment__amount--currency-logo
 
         &--currency-logo {
+            margin-left: 10px;
         }
     }
 
@@ -158,6 +166,11 @@
 
         &--timer {
             font-weight: 600;
+            & br {
+                @include _426 {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -169,7 +182,7 @@
             display: flex;
             align-items: center;
 
-            
+            line-height: 100%;
         }
 
         &--icon {
@@ -189,6 +202,8 @@
         &--elem {
             display: flex;
             align-items: center;
+
+            line-height: 100%;
         }
 
         &--icon {

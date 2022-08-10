@@ -9552,10 +9552,10 @@ body._dark-theme .trader__tab-nav--link::after {
 .input {
   padding: 11px 10px;
   line-height: 133%;
-  background: transparent;
   border: 1px solid var(--light-purple-2);
   border-radius: 10px;
   color: var(--text-color-2);
+  background: var(--page-bg);
 }
 
 .select {
@@ -10977,6 +10977,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .login__verification._error .login__verification--input {
   border-color: var(--red);
+  color: var(--red);
 }
 
 .login__verification--label {
@@ -13736,6 +13737,22 @@ body._dark-theme .trader__tab-nav--link::after {
   font-style: 0.875rem;
 }
 
+.payment__amount {
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+}
+
+.payment__amount--currency {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.payment__amount--currency-logo {
+  margin-left: 10px;
+}
+
 .payment__info-status--timer {
   font-weight: 600;
 }
@@ -13748,6 +13765,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .payment__successful--elem {
   display: flex;
   align-items: center;
+  line-height: 100%;
 }
 
 .payment__successful--icon {
@@ -13767,6 +13785,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .payment__error--elem {
   display: flex;
   align-items: center;
+  line-height: 100%;
 }
 
 .payment__error--icon {
@@ -13842,6 +13861,10 @@ body._dark-theme .trader__tab-nav--link::after {
 @media (min-width: 426px) {
   .payment__item._row {
     flex-direction: row;
+  }
+
+  .payment__info-status--timer br {
+    display: none;
   }
 }
 
