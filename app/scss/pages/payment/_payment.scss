@@ -48,6 +48,7 @@
 
             & > * {
                 margin: 10px;
+                min-height: auto;
                 &._large {
                     flex: 1 1 auto;
                 }
@@ -79,6 +80,12 @@
     &__item {
 
         padding: 20px 0;
+        &._alt-p {
+            padding: 16px 0 20px 0;
+            &:last-child {
+                padding-bottom: 10px;
+            }
+        }
 
         &:not(:first-child) {
             border-top: 1px dashed var(--light-2);
@@ -87,7 +94,7 @@
         // .payment__item--title
 
         &--title {
-            padding-bottom: 16px;
+            padding-bottom: 14px;
         }
 
         &._row {
@@ -269,6 +276,10 @@
 
             font-size: 0.875rem;
             line-height: 130%;
+
+            & p {
+                margin: 0;
+            }
         }
     }
 
