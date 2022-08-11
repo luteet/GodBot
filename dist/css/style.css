@@ -11209,6 +11209,7 @@ body._dark-theme .trader__tab-nav--link::after {
   order: 7;
   width: 100%;
   padding-top: 7px;
+  padding-left: 3px;
   font-size: 0.75rem;
   line-height: 100%;
   font-weight: 600;
@@ -17722,7 +17723,6 @@ body._dark-theme .trader__tab-nav--link::after {
     position: absolute;
     left: 0;
     bottom: 0;
-    padding-left: 3px;
   }
 
   .login__verification--label {
