@@ -1359,6 +1359,7 @@ verificationInputs.forEach(thisInput => {
     if(event.key == 'Backspace' || event.key == 'Delete') {
       event.preventDefault();
       
+      let checkValue = (event.target.value) ? false : true;
       event.target.value = '';
 
       let prevElement = event.target.parentElement.previousElementSibling,
@@ -1367,8 +1368,11 @@ verificationInputs.forEach(thisInput => {
       
       if(prevElement) {
         if(prevElement.classList.contains('login__verification--label') && !event.target.value) {
-          prevElement.querySelector('input').focus();
-          prevElement.querySelector('input').value = '';
+          
+          if(checkValue) {
+            prevElement.querySelector('input').value = '';
+            prevElement.querySelector('input').focus();
+          }
         }
       } else {
         event.target.value = '';
