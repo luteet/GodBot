@@ -883,9 +883,9 @@ body {
             margin: 5px 0;
         }
 
-        transform: translate(100%,-35px);
+        transform: translate(0%,-180px);
 
-        opacity: 0; visibility: hidden; 
+        opacity: 0; visibility: hidden;
         height: 0px;
         margin: 0;
         transition: opacity .2s ease-in-out, visibility .2s ease-in-out, height .2s ease-in-out, transform .2s ease-in-out, margin .2s ease-in-out;
@@ -935,6 +935,15 @@ body {
             width: 1px; height: 1px;
         }
 
+        &--label:hover ~ &--label {
+            &::before {
+                opacity: 0;
+            }
+            &::after {
+                opacity: 0.7;
+            }
+        }
+
         &--input:checked ~ &--label {
             &::before {
                 opacity: 0;
@@ -942,16 +951,33 @@ body {
             &::after {
                 opacity: 1;
             }
+            &:hover {
+                &::before {
+                    opacity: 0;
+                }
+                &::after {
+                    opacity: 1;
+                }
+            }
         }
 
         // .messages__rating--label
 
+        
+
         &--label {
             position: relative;
             display: inline-block;
-            width: 20px; height: 20px;
-            margin: 0 3px;
+            width: 26px; height: 20px;
             cursor: pointer;
+            &:hover {
+                &::before {
+                    opacity: 0;
+                }
+                &::after {
+                    opacity: 0.7;
+                }
+            }
 
             &::before, &::after {
                 content: '';
@@ -990,7 +1016,7 @@ body {
             margin: 5px 0;
         }
 
-        transform: translate(100%,-35px);
+        transform: translate(0%,-140px);
 
         opacity: 0; visibility: hidden; 
         height: 0px;
@@ -1067,4 +1093,8 @@ body {
             }
         }
     }
+}
+
+.message-item-timer {
+    transition: stroke-dashoffset 1s linear;
 }

@@ -1312,6 +1312,16 @@ body.addEventListener('click', function (event) {
 
     }
 
+
+
+    let messagesRatingLabel = thisTarget.closest('.messages__rating--label');
+    if(messagesRatingLabel) {
+      let messageRating = messagesRatingLabel.closest('.messages__rating');
+      setTimeout(() => {
+        messageRating.classList.remove('_visible');
+      },1000)
+    }
+
 })
 
 
@@ -1567,6 +1577,34 @@ if(document.querySelector('.redirect')) {
   })
   
 }
+
+function messageItemTimer() {
+  const messageTimer = document.querySelectorAll('.message-item-timer');
+  messageTimer.forEach(messageTimer => {
+
+    const messageItem = messageTimer.closest('._message-item');
+
+    let duration = Number(messageTimer.dataset.timerDuration.slice(0,-1)),
+        current = 0, strokeDasharray = Number(messageTimer.getAttribute('stroke-dasharray')),
+
+        strokeDashoffset = strokeDasharray = strokeDasharray / duration;
+
+    let interval = setInterval(() => {
+      messageTimer.setAttribute('stroke-dashoffset', Number(messageTimer.getAttribute('stroke-dashoffset')) - strokeDashoffset);
+      if(duration <= current) {
+        messageItem.classList.remove('_visible');
+        setTimeout(() => {
+          messageItem.remove();
+        },200)
+        clearInterval(interval);
+      }
+      current++;
+    },1000)
+    
+  })
+}
+
+messageItemTimer();
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </TIMERS> -=-=-=-=-=-=-=-=-=-=-=-=
 
