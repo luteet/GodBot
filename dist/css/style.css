@@ -11205,6 +11205,7 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .login__verification--error-text {
+  display: none;
   order: 7;
   width: 100%;
   padding-top: 7px;
