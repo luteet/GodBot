@@ -134,11 +134,11 @@
         }
 
         &--block._error &--error-valid {
-            opacity: 1; visibility: visible;
+            display: block;
         }
 
         &--block._disabled &--error-disabled {
-            opacity: 1; visibility: visible;
+            display: block;
         }
 
         // .login__form--input-icon
@@ -182,11 +182,8 @@
 
         &--error-text {
             padding-top: 5px;
-            display: grid;
 
             & > * {
-
-                grid-area: 1/1;
                 text-align: center;
 
                 font-weight: 500;
@@ -194,8 +191,7 @@
                 line-height: 117%;
                 color: var(--red);
 
-                opacity: 0; visibility: hidden;
-                transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+                display: none;
             }
 
         }

@@ -11072,13 +11072,11 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .login__form--block._error .login__form--error-valid {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .login__form--block._disabled .login__form--error-disabled {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .login__form--input-icon {
@@ -11130,22 +11128,15 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .login__form--error-text {
   padding-top: 5px;
-  display: -ms-grid;
-  display: grid;
 }
 
 .login__form--error-text > * {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: 1/1;
   text-align: center;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 117%;
   color: var(--red);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  display: none;
 }
 
 .login__form--submit {
