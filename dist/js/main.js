@@ -1466,7 +1466,6 @@ function timer() {
 
 timer();
 
-
 function timerUpdate() {
   const timerElems = document.querySelectorAll('.timer');
 
@@ -1510,7 +1509,6 @@ if(document.querySelector('.timer')) {
     timerUpdate();
   },1000)
 }
-
 
 function timerPaymentCancel() {
   const timerElems = document.querySelectorAll('.timerPaymentCancel');
@@ -1609,6 +1607,48 @@ function messageItemTimer() {
 }
 
 messageItemTimer();
+
+function disabledTimer() {
+  const timerElems = document.querySelectorAll('.disabled-timer');
+
+  function num_word(value, words){  
+    value = Math.abs(value) % 100; 
+    var num = value % 10;
+    if(value > 10 && value < 20) return words[2]; 
+    if(num > 1 && num < 5) return words[1];
+    if(num == 1) return words[0]; 
+    return words[2];
+  }
+
+  let deadline;
+
+  timerElems.forEach(thisTimerElem => {
+
+    deadline = new Date(
+
+    thisTimerElem.dataset.timerYear,
+    Number(thisTimerElem.dataset.timerMonth - 1),
+    thisTimerElem.dataset.timerDay,
+    thisTimerElem.dataset.timerHour,
+    Number(thisTimerElem.dataset.timerMinute) + 1);
+
+    let thisDate = new Date();
+
+    const text = thisTimerElem.dataset.timerText;
+
+    let diff = deadline - thisDate,
+    days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0,
+    hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0,
+    minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0,
+    seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+
+    thisTimerElem.textContent = `${text} ${num_word(minutes, [`${minutes} минуту`, `${minutes} минуты`, `${minutes} минут`])}`;
+    
+  });
+}
+
+disabledTimer();
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </TIMERS> -=-=-=-=-=-=-=-=-=-=-=-=
 

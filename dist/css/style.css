@@ -11129,7 +11129,7 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .login__form--error-text {
-  padding-top: 3px;
+  padding-top: 5px;
   display: -ms-grid;
   display: grid;
 }
