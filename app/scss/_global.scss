@@ -872,26 +872,25 @@ body {
 
     margin: -5px 0;
 
+    &__gradient {
+        width: 1px; height: 1px;
+    }
+
     // .messages__rating
 
     &__rating {
 
         &._visible {
             opacity: 1; visibility: visible;
-            transform: translate(0,0);
-            height: 90px;
             margin: 5px 0;
         }
 
-        transform: translate(0%,-180px);
-
         opacity: 0; visibility: hidden;
-        height: 0px;
+        height: 90px;
         margin: 0;
         transition: opacity .2s ease-in-out, visibility .2s ease-in-out, height .2s ease-in-out, transform .2s ease-in-out, margin .2s ease-in-out;
 
-        max-width: 220px;
-        width: 100%;
+        width: 220px;
         // .messages__rating--body
 
         &--body {

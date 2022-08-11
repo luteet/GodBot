@@ -9602,26 +9602,25 @@ body._dark-theme .trader__tab-nav--link::after {
   margin: -5px 0;
 }
 
+.messages__gradient {
+  width: 1px;
+  height: 1px;
+}
+
 .messages__rating {
-  -webkit-transform: translate(0%, -180px);
-          transform: translate(0%, -180px);
   opacity: 0;
   visibility: hidden;
-  height: 0px;
+  height: 90px;
   margin: 0;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, height 0.2s ease-in-out, margin 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, height 0.2s ease-in-out, transform 0.2s ease-in-out, margin 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, height 0.2s ease-in-out, transform 0.2s ease-in-out, margin 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  max-width: 220px;
-  width: 100%;
+  width: 220px;
 }
 
 .messages__rating._visible {
   opacity: 1;
   visibility: visible;
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
-  height: 90px;
   margin: 5px 0;
 }
 
@@ -11192,12 +11191,27 @@ body._dark-theme .trader__tab-nav--link::after {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
   margin: -2.5px;
 }
 
 .login__verification._error .login__verification--input {
   border-color: var(--red);
   color: var(--red);
+}
+
+.login__verification._error .login__verification--error-text {
+  display: block;
+}
+
+.login__verification--error-text {
+  order: 7;
+  width: 100%;
+  padding-top: 7px;
+  font-size: 0.75rem;
+  line-height: 100%;
+  font-weight: 600;
+  text-align: left;
 }
 
 .login__verification--label {
@@ -11226,6 +11240,7 @@ body._dark-theme .trader__tab-nav--link::after {
 }
 
 .login__verification--btn {
+  order: 8;
   text-align: center;
   margin: 2.5px;
   -ms-grid-row-align: normal;
@@ -17695,6 +17710,18 @@ body._dark-theme .trader__tab-nav--link::after {
 
   .login__form--back-link {
     font-size: 1.125rem;
+  }
+
+  .login__verification._error {
+    padding-bottom: 17px;
+  }
+
+  .login__verification--error-text {
+    order: initial;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-left: 3px;
   }
 
   .login__verification--label {

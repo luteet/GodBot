@@ -1590,7 +1590,7 @@ function messageItemTimer() {
         strokeDashoffset = strokeDasharray = strokeDasharray / duration;
 
     let interval = setInterval(() => {
-      messageTimer.setAttribute('stroke-dashoffset', Number(messageTimer.getAttribute('stroke-dashoffset')) - strokeDashoffset);
+      messageTimer.setAttribute('stroke-dashoffset', Number(messageTimer.getAttribute('stroke-dashoffset')) + strokeDashoffset);
       if(duration <= current) {
         messageItem.classList.remove('_visible');
         setTimeout(() => {
