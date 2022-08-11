@@ -1,193 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GodBot-PRO</title>
-    <link rel="stylesheet" href="css/style.min.css">
-</head>
-<body>
-<script>
-    function getCookie(name) {
-        let matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-
-    let chartTextColor, pageBg, gridColor;
-
-    if(getCookie('godbot.pro-theme') == 'dark') {
-        document.querySelector('body').classList.add('_dark-theme');
-        
-        chartTextColor = '#9899A6';
-        gridColor = 'rgba(129, 159, 189, 0.2)';
-        pageBg = 'rgba(0, 0, 0, 0)';
-
-    } else {
-
-        chartTextColor = '#262628';
-        gridColor = 'rgba(129, 159, 189, 0.5)';
-        pageBg = '#FFFFFF';
-
-    }
-</script>
-
-<div class="wrapper">
-    <header class="header">
-        <div class="header__container _container _super-large">
-            <a href="main.html" class="header__logo me-4 mt-2">
-                <img src="img/logo-accent.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
-            </a>
-        </div>
-    </header>
-
-    <main class="main">
-        <section class="payment pt-xl-3 pt-5 pb-5">
-            <div class="payment__container _container _super-large">
-                <div class="payment__body">
-                    <div class="payment__header pt-2">
-                        <h1 class="payment__title _title _min">
-                            Реквизиты для оплаты счета:
-                        </h1>
-                    </div>
-                    <div class="payment__row">
-                        <div class="payment__col">
-                            <div class="payment__block _block">
-                                <div class="payment__item">
-                                    <h2 class="payment__item--title _min-title">
-                                        Выберите сеть:
-                                    </h2>
-                                    <form action="#" class="payment__select select">
-                                        <select name="net" class="payment__select--elem select-elem">
-                                            <option value="net-1" selected>TRC20</option>
-                                            <option value="net-2">Net-2</option>
-                                            <option value="net-3">Net-3</option>
-                                        </select>
-                                    </form>
-                                </div>
-                                <div class="payment__item _row">
-                                    <h2 class="payment__item--title _min-title">
-                                        Итого к оплате:
-                                    </h2>
-                                    <div class="payment__amount">
-                                        <strong class="payment__amount--value">
-                                            0,0023513
-                                        </strong>
-                                        <strong class="payment__amount--currency" style="color: #26A17B;">
-                                            <span>USDT</span>
-                                            <img src="img/main/bnb.svg" alt="" class="payment__amount--currency-logo">
-                                        </strong>
-                                    </div>
-                                </div>
-                                <div class="payment__item">
-                                    <div class="payment__item--text">
-                                        <p>
-                                            Ваш платеж будет подтвержден после 3 подтверждений сети Blockchain. Обычно это происходит в течении 3-5 минут. Затем статус платежа изменится на “Оплачен”.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="payment__item">
-                                    <div class="payment__info-status">
-                                        <div class="payment__info-status--timer purple timerPaymentCancel"
-                                        data-timerPaymentCancel-year="2023" 
-                                        data-timerPaymentCancel-month="8" 
-                                        data-timerPaymentCancel-day="2" 
-                                        data-timerPaymentCancel-hour="18"
-                                        data-timerPaymentCancel-minute="23"
-                                        data-timerPaymentCancel-text="Платеж будет отменен через">
-                                        <span>Платеж будет отменен через <br><span>0</span>:<span>0</span></span>
-                                        </div>
-                                        <!-- <div class="payment__info-status--expect">
-                                            Ожидайте, идет проверка поступления средств
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="payment__col _row">
-                            <div class="payment__block _block-2 _large">
-                                <div class="payment__item _alt-p">
-                                    <h2 class="payment__item--title _min-title">
-                                        Сумма
-                                    </h2>
-                                    <form action="#" class="payment__copy">
-                                        <div class="payment__copy--body">
-                                            <label class="payment__copy--label">
-                                                <input id="copy-amount" type="text" name="amount" value="0,0023513" readonly class="payment__copy--input input">
-                                            </label>
-                                            <button class="payment__copy--btn _copy-btn" data-clipboard-target="#copy-amount" type="button" title="Скопировать">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.75C0 1.23122 1.23122 0 2.75 0H10.75C12.2688 0 13.5 1.23122 13.5 2.75V4H14.75C16.2688 4 17.5 5.23122 17.5 6.75V14.75C17.5 16.2688 16.2688 17.5 14.75 17.5H6.75C5.23122 17.5 4 16.2688 4 14.75V13.5H2.75C1.23122 13.5 0 12.2688 0 10.75V2.75ZM6.75 4C5.23122 4 4 5.23122 4 6.75V11.75C4 12.1642 4.33579 12.5 4.75 12.5C5.16421 12.5 5.5 12.1642 5.5 11.75V6.75C5.5 6.05964 6.05964 5.5 6.75 5.5H11.75C12.1642 5.5 12.5 5.16421 12.5 4.75C12.5 4.33579 12.1642 4 11.75 4H6.75Z" fill="url(#payment-amount-copy)"/>
-                                                    <defs>
-                                                        <linearGradient id="payment-amount-copy" x1="9.06671" y1="17.002" x2="16.1279" y2="16.953" gradientUnits="userSpaceOnUse">
-                                                            <stop stop-color="#1F3A99"/>
-                                                            <stop offset="1" stop-color="#88019E"/>
-                                                        </linearGradient>
-                                                    </defs>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="payment__item _alt-p">
-                                    <h2 class="payment__item--title _min-title">
-                                        Адрес кошелька
-                                    </h2>
-                                    <form action="#" class="payment__copy">
-                                        <div class="payment__copy--body">
-                                            <label class="payment__copy--label">
-                                                <input id="copy-wallet-address" type="text" name="wallet-address" value="1DewfedD1245FedfwW5Fsfwfmkmdqwm423" readonly class="payment__copy--input input">
-                                            </label>
-                                            <button class="payment__copy--btn _copy-btn" type="button" data-clipboard-target="#copy-wallet-address" title="Скопировать">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.75C0 1.23122 1.23122 0 2.75 0H10.75C12.2688 0 13.5 1.23122 13.5 2.75V4H14.75C16.2688 4 17.5 5.23122 17.5 6.75V14.75C17.5 16.2688 16.2688 17.5 14.75 17.5H6.75C5.23122 17.5 4 16.2688 4 14.75V13.5H2.75C1.23122 13.5 0 12.2688 0 10.75V2.75ZM6.75 4C5.23122 4 4 5.23122 4 6.75V11.75C4 12.1642 4.33579 12.5 4.75 12.5C5.16421 12.5 5.5 12.1642 5.5 11.75V6.75C5.5 6.05964 6.05964 5.5 6.75 5.5H11.75C12.1642 5.5 12.5 5.16421 12.5 4.75C12.5 4.33579 12.1642 4 11.75 4H6.75Z" fill="url(#payment-wallet-address-copy)"/>
-                                                    <defs>
-                                                        <linearGradient id="payment-wallet-address-copy" x1="9.06671" y1="17.002" x2="16.1279" y2="16.953" gradientUnits="userSpaceOnUse">
-                                                            <stop stop-color="#1F3A99"/>
-                                                            <stop offset="1" stop-color="#88019E"/>
-                                                        </linearGradient>
-                                                    </defs>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="payment__qr-code _min">
-                                <div class="payment__qr-code--image">
-                                    <img src="img/payment/qr-code.png" width="158" height="158" alt="" class="payment__qr-code--img">
-                                </div>
-                                <div class="payment__qr-code--text">
-                                    <p>
-                                        Для совершения платежа отправьте USDT на указанный адрес кошелька.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment__block _block _min-p _full">
-                                <div class="payment__item">
-                                    <h2 class="payment__item--title _min-title">
-                                        Введите TXID операции
-                                    </h2>
-                                    <form action="#" class="payment__txid">
-                                        <div class="payment__txid--body">
-                                            <label class="payment__txid--label">
-                                                <input type="text" name="txid" value="0x9150559c0bb6d6a785bee867469b37d7d736e260a9664d519f3254657e526566" required class="payment__txid--input input">
-                                            </label>
-                                            <button class="payment__txid--submit _btn" type="submit" data-expect-text="Ожидайте, идет проверка поступления средств">
-                                                Я оплатил
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
 </div>
 
 <div class="tariffs-popup popup" id="tariffs-popup" style="display: none; opacity: 0; --max: 1100px;">
@@ -1023,12 +833,101 @@
     </div>
 </div>
 
+<div class="messages">
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="messages-close-btn-gradient-1" x1="10.3258" y1="18.4878" x2="17.5887" y2="18.4373" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1F3A99"/>
+                <stop offset="1" stop-color="#88019E"/>
+            </linearGradient>
+            <linearGradient id="messages-close-btn-gradient-2" x1="10.1086" y1="12.8293" x2="12.5296" y2="12.8124" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1F3A99"/>
+                <stop offset="1" stop-color="#88019E"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div class="messages__rating _visible">
+        <div class="messages__rating--body">
+            <h4 class="messages__rating--title">
+                Оцените наш сервис
+            </h4>
+            <form action="#" class="messages__rating--form">
+                <div class="messages__rating--list">
+                    <input type="radio" name="rating" id="message-rating-5" value="5" class="messages__rating--input">
+                    <label for="message-rating-5" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-4" value="4" class="messages__rating--input">
+                    <label for="message-rating-4" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-3" value="3" class="messages__rating--input">
+                    <label for="message-rating-3" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-2" value="2" class="messages__rating--input">
+                    <label for="message-rating-2" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-1" value="1" class="messages__rating--input">
+                    <label for="message-rating-1" class="messages__rating--label"></label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="messages__item _message-item _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Тариф “ТРЕЙДЕР” Оплачен
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="messages__item _message-item _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Тариф “НОВИЧОК” Активирован
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="messages__item _message-item _error _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM11.2005 9.56872C10.7499 9.11812 10.0193 9.11812 9.56872 9.56872C9.11812 10.0193 9.11812 10.7499 9.56872 11.2005L13.3682 15L9.56872 18.7995C9.11812 19.2501 9.11812 19.9807 9.56872 20.4313C10.0193 20.8819 10.7499 20.8819 11.2005 20.4313L15 16.6318L18.7995 20.4313C19.2501 20.8819 19.9807 20.8819 20.4313 20.4313C20.8819 19.9807 20.8819 19.2501 20.4313 18.7995L16.6318 15L20.4313 11.2005C20.8819 10.7499 20.8819 10.0193 20.4313 9.56872C19.9807 9.11812 19.2501 9.11812 18.7995 9.56872L15 13.3682L11.2005 9.56872Z" fill="#CA390C"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Оплата не прошла
+                <a href="#" class="green">
+                    Повторить операцию
+                </a>
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
 <script src="js/libs.min.js"></script>
 <script src="js/main.min.js"></script>
-
-<!-- <script defer>
-
-</script> -->
 
 </body>
 </html>

@@ -39,149 +39,1148 @@
             <a href="main.html" class="header__logo me-4 mt-2">
                 <img src="img/logo-accent.svg" alt="Логотип" width="179" height="18" class="header__logo--img">
             </a>
+            <nav class="header__nav">
+                <div class="header__nav--wrapper">
+                    <div class="header__nav--body">
+                        <div class="header__nav--header ps-3 ps-lg-1">
+                            <div class="header__theme mt-2 mb-lg-0 mb-2">
+                                <button type="button" class="header__theme--switch" title="Изменить тему сайта"></button>
+                                <div class="header__theme--icon">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__theme--icon-light">
+                                        <path d="M9.98825 4.14062C6.75759 4.14062 4.12888 6.76934 4.12888 10C4.12888 13.2307 6.75759 15.8594 9.98825 15.8594C13.2189 15.8594 15.8476 13.2307 15.8476 10C15.8476 6.76934 13.2189 4.14062 9.98825 4.14062Z" fill="#88019E"/>
+                                        <path d="M16.5522 15.3065C16.3749 14.6476 15.4291 14.4982 14.945 14.9792C14.4631 15.4581 14.6063 16.3936 15.2623 16.5701L15.5479 16.647C16.2012 16.8228 16.7993 16.2246 16.6235 15.5714L16.5522 15.3065Z" fill="#88019E"/>
+                                        <path d="M10.7518 1.3601C10.4172 0.764125 9.55929 0.764129 9.22474 1.3601L9.07802 1.62148C8.74921 2.20721 9.31653 2.96875 9.98824 2.96875C10.66 2.96875 11.2273 2.20719 10.8985 1.62145L10.7518 1.3601Z" fill="#88019E"/>
+                                        <path d="M4.42686 3.36693C3.77537 3.19044 3.17803 3.78727 3.35397 4.43891L3.42577 4.70483C3.60269 5.36008 4.54057 5.50583 5.02048 5.02589C5.49804 4.54831 5.3563 3.61872 4.70441 3.44212L4.42686 3.36693Z" fill="#88019E"/>
+                                        <path d="M2.95699 10C2.95699 9.32663 2.18923 8.75855 1.60348 9.09071L1.3423 9.23882C0.75109 9.57408 0.751091 10.4259 1.3423 10.7612L1.60349 10.9093C2.18926 11.2415 2.95699 10.6734 2.95699 10Z" fill="#88019E"/>
+                                        <path d="M5.03153 14.9792C4.54747 14.4982 3.60164 14.6476 3.42431 15.3065L3.35304 15.5714C3.17725 16.2246 3.77539 16.8227 4.42862 16.647L4.71418 16.5701C5.37021 16.3936 5.51345 15.4581 5.03153 14.9792Z" fill="#88019E"/>
+                                        <path d="M9.98826 17.0313C9.30823 17.0313 8.73866 17.8025 9.07481 18.3937L9.2208 18.6504C9.55929 19.2457 10.4172 19.2457 10.7557 18.6504L10.9017 18.3937C11.2379 17.8025 10.6683 17.0313 9.98826 17.0313Z" fill="#88019E"/>
+                                        <path d="M15.2756 3.4448C14.6204 3.62263 14.4753 4.55696 14.9552 5.03721C15.4355 5.51782 16.3715 5.37307 16.5494 4.7173L16.6215 4.4518C16.7995 3.79587 16.1981 3.19446 15.5422 3.37247L15.2756 3.4448Z" fill="#88019E"/>
+                                        <path d="M18.6142 10.7772C19.2138 10.4377 19.2138 9.5738 18.6141 9.23435L18.3664 9.09411C17.7743 8.75897 17.0195 9.31968 17.0195 10C17.0195 10.6844 17.7795 11.2497 18.3751 10.9125L18.6142 10.7772Z" fill="#88019E"/>
+                                    </svg>
+                                    <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__theme--icon-dark">
+                                        <path d="M15.9628 17.6724C15.9137 17.5994 15.8348 17.5517 15.7473 17.5423H15.7074C10.5169 17.5478 6.30474 13.3446 6.29923 8.15409C6.29603 5.14537 7.73353 2.31699 10.1659 0.546169C10.3029 0.454529 10.3396 0.269255 10.2479 0.132347C10.1921 0.049005 10.0982 -0.000727177 9.99789 8.03959e-06L10 0.00210866C4.47773 0.00153099 0.000577726 4.47774 5.59064e-08 10C-0.000577614 15.5223 4.47563 19.9994 9.99789 20C12.1122 20.0002 14.1721 19.3303 15.8817 18.0863C16.0184 17.9944 16.0547 17.8091 15.9628 17.6724Z" fill="#88019E"/>
+                                        <path d="M12.7532 11.7295C12.7176 11.6992 12.6754 11.6778 12.6299 11.6668L12.6278 11.6626L11.8211 11.4693L11.3884 10.7677C11.3031 10.6268 11.1197 10.5816 10.9788 10.6669C10.9375 10.6918 10.9029 10.7264 10.878 10.7677L10.441 11.4693L9.64701 11.6626C9.48521 11.6936 9.37918 11.8499 9.41016 12.0117C9.41993 12.0628 9.44293 12.1104 9.47686 12.1499L10.0146 12.7801L9.9516 13.6077C9.93695 13.7719 10.058 13.9167 10.2222 13.9314C10.2734 13.936 10.3249 13.9273 10.3717 13.906L11.1405 13.5909L11.8926 13.8997C12.0428 13.9674 12.2194 13.9005 12.2871 13.7503C12.3072 13.7056 12.316 13.6566 12.3127 13.6077L12.2497 12.7801L12.7874 12.1499C12.8941 12.0244 12.8788 11.8361 12.7532 11.7295Z" fill="#88019E"/>
+                                        <path d="M14.0495 4.11688C14.0139 4.08658 13.9717 4.06515 13.9262 4.05417L13.9304 4.06468L12.5524 3.72858L11.8087 2.52493C11.7235 2.38398 11.5401 2.33881 11.3991 2.4241C11.3578 2.44904 11.3232 2.48365 11.2983 2.52493L10.5526 3.73278L9.18715 4.06678C9.02624 4.10217 8.92452 4.26129 8.95991 4.4222C8.9691 4.4639 8.98711 4.50318 9.01279 4.53732L9.93077 5.61913L9.82364 7.03495C9.80899 7.19906 9.93009 7.34395 10.0942 7.3586C10.1454 7.36317 10.1969 7.35445 10.2438 7.33323L11.5567 6.79548L12.8528 7.32693C13.0029 7.39457 13.1796 7.32767 13.2473 7.17747C13.2674 7.13278 13.2762 7.08384 13.2729 7.03495L13.1657 5.61913L14.0837 4.53732C14.1904 4.41175 14.1751 4.22354 14.0495 4.11688Z" fill="#88019E"/>
+                                        <path d="M16.715 8.94629C16.6794 8.91598 16.6372 8.89456 16.5917 8.88358L16.5833 8.87938L15.9531 8.72814L15.6191 8.18618C15.5338 8.04523 15.3504 8.00007 15.2095 8.08535C15.1682 8.1103 15.1336 8.1449 15.1087 8.18618L14.7789 8.73864L14.1697 8.88778C14.0082 8.92029 13.9036 9.07752 13.9361 9.23906C13.9457 9.28669 13.9667 9.33122 13.9974 9.36882L14.4176 9.85826L14.3692 10.4884C14.3546 10.6526 14.4757 10.7974 14.6398 10.8121C14.691 10.8167 14.7425 10.8079 14.7894 10.7867L15.3817 10.5431L15.9573 10.7783C16.1075 10.846 16.2841 10.7791 16.3518 10.6289C16.3719 10.5842 16.3807 10.5352 16.3774 10.4863L16.3291 9.85616L16.7492 9.36672C16.8559 9.24116 16.8406 9.05294 16.715 8.94629Z" fill="#88019E"/>
+                                    </svg>
+                                </div>
+                                <script>
+                                    if(getCookie('godbot.pro-theme') == 'dark') {
+                                        let themeBtn = document.querySelectorAll('.header__theme--switch');
+                            
+                                        if(themeBtn) {
+                                            themeBtn.forEach(element => {
+                                                element.classList.add('_active');
+                                            })
+                                        }
+
+                                    }
+                                </script>
+                            </div>
+                            <div class="header__select _visible-on-mob ms-2 me-2 mt-2 mb-lg-0 mb-2">
+                                <div class="header__select--body">
+                                    <div class="header__select--selected">
+                                        <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                        <div class="header__select--selected-arrow"></div>
+                                    </div>
+                                    <div class="header__select--block header__lang">
+                                        <ul class="header__select--list">
+                                            <li class="header__select--item">
+                                                <a href="#" class="header__select--link">
+                                                    <img src="img/main/lang-1.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                                </a>
+                                            </li>
+                                            <li class="header__select--item">
+                                                <a href="#" class="header__select--link">
+                                                    <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header__col-auto d-flex align-items-center justify-content-end pe-3">
+                                <button class="header__burger _close-header-menu _burger" title="Закрыть меню">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                        <ul class="header__list m-0 p-0 mt-3 mt-lg-2 ms-lg-2 _visible-on-xxl _show-on-mob">
+                            <li class="header__list--item me-lg-4">
+                                <a href="affiliate-program.html" class="header__list--link p-3 p-lg-0">
+                                    <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M18.9198 13.6998C19.5995 13.4937 20.397 13.375 21.25 13.375C23.7353 13.375 25.75 14.3824 25.75 15.625C25.75 16.8676 23.7353 17.875 21.25 17.875C20.397 17.875 19.5995 17.7563 18.9198 17.5502M18.9198 13.6998C17.7005 12.8235 15.6717 12.25 13.375 12.25C11.0783 12.25 9.04949 12.8235 7.83022 13.6998M18.9198 13.6998C19.6796 14.2458 20.125 14.9094 20.125 15.625C20.125 16.3406 19.6796 17.0042 18.9198 17.5502M18.9198 17.5502C17.7005 18.4265 15.6717 19 13.375 19C11.0783 19 9.04949 18.4265 7.83022 17.5502M7.83022 13.6998C7.15053 13.4937 6.35298 13.375 5.5 13.375C3.01472 13.375 1 14.3824 1 15.625C1 16.8676 3.01472 17.875 5.5 17.875C6.35298 17.875 7.15053 17.7563 7.83022 17.5502M7.83022 13.6998C7.07043 14.2458 6.625 14.9094 6.625 15.625C6.625 16.3406 7.07043 17.0042 7.83022 17.5502M16.75 4.375C16.75 6.23896 15.239 7.75 13.375 7.75C11.511 7.75 10 6.23896 10 4.375C10 2.51104 11.511 1 13.375 1C15.239 1 16.75 2.51104 16.75 4.375ZM23.5 7.75C23.5 8.99264 22.4926 10 21.25 10C20.0074 10 19 8.99264 19 7.75C19 6.50736 20.0074 5.5 21.25 5.5C22.4926 5.5 23.5 6.50736 23.5 7.75ZM7.75 7.75C7.75 8.99264 6.74264 10 5.5 10C4.25736 10 3.25 8.99264 3.25 7.75C3.25 6.50736 4.25736 5.5 5.5 5.5C6.74264 5.5 7.75 6.50736 7.75 7.75Z" stroke="url(#paint0_linear_134_2887)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_134_2887" x1="1" y1="22.0158" x2="23.3777" y2="25.06" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1F3A99"/>
+                                                <stop offset="1" stop-color="#88019E"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        ПАРТНЕРСКАЯ ПРОГРАММА
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="header__list--item me-lg-2 ms-lg-2">
+                                <a href="learning-center.html" class="header__list--link p-3 p-lg-0">
+                                    <svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 17V2.28571L7.42857 8.71429L12.5714 1L17.7143 8.71429L24.1429 2.28571V17C24.1429 18.1046 23.2474 19 22.1429 19H3C1.89543 19 1 18.1046 1 17Z" stroke="url(#paint0_linear_134_2892)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_134_2892" x1="1" y1="22.0158" x2="21.9725" y2="24.6835" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1F3A99"/>
+                                                <stop offset="1" stop-color="#88019E"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        ОБУЧАЮЩИЙ ЦЕНТР
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#suggest-idea-popup" class="header__list--link p-3 p-lg-0 _open-popup">
+                                    <svg width="25" height="25" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 15V16C10 17.6569 8.65685 19 7 19V19C5.34315 19 4 17.6569 4 16V15M10 15C10 15 10.3373 13.8778 11 12C11.5813 10.3531 13 10.3137 13 7C13 3.68629 10.3137 1 7 1C3.68629 1 1 3.68629 1 7C1 10.3137 2.41874 10.3531 3 12C3.66274 13.8778 4 15 4 15M10 15H7M4 15H7M7 15V11" stroke="url(#paint0_linear_322_6555)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                        <linearGradient id="paint0_linear_322_6555" x1="1" y1="22.0158" x2="12.0027" y2="22.7415" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1F3A99"/>
+                                        <stop offset="1" stop-color="#88019E"/>
+                                        </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        Предложить идею
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#" class="header__list--link p-3 p-lg-0">
+                                    <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 19H4C2.34315 19 1 17.6569 1 16V4C1 2.34315 2.34315 1 4 1H16C17.6569 1 19 2.34315 19 4V10M10 19V13C10 11.3431 11.3431 10 13 10H19M10 19L19 10" stroke="url(#paint0_linear_322_6556)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_322_6556" x1="1" y1="22.0158" x2="17.4152" y2="23.6398" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1F3A99"/>
+                                                <stop offset="1" stop-color="#88019E"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        Справочный центр
+                                    </span>
+                                </a>
+                            </li> -->
+                            <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#" class="header__list--link p-3 p-lg-0">
+                                    <svg width="25" height="25" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.23529 12.6471H11.7059C12.8105 12.6471 13.7059 11.7516 13.7059 10.6471V5.23529M5.23529 12.6471H5.0049C4.47446 12.6471 3.96576 12.8578 3.59068 13.2328L1 15.8235V3C1 1.89543 1.89543 1 3 1H11.7059C12.8104 1 13.7059 1.89543 13.7059 3V5.23529M5.23529 12.6471V13.8235C5.23529 14.9281 6.13072 15.8235 7.23529 15.8235H13.9363C14.4667 15.8235 14.9754 16.0342 15.3505 16.4093L17.9412 19V7.23529C17.9412 6.13072 17.0457 5.23529 15.9412 5.23529H13.7059M4.17647 5.23529H10.5294M4.17647 8.41177H8.41176" stroke="url(#paint0_linear_322_6557)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                            <linearGradient id="paint0_linear_322_6557" x1="1" y1="22.0158" x2="16.4667" y2="23.456" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#1F3A99"/>
+                                                <stop offset="1" stop-color="#88019E"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        Написать нам
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#" class="header__list--link p-3 p-lg-0">
+                                    <svg width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 11V11C1.89543 11 1 10.1046 1 9V8C1 6.89543 1.89543 6 3 6H10M3 11V17C3 18.1046 3.89543 19 5 19H10M3 11H17M17 11V11C18.1046 11 19 10.1046 19 9V8C19 6.89543 18.1046 6 17 6H10M17 11V17C17 18.1046 16.1046 19 15 19H10M10 19V6M10 6V3.5M10 3.5C10 2.11929 8.88071 1 7.5 1C6.11929 1 5 2.11929 5 3.5C5 4.88071 6.11929 6 7.5 6M10 3.5C10 2.11929 11.1193 1 12.5 1C13.8807 1 15 2.11929 15 3.5C15 4.88071 13.8807 6 12.5 6" stroke="url(#paint0_linear_322_6562)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <defs>
+                                        <linearGradient id="paint0_linear_322_6562" x1="1" y1="22.0158" x2="17.4152" y2="23.6398" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#1F3A99"/>
+                                        <stop offset="1" stop-color="#88019E"/>
+                                        </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <span>
+                                        Что нового
+                                    </span>
+                                </a>
+                            </li> -->
+                            <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <div class="header__list--add p-3">
+                                    <h4 class="header__list--add-title _min-title">
+                                        Документы
+                                    </h4>
+                                    <div class="header__list--add-list">
+                                        <a href="#denial-responsibility-popup" class="header__list--add-link p-2 _open-popup">
+                                            Отказ от ответственности
+                                        </a>
+                                        <!-- <a href="#" class="header__list--add-link p-2">
+                                            Оферта
+                                        </a> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#tariffs-popup" class="header__list--link p-3 p-lg-0 _open-popup">
+                                    <span>
+                                        Сменить тариф
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="header__list--item me-lg-2 _visible-on-mob">
+                                <a href="#" class="header__list--link p-3 p-lg-0">
+                                    <span>
+                                        Привязать Telegram-бота
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="header__buy me-2 pe-lg-1 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
+                            <a href="#" class="header__buy--btn">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.1111 11L13.1945 11.5417C13.8925 11.8907 14.3333 12.604 14.3333 13.3843C14.3333 14.5221 13.411 15.4444 12.2732 15.4444H12.1111M12.1111 11L13.1945 10.4583C13.8925 10.1093 14.3333 9.39598 14.3333 8.61567C14.3333 7.4779 13.411 6.55556 12.2732 6.55556H12.1111M12.1111 11H8.77778M8.77778 6.55556V11M8.77778 6.55556H12.1111M8.77778 6.55556V4.88889M8.77778 6.55556H7.11111M8.77778 11V15.4444M8.77778 15.4444V17.1111M8.77778 15.4444H12.1111M8.77778 15.4444H7.11111M12.1111 6.55556V4.88889M12.1111 15.4444V17.1111M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>
+                                    КУПИТЬ ВАЛЮТУ
+                                </span>    
+                            </a>
+                        </div>
+                        <div class="header__select _hide-on-mob me-3 mt-2">
+                            <div class="header__select--body">
+                                <div class="header__select--selected">
+                                    <div class="btn-icon">
+                                        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
+                                            <path d="M21.5275 11C21.5275 16.5228 17.0503 21 11.5275 21C6.00462 21 1.52747 16.5228 1.52747 11C1.52747 5.47715 6.00462 1 11.5275 1C17.0503 1 21.5275 5.47715 21.5275 11Z" stroke="url(#paint0_linear_134_2895)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.0455 13.6137C11.4347 13.6137 11.7128 13.3171 11.7128 12.9093V12.7054C11.7128 12.1122 11.9723 11.7044 13.0103 10.7776C14.3079 9.62833 14.7713 8.81272 14.7713 7.77468C14.7713 6.01371 13.3625 4.67908 11.5089 4.67908C10.0259 4.67908 8.87668 5.45761 8.35765 6.79224C8.32058 6.88492 8.28351 6.99614 8.28351 7.16297C8.28351 7.51517 8.56156 7.81175 8.93229 7.81175C9.1918 7.81175 9.43277 7.64492 9.56253 7.3298C9.91472 6.47712 10.6191 5.99517 11.4718 5.99517C12.5098 5.99517 13.2884 6.79224 13.2884 7.86736C13.2884 8.62736 13.0103 9.0537 11.8425 10.1474C10.7489 11.1669 10.3596 11.8156 10.3596 12.6683V12.9278C10.3596 13.3171 10.6747 13.6137 11.0455 13.6137ZM11.0825 17.321C11.7128 17.321 12.2503 16.802 12.2503 16.1532C12.2503 15.5044 11.7128 14.9854 11.0825 14.9854C10.4523 14.9854 9.91472 15.5044 9.91472 16.1532C9.91472 16.802 10.4523 17.321 11.0825 17.321Z" fill="url(#paint1_linear_134_2895)"/>
+                                            <defs>
+                                                <linearGradient id="paint0_linear_134_2895" x1="1.52747" y1="24.3508" x2="19.7666" y2="26.1554" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#1F3A99"/>
+                                                    <stop offset="1" stop-color="#88019E"/>
+                                                </linearGradient>
+                                                <linearGradient id="paint1_linear_134_2895" x1="8.28351" y1="19.439" x2="14.2426" y2="19.7416" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#1F3A99"/>
+                                                    <stop offset="1" stop-color="#88019E"/>
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
+                                            <path d="M21.5273 11C21.5273 16.5228 17.0502 21 11.5273 21C6.0045 21 1.52734 16.5228 1.52734 11C1.52734 5.47715 6.0045 1 11.5273 1C17.0502 1 21.5273 5.47715 21.5273 11Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.0454 13.6137C11.4347 13.6137 11.7127 13.3171 11.7127 12.9093V12.7054C11.7127 12.1122 11.9722 11.7044 13.0103 10.7776C14.3078 9.62833 14.7712 8.81272 14.7712 7.77468C14.7712 6.01371 13.3625 4.67908 11.5088 4.67908C10.0259 4.67908 8.87662 5.45761 8.35759 6.79224C8.32052 6.88492 8.28345 6.99614 8.28345 7.16297C8.28345 7.51517 8.5615 7.81175 8.93223 7.81175C9.19174 7.81175 9.43271 7.64492 9.56247 7.3298C9.91466 6.47712 10.619 5.99517 11.4717 5.99517C12.5098 5.99517 13.2883 6.79224 13.2883 7.86736C13.2883 8.62736 13.0103 9.0537 11.8425 10.1474C10.7488 11.1669 10.3595 11.8156 10.3595 12.6683V12.9278C10.3595 13.3171 10.6747 13.6137 11.0454 13.6137ZM11.0825 17.321C11.7127 17.321 12.2503 16.802 12.2503 16.1532C12.2503 15.5044 11.7127 14.9854 11.0825 14.9854C10.4522 14.9854 9.91466 15.5044 9.91466 16.1532C9.91466 16.802 10.4522 17.321 11.0825 17.321Z" fill="white"/>
+                                        </svg>
+                                    </div>
+                                    <div class="header__select--selected-arrow"></div>
+                                </div>
+                                <div class="header__select--block header__help pt-2 pb-3">
+                                    <ul class="header__help--list">
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="affiliate-program.html" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.9198 13.6998C19.5995 13.4937 20.397 13.375 21.25 13.375C23.7353 13.375 25.75 14.3824 25.75 15.625C25.75 16.8676 23.7353 17.875 21.25 17.875C20.397 17.875 19.5995 17.7563 18.9198 17.5502M18.9198 13.6998C17.7005 12.8235 15.6717 12.25 13.375 12.25C11.0783 12.25 9.04949 12.8235 7.83022 13.6998M18.9198 13.6998C19.6796 14.2458 20.125 14.9094 20.125 15.625C20.125 16.3406 19.6796 17.0042 18.9198 17.5502M18.9198 17.5502C17.7005 18.4265 15.6717 19 13.375 19C11.0783 19 9.04949 18.4265 7.83022 17.5502M7.83022 13.6998C7.15053 13.4937 6.35298 13.375 5.5 13.375C3.01472 13.375 1 14.3824 1 15.625C1 16.8676 3.01472 17.875 5.5 17.875C6.35298 17.875 7.15053 17.7563 7.83022 17.5502M7.83022 13.6998C7.07043 14.2458 6.625 14.9094 6.625 15.625C6.625 16.3406 7.07043 17.0042 7.83022 17.5502M16.75 4.375C16.75 6.23896 15.239 7.75 13.375 7.75C11.511 7.75 10 6.23896 10 4.375C10 2.51104 11.511 1 13.375 1C15.239 1 16.75 2.51104 16.75 4.375ZM23.5 7.75C23.5 8.99264 22.4926 10 21.25 10C20.0074 10 19 8.99264 19 7.75C19 6.50736 20.0074 5.5 21.25 5.5C22.4926 5.5 23.5 6.50736 23.5 7.75ZM7.75 7.75C7.75 8.99264 6.74264 10 5.5 10C4.25736 10 3.25 8.99264 3.25 7.75C3.25 6.50736 4.25736 5.5 5.5 5.5C6.74264 5.5 7.75 6.50736 7.75 7.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Партнерская программа
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="header__help--li _hide-on-xxl">
+                                            <a href="learning-center.html" class="header__help--link">
+                                                <svg width="10" height="15" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 17V2.28571L7.42857 8.71429L12.5714 1L17.7143 8.71429L24.1429 2.28571V17C24.1429 18.1046 23.2474 19 22.1429 19H3C1.89543 19 1 18.1046 1 17Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Обучающий центр
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="header__help--li">
+                                            <a href="#suggest-idea-popup" class="header__help--link _open-popup">
+                                                <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.83871 13.1935V14.0645C8.83871 15.5076 7.66887 16.6774 6.22581 16.6774V16.6774C4.78274 16.6774 3.6129 15.5076 3.6129 14.0645V13.1935M8.83871 13.1935C8.83871 13.1935 9.13245 12.2161 9.70968 10.5806C10.2159 9.14624 11.4516 9.11194 11.4516 6.22581C11.4516 3.33967 9.11194 1 6.22581 1C3.33967 1 1 3.33967 1 6.22581C1 9.11194 2.23567 9.14624 2.74194 10.5806C3.31916 12.2161 3.6129 13.1935 3.6129 13.1935M8.83871 13.1935H6.22581M3.6129 13.1935H6.22581M6.22581 13.1935V9.70968" stroke="#262628" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Предложить идею
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <!-- <li class="header__help--li">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7.96774 14.9355H4C2.34315 14.9355 1 13.5923 1 11.9355V4C1 2.34315 2.34315 1 4 1H11.9355C13.5923 1 14.9355 2.34315 14.9355 4V7.96774M7.96774 14.9355V10.9677C7.96774 9.31089 9.31089 7.96774 10.9677 7.96774H14.9355M7.96774 14.9355L14.9355 7.96774" stroke="#262628" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Справочный центр
+                                                </span>
+                                            </a>
+                                        </li> -->
+                                        <li class="header__help--li">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.48387 10.5806H9.45161C10.5562 10.5806 11.4516 9.68521 11.4516 8.58064V4.48387M4.48387 10.5806H4.44133C3.9109 10.5806 3.40219 10.7914 3.02712 11.1664L1 13.1935V3C1 1.89543 1.89543 1 3 1H9.45161C10.5562 1 11.4516 1.89543 11.4516 3V4.48387M4.48387 10.5806V11.1935C4.48387 12.2981 5.3793 13.1935 6.48387 13.1935H11.4942C12.0246 13.1935 12.5333 13.4043 12.9084 13.7793L14.9355 15.8065V6.48387C14.9355 5.3793 14.0401 4.48387 12.9355 4.48387H11.4516M3.6129 4.48387H8.83871M3.6129 7.09677H7.09677" stroke="#262628" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Написать нам
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <!-- <li class="header__help--li">
+                                            <a href="#" class="header__help--link">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2.74194 9.70968V9.70968C1.77989 9.70968 1 8.92979 1 7.96774V7.35484C1 6.25027 1.89543 5.35484 3 5.35484H8.83871M2.74194 9.70968V14.6774C2.74194 15.782 3.63737 16.6774 4.74194 16.6774H8.83871M2.74194 9.70968H14.9355M14.9355 9.70968V9.70968C15.8975 9.70968 16.6774 8.92979 16.6774 7.96774V7.35484C16.6774 6.25027 15.782 5.35484 14.6774 5.35484H8.83871M14.9355 9.70968V14.6774C14.9355 15.782 14.0401 16.6774 12.9355 16.6774H8.83871M8.83871 16.6774V5.35484M8.83871 5.35484V3.17742M8.83871 3.17742C8.83871 1.97486 7.86385 1 6.66129 1C5.45873 1 4.48387 1.97486 4.48387 3.17742C4.48387 4.37997 5.45873 5.35484 6.66129 5.35484M8.83871 3.17742C8.83871 1.97486 9.81357 1 11.0161 1C12.2187 1 13.1935 1.97486 13.1935 3.17742C13.1935 4.37997 12.2187 5.35484 11.0161 5.35484" stroke="#262628" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>
+                                                    Что нового
+                                                </span>
+                                            </a>
+                                        </li> -->
+                                    </ul>
+                                    <div class="header__help--block">
+                                        <h4 class="header__help--min-title">
+                                            Документы
+                                        </h4>
+                                        <ul class="header__help--alt-list">
+                                            <li class="header__help--alt-li">
+                                                <a href="#denial-responsibility-popup" class="header__help--alt-link _open-popup">
+                                                    Отказ от ответственности
+                                                </a>
+                                            </li>
+                                            <!-- <li class="header__help--alt-li">
+                                                <a href="#" class="header__help--alt-link">
+                                                    Оферта
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                    </div>
+                                    <div class="header__help--footer">
+                                        <a href="#confidentiality-popup" class="header__help--footer-link _open-popup">
+                                            Конфиденциальность
+                                        </a>
+                                        <a href="#terms-service-popup" class="header__help--footer-link _open-popup">
+                                            • Условия сервиса
+                                        </a>
+                                        <a href="#cookies-popup" class="header__help--footer-link _open-popup">
+                                            • Политика использования cookies
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__select _hide-on-mob me-3 mt-2">
+                            <div class="header__select--body">
+                                <div class="header__select--selected">
+                                    <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                    <div class="header__select--selected-arrow"></div>
+                                </div>
+                                <div class="header__select--block header__lang">
+                                    <ul class="header__select--list">
+                                        <li class="header__select--item">
+                                            <a href="#" class="header__select--link">
+                                                <img src="img/main/lang-1.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                            </a>
+                                        </li>
+                                        <li class="header__select--item">
+                                            <a href="#" class="header__select--link">
+                                                <img src="img/main/lang-2.svg" width="20" height="20" alt="" class="header__select--min-img">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header__profile ms-3 ms-lg-1 mt-lg-2 me-lg-0 me-3">
+                            <div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>
+                            <a href="#" class="header__profile--settings-open _hide-on-mob ms-4 me-1">
+                                <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.960938 2C0.960938 1.0335 1.74444 0.25 2.71094 0.25C3.67744 0.25 4.46094 1.0335 4.46094 2C4.46094 2.9665 3.67744 3.75 2.71094 3.75C1.74444 3.75 0.960938 2.9665 0.960938 2ZM0.960938 8C0.960938 7.0335 1.74444 6.25 2.71094 6.25C3.67744 6.25 4.46094 7.0335 4.46094 8C4.46094 8.9665 3.67744 9.75 2.71094 9.75C1.74444 9.75 0.960938 8.9665 0.960938 8ZM0.960938 14C0.960938 13.0335 1.74444 12.25 2.71094 12.25C3.67744 12.25 4.46094 13.0335 4.46094 14C4.46094 14.9665 3.67744 15.75 2.71094 15.75C1.74444 15.75 0.960938 14.9665 0.960938 14Z" fill="#262628"/>
+                                </svg>
+                            </a>
+                            <div class="header__profile--settings _hide-on-mob">
+                                <ul class="header__profile--settings-list">
+                                    <li class="header__profile--settings-li">
+                                        <a href="#tariffs-popup" class="header__profile--settings-link _open-popup">
+                                            Сменить тариф
+                                        </a>
+                                    </li>
+                                    <li class="header__profile--settings-li">
+                                        <a href="#" class="header__profile--settings-link">
+                                            Привязать Telegram-бота
+                                        </a>
+                                    </li>
+                                </ul>
+                                <button class="header__profile--settings-close" title="Закрыть">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="13.435" y1="2.06066" x2="1.41418" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="1.06066" y1="1.70715" x2="13.0815" y2="13.728" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="header__mob-footer _visible-on-mob pb-4">
+                            <div class="header__mob-footer--wrapper">
+                                <a href="#confidentiality-popup" class="header__min-link _open-popup">
+                                    Конфиденциальность
+                                </a>
+                                <a href="#terms-service-popup" class="header__min-link _open-popup">
+                                    • Условия сервиса
+                                </a>
+                                <a href="#cookies-popup" class="header__min-link _open-popup">
+                                    • Политика использования cookies
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="header__burger _open-header-menu _burger mt-2" title="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main class="main">
-        <section class="payment pt-xl-3 pt-5 pb-5">
-            <div class="payment__container _container _super-large">
-                <div class="payment__body">
-                    <div class="payment__header pt-2">
-                        <h1 class="payment__title _title _min">
-                            Реквизиты для оплаты счета:
-                        </h1>
+        <section class="main-page pt-xl-3 pt-5 pb-5">
+            <div class="main-page__container _container _super-large">
+                <div class="main-page__body _row">
+                    <div class="statistic _col-full _hide-on-mob">
+                        <div class="statistic__body">
+                            <div class="statistic__col">
+                                <h2 class="statistic__sort--title _min-title m-0 pe-3 pe-lg-3 mb-xl-0 mb-2">
+                                    Ваша статистика за:
+                                </h2>
+                            </div>
+                            <div class="statistic__col _auto pe-lg-3">
+                                <form action="#" class="statistic__sort">
+                                    <ul class="statistic__sort--list m-0 p-0 pt-md-0 pt-2">
+                                        <li class="statistic__sort--item mt-1 mb-1 me-2">
+                                            <input type="radio" name="sort" value="1-week" id="radio-sort-1" class="statistic__sort--input">
+                                            <label for="radio-sort-1" class="statistic__sort--btn">
+                                                1 неделя
+                                            </label>
+                                        </li>
+                                        <li class="statistic__sort--item mt-1 mb-1 me-2">
+                                            <input type="radio" name="sort" value="1-month" id="radio-sort-2" class="statistic__sort--input">
+                                            <label for="radio-sort-2" class="statistic__sort--btn">
+                                                1 месяц
+                                            </label>
+                                        </li>
+                                        <li class="statistic__sort--item mt-1 mb-1">
+                                            <input type="radio" name="sort" value="all" id="radio-sort-3" checked class="statistic__sort--input">
+                                            <label for="radio-sort-3" class="statistic__sort--btn">
+                                                Все время
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <div class="statistic__col pt-xl-0 pt-3">
+                                <ul class="statistic__list p-0">
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Заработок
+                                                с нами
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">
+                                                    85.05%
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Количество сигналов
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">14 789</strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="statistic__elem">
+                                        <div class="statistic__elem--body">
+                                            <span class="statistic__elem--name me-2">
+                                                Проходимость сигналов
+                                            </span>
+                                            <div class="statistic__elem--value ms-2">
+                                                <strong class="_text-gradient">98.5%</strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="payment__row">
-                        <div class="payment__col">
-                            <div class="payment__block _block">
-                                <div class="payment__item">
-                                    <h2 class="payment__item--title _min-title">
-                                        Выберите сеть:
-                                    </h2>
-                                    <form action="#" class="payment__select select">
-                                        <select name="net" class="payment__select--elem select-elem">
-                                            <option value="net-1" selected>TRC20</option>
-                                            <option value="net-2">Net-2</option>
-                                            <option value="net-3">Net-3</option>
-                                        </select>
-                                    </form>
-                                </div>
-                                <div class="payment__item _row">
-                                    <h2 class="payment__item--title _min-title">
-                                        Итого к оплате:
-                                    </h2>
-                                    <div class="payment__amount">
-                                        <strong class="payment__amount--value">
-                                            0,0023513
-                                        </strong>
-                                        <strong class="payment__amount--currency" style="color: #26A17B;">
-                                            <span>USDT</span>
-                                            <img src="img/main/bnb.svg" alt="" class="payment__amount--currency-logo">
-                                        </strong>
+                    <div class="main-page__col _col-large">
+                        <div class="chart p-md-4 pt-md-1 pe-2 pd-4 block">
+                            <div class="chart__wrapper mb-2">
+                                <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
+                                    <div class="chart__header--col">
+                                        <h4 class="chart__sort--title _min-title me-3 mb-3 mt-3">
+                                            График нейронной сети:
+                                        </h4>
                                     </div>
-                                </div>
-                                <div class="payment__item">
-                                    <div class="payment__item--text">
-                                        <p>
-                                            Ваш платеж будет подтвержден после 3 подтверждений сети Blockchain. Обычно это происходит в течении 3-5 минут. Затем статус платежа изменится на “Оплачен”.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="payment__item">
-                                    <div class="payment__info-status">
-                                        <div class="payment__info-status--timer purple timerPaymentCancel"
-                                        data-timerPaymentCancel-year="2023" 
-                                        data-timerPaymentCancel-month="8" 
-                                        data-timerPaymentCancel-day="2" 
-                                        data-timerPaymentCancel-hour="18"
-                                        data-timerPaymentCancel-minute="23"
-                                        data-timerPaymentCancel-text="Платеж будет отменен через">
-                                        <span>Платеж будет отменен через <br><span>0</span>:<span>0</span></span>
+                                    <div class="chart__header--col _auto _hide-on-mob">
+                                        <form action="#" class="chart__sort">
+                                            <div class="chart__sort--item">
+                                                <input checked type="radio" name="chart-sort" value="1-minute" id="chart-sort-1" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-1" class="chart__sort--label">
+                                                    1 минута
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-hour" id="chart-sort-2" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 час
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-week" id="chart-sort-3" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 неделя
+                                                </label>
+                                            </div>
+                                            <div class="chart__sort--item">
+                                                <input disabled type="radio" name="chart-sort" value="1-month" id="chart-sort-4" class="chart__sort--input">
+                                                <label for="chart-sort-scalping-2" class="chart__sort--label">
+                                                    1 месяц
+                                                </label>
+                                            </div>
+                                        </form>
+                                        <div class="chart__update _min me-3 mb-1 mt-1 timer" 
+                                        data-timer-year="2023" 
+                                        data-timer-month="8" 
+                                        data-timer-day="2" 
+                                        data-timer-hour="18"
+                                        data-timer-minute="23"
+                                        data-timer-text="Обновление графика через">
+                                        <span>
+                                            Обновление графика через: <span>0 мин</span> <span>0 сек</span>
+                                        </span>
                                         </div>
-                                        <!-- <div class="payment__info-status--expect">
-                                            Ожидайте, идет проверка поступления средств
-                                        </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="payment__col _row">
-                            <div class="payment__block _block-2 _large">
-                                <div class="payment__item _alt-p">
-                                    <h2 class="payment__item--title _min-title">
-                                        Сумма
-                                    </h2>
-                                    <form action="#" class="payment__copy">
-                                        <div class="payment__copy--body">
-                                            <label class="payment__copy--label">
-                                                <input id="copy-amount" type="text" name="amount" value="0,0023513" readonly class="payment__copy--input input">
-                                            </label>
-                                            <button class="payment__copy--btn _copy-btn" data-clipboard-target="#copy-amount" type="button" title="Скопировать">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.75C0 1.23122 1.23122 0 2.75 0H10.75C12.2688 0 13.5 1.23122 13.5 2.75V4H14.75C16.2688 4 17.5 5.23122 17.5 6.75V14.75C17.5 16.2688 16.2688 17.5 14.75 17.5H6.75C5.23122 17.5 4 16.2688 4 14.75V13.5H2.75C1.23122 13.5 0 12.2688 0 10.75V2.75ZM6.75 4C5.23122 4 4 5.23122 4 6.75V11.75C4 12.1642 4.33579 12.5 4.75 12.5C5.16421 12.5 5.5 12.1642 5.5 11.75V6.75C5.5 6.05964 6.05964 5.5 6.75 5.5H11.75C12.1642 5.5 12.5 5.16421 12.5 4.75C12.5 4.33579 12.1642 4 11.75 4H6.75Z" fill="url(#payment-amount-copy)"/>
+                                        <a href="#" class="chart__download me-2 mt-2 mb-2">
+                                            <div class="btn-icon me-2">
+                                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-light">
+                                                    <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="url(#paint0_linear_139_810)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     <defs>
-                                                        <linearGradient id="payment-amount-copy" x1="9.06671" y1="17.002" x2="16.1279" y2="16.953" gradientUnits="userSpaceOnUse">
+                                                        <linearGradient id="paint0_linear_139_810" x1="1" y1="22.0158" x2="13.8165" y2="23.002" gradientUnits="userSpaceOnUse">
                                                             <stop stop-color="#1F3A99"/>
                                                             <stop offset="1" stop-color="#88019E"/>
                                                         </linearGradient>
                                                     </defs>
                                                 </svg>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="payment__item _alt-p">
-                                    <h2 class="payment__item--title _min-title">
-                                        Адрес кошелька
-                                    </h2>
-                                    <form action="#" class="payment__copy">
-                                        <div class="payment__copy--body">
-                                            <label class="payment__copy--label">
-                                                <input id="copy-wallet-address" type="text" name="wallet-address" value="1DewfedD1245FedfwW5Fsfwfmkmdqwm423" readonly class="payment__copy--input input">
-                                            </label>
-                                            <button class="payment__copy--btn _copy-btn" type="button" data-clipboard-target="#copy-wallet-address" title="Скопировать">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.75C0 1.23122 1.23122 0 2.75 0H10.75C12.2688 0 13.5 1.23122 13.5 2.75V4H14.75C16.2688 4 17.5 5.23122 17.5 6.75V14.75C17.5 16.2688 16.2688 17.5 14.75 17.5H6.75C5.23122 17.5 4 16.2688 4 14.75V13.5H2.75C1.23122 13.5 0 12.2688 0 10.75V2.75ZM6.75 4C5.23122 4 4 5.23122 4 6.75V11.75C4 12.1642 4.33579 12.5 4.75 12.5C5.16421 12.5 5.5 12.1642 5.5 11.75V6.75C5.5 6.05964 6.05964 5.5 6.75 5.5H11.75C12.1642 5.5 12.5 5.16421 12.5 4.75C12.5 4.33579 12.1642 4 11.75 4H6.75Z" fill="url(#payment-wallet-address-copy)"/>
-                                                    <defs>
-                                                        <linearGradient id="payment-wallet-address-copy" x1="9.06671" y1="17.002" x2="16.1279" y2="16.953" gradientUnits="userSpaceOnUse">
-                                                            <stop stop-color="#1F3A99"/>
-                                                            <stop offset="1" stop-color="#88019E"/>
-                                                        </linearGradient>
-                                                    </defs>
+                                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon-dark">
+                                                    <path d="M8 1V15M8 15L5 12M8 15L11 12M1 19H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
-                                            </button>
+                                            </div>
+                                            <span>
+                                                CКАЧАТЬ
+                                            </span>
+                                        </a>
+                                        <div class="chart__settings mt-2 mb-2">
+                                            <a href="#" class="chart__settings--link" title="Настройки">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.3117C12 1.58727 11.4127 1 10.6883 1H9.3117C8.58727 1 8 1.58727 8 2.3117V2.56876C8 2.99658 7.71288 3.36825 7.31776 3.53229V3.53229C6.9225 3.6964 6.46228 3.63386 6.15966 3.33123L5.883 3.05458C5.30058 2.47215 4.35628 2.47215 3.77385 3.05458L3.05457 3.77386C2.47215 4.35628 2.47215 5.30058 3.05457 5.883L3.33123 6.15966C3.63386 6.46229 3.6964 6.9225 3.53229 7.31776V7.31776C3.36825 7.71288 2.99658 8 2.56877 8H2.3117C1.58727 8 1 8.58727 1 9.3117V10.6883C1 11.4127 1.58727 12 2.3117 12H2.71977C3.05799 12 3.35266 12.2259 3.47549 12.5411V12.5411C3.59352 12.8439 3.53726 13.1906 3.30742 13.4205L2.98904 13.7389C2.4428 14.2851 2.4428 15.1707 2.98904 15.717L3.95388 16.6818C4.43687 17.1648 5.21995 17.1648 5.70294 16.6818L5.74745 16.6373C6.12347 16.2613 6.69986 16.1978 7.18671 16.4117V16.4117C7.65509 16.6175 8 17.0609 8 17.5725V17.6883C8 18.4127 8.58727 19 9.3117 19H10.6883C11.4127 19 12 18.4127 12 17.6883V17.4312C12 17.0034 12.2871 16.6317 12.6822 16.4677V16.4677C13.0775 16.3036 13.5377 16.3661 13.8403 16.6688L13.9274 16.7559C14.3695 17.198 15.0863 17.198 15.5284 16.7559L16.7559 15.5284C17.198 15.0863 17.198 14.3695 16.7559 13.9274L16.6688 13.8403C16.3661 13.5377 16.3036 13.0775 16.4677 12.6822V12.6822C16.6317 12.2871 17.0034 12 17.4312 12H17.6883C18.4127 12 19 11.4127 19 10.6883V9.3117C19 8.58727 18.4127 8 17.6883 8H17.5725C17.0609 8 16.6175 7.65509 16.4117 7.18671V7.18671C16.1978 6.69986 16.2613 6.12347 16.6373 5.74745L16.6818 5.70295C17.1648 5.21996 17.1648 4.43689 16.6818 3.95391L15.7169 2.98904C15.1707 2.44281 14.2851 2.44281 13.7389 2.98904L13.4205 3.30742C13.1906 3.53726 12.8439 3.59352 12.5411 3.47549V3.47549C12.2259 3.35266 12 3.05799 12 2.71976V2.3117ZM10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
                                         </div>
-                                    </form>
+                                    </div>
+                                </div>
+                                <div class="chart__elem mt-3">
+                                    <div class="chart__elem--wrapper mb-md-0 mb-4 chart-lines">
+                                        <canvas height="366" class="chart__elem--canvas chart-elem" id="neural-network"></canvas>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="payment__qr-code _min">
-                                <div class="payment__qr-code--image">
-                                    <img src="img/payment/qr-code.png" width="158" height="158" alt="" class="payment__qr-code--img">
-                                </div>
-                                <div class="payment__qr-code--text">
-                                    <p>
-                                        Для совершения платежа отправьте USDT на указанный адрес кошелька.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="payment__block _block _min-p _full">
-                                <div class="payment__item">
-                                    <h2 class="payment__item--title _min-title">
-                                        Введите TXID операции
-                                    </h2>
-                                    <form action="#" class="payment__txid">
-                                        <div class="payment__txid--body">
-                                            <label class="payment__txid--label">
-                                                <input type="text" name="txid" value="0x9150559c0bb6d6a785bee867469b37d7d736e260a9664d519f3254657e526566" required class="payment__txid--input input">
-                                            </label>
-                                            <button class="payment__txid--submit _btn" type="submit" data-expect-text="Ожидайте, идет проверка поступления средств">
-                                                Я оплатил
-                                            </button>
-                                        </div>
-                                    </form>
+                            <div class="chart__settings-popup">
+                                <div class="chart__settings-popup--body">
+                                    <div class="chart__settings-popup--header">
+                                        <h3 class="chart__settings-popup--title">
+                                            Параметры графика
+                                        </h3>
+                                        <button class="chart__settings-popup--close" title="Закрыть">
+                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <line x1="1.06066" y1="1.70715" x2="13.0815" y2="13.728" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="chart__settings-popup--block" id="legend-container">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="main-page__col _col-min _hide-on-mob">
+                        <div class="add-aside mt-lg-0 mt-4">
+                            <div class="add-aside__inner">
+                                <div class="add-aside__slider swiper">
+                                    <div class="add-aside__slider--list swiper-wrapper">
+                                        <div class="add-aside__slider--slide swiper-slide">
+                                            <div class="add-aside__body p-md-3 p-3">
+                                                <h2 class="add-aside__title _title _min">
+                                                    Deposit Blast-Off: Summer Edition
+                                                </h2>
+                                                <div class="add-aside__text">
+                                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                                </div>
+                                                <div class="add-aside__image">
+                                                    <picture>
+                                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                                    </picture>
+                                                </div>
+                                                <a href="#" class="add-aside__link _btn">
+                                                    Зарегестрироваться
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="add-aside__slider--slide swiper-slide">
+                                            <div class="add-aside__body p-md-3 p-3">
+                                                <h2 class="add-aside__title _title _min">
+                                                    Deposit Blast-Off: Summer Edition
+                                                </h2>
+                                                <div class="add-aside__text">
+                                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                                </div>
+                                                <div class="add-aside__image">
+                                                    <picture>
+                                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                                    </picture>
+                                                </div>
+                                                <a href="#" class="add-aside__link _btn">
+                                                    Зарегестрироваться
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="add-aside__slider--slide swiper-slide">
+                                            <div class="add-aside__body p-md-3 p-3">
+                                                <h2 class="add-aside__title _title _min">
+                                                    Deposit Blast-Off: Summer Edition
+                                                </h2>
+                                                <div class="add-aside__text">
+                                                    Earn Big With Deposits & Trades Up to <mark>$3,000</mark> in Rewards
+                                                </div>
+                                                <div class="add-aside__image">
+                                                    <picture>
+                                                        <source srcset="img/main/deposit.webp" type="image/webp">
+                                                        <img src="img/main/deposit.png" alt="" class="add-aside__image--img">
+                                                    </picture>
+                                                </div>
+                                                <a href="#" class="add-aside__link _btn">
+                                                    Зарегестрироваться
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add-aside__slider--pagination swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-page__col _col-full">
+                        <div class="forecast pt-3 mt-1">
+    <div class="forecast__body block">
+        <h2 class="forecast__title _min-title">
+            Прогнозы нейронной сети
+        </h2>
+        <div class="forecast__table mt-4 pt-3 custom-scrollbar">
+            <div class="forecast__table--head">
+                <div class="forecast__table--name">
+                    <span>
+                        Дата сигнала
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Наименование
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Направление
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Статус сделки
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Цена входа
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Цена выхода
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Стоп-лосс
+                    </span>
+                </div>
+                <div class="forecast__table--name">
+                    <span>
+                        Риск на сделку
+                    </span>
+                    <div class="forecast__table--name-prompt" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Это процент от депозита, больше которого нельзя потерять при походе на стоп.">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0Z" fill="#1F3A99"/>
+                            <path d="M6.28208 5.74365C5.9847 5.74365 5.74362 5.98473 5.74362 6.28211C5.74362 6.5795 5.9847 6.82058 6.28208 6.82058C6.38121 6.82058 6.46157 6.90093 6.46157 7.00006V10.5898C6.46157 10.8872 6.70265 11.1283 7.00003 11.1283C7.29742 11.1283 7.53849 10.8872 7.53849 10.5898V6.28211C7.53849 5.98473 7.29742 5.74365 7.00003 5.74365H6.28208Z" fill="white"/>
+                            <circle cx="7.00004" cy="3.41029" r="0.538462" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="forecast__table--body">
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/btc.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Bitcoin</strong>
+                                <span class="gray">BTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">SHORT</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="yellow">В ожидании</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            90%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/eth.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Etherium</strong>
+                                <span class="gray">ETH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">Отменена</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $1,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            40%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/bnb.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>BNB</strong>
+                                <span class="gray">BNB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">-15%</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            45%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/usd.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>USD Coin</strong>
+                                <span class="gray">USDC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">+10%</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            10%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/btc.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Bitcoin</strong>
+                                <span class="gray">BTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">SHORT</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="yellow">В ожидании</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            90%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/eth.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Etherium</strong>
+                                <span class="gray">ETH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">Отменена</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $1,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            40%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/bnb.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>BNB</strong>
+                                <span class="gray">BNB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">-15%</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            45%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/usd.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>USD Coin</strong>
+                                <span class="gray">USDC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">+10%</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            10%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/btc.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Bitcoin</strong>
+                                <span class="gray">BTC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">SHORT</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="yellow">В ожидании</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$19,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $19,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            90%
+                        </strong>
+                    </div>
+                </div>
+                <div class="forecast__table--item">
+                    <div class="forecast__table--param">
+                        <span>
+                            15.07.22 12:48:01
+                        </span>
+                    </div>
+                    <div class="forecast__table--param">
+                        <div class="forecast__table--min-info">
+                            <div class="forecast__table--min-info-item">
+                                <img src="img/main/eth.svg" width="24" height="24" alt="">
+                            </div>
+                            <div class="forecast__table--min-info-item">
+                                <strong>Etherium</strong>
+                                <span class="gray">ETH</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">LONG</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="red">Отменена</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>$1,481.29</strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong>
+                            $1,481.29
+                        </strong>
+                    </div>
+                    <div class="forecast__table--param">
+                        <strong class="green">
+                            40%
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="forecast__pagination mt-3">
+            <a href="#" class="forecast__pagination--btn _prev _disabled" title="Назад">
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.35297 5.0293C9.62911 5.0293 9.85297 4.80544 9.85297 4.5293C9.85297 4.25315 9.62911 4.0293 9.35297 4.0293V5.0293ZM0.528824 4.17574C0.333562 4.37101 0.333562 4.68759 0.528824 4.88285L3.7108 8.06483C3.90607 8.26009 4.22265 8.26009 4.41791 8.06483C4.61317 7.86957 4.61317 7.55299 4.41791 7.35772L1.58948 4.5293L4.41791 1.70087C4.61317 1.50561 4.61317 1.18903 4.41791 0.993763C4.22265 0.798501 3.90607 0.798501 3.7108 0.993763L0.528824 4.17574ZM9.35297 4.0293L0.882378 4.0293V5.0293L9.35297 5.0293V4.0293Z" fill="black"/>
+                </svg>
+            </a>
+            <div class="forecast__pagination--list">
+                <div class="forecast__pagination--item">
+                    <a href="#" class="forecast__pagination--link">
+                        1
+                    </a>
+                </div>
+                <div class="forecast__pagination--item">
+                    <a href="#" class="forecast__pagination--link _current">
+                        2
+                    </a>
+                </div>
+                <div class="forecast__pagination--item">
+                    <a href="#" class="forecast__pagination--link">
+                        3
+                    </a>
+                </div>
+                <div class="forecast__pagination--item">
+                    <a href="#" class="forecast__pagination--link">
+                        ...
+                    </a>
+                </div>
+                <div class="forecast__pagination--item">
+                    <a href="#" class="forecast__pagination--link">
+                        10
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="forecast__pagination--btn _next" title="Вперёд">
+                <svg width="10" height="9" viewBox="0 0 10 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.882324 5.0293C0.606182 5.0293 0.382324 4.80544 0.382324 4.5293C0.382324 4.25315 0.606182 4.0293 0.882324 4.0293L0.882324 5.0293ZM9.70647 4.17574C9.90173 4.37101 9.90173 4.68759 9.70647 4.88285L6.52449 8.06483C6.32922 8.26009 6.01264 8.26009 5.81738 8.06483C5.62212 7.86957 5.62212 7.55299 5.81738 7.35772L8.64581 4.5293L5.81738 1.70087C5.62212 1.50561 5.62212 1.18903 5.81738 0.993763C6.01264 0.798501 6.32922 0.798501 6.52449 0.993763L9.70647 4.17574ZM0.882324 4.0293L9.35291 4.0293V5.0293L0.882324 5.0293L0.882324 4.0293Z" fill="black"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -1023,12 +2022,101 @@
     </div>
 </div>
 
+<div class="messages">
+    <svg xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="messages-close-btn-gradient-1" x1="10.3258" y1="18.4878" x2="17.5887" y2="18.4373" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1F3A99"/>
+                <stop offset="1" stop-color="#88019E"/>
+            </linearGradient>
+            <linearGradient id="messages-close-btn-gradient-2" x1="10.1086" y1="12.8293" x2="12.5296" y2="12.8124" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1F3A99"/>
+                <stop offset="1" stop-color="#88019E"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div class="messages__rating _visible">
+        <div class="messages__rating--body">
+            <h4 class="messages__rating--title">
+                Оцените наш сервис
+            </h4>
+            <form action="#" class="messages__rating--form">
+                <div class="messages__rating--list">
+                    <input type="radio" name="rating" id="message-rating-5" value="5" class="messages__rating--input">
+                    <label for="message-rating-5" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-4" value="4" class="messages__rating--input">
+                    <label for="message-rating-4" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-3" value="3" class="messages__rating--input">
+                    <label for="message-rating-3" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-2" value="2" class="messages__rating--input">
+                    <label for="message-rating-2" class="messages__rating--label"></label>
+                    <input type="radio" name="rating" id="message-rating-1" value="1" class="messages__rating--input">
+                    <label for="message-rating-1" class="messages__rating--label"></label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="messages__item _message-item _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Тариф “ТРЕЙДЕР” Оплачен
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="messages__item _message-item _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Тариф “НОВИЧОК” Активирован
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="messages__item _message-item _error _visible">
+        <div class="messages__item--body">
+            <div class="messages__item--icon">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM11.2005 9.56872C10.7499 9.11812 10.0193 9.11812 9.56872 9.56872C9.11812 10.0193 9.11812 10.7499 9.56872 11.2005L13.3682 15L9.56872 18.7995C9.11812 19.2501 9.11812 19.9807 9.56872 20.4313C10.0193 20.8819 10.7499 20.8819 11.2005 20.4313L15 16.6318L18.7995 20.4313C19.2501 20.8819 19.9807 20.8819 20.4313 20.4313C20.8819 19.9807 20.8819 19.2501 20.4313 18.7995L16.6318 15L20.4313 11.2005C20.8819 10.7499 20.8819 10.0193 20.4313 9.56872C19.9807 9.11812 19.2501 9.11812 18.7995 9.56872L15 13.3682L11.2005 9.56872Z" fill="#CA390C"/>
+                </svg>
+            </div>
+            <div class="messages__item--text">
+                Оплата не прошла
+                <a href="#" class="green">
+                    Повторить операцию
+                </a>
+            </div>
+            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)"/>
+                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
 <script src="js/libs.min.js"></script>
 <script src="js/main.min.js"></script>
-
-<!-- <script defer>
-
-</script> -->
 
 </body>
 </html>

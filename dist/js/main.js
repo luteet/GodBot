@@ -4,7 +4,7 @@ const body = document.querySelector('body'),
       burger = document.querySelector('._burger'),
       header = document.querySelector('.header');
 
-function copyToClipboard(el) {
+/* function copyToClipboard(el) {
 
   // resolve the element
   el = (typeof el === 'string') ? document.querySelector(el) : el;
@@ -48,7 +48,7 @@ function copyToClipboard(el) {
 
   // execute copy command
   document.execCommand('copy');
-}
+} */
 
 new ClipboardJS('._copy-btn');
 
@@ -1148,7 +1148,7 @@ body.addEventListener('click', function (event) {
 
 
 
-    let copyBtn = thisTarget.closest('._copy-input-btn');
+    /* let copyBtn = thisTarget.closest('._copy-input-btn');
     if (copyBtn) {
       event.preventDefault();
       
@@ -1160,7 +1160,7 @@ body.addEventListener('click', function (event) {
   
       }
   
-    }
+    } */
 
 
 
@@ -1284,48 +1284,33 @@ body.addEventListener('click', function (event) {
     }
 
 
-/*     let openIframePopup = thisTarget.closest('._open-iframe-popup');
-    if(openIframePopup) {
+    let paymentSubmit = thisTarget.closest('.payment__txid--submit');
+    if(paymentSubmit) {
       event.preventDefault();
 
-      let link = openIframePopup.getAttribute('href');
+      paymentSubmit.classList.add('_disabled');
 
-      let popup = document.createElement('div');
-      popup.classList.add('iframe-popup', 'popup');
-      popup.style.display = 'none';
-      popup.style.opacity = '0';
-      popup.style.setProperty('--max', '1000px');
+      let paymentInfoStatus = document.querySelector('.payment__info-status'),
+          paymentExpect = `<strong class="payment__info-status--expect purple">${paymentSubmit.dataset.expectText}</strong>`;
 
-      html.style.setProperty('--popup-padding', scrollBarWidth() + 'px');
-      body.classList.add('_popup-active');
+      paymentInfoStatus.innerHTML = paymentExpect;
 
-      popup.innerHTML = `
+    }
+
+
+
+    let messageClose = thisTarget.closest('._message-close');
+    if(messageClose) {
       
-      <div class="iframe-popup__wrapper popup-wrapper">
-        <div class="iframe-popup__bg popup-bg _popup-close _remove-popup"></div>
-        <div class="iframe-popup__body popup-body">
-          <button type="button" class="iframe-popup__close-btn popup-close-btn _remove-popup">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <iframe src="${link}" class="iframe-popup__element"></iframe>
-        </div>
-        </div>
-      
-      `;
+      let item = messageClose.closest('._message-item');
+      if(item) {
+        item.classList.remove('_visible');
+        setTimeout(() => {
+          item.remove();
+        },200)
+      }
 
-      body.append(popup);
-
-      FX.fadeIn(popup, {
-        duration: 200,
-        complete: function () {
-          
-        }
-      });
-      
-    } */
+    }
 
 })
 
@@ -1557,15 +1542,25 @@ if(document.querySelector('.redirect')) {
     let count = (Number(redirect.dataset.redirectDelay)) ? Number(redirect.dataset.redirectDelay) : 5, redirectValue = redirect.querySelector('.redirect-value'),
     interval = setInterval(() => {
       count--;
+
+      let text = '';
+
+      if(count >= 5) text = redirect.dataset['redirect-5'];
+      if(count >= 2 && count <= 4) text = redirect.dataset['redirect-2-4'];
+      if(count == 1) text = redirect.dataset['redirect-1'];
+      if(count == 0) text = redirect.dataset['redirect-0'];
+
       if(count <= 0) {
-        redirectValue.textContent = count;
+
+        redirectValue.textContent = count + ' ' + text;
         clearInterval(interval);
 
         window.location.href = (redirect.dataset.redirectPage) ? redirect.dataset.redirectPage : '/';
 
       } else {
-        redirectValue.textContent = count;
+        redirectValue.textContent = count + ' ' + text;
       }
+
     },1000);
 
     
