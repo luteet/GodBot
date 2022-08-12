@@ -9839,13 +9839,10 @@ body._dark-theme .trader__tab-nav--link::after {
   position: relative;
 }
 
-.lock-elem {
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
-}
-
 .lock-elem * {
   z-index: auto !important;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 .lock-block {
