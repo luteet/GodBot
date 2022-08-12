@@ -9844,7 +9844,7 @@ body._dark-theme .trader__tab-nav--link::after {
           filter: blur(5px);
 }
 
-.lock-elem > * {
+.lock-elem * {
   z-index: auto !important;
 }
 
