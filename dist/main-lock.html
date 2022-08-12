@@ -386,7 +386,7 @@
                             </div>
                         </div>
                         <div class="header__profile ms-3 ms-lg-1 mt-lg-2 me-lg-0 me-3">
-                            <div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><strong class="header__profile--name">Новичок</strong><span class="header__profile--date">Подписка до: <mark>12.08.2022</mark></span></div>
+                            <div class="header__profile--avatar"><img src="img/main/avatar.png" width="60" height="60" alt="" class="header__profile--avatar-img"></div><div class="header__profile--info"><a href="#tariffs-popup" class="header__profile--link green _open-popup">Выбрать тариф</a></div>
                             <a href="#" class="header__profile--settings-open _hide-on-mob ms-4 me-1">
                                 <svg width="5" height="16" viewBox="0 0 5 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.960938 2C0.960938 1.0335 1.74444 0.25 2.71094 0.25C3.67744 0.25 4.46094 1.0335 4.46094 2C4.46094 2.9665 3.67744 3.75 2.71094 3.75C1.74444 3.75 0.960938 2.9665 0.960938 2ZM0.960938 8C0.960938 7.0335 1.74444 6.25 2.71094 6.25C3.67744 6.25 4.46094 7.0335 4.46094 8C4.46094 8.9665 3.67744 9.75 2.71094 9.75C1.74444 9.75 0.960938 8.9665 0.960938 8ZM0.960938 14C0.960938 13.0335 1.74444 12.25 2.71094 12.25C3.67744 12.25 4.46094 13.0335 4.46094 14C4.46094 14.9665 3.67744 15.75 2.71094 15.75C1.74444 15.75 0.960938 14.9665 0.960938 14Z" fill="#262628"/>
@@ -511,8 +511,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main-page__col _col-large">
-                        <div class="chart p-md-4 pt-md-1 pe-2 pd-4 block">
+                    <div class="main-page__col _col-large lock-wrapper">
+                        <div class="chart p-md-4 pt-md-1 pe-2 pd-4 block lock-elem">
                             <div class="chart__wrapper mb-2">
                                 <div class="chart__header ps-md-0 pe-md-0 ps-2 pe-2">
                                     <div class="chart__header--col">
@@ -610,6 +610,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="lock-block">
+                            <div class="lock-block__body">
+                                <div class="lock-block__icon">
+                                    <svg width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.3714 11.7297V6.28378C22.3714 2.81335 19.5892 0 16.1571 0H12.8429C9.4108 0 6.62857 2.81335 6.62857 6.28378V11.7297H4.55714C2.0403 11.7297 0 13.7928 0 16.3378V26.3919C0 28.9369 2.0403 31 4.55714 31H24.4429C26.9597 31 29 28.9369 29 26.3919V16.3378C29 13.7928 26.9597 11.7297 24.4429 11.7297H22.3714ZM12.8429 2.51351C10.7836 2.51351 9.11429 4.20152 9.11429 6.28378V11.7297H19.8857V6.28378C19.8857 4.20152 18.2164 2.51351 16.1571 2.51351H12.8429ZM15.7429 19.6892C15.7429 18.9951 15.1864 18.4324 14.5 18.4324C13.8136 18.4324 13.2571 18.9951 13.2571 19.6892V23.0405C13.2571 23.7346 13.8136 24.2973 14.5 24.2973C15.1864 24.2973 15.7429 23.7346 15.7429 23.0405V19.6892Z" fill="#262628"/>
+                                    </svg>
+                                </div>
+                                <div class="lock-block__text">
+                                    Для отображения графика нейронной сети необходимо выбрать тариф
+                                </div>
+                                <a href="#tariffs-popup" class="lock-block__btn _btn _open-popup">
+                                    Выбрать тариф
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="main-page__col _col-min _hide-on-mob">
                         <div class="add-aside mt-lg-0 mt-4">
@@ -679,8 +694,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main-page__col _col-full">
-                        <div class="forecast@@class">
+                    <div class="main-page__col _col-full lock-wrapper _mt-20">
+                        <div class="forecast lock-elem">
     <div class="forecast__body block">
         <h2 class="forecast__title _min-title">
             Прогнозы нейронной сети
@@ -1181,6 +1196,21 @@
         </div>
     </div>
 </div>
+                        <div class="lock-block">
+                            <div class="lock-block__body">
+                                <div class="lock-block__icon">
+                                    <svg width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22.3714 11.7297V6.28378C22.3714 2.81335 19.5892 0 16.1571 0H12.8429C9.4108 0 6.62857 2.81335 6.62857 6.28378V11.7297H4.55714C2.0403 11.7297 0 13.7928 0 16.3378V26.3919C0 28.9369 2.0403 31 4.55714 31H24.4429C26.9597 31 29 28.9369 29 26.3919V16.3378C29 13.7928 26.9597 11.7297 24.4429 11.7297H22.3714ZM12.8429 2.51351C10.7836 2.51351 9.11429 4.20152 9.11429 6.28378V11.7297H19.8857V6.28378C19.8857 4.20152 18.2164 2.51351 16.1571 2.51351H12.8429ZM15.7429 19.6892C15.7429 18.9951 15.1864 18.4324 14.5 18.4324C13.8136 18.4324 13.2571 18.9951 13.2571 19.6892V23.0405C13.2571 23.7346 13.8136 24.2973 14.5 24.2973C15.1864 24.2973 15.7429 23.7346 15.7429 23.0405V19.6892Z" fill="#262628"/>
+                                    </svg>
+                                </div>
+                                <div class="lock-block__text">
+                                    Для отображения графика нейронной сети необходимо выбрать тариф
+                                </div>
+                                <a href="#tariffs-popup" class="lock-block__btn _btn _open-popup">
+                                    Выбрать тариф
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2022,101 +2052,12 @@
     </div>
 </div>
 
-<div class="messages">
-    <svg class="messages__gradient" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <linearGradient id="messages-close-btn-gradient-1" x1="10.3258" y1="18.4878" x2="17.5887" y2="18.4373" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#1F3A99"/>
-                <stop offset="1" stop-color="#88019E"/>
-            </linearGradient>
-            <linearGradient id="messages-close-btn-gradient-2" x1="10.1086" y1="12.8293" x2="12.5296" y2="12.8124" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#1F3A99"/>
-                <stop offset="1" stop-color="#88019E"/>
-            </linearGradient>
-        </defs>
-    </svg>
-    <div class="messages__rating _visible">
-        <div class="messages__rating--body">
-            <h4 class="messages__rating--title">
-                Оцените наш сервис
-            </h4>
-            <form action="#" class="messages__rating--form">
-                <div class="messages__rating--list">
-                    <input type="radio" name="rating" id="message-rating-5" value="5" class="messages__rating--input">
-                    <label for="message-rating-5" class="messages__rating--label"></label>
-                    <input type="radio" name="rating" id="message-rating-4" value="4" class="messages__rating--input">
-                    <label for="message-rating-4" class="messages__rating--label"></label>
-                    <input type="radio" name="rating" id="message-rating-3" value="3" class="messages__rating--input">
-                    <label for="message-rating-3" class="messages__rating--label"></label>
-                    <input type="radio" name="rating" id="message-rating-2" value="2" class="messages__rating--input">
-                    <label for="message-rating-2" class="messages__rating--label"></label>
-                    <input type="radio" name="rating" id="message-rating-1" value="1" class="messages__rating--input">
-                    <label for="message-rating-1" class="messages__rating--label"></label>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="messages__item _message-item _visible">
-        <div class="messages__item--body">
-            <div class="messages__item--icon">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
-                </svg>
-            </div>
-            <div class="messages__item--text">
-                Тариф “ТРЕЙДЕР” Оплачен
-            </div>
-            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="message-item-timer" data-timer-duration="7s" d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)" stroke-dasharray="55" stroke-dashoffset="0"/>
-                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="messages__item _message-item _visible">
-        <div class="messages__item--body">
-            <div class="messages__item--icon">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM20.5164 12.6439C20.9145 12.1463 20.8338 11.4202 20.3362 11.0221C19.8386 10.624 19.1125 10.7047 18.7144 11.2023L13.3659 17.8879L11.2005 15.7226C10.7499 15.272 10.0193 15.272 9.56872 15.7226C9.11812 16.1732 9.11812 16.9037 9.56872 17.3544L12.6456 20.4313C12.8777 20.6634 13.1976 20.7856 13.5253 20.7675C13.853 20.7493 14.1575 20.5925 14.3625 20.3362L20.5164 12.6439Z" fill="#03A700"/>
-                </svg>
-            </div>
-            <div class="messages__item--text">
-                Тариф “НОВИЧОК” Активирован
-            </div>
-            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="message-item-timer" data-timer-duration="8s" d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)" stroke-dasharray="55" stroke-dashoffset="0"/>
-                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="messages__item _message-item _error _visible">
-        <div class="messages__item--body">
-            <div class="messages__item--icon">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15ZM11.2005 9.56872C10.7499 9.11812 10.0193 9.11812 9.56872 9.56872C9.11812 10.0193 9.11812 10.7499 9.56872 11.2005L13.3682 15L9.56872 18.7995C9.11812 19.2501 9.11812 19.9807 9.56872 20.4313C10.0193 20.8819 10.7499 20.8819 11.2005 20.4313L15 16.6318L18.7995 20.4313C19.2501 20.8819 19.9807 20.8819 20.4313 20.4313C20.8819 19.9807 20.8819 19.2501 20.4313 18.7995L16.6318 15L20.4313 11.2005C20.8819 10.7499 20.8819 10.0193 20.4313 9.56872C19.9807 9.11812 19.2501 9.11812 18.7995 9.56872L15 13.3682L11.2005 9.56872Z" fill="#CA390C"/>
-                </svg>
-            </div>
-            <div class="messages__item--text">
-                Оплата не прошла
-                <a href="#" class="green">
-                    Повторить операцию
-                </a>
-            </div>
-            <button class="messages__item--close-btn _message-close" type="button" title="Закрыть">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="message-item-timer" data-timer-duration="9s" d="M10 1C14.9706 1 19 5.02944 19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.41453 4.42926 1.63001 8.8631 1.07112" stroke="url(#messages-close-btn-gradient-1)" stroke-dasharray="55" stroke-dashoffset="0"/>
-                    <path d="M7 7L10 10M10 10L13 13M10 10L13 7M10 10L7 13" stroke="url(#messages-close-btn-gradient-2)" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-</div>
-
 <script src="js/libs.min.js"></script>
 <script src="js/main.min.js"></script>
+
+<!-- <script defer>
+
+</script> -->
 
 </body>
 </html>

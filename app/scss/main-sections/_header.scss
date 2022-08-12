@@ -773,7 +773,7 @@
         width: 100%;
 
         border-radius: 10px;
-        box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+        box-shadow: var(--shadow);
         background: var(--page-bg);
         transition: background .2s ease-in-out;
 
@@ -825,6 +825,20 @@
             & mark {
                 background: transparent;
                 color: var(--green);
+            }
+        }
+
+        // .header__profile--link
+
+        &--link {
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: color .2s ease-in-out;
+            &.green {
+                &:hover {
+                    color: var(--green-light);
+                }
             }
         }
 

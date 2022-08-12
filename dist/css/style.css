@@ -8699,6 +8699,7 @@ html.os-html > .os-host > .os-scrollbar {
   --green-light: #449C62;
   --red: #CA390C;
   --yellow: #EFAD10;
+  --shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
   --text-gradient: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
   --gradient: linear-gradient(89.6deg, #1F3A99 51.47%, #88019E 91.55%);
   --gradient-reverse: linear-gradient(89.6deg, #88019E 51.47%, #1F3A99 91.55%);
@@ -9024,9 +9025,9 @@ body._dark-theme .trader__tab-nav--link::after {
   line-height: 100%;
   text-decoration: none;
   border-radius: 10px;
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   z-index: 2;
   overflow: hidden;
   position: relative;
@@ -9051,6 +9052,28 @@ body._dark-theme .trader__tab-nav--link::after {
 ._btn::after {
   background: linear-gradient(89.36deg, rgba(136, 1, 158, 0.8) 9.61%, #1F3A99 85.99%);
   opacity: 0;
+}
+
+._btn._transparent {
+  background: transparent;
+  border: 1px solid var(--white);
+  font-size: 1.125rem;
+  line-height: 117%;
+  font-weight: 600;
+  padding: 15px;
+}
+
+._btn._transparent::before,
+._btn._transparent::after {
+  display: none;
+}
+
+._btn._transparent:hover {
+  background: var(--blue-light);
+}
+
+._btn._transparent:active {
+  background: var(--blue);
 }
 
 ._btn._btn-active {
@@ -9490,7 +9513,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .os-theme-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle,
 .os-theme-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle.active {
-  background: var(--pink);
+  background: var(--purple);
 }
 
 .os-theme-dark > .os-scrollbar.os-scrollbar-unusable,
@@ -9498,6 +9521,7 @@ body._dark-theme .trader__tab-nav--link::after {
 .os-theme-light > .os-scrollbar.os-scrollbar-unusable,
 .os-theme-light > .os-scrollbar > .os-scrollbar-track {
   background: transparent;
+  /* transform: translate(0,5px); */
   position: relative;
 }
 
@@ -9513,7 +9537,7 @@ body._dark-theme .trader__tab-nav--link::after {
           transform: translate(0, -50%);
   width: 100%;
   height: 50%;
-  background: var(--text-color);
+  background: var(--light-2);
   border-radius: 3px;
 }
 
@@ -9537,16 +9561,21 @@ body._dark-theme .trader__tab-nav--link::after {
           transform: translate(-50%, 0%);
   width: 50%;
   height: 100%;
-  background: var(--text-color);
+  background: var(--light-2);
   border-radius: 3px;
 }
 
 .os-scrollbar-track.active {
-  background: var(--text-color);
+  background: var(--light-2);
 }
 
 .os-scrollbar-handle.active {
-  background: var(--pink);
+  background: var(--purple);
+}
+
+.os-viewport {
+  height: calc(100% - 8px);
+  width: calc(100% - 8px);
 }
 
 .input {
@@ -9804,6 +9833,63 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .message-item-timer {
   transition: stroke-dashoffset 1s linear;
+}
+
+.lock-wrapper {
+  position: relative;
+}
+
+.lock-elem {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.lock-block {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(95.65deg, rgba(31, 58, 153, 0.1) 10.51%, rgba(136, 1, 158, 0.1) 94.31%);
+}
+
+.lock-block__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 290px;
+  max-height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  padding: 30px 15px;
+}
+
+.lock-block__text {
+  padding-top: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 120%;
+}
+
+.lock-block__btn {
+  margin-top: 15px;
+  min-height: 40px;
+  font-size: 0.75rem;
+  padding: 14px 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  max-width: 207px;
+  width: 100%;
+}
+
+._mt-20 {
+  margin-top: 20px;
 }
 
 ._main-title {
@@ -10736,7 +10822,7 @@ body._dark-theme .trader__tab-nav--link::after {
   position: relative;
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0px 2px 20px rgba(9, 5, 183, 0.06);
+  box-shadow: var(--shadow);
   background: var(--page-bg);
   transition: background 0.2s ease-in-out;
 }
@@ -10771,6 +10857,17 @@ body._dark-theme .trader__tab-nav--link::after {
 .header__profile--date mark {
   background: transparent;
   color: var(--green);
+}
+
+.header__profile--link {
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.header__profile--link.green:hover {
+  color: var(--green-light);
 }
 
 .header__profile--settings-open {
@@ -14099,6 +14196,68 @@ body._dark-theme .trader__tab-nav--link::after {
   padding: 14px 30px;
 }
 
+.page-404 {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.page-404__bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: var(--gradient);
+}
+
+.page-404__bg--img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.page-404__container {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.page-404__image {
+  /* display: flex;
+  justify-content: center; */
+  width: 100%;
+  max-width: 718px;
+}
+
+.page-404__image--wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 93%;
+}
+
+.page-404__image--img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+}
+
+.page-404__link {
+  max-width: 360px;
+  width: 100%;
+}
+
 .footer {
   flex: 0 0 auto;
   background-color: #ccc;
@@ -16245,12 +16404,26 @@ body._dark-theme .trader__tab-nav--link::after {
     padding: 20px 15px;
   }
 
+  ._btn._transparent {
+    padding: 22px 15px;
+  }
+
   .chart-bar-title {
     top: 12px;
   }
 
   .chart-bar-item {
     margin: 0 1.25px;
+  }
+
+  .lock-block__text {
+    font-size: 1rem;
+    padding-top: 23px;
+  }
+
+  .lock-block__btn {
+    margin-top: 22px;
+    padding: 14px 15px;
   }
 
   ._main-title {
