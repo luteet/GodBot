@@ -1138,9 +1138,11 @@ body {
 }
 
 .lock-elem {
-    & * {
-        z-index: auto !important;
-        filter: blur(5px);
+    &__img {
+        max-width: 100%;
+        width: 100%; height: 100%;
+        user-select: none;
+        -webkit-user-drag: none;
     }
 }
 
@@ -1157,7 +1159,7 @@ body {
 
     border-radius: 10px;
     
-    background: linear-gradient(95.65deg, rgba(31, 58, 153, 0.1) 10.51%, rgba(136, 1, 158, 0.1) 94.31%);
+    //background: linear-gradient(95.65deg, rgba(31, 58, 153, 0.1) 10.51%, rgba(136, 1, 158, 0.01) 94.31%);
 
     //backdrop-filter: blur(20px);
 
