@@ -1139,7 +1139,9 @@ body {
 
 .lock-elem {
     filter: blur(5px);
-    z-index: -1;
+    & > * {
+        z-index: auto !important;
+    }
 }
 
 .lock-block {
