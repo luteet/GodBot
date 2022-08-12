@@ -14202,7 +14202,7 @@ body._dark-theme .trader__tab-nav--link::after {
 
 .page-404 {
   position: relative;
-  height: 100vh;
+  height: var(--height-screen, 100vh);
   display: flex;
   align-items: center;
 }
