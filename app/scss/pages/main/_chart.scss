@@ -516,9 +516,11 @@
                 
                 width: 1px; height: var(--line-height);
                 border-right: 1px dashed var(--red);
-                
-                /* mask: url(#masking); */
-                
+            }
+
+            &.chart-crosshair .chart__tooltip._right-pos::before {
+                left: auto; right: 17px;
+                transform: translate(-50%,0);
             }
 
             &.chart-crosshair {
@@ -602,6 +604,20 @@
         border-radius: 10px;
         transform: translate(-50%,calc(-100% - 5px));
         z-index: 10;
+
+        &._right-pos {
+            transform: translate(calc(-100% + 17px),calc(-100% - 5px));
+        }
+
+        &._right-pos &--body::before, 
+        &._right-pos &--body::after {
+            left: auto; right: 1px;
+            transform: translate(0%,0px);
+        }
+
+        &._right-pos &--body {
+            border-radius: 15px 15px 4px 15px;
+        }
 
         max-width: 150px;
         @include _768 {

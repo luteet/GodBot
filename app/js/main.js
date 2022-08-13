@@ -581,6 +581,9 @@ function chartFunc(arg) {
       }
     }
 
+    
+    if((positionX + tooltip.caretX) > window.innerWidth) tooltipEl.classList.add('_right-pos'); else tooltipEl.classList.remove('_right-pos');
+
     tooltipEl.style.opacity = 1;
     tooltipEl.style.left = positionX + tooltip.caretX + 'px';
     tooltipEl.style.top = positionY + tooltip.caretY + 'px';
@@ -891,7 +894,7 @@ function counstructBarChart(arg) {
     
     wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
     wrapper.style.paddingLeft = paddingLeft + 'px';
-    wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
+    wrapper.style.transform = `translateX(-${item[0].offsetWidth/1.75}px)`;
 
     window.addEventListener('resize', function() {
       chart.forEach(chart => {

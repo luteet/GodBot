@@ -193,7 +193,10 @@
             align-items: center;
             justify-content: center;
 
-            width: 30px; height: 30px;
+            width: 25px; height: 25px;
+            @media(min-width: 360px) {
+                width: 30px; height: 30px;
+            }
             @include _768 {
                 width: 40px; height: 40px;
                 border-radius: 10px;
@@ -263,7 +266,10 @@
             align-items: center;
             justify-content: center;
 
-            width: 30px; height: 30px;
+            width: 25px; height: 25px;
+            @media(min-width: 360px) {
+                width: 30px; height: 30px;
+            }
             @include _768 {
                 width: 40px; height: 40px;
                 font-size: 0.875rem;

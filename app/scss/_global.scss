@@ -154,7 +154,13 @@ body {
             }
         }
 
+        & ._visible-on-light {
+            opacity: 0; visibility: hidden;
+        }
 
+        & ._visible-on-dark {
+            opacity: 1; visibility: visible;
+        }
     }
     
 }
@@ -1138,11 +1144,18 @@ body {
 }
 
 .lock-elem {
+    display: grid;
+    & > * {
+        grid-area: 1/1;
+    }
     &__img {
         max-width: 100%;
         width: 100%; height: 100%;
         user-select: none;
         -webkit-user-drag: none;
+        filter: blur(5px);
+        object-fit: cover;
+        object-position: left;
     }
 }
 
@@ -1218,4 +1231,20 @@ body {
 
 ._mt-20 {
     margin-top: 20px;
+}
+
+._mt-lg-0 {
+    @include _992 {
+        margin-top: 0;
+    }
+}
+
+._visible-on-light {
+    opacity: 1; visibility: visible;
+    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+}
+
+._visible-on-dark {
+    opacity: 0; visibility: hidden;
+    transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
 }
