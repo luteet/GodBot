@@ -86,7 +86,30 @@
                 background: transparent;
                 z-index: auto;
                 width: auto;
-                //flex: 1 1 auto;
+
+                & > *:nth-child(1) {
+                    order: initial;
+                }
+
+                & > *:nth-child(2) {
+                    order: initial;
+                }
+
+                & > *:nth-child(3) {
+                    order: initial;
+                }
+            }
+
+            & > *:nth-child(1) {
+                order: 2;
+            }
+
+            & > *:nth-child(2) {
+                order: 1;
+            }
+
+            & > *:nth-child(3) {
+                order: 3;
             }
 
             display: flex;
