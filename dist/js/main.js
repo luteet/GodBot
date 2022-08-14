@@ -324,7 +324,6 @@ function resize() {
   
   })
 
-  //html.style.setProperty('--height-screen', body.clientHeight + 'px');
   html.style.setProperty('--height-screen', window.innerHeight + 'px');
   if(window.innerWidth >= 1025) {
     menu.forEach(elem => {
@@ -351,17 +350,12 @@ function resize() {
         body = chartTable.querySelector('.chart__table--body');
 
     wrapper.style.setProperty('--min-height-block', head.offsetHeight * 3 + body.offsetHeight + 'px');
-    /* console.log(head.offsetHeight + body.offsetHeight); */
   })
 }
 
 resize();
 
 window.addEventListener('resize', resize);
-/* console.log(window.innerHeight)
-window.addEventListener('scroll', function() {
-  html.style.setProperty('--height-screen', window.innerHeight + 'px');
-}); */
 
 
 function setCookie(name, value, options = {}) {
@@ -912,11 +906,7 @@ function counstructBarChart(arg) {
       wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
     }
     
-    //wrapper.style.width = '100%';
     wrapper.style.paddingLeft = paddingLeft + 'px';
-    //wrapper.style.paddingLeft = paddingLeft - (item[0].offsetWidth/2) + 'px';
-    //wrapper.style.width = widthChart + widthChart/lengthLabels - (item[0].offsetWidth/2) + 'px';
-    //wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
 
     window.addEventListener('resize', function() {
       setTimeout(() => {
@@ -932,14 +922,9 @@ function counstructBarChart(arg) {
         } else {
           wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
         }
-        //wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
+
         wrapper.style.paddingLeft = paddingLeft + 'px';
         
-        //wrapper.style.width = "100%";
-        //wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
-        /* wrapper.style.width = "100%";
-        wrapper.style.paddingLeft = paddingLeft + 'px';
-        wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`; */
       },1000)
     })
 
@@ -1537,7 +1522,6 @@ function checkInput() {
   }
 }
 
-
 // =-=-=-=-=-=-=-=-=-=-=-=- <TIMERS> -=-=-=-=-=-=-=-=-=-=-=-=
 
 function timer() {
@@ -1824,17 +1808,7 @@ let asideSlider = new Swiper('.add-aside__slider', {
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
-/* document.querySelectorAll('.custom-scrollbar').forEach(customScrollbar => {
-  new MiniBar(customScrollbar,{
-
-    alwaysShowBars: true,
-   
-  });
-}) */
-
 var instances = OverlayScrollbars(document.querySelectorAll('.custom-scrollbar'), { }); 
-
-
     
 if(document.querySelector('#neural-network')) {
   const data = {
