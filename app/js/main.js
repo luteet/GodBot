@@ -1339,7 +1339,8 @@ verificationInputs.forEach(thisInput => {
 
   thisInput.oninput = function(event) {
     
-    if(event.inputType == 'insertText') {
+    if(event.inputType == 'insertText' && event.data.length == 1) {
+      
       pasteStatus = false;
 
       let nextElement = event.target.parentElement.nextElementSibling,
@@ -1359,7 +1360,7 @@ verificationInputs.forEach(thisInput => {
 
     }
 
-    if(event.inputType == 'insertFromDrop') {
+    if(event.inputType == 'insertFromDrop' || event.data.length > 1) {
       pasteStatus = false;
 
       let pastedText = event.target.value.replace(/[^\d]/g, ''),
