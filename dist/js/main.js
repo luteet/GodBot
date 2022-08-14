@@ -1355,6 +1355,47 @@ verificationInputs.forEach(thisInput => {
 
     }
 
+    if(event.inputType == 'insertFromDrop') {
+
+      let pastedText = event.target.value.replace(/[^\d]/g, ''),
+      pastedCheck = false,
+      form = event.target.closest('form'),
+      lengthPastedText;
+      
+
+      if(pastedText) {
+        pastedCheck = true;
+        lengthPastedText = pastedText.length;
+        pastedText = pastedText.split('');
+      }
+      
+      setTimeout(() => {
+        event.target.value = '';
+        if(pastedCheck) {
+
+          let index = 0, checkValue = true;
+          verificationInputs.forEach(input => {
+            if(pastedText[index]) {
+              input.value = pastedText[index];
+              index++;
+              input.focus();
+            } else if(checkValue) {
+              checkValue = false;
+              input.focus();
+            }
+            
+          })
+          
+          if(lengthPastedText >= 6) {
+            form.querySelector('.login__form--submit').classList.remove('_disabled')
+          } else {
+            form.querySelector('.login__form--submit').classList.add('_disabled')
+          }
+        }
+        
+      },0)
+    }
+
   }
 
   thisInput.addEventListener('keydown', function(event) {
@@ -1392,18 +1433,24 @@ verificationInputs.forEach(thisInput => {
   })
 
   thisInput.addEventListener('paste', function(event) {
-
+    
     let pastedText = event.clipboardData.getData('Text').replace(/[^\d]/g, ''),
+        form = event.target.closest('form'),
+        lengthPastedText,
         pastedCheck = false;
 
     if(pastedText) {
       pastedCheck = true;
+      lengthPastedText = pastedText.length;
       pastedText = pastedText.split('');
     }
     
     setTimeout(() => {
       event.target.value = '';
       if(pastedCheck) {
+        verificationInputs.forEach(input => {
+          input.value = '';
+        })
         let index = 0, checkValue = true;
         verificationInputs.forEach(input => {
           if(pastedText[index]) {
@@ -1416,6 +1463,12 @@ verificationInputs.forEach(thisInput => {
           }
           
         })
+
+        if(lengthPastedText >= 6) {
+          form.querySelector('.login__form--submit').classList.remove('_disabled')
+        } else {
+          form.querySelector('.login__form--submit').classList.add('_disabled')
+        }
       }
       
     },0)

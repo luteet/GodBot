@@ -1,6 +1,22 @@
-@@include("html/_login-header.html", {
-    "logo": '2'
-})
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GodBot-PRO</title>
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="login-header pt-4">
+            <div class="login-header__container _container _large">
+                <a href="./" class="login-header__logo">
+                    <img src="img/logo-2.svg" alt="Логотип" width="179" height="18" class="login-header__logo--img">
+                </a>
+            </div>
+        </header>
+        
 
     <main class="main">
         <section class="login row align-items-center">
@@ -21,7 +37,7 @@
                                 Вы получите электронное письмо с кодом подтверждения. Введите его здесь, чтобы подтвердить вход
                             </p>
                         </div>
-                        <div class="login__form--verification login__verification"> <!-- _error -->
+                        <div class="login__form--verification login__verification _error"> <!-- _error -->
                             <label class="login__verification--label">
                                 <input type="tel" name="verification-number-1" class="login__verification--input">
                             </label>
@@ -74,13 +90,87 @@
                 </form>
                 <div id="login-slider" class="login__slider swiper col-12 col-md-6 col-lg-5 mt-md-0 mt-5">
                     <div class="login__slider--wrapper swiper-wrapper">
-                        @@loop("html/_slide.html", [
-                            {},
-                            {},
-                            {},
-                            {},
-                            {},
-                        ])
+                        <div class="login__slider--slider login__slide swiper-slide">
+    <div class="login__slide--body">
+        <h3 class="login__slide--title">
+            Получайте больше вознаграждений за стейкинг
+        </h3>
+        <div class="login__slide--image pt-3">
+            <div class="login__slide--image-wrapper">
+                <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+            </div>
+        </div>
+        <div class="login__slide--text pt-3 pt-md-5 pb-4">
+            <p>
+                Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+            </p>
+        </div>
+    </div>
+</div><div class="login__slider--slider login__slide swiper-slide">
+    <div class="login__slide--body">
+        <h3 class="login__slide--title">
+            Получайте больше вознаграждений за стейкинг
+        </h3>
+        <div class="login__slide--image pt-3">
+            <div class="login__slide--image-wrapper">
+                <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+            </div>
+        </div>
+        <div class="login__slide--text pt-3 pt-md-5 pb-4">
+            <p>
+                Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+            </p>
+        </div>
+    </div>
+</div><div class="login__slider--slider login__slide swiper-slide">
+    <div class="login__slide--body">
+        <h3 class="login__slide--title">
+            Получайте больше вознаграждений за стейкинг
+        </h3>
+        <div class="login__slide--image pt-3">
+            <div class="login__slide--image-wrapper">
+                <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+            </div>
+        </div>
+        <div class="login__slide--text pt-3 pt-md-5 pb-4">
+            <p>
+                Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+            </p>
+        </div>
+    </div>
+</div><div class="login__slider--slider login__slide swiper-slide">
+    <div class="login__slide--body">
+        <h3 class="login__slide--title">
+            Получайте больше вознаграждений за стейкинг
+        </h3>
+        <div class="login__slide--image pt-3">
+            <div class="login__slide--image-wrapper">
+                <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+            </div>
+        </div>
+        <div class="login__slide--text pt-3 pt-md-5 pb-4">
+            <p>
+                Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+            </p>
+        </div>
+    </div>
+</div><div class="login__slider--slider login__slide swiper-slide">
+    <div class="login__slide--body">
+        <h3 class="login__slide--title">
+            Получайте больше вознаграждений за стейкинг
+        </h3>
+        <div class="login__slide--image pt-3">
+            <div class="login__slide--image-wrapper">
+                <img src="img/login/slide.svg" loading="lazy" width="378" alt="" class="login__slide--img">
+            </div>
+        </div>
+        <div class="login__slide--text pt-3 pt-md-5 pb-4">
+            <p>
+                Присоединяйтесь к миру криптовалюты и управляйте своими активами с платформой нового поколения
+            </p>
+        </div>
+    </div>
+</div>
                     </div>
                     <div class="login__slider--pagination pt-3">
                         <div class="swiper-pagination"></div>
@@ -90,4 +180,10 @@
         </section>
     </main>
 
-@@include("html/_footer-none.html")
+</div>
+
+<script src="js/libs.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+</html>
