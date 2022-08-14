@@ -346,11 +346,18 @@
 
             padding: 14px 16px;
 
+            &._disabled {
+                pointer-events: none;
+                background: var(--light-3);
+
+                position: relative;
+            }
+
             @include _1025 {
                 width: auto;
             }
             
-            transition: color .2s ease-in-out;
+            transition: color .1s ease, background .1s ease;
 
             display: flex;
             align-items: center;
@@ -383,7 +390,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
 
-                transition: color .2s ease-in-out;
+                transition: color .1s ease;
 
                 &::before {
                     content: '•';
@@ -539,7 +546,7 @@
                 font-size: 0.75rem;
                 font-weight: 500;
                 user-select: none;
-                transition: color .2s ease-in-out;
+                transition: color .1s ease;
             }
 
             &._active &-text {
@@ -789,6 +796,8 @@
             color: var(--text-color);
             text-decoration: none;
 
+            
+
             &:hover {
                 background: var(--light-purple-hover);
                 color: var(--text-color);
@@ -799,7 +808,7 @@
             }
 
             color: var(--text-color);
-            transition: color .2s ease-in-out, background .2s ease-in-out;
+            transition: color .1s ease, background .2s ease-in-out;
 
             & svg {
                 width: 30px;
@@ -858,7 +867,7 @@
             color: var(--text-color);
             text-decoration: none;
 
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
             
             &:hover {
                 color: var(--pink);
@@ -873,13 +882,6 @@
             display: inline-flex;
             flex-wrap: wrap;
             justify-content: center;
-            /* display: flex;
-            flex-wrap: wrap; */
-
-            /* display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: center; */
         }
 
         // .header__menu--footer-link
@@ -892,7 +894,7 @@
             padding: 0 2px;
             color: var(--gray);
 
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
 
             &:hover {
                 color: var(--pink);
@@ -929,7 +931,7 @@
         border-radius: 10px;
         box-shadow: var(--shadow);
         background: var(--page-bg);
-        transition: background .2s ease-in-out;
+        transition: background .1s ease;
 
         // .header__profile--avatar
 
@@ -977,7 +979,7 @@
             font-weight: 600;
             font-size: 0.75rem;
             color: var(--text-color);
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
         }
 
         // .header__profile--param
@@ -994,7 +996,7 @@
             margin-top: -3px;
             font-size: 0.625rem;
             color: var(--gray);
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
 
             & mark {
                 background: transparent;
@@ -1008,7 +1010,7 @@
             text-decoration: none;
             font-size: 0.75rem;
             font-weight: 600;
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
             &.green {
                 &:hover {
                     color: var(--green-light);
@@ -1083,7 +1085,7 @@
             line-height: 117%;
             text-decoration: none;
             color: var(--text-color);
-            transition: color .2s ease-in-out;
+            transition: color .1s ease;
             
             &:hover {
                 color: var(--purple);
@@ -1134,7 +1136,7 @@
         color: var(--gray);
         text-decoration: none;
 
-        transition: color .2s ease-in-out;
+        transition: color .1s ease;
 
         &:hover {
             color: var(--blue);

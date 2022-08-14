@@ -312,6 +312,8 @@ function validate(email, event) {
 const headerBlocks = document.querySelectorAll('.header__select--block');
 let customPromptCheck = true;
 
+const chartTable = document.querySelectorAll('.chart__table');
+
 function resize() {
 
   headerBlocks.forEach(selectBlock => {
@@ -342,6 +344,15 @@ function resize() {
       customPromptCheck = true;
     },200)
   }
+
+  chartTable.forEach(chartTable => {
+    let wrapper = chartTable.closest('.chart__wrapper'),
+        head = chartTable.querySelector('.chart__table--head'),
+        body = chartTable.querySelector('.chart__table--body');
+
+    wrapper.style.setProperty('--min-height-block', head.offsetHeight * 3 + body.offsetHeight + 'px');
+    /* console.log(head.offsetHeight + body.offsetHeight); */
+  })
 }
 
 resize();
