@@ -10,7 +10,7 @@
         font-size: 2.5rem;
     }
 
-    @include _992 {
+    @include _1025 {
         font-size: 3.125rem;
     }
 }
@@ -28,14 +28,14 @@
         font-size: 1.5rem;
     }
 
-    @include _992 {
+    @include _1025 {
         font-size: 1.875rem;
     }
     
     &._min {
         font-size: 1rem;
 
-        @include _992 {
+        @include _1025 {
             font-size: 1.125rem;
         }
     }
