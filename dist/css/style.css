@@ -8819,8 +8819,8 @@ body._popup-active {
 }
 
 body._dark-theme-change {
-  -webkit-animation: 0s 1 0.2s linear normal forwards;
-          animation: 0s 1 0.2s linear normal forwards;
+  -webkit-animation: 0s 1 0.1s linear normal forwards;
+          animation: 0s 1 0.1s linear normal forwards;
 }
 
 body._dark-theme {
