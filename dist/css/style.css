@@ -11027,6 +11027,10 @@ body._dark-theme ._visible-on-dark {
   align-items: center;
 }
 
+.header__profile--select .header__menu {
+  min-width: 267px;
+}
+
 .header__profile--name {
   font-weight: 600;
   font-size: 0.75rem;

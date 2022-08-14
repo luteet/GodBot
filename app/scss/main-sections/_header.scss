@@ -939,6 +939,10 @@
                 display: flex;
                 align-items: center;
             }
+
+            & .header__menu {
+                min-width: 267px;
+            }
         }
 
         // .header__profile--name
