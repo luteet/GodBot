@@ -1331,12 +1331,16 @@ body.addEventListener('click', function (event) {
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-let verificationInputs = document.querySelectorAll('.login__verification--input');
+
+
+let verificationInputs = document.querySelectorAll('.login__verification--input'),
+    controlCheck = false, pasteStatus = false;
 verificationInputs.forEach(thisInput => {
 
   thisInput.oninput = function(event) {
     
-    if(event.inputType == 'insertText' && thisInput.value.length == 1) {
+    if(event.inputType == 'insertText') {
+      pasteStatus = false;
 
       let nextElement = event.target.parentElement.nextElementSibling,
           form = event.target.closest('form');
@@ -1355,7 +1359,8 @@ verificationInputs.forEach(thisInput => {
 
     }
 
-    if(event.inputType == 'insertFromDrop' || thisInput.value.length > 1) {
+    if(event.inputType == 'insertFromDrop') {
+      pasteStatus = false;
 
       let pastedText = event.target.value.replace(/[^\d]/g, ''),
       pastedCheck = false,
@@ -1395,10 +1400,16 @@ verificationInputs.forEach(thisInput => {
 
   }
 
+  function ctrlZ(e) {
+    var evtobj = window.event? event : e
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) return true; else return false;
+}
+
   thisInput.addEventListener('keydown', function(event) {
 
     if(event.key == 'Backspace' || event.key == 'Delete') {
       event.preventDefault();
+      pasteStatus = false;
       
       let checkValue = (event.target.value) ? false : true;
       event.target.value = '';
@@ -1426,7 +1437,18 @@ verificationInputs.forEach(thisInput => {
       }
       
     }
-    
+
+    if(ctrlZ(event) && pasteStatus) {
+      verificationInputs.forEach(input => {
+        input.value = '';
+      })
+    }
+  })
+
+  thisInput.addEventListener('keyup', function(event) {
+    if(event.key == 'Control') {
+      controlCheck = false;
+    }
   })
 
   thisInput.addEventListener('paste', function(event) {
@@ -1443,6 +1465,7 @@ verificationInputs.forEach(thisInput => {
     }
     
     setTimeout(() => {
+      pasteStatus = true;
       event.target.value = '';
       if(pastedCheck) {
         verificationInputs.forEach(input => {
