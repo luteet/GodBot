@@ -1,5 +1,6 @@
 const body = document.querySelector('body'),
       html = document.querySelector('html'),
+      head = document.querySelector('head'),
       menu = document.querySelectorAll('.header__nav, body'),
       burger = document.querySelector('._burger'),
       header = document.querySelector('.header');
@@ -321,8 +322,9 @@ function resize() {
   
   })
 
-  html.style.setProperty('--height-screen', body.clientHeight + 'px');
-  if(window.innerWidth >= 993) {
+  //html.style.setProperty('--height-screen', body.clientHeight + 'px');
+  html.style.setProperty('--height-screen', window.innerHeight + 'px');
+  if(window.innerWidth >= 1025) {
     menu.forEach(elem => {
       elem.classList.remove('_active');
     })
@@ -345,6 +347,10 @@ function resize() {
 resize();
 
 window.addEventListener('resize', resize);
+/* console.log(window.innerHeight)
+window.addEventListener('scroll', function() {
+  html.style.setProperty('--height-screen', window.innerHeight + 'px');
+}); */
 
 
 function setCookie(name, value, options = {}) {
@@ -787,9 +793,6 @@ function chartFunc(arg) {
 
   })
 
-  //chart[chart.length-1].options.animation.y = false;
-  //console.log(chart[0]);
-
 }
 
 /* let chartBar = [];
@@ -892,21 +895,41 @@ function counstructBarChart(arg) {
 
     let item = document.querySelectorAll('.chart-bar-item');
     
-    wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
+    if(window.innerWidth <= 1025) {
+      wrapper.style.width = '100%';
+    } else {
+      wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
+    }
+    
+    //wrapper.style.width = '100%';
     wrapper.style.paddingLeft = paddingLeft + 'px';
-    wrapper.style.transform = `translateX(-${item[0].offsetWidth/1.75}px)`;
+    //wrapper.style.paddingLeft = paddingLeft - (item[0].offsetWidth/2) + 'px';
+    //wrapper.style.width = widthChart + widthChart/lengthLabels - (item[0].offsetWidth/2) + 'px';
+    //wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
 
     window.addEventListener('resize', function() {
-      chart.forEach(chart => {
-        if(chart.canvas.id == chartId) {
-          widthChart = chart.chartArea.width + chart.chartArea.left,
-          paddingLeft = chart.chartArea.left;
+      setTimeout(() => {
+        chart.forEach(chart => {
+          if(chart.canvas.id == chartId) {
+            widthChart = chart.chartArea.width + chart.chartArea.left,
+            paddingLeft = chart.chartArea.left;
+          }
+        })
+  
+        if(window.innerWidth <= 1025) {
+          wrapper.style.width = '100%';
+        } else {
+          wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
         }
-      })
-
-      wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
-      wrapper.style.paddingLeft = paddingLeft + 'px';
-      wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`;
+        //wrapper.style.width = widthChart + widthChart/lengthLabels + 'px';
+        wrapper.style.paddingLeft = paddingLeft + 'px';
+        
+        //wrapper.style.width = "100%";
+        //wrapper.style.width = widthChart + widthChart/lengthLabels + 'px'
+        /* wrapper.style.width = "100%";
+        wrapper.style.paddingLeft = paddingLeft + 'px';
+        wrapper.style.transform = `translateX(-${item[0].offsetWidth/2}px)`; */
+      },1000)
     })
 
     if(arg.title) {
@@ -970,65 +993,62 @@ body.addEventListener('click', function (event) {
 
       if(headerThemeSwitch.classList.contains('_active')) {
 
-        /* localStorage.setItem('godbot-pro-theme', 'dark'); */
-        //document.cookie = 'godbot-pro-theme=dark';
-        
-        
+        setTimeout(() => {
+          chartTextColor = '#9899A6';
+          gridColor = 'rgba(129, 159, 189, 0.2)';
+          pageBg = 'rgba(0, 0, 0, 0)';
 
-        chartTextColor = '#9899A6';
-        gridColor = 'rgba(129, 159, 189, 0.2)';
-        pageBg = 'rgba(0, 0, 0, 0)';
+          setCookie('godbot.pro-theme', 'dark', {secure: false, 'max-age': 36000000});
 
-        setCookie('godbot.pro-theme', 'dark', {secure: false, 'max-age': 36000000});
-
-        if(chart.length)  {
-          chart.forEach(chart => {
-            chart.options.scales.y.ticks.color = chartTextColor;
-            chart.options.scales.y.grid.color = gridColor;
-            chart.options.scales.x.ticks.color = chartTextColor;
-            html.style.setProperty('--theme-opacity', 0);
-            
-            setTimeout(() => {
+          if(chart.length)  {
+            chart.forEach(chart => {
+              chart.options.scales.y.ticks.color = chartTextColor;
+              chart.options.scales.y.grid.color = gridColor;
+              chart.options.scales.x.ticks.color = chartTextColor;
+              html.style.setProperty('--theme-opacity', 0);
+              
               setTimeout(() => {
-                html.style.setProperty('--theme-opacity', 1);
+                setTimeout(() => {
+                  html.style.setProperty('--theme-opacity', 1);
+                },100)
+                chart.update();
               },100)
-              chart.update();
-            },100)
 
-          })
-        }
-        body.classList.add('_dark-theme');
+            })
+          }
+          
+          body.classList.add('_dark-theme')
+        },200)
+
         
       } else if(!headerThemeSwitch.classList.contains('_active')) {
 
-        /* localStorage.setItem('godbot-pro-theme', 'light'); */
-        
-        
+        setTimeout(() => {
+          chartTextColor = '#262628';
+          gridColor = 'rgba(129, 159, 189, 0.5)';
+          pageBg = '#FFFFFF';
 
-        chartTextColor = '#262628';
-        gridColor = 'rgba(129, 159, 189, 0.5)';
-        pageBg = '#FFFFFF';
+          setCookie('godbot.pro-theme', 'light', {secure: false, 'max-age': 36000000});
 
-        setCookie('godbot.pro-theme', 'light', {secure: false, 'max-age': 36000000});
-
-        if(chart.length)  {
-          chart.forEach(chart => {
-            chart.options.scales.y.ticks.color = chartTextColor;
-            chart.options.scales.y.grid.color = gridColor;
-            chart.options.scales.x.ticks.color = chartTextColor;
-            html.style.setProperty('--theme-opacity', 0);
-            
-            setTimeout(() => {
+          if(chart.length)  {
+            chart.forEach(chart => {
+              chart.options.scales.y.ticks.color = chartTextColor;
+              chart.options.scales.y.grid.color = gridColor;
+              chart.options.scales.x.ticks.color = chartTextColor;
+              html.style.setProperty('--theme-opacity', 0);
+              
               setTimeout(() => {
-                html.style.setProperty('--theme-opacity', 1);
+                setTimeout(() => {
+                  html.style.setProperty('--theme-opacity', 1);
+                },100)
+                chart.update();
               },100)
-              chart.update();
-            },100)
-            
-          })
-        }
+              
+            })
+          }
 
-        body.classList.remove('_dark-theme');
+          body.classList.remove('_dark-theme');
+        },200)
 
       }
 
@@ -1612,7 +1632,7 @@ function timerPaymentCancel() {
     minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0,
     seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
 
-    thisTimerElem.innerHTML = `<span>${text} </br><span>${(minutes > 9) ? minutes : '0' + minutes}</span>:<span>${(seconds > 9) ? seconds : '0' + seconds}</span></span>`;
+    thisTimerElem.innerHTML = `<span>${text} <span>${(minutes > 9) ? minutes : '0' + minutes}</span>:<span>${(seconds > 9) ? seconds : '0' + seconds}</span></span>`;
 
   });
 
@@ -2198,3 +2218,4 @@ counstructBarChart({
   title: 'Профит',
 })
 
+body.classList.add('_dark-theme-change');

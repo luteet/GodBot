@@ -161,23 +161,35 @@
 
     &__elem {
 
-        flex: 0 1 auto;
+        
+        
 
         padding: 5px;
         @include _992 {
             padding: 10px;
         }
 
+        flex: 0 1 auto;
+
         // .statistic__elem--body
 
         &--body {
-            min-width: 267px;
 
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            @media (min-width: 1336px) {
+                flex-direction: row;
+                padding: 16px 6px 16px 5px;
+            }
 
-            padding: 16px 6px 16px 5px;
+            min-width: auto;
+            @media (min-width: #{$containerLarge+30}px) {
+                min-width: 267px;
+            }
+
+            padding: 16px;
             border-radius: 10px;
             color: rgb(186, 40, 40);
 
@@ -206,7 +218,12 @@
         // .statistic__elem--name
 
         &--name {
-            flex: 0 1 40%;
+            flex: 0 1 50%;
+            padding-bottom: 5px;
+            @media (min-width: 1336px) {
+                flex: 0 1 40%;
+                padding-bottom: 0;
+            }
 
             color: var(--text-color);
             transition: color .2s ease-in-out;
@@ -221,14 +238,23 @@
         // .statistic__elem--value
 
         &--value {
-            flex: 0 1 50%;
+            flex: 0 1 40%;
 
             color: transparent;
             background: var(--text-gradient);
             background-clip: text;
 
             font-weight: 600;
-            font-size: 1.75rem;
+            font-size: 1.125rem;
+            text-align: center;
+            @media (min-width: 1336px) {
+                flex: 0 1 50%;
+                text-align: left;
+                font-size: 1.5rem;
+            }
+            @media (min-width: #{$containerLarge+30}px) {
+                font-size: 1.75rem;
+            }
             line-height: 100%;
             white-space: nowrap;
         }

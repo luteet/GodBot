@@ -12,7 +12,7 @@
     z-index: 100;
     padding-top: 7px;
 
-    @include _992 {
+    @include _1025 {
         min-height: 75px;
 
         display: flex;
@@ -54,12 +54,11 @@
             flex-direction: column;
 
             width: 100%;
-            //justify-content: center;
 
             opacity: 0; visibility: hidden;
-            transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+            transition: opacity .2s ease-in-out, visibility .2s ease-in-out, background .2s ease-in-out;
 
-            @include _992 {
+            @include _1025 {
                 align-items: center;
                 position: static;
                 height: auto;
@@ -80,8 +79,13 @@
             width: 100%;
 
             background: var(--page-bg);
-
+            padding: 0 0 0rem 1rem;
             @include _992 {
+                padding: 0 0 0.5rem 0.5rem;
+            }
+
+            @include _1025 {
+                padding: 0;
                 position: static;
                 background: transparent;
                 z-index: auto;
@@ -118,7 +122,6 @@
 
             flex: 0 1 auto;
 
-            //position: relative;
             &::before {
                 content: '';
                 position: absolute;
@@ -148,12 +151,13 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            @include _992 {
+            @include _1025 {
                 flex-wrap: wrap;
                 flex-direction: row;
+                align-items: center;
             }
-            
-            min-height: 100%;
+            flex: 1 1 auto;
+            //min-height: 100%;
             width: 100%;
 
             position: relative;
@@ -180,10 +184,6 @@
                 opacity: 0;
                 transition: opacity .2s ease-in-out;
             }
-
-            @include _992 {
-                align-items: center;
-            }
         }
     }
 
@@ -194,6 +194,9 @@
         // .header__logo--img
 
         &--img {
+            @media(max-width: 1035px) {
+                max-width: 150px;
+            }
         }
     }
 
@@ -300,22 +303,23 @@
     &__list {
         order: 4;
         flex: 1 1 auto;
-        @include _992 {
-            order: inherit;
-            width: auto;
-            border-top: 0;
-        }
         width: 100%;
 
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
 
-        margin-bottom: 0;
+        margin: 1rem 0 0 0; padding: 0;
         border-top: 1px solid var(--light-3);
         
-        @include _992 {
+        @include _1025 {
+            padding: 0;
+            margin-left: 20px;
             border: 0;
+            order: inherit;
+            width: auto;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
         }
         // .header__list--item
 
@@ -323,18 +327,11 @@
             width: 100%;
 
             border-bottom: 1px solid var(--light-3);
-            @include _992 {
+            @include _1025 {
                 width: auto;
                 border-bottom: 0 solid var(--light-3);
             }
         }
-
-        /* &--item:not(:first-child) &--link {
-            border-top: 1px solid var(--light-3);
-            @include _992 {
-                border-top: 0 solid var(--light-3);
-            }
-        } */
 
         // .header__list--link
 
@@ -347,7 +344,9 @@
             text-decoration: none;
             text-transform: uppercase;
 
-            @include _992 {
+            padding: 14px 16px;
+
+            @include _1025 {
                 width: auto;
             }
             
@@ -362,7 +361,7 @@
 
             & svg {
                 margin-right: 10px;
-                @include _992 {
+                @include _1025 {
                     margin-right: 5px;
                 }
             }
@@ -405,7 +404,7 @@
         // .header__buy--btn
 
         order: 5;
-        @include _992 {
+        @include _1025 {
             order: inherit;
             width: auto;
 
@@ -418,7 +417,7 @@
 
         &--btn {
             width: 100%;
-            @include _992 {
+            @include _1025 {
                 width: auto;
             }
 
@@ -909,10 +908,14 @@
 
     &__profile {
         order: 3;
-        @include _992 {
+        margin-top: 0.5rem;
+
+        @include _1025 {
             order: inherit;
             width: auto;
+            margin-right: 0; margin-left: 0;
         }
+        margin-right: 1rem; margin-left: 1rem;
 
         min-width: 267px;
 
@@ -950,7 +953,7 @@
             line-height: 117%;
 
             padding-left: 15px;
-            @include _992 {
+            @include _1025 {
                 padding-left: 13px; padding-right: 4px;
             }
         }
@@ -1160,7 +1163,7 @@
     cursor: pointer;
 
     display: inline-block;
-    @include _992 {
+    @include _1025 {
         display: none;
     }
 
@@ -1204,7 +1207,7 @@
 }
 
 ._hide-on-mob {
-    @media (max-width: 991px) {
+    @media (max-width: 1024px) {
         display: none !important;
     }
 }
@@ -1217,15 +1220,12 @@
         @media (max-width: 991px) {
             display: initial;
         }
-        /* @media (min-width: 1440px) {
-            display: initial;
-        } */
     }
 }
 
 ._visible-on-mob {
     display: inherit;
-    @media (min-width: 992px) {
+    @media (min-width: 1025px) {
         display: none;
     }
 }

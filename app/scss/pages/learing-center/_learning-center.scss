@@ -83,6 +83,7 @@
 
                 @include _768 {
                     flex-direction: row;
+                    justify-content: space-between;
                 }
 
                 @media(min-width: 1150px) {
@@ -196,21 +197,7 @@
             color: var(--white);
             text-decoration: none;
 
-            /* &:hover {
-                background: var(--blue-dark);
-                border-color: var(--blue-dark);
-            }
-
-            &:active {
-                background: var(--blue-dark-2);
-                border-color: var(--blue-dark-2);
-            } */
-
             transition: background .2s ease-in-out, border .2s ease-in-out;
-
-            /* display: inline-flex;
-            align-items: center;
-            justify-content: center; */
 
             text-transform: uppercase;
             font-weight: 500;
@@ -295,7 +282,7 @@
             padding-top: 30px;
             grid-template-columns: repeat(3, 1fr);
         }
-        @include _992 {
+        @include _1025 {
             grid-template-columns: repeat(4, 1fr);
         }
 

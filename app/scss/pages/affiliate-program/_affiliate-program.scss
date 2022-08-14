@@ -14,16 +14,15 @@
 
     &__row {
 
-        @include _992 {
+        @include _1025 {
             display: flex;
-            //flex-wrap: wrap;
             justify-content: space-between;
         }
 
         // .affiliate-program__row--col
 
         &--col {
-            @include _992 {
+            @include _1025 {
                 display: flex;
                 flex-direction: column;
 
@@ -46,7 +45,6 @@
 
     &__table {
         min-height: 100%;
-       
 
         $gridTemplate: 50px 30% 45% 15%;
 
@@ -55,11 +53,6 @@
 
             display: flex;
             flex-direction: column;
-            //display: block;
-            /* display: grid;
-            & > * {
-                grid-area: 1/1;
-            } */
         }
 
         &--not {
@@ -76,10 +69,6 @@
         // .affiliate-program__table--body
 
         &--body {
-            /* display: grid; */
-            /* display: flex;
-            flex-direction: column;
-            min-height: 100%; */
         }
 
         // .affiliate-program__table--title
@@ -89,29 +78,11 @@
         }
 
         &--block {
-            //display: flex
-            //width: 100%;
-            
         }
 
         // .affiliate-program__table--wrapper
 
         &--wrapper {
-            //width: 100%;
-            //overflow: hidden;
-            //min-height: 100%;
-            /* overflow-x: auto;
-            max-width: 100%;
-            &::-webkit-scrollbar {
-                width: 7px; height: 7px;
-                border-radius: 7px;
-                background: var(--light-2);
-            }
-
-            &::-webkit-scrollbar-thumb {
-                background: var(--blue);
-                border-radius: 7px;
-            } */
         }
 
         // .affiliate-program__table--head
@@ -140,8 +111,6 @@
             grid-template-columns: $gridTemplate;
 
             min-width: 550px;
-
-            //min-width: 550px;
 
             &:not(:first-child) {
                 border-top: 1px dashed var(--light-2);
