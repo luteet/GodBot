@@ -1336,11 +1336,11 @@ verificationInputs.forEach(thisInput => {
 
   thisInput.oninput = function(event) {
     
-    if(event.inputType == 'insertText') {
+    if(event.inputType == 'insertText' && thisInput.value.length == 1) {
 
       let nextElement = event.target.parentElement.nextElementSibling,
           form = event.target.closest('form');
-
+      
       thisInput.value = thisInput.value[thisInput.value.length-1].replace(/\D/g,'').substr(0,9);
 
       if(nextElement.classList.contains('login__verification--label') && thisInput.value) {
@@ -1355,7 +1355,7 @@ verificationInputs.forEach(thisInput => {
 
     }
 
-    if(event.inputType == 'insertFromDrop') {
+    if(event.inputType == 'insertFromDrop' || thisInput.value.length > 1) {
 
       let pastedText = event.target.value.replace(/[^\d]/g, ''),
       pastedCheck = false,
@@ -1369,31 +1369,28 @@ verificationInputs.forEach(thisInput => {
         pastedText = pastedText.split('');
       }
       
-      setTimeout(() => {
-        event.target.value = '';
-        if(pastedCheck) {
+      event.target.value = '';
+      if(pastedCheck) {
 
-          let index = 0, checkValue = true;
-          verificationInputs.forEach(input => {
-            if(pastedText[index]) {
-              input.value = pastedText[index];
-              index++;
-              input.focus();
-            } else if(checkValue) {
-              checkValue = false;
-              input.focus();
-            }
-            
-          })
-          
-          if(lengthPastedText >= 6) {
-            form.querySelector('.login__form--submit').classList.remove('_disabled')
-          } else {
-            form.querySelector('.login__form--submit').classList.add('_disabled')
+        let index = 0, checkValue = true;
+        verificationInputs.forEach(input => {
+          if(pastedText[index]) {
+            input.value = pastedText[index];
+            index++;
+            input.focus();
+          } else if(checkValue) {
+            checkValue = false;
+            input.focus();
           }
-        }
+          
+        })
         
-      },0)
+        if(lengthPastedText >= 6) {
+          form.querySelector('.login__form--submit').classList.remove('_disabled')
+        } else {
+          form.querySelector('.login__form--submit').classList.add('_disabled')
+        }
+      }
     }
 
   }
