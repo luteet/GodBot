@@ -9262,6 +9262,16 @@ body._dark-theme ._visible-on-dark {
   left: 0;
 }
 
+.custom-tooltip[data-popper-placement=right] .tooltip-arrow::after {
+  -webkit-transform: rotate(90deg) translate(0%, 100%);
+          transform: rotate(90deg) translate(0%, 100%);
+}
+
+.custom-tooltip[data-popper-placement=bottom] .tooltip-arrow::after {
+  -webkit-transform: rotate(180deg) translate(50%, 3px);
+          transform: rotate(180deg) translate(50%, 3px);
+}
+
 .tooltip-arrow::after {
   content: "";
   position: absolute;
