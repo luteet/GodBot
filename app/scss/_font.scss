@@ -39,6 +39,16 @@
             font-size: 1.125rem;
         }
     }
+
+    &._super-min {
+        font-size: 0.875rem;
+        @include _768 {
+            font-size: 0.875rem;
+        }
+        @include _1025 {
+            font-size: 0.875rem;
+        }
+    }
 }
 
 ._min-title {

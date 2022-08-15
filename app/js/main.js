@@ -1810,24 +1810,28 @@ let tariffsSlider = new Swiper('.tariffs-popup__slider', {
 
 });
 
-let asideSlider = new Swiper('.add-aside__slider', {
+if(document.querySelectorAll('.add-aside__slider--slide').length >= 2) {
+  let asideSlider = new Swiper('.add-aside__slider', {
   
-  spaceBetween: 80,
-  slidesPerView: 1,
-  loop: true,
+    spaceBetween: 30,
+    slidesPerView: 1,
+    loop: true,
+  
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+  
+  }); 
+}
 
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
 
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-    pauseOnMouseEnter: true
-  },
-
-}); 
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
