@@ -85,17 +85,17 @@
                                                 </a>
                                             </li>
                                             <li class="header__menu--li">
-                                                <a href="#" class="header__menu--link">
+                                                <a href="#" class="header__menu--link _disabled">
                                                     <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M10.2444 11.6671C11.6478 10.586 12.5556 8.86467 12.5556 6.92593C12.5556 3.65313 9.96876 1 6.77778 1C3.5868 1 1 3.65313 1 6.92593C1 8.86467 1.90775 10.586 3.31111 11.6671M10.2444 11.6671C9.27879 12.411 8.07848 12.8519 6.77778 12.8519C5.47708 12.8519 4.27676 12.411 3.31111 11.6671M10.2444 11.6671V17L6.77778 13.4444L3.31111 17V11.6671" stroke="#09090B" stroke-linejoin="round"/>
                                                     </svg>
                                                     <span>
-                                                        Соревнования
+                                                        Соревнования <sup>(скоро)</sup>
                                                     </span>
                                                 </a>
                                             </li>
                                             <li class="header__menu--li">
-                                                <a href="#" class="header__menu--link">
+                                                <a href="#" class="header__menu--link _disabled">
                                                     <svg width="14" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18 18">
                                                     <path fill="none" stroke-miterlimit="10" d="M1,10.2v3.1c0,0.1,0,0.2,0,0.3c0.1,0.6,0.8,2.9,3.8,3.3h8l0-8.1l0-7.3
                                                         c0-0.2-0.2-0.3-0.3-0.2l-2.3,1.4c-0.1,0.1-0.3,0.1-0.4,0L7.2,1.2c-0.1-0.1-0.3-0.1-0.5,0L4.2,2.8c-0.1,0.1-0.3,0.1-0.4,0L1.3,1.2
@@ -110,7 +110,7 @@
                                                         C16.9,14,16.2,17,12.8,17"/>
                                                     </svg>
                                                     <span>
-                                                        Пресейлы
+                                                        Пресейлы <sup>(скоро)</sup>
                                                     </span>
                                                 </a>
                                             </li>
@@ -284,7 +284,7 @@
                                 </a>
                             </li>
                             <li class="header__list--item">
-                                <a href="#" class="header__list--link">
+                                <a href="#whitelist-ip-popup" class="header__list--link _open-popup">
                                     <svg width="25" height="20" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-width="1.5" d="M7 1H13C14.1046 1 15 1.89543 15 3V15C15 16.1046 14.1046 17 13 17H7M1 9H11M11 9L8 5M11 9L8 13" stroke="url(#paint0_linear_654_2211)" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path stroke-width="1.5" d="M7 1H13C14.1046 1 15 1.89543 15 3V15C15 16.1046 14.1046 17 13 17H7M1 9H11M11 9L8 5M11 9L8 13" stroke="black" stroke-opacity="0.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -438,7 +438,6 @@
                                 </a>
                             </li> -->
                         </ul>
-                        <div style="flex: 1 1 auto;"></div>
                         <!-- <div class="header__buy _hide-on-mob me-2 pe-lg-1 mt-2 mb-md-0 mb-1 p-lg-0 p-3">
                             <a href="#" class="header__buy--btn">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -639,7 +638,7 @@
                                                 </a>
                                             </li>
                                             <li class="header__menu--li">
-                                                <a href="#" class="header__menu--link">
+                                                <a href="#whitelist-ip-popup" class="header__menu--link _open-popup">
                                                     <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M7 1H13C14.1046 1 15 1.89543 15 3V15C15 16.1046 14.1046 17 13 17H7M1 9H11M11 9L8 5M11 9L8 13" stroke="#09090B" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
@@ -2533,6 +2532,43 @@
                     </fieldset>
                     <button class="withdraw-funds-popup__form--submit _btn _min-2 text-uppercase fw-normal mt-4" type="submit">
                         Запросить вывод
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="whitelist-ip-popup popup" id="whitelist-ip-popup" style="display: none; opacity: 0; --max: 600px;">
+    <div class="whitelist-ip-popup__wrapper popup-wrapper">
+        <div class="whitelist-ip-popup__bg popup-bg _popup-close"></div>
+        <div class="whitelist-ip-popup__body popup-body">
+            <button type="button" class="whitelist-ip-popup__close-btn popup-close-btn _popup-close" title="Закрыть попап">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="whitelist-ip-popup__content popup-content">
+                <div class="whitelist-ip-popup__header popup-header">
+                    <h2 class="whitelist-ip-popup__title _min-title m-0">
+                        Вайтлист IP
+                    </h2>    
+                </div>
+                <form action="#" class="whitelist-ip-popup__form">
+                    <div class="whitelist-ip-popup__text">
+                        Вы можете добавить только 1 IP для авторизации на сайте. В случае его смены, для получения доступа к сайту необходимо связаться с поддержкой
+                    </div>
+                    <fieldset class="whitelist-ip-popup__form--row get-ip-wrapper">
+                        <label class="whitelist-ip-popup__form--label">
+                            <input type="text" placeholder="Введите Ваш IP" required class="whitelist-ip-popup__form--input input get-ip-input">
+                        </label>
+                        <button class="whitelist-ip-popup__form--btn _btn _min-2 _none-accent get-ip-btn" type="button">
+                            Мой IP
+                        </button>
+                    </fieldset>
+                    <button class="whitelist-ip-popup__form--submit _btn _min-2 text-uppercase fw-normal" type="submit">
+                        Потвердить
                     </button>
                 </form>
             </div>

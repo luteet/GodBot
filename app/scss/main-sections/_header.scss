@@ -130,7 +130,7 @@
             align-items: center;
             flex-wrap: wrap;
 
-            flex: 0 1 auto;
+            flex: 1 1 auto;
 
             &::before {
                 content: '';
@@ -805,7 +805,9 @@
             color: var(--text-color);
             text-decoration: none;
 
-            
+            &._disabled {
+                pointer-events: none;
+            }
 
             &:hover {
                 background: var(--light-purple-hover);

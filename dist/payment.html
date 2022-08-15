@@ -1031,6 +1031,43 @@
     </div>
 </div>
 
+<div class="whitelist-ip-popup popup" id="whitelist-ip-popup" style="display: none; opacity: 0; --max: 600px;">
+    <div class="whitelist-ip-popup__wrapper popup-wrapper">
+        <div class="whitelist-ip-popup__bg popup-bg _popup-close"></div>
+        <div class="whitelist-ip-popup__body popup-body">
+            <button type="button" class="whitelist-ip-popup__close-btn popup-close-btn _popup-close" title="Закрыть попап">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="13.4351" y1="2.06066" x2="1.41424" y2="14.0815" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="1.06066" y1="1.70703" x2="13.0815" y2="13.7278" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="whitelist-ip-popup__content popup-content">
+                <div class="whitelist-ip-popup__header popup-header">
+                    <h2 class="whitelist-ip-popup__title _min-title m-0">
+                        Вайтлист IP
+                    </h2>    
+                </div>
+                <form action="#" class="whitelist-ip-popup__form">
+                    <div class="whitelist-ip-popup__text">
+                        Вы можете добавить только 1 IP для авторизации на сайте. В случае его смены, для получения доступа к сайту необходимо связаться с поддержкой
+                    </div>
+                    <fieldset class="whitelist-ip-popup__form--row get-ip-wrapper">
+                        <label class="whitelist-ip-popup__form--label">
+                            <input type="text" placeholder="Введите Ваш IP" required class="whitelist-ip-popup__form--input input get-ip-input">
+                        </label>
+                        <button class="whitelist-ip-popup__form--btn _btn _min-2 _none-accent get-ip-btn" type="button">
+                            Мой IP
+                        </button>
+                    </fieldset>
+                    <button class="whitelist-ip-popup__form--submit _btn _min-2 text-uppercase fw-normal" type="submit">
+                        Потвердить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="js/libs.min.js"></script>
 <script src="js/main.min.js"></script>
 

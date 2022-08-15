@@ -385,4 +385,98 @@
     }
 }
 
+.whitelist-ip-popup {
 
+    // .whitelist-ip-popup__wrapper
+
+    &__wrapper {
+    }
+
+    // .whitelist-ip-popup__bg
+
+    &__bg {
+    }
+
+    // .whitelist-ip-popup__body
+
+    &__body {
+    }
+
+    // .whitelist-ip-popup__close-btn
+
+    &__close-btn {
+    }
+
+    // .whitelist-ip-popup__content
+
+    &__content {
+    }
+
+    // .whitelist-ip-popup__header
+
+    &__header {
+    }
+
+    // .whitelist-ip-popup__title
+
+    &__title {
+    }
+
+    // .whitelist-ip-popup__form
+
+    &__form {
+        
+
+        // .whitelist-ip-popup__form--row
+
+        &--row {
+            padding-top: 20px;
+
+            display: grid;
+            grid-template-columns: auto 111px;
+
+            margin: -10px;
+
+            & > * {
+                margin: 10px;
+            }
+        }
+
+        // .whitelist-ip-popup__form--label
+
+        &--label {
+            
+            min-height: 40px;
+        }
+
+        // .whitelist-ip-popup__form--input
+
+        &--input {
+            width: 100%; min-height: 100%;
+            text-align: center;
+        }
+
+        // .whitelist-ip-popup__form--btn
+
+        &--btn {
+            min-height: 40px;
+        }
+
+        // .whitelist-ip-popup__form--submit
+
+        &--submit {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+
+    // .whitelist-ip-popup__text
+
+    &__text {
+        padding-top: 20px;
+
+        font-size: 0.875rem;
+        line-height: 117%;
+
+    }
+}

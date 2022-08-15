@@ -10303,6 +10303,44 @@ body._dark-theme .header__select--selected-burger span::before {
   width: 100%;
 }
 
+.whitelist-ip-popup__form--row {
+  padding-top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 111px;
+  grid-template-columns: auto 111px;
+  margin: -10px;
+}
+
+.whitelist-ip-popup__form--row > * {
+  margin: 10px;
+}
+
+.whitelist-ip-popup__form--label {
+  min-height: 40px;
+}
+
+.whitelist-ip-popup__form--input {
+  width: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+
+.whitelist-ip-popup__form--btn {
+  min-height: 40px;
+}
+
+.whitelist-ip-popup__form--submit {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.whitelist-ip-popup__text {
+  padding-top: 20px;
+  font-size: 0.875rem;
+  line-height: 117%;
+}
+
 .login-header {
   position: absolute;
   left: 0;
@@ -10364,7 +10402,7 @@ body._dark-theme .header__select--selected-burger span::before {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  flex: 0 1 auto;
+  flex: 1 1 auto;
 }
 
 .header__nav--header > *:nth-child(1) {
@@ -10975,6 +11013,10 @@ body._dark-theme .header__select--selected-burger span::before {
   text-decoration: none;
   color: var(--text-color);
   transition: color 0.1s ease, background 0.2s ease-in-out;
+}
+
+.header__menu--link._disabled {
+  pointer-events: none;
 }
 
 .header__menu--link:hover {

@@ -1341,6 +1341,29 @@ body.addEventListener('click', function (event) {
       },1000)
     }
 
+
+    
+    let getIpBtn = thisTarget.closest('.get-ip-btn');
+    if(getIpBtn) {
+      event.preventDefault();
+
+      let getIpWrapper = getIpBtn.closest('.get-ip-wrapper'),
+          getIpInput = getIpWrapper.querySelectorAll('.get-ip-input');
+
+      getIpInput.forEach(getIpInput => {
+
+        fetch('https://api.ipify.org/?format=json')
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          getIpInput.value = data.ip;
+        });
+        
+      })
+
+    }
+
 })
 
 
